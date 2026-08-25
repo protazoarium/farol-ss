@@ -1,0 +1,186 @@
+cod_ibge,nome,mesorregiao,microrregiao,regiao_imediata,regiao_intermediaria
+2600054,Abreu e Lima,Metropolitana de Recife,Recife,Recife,Recife
+2600104,Afogados da Ingazeira,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2600203,Afrânio,São Francisco Pernambucano,Petrolina,Petrolina,Petrolina
+2600302,Agrestina,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2600401,Água Preta,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2600500,Águas Belas,Agreste Pernambucano,Vale do Ipanema,Garanhuns,Caruaru
+2600609,Alagoinha,Agreste Pernambucano,Vale do Ipojuca,Belo Jardim - Pesqueira,Caruaru
+2600708,Aliança,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2600807,Altinho,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2600906,Amaraji,Mata Pernambucana,Mata Meridional Pernambucana,Escada - Ribeirão,Recife
+2601003,Angelim,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2601052,Araçoiaba,Metropolitana de Recife,Itamaracá,Recife,Recife
+2601102,Araripina,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2601201,Arcoverde,Sertão Pernambucano,Sertão do Moxotó,Arcoverde,Caruaru
+2601300,Barra de Guabiraba,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2601409,Barreiros,Mata Pernambucana,Mata Meridional Pernambucana,Barreiros - Sirinhaém,Recife
+2601508,Belém de Maria,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2601607,Belém do São Francisco,São Francisco Pernambucano,Itaparica,Salgueiro,Petrolina
+2601706,Belo Jardim,Agreste Pernambucano,Vale do Ipojuca,Belo Jardim - Pesqueira,Caruaru
+2601805,Betânia,Sertão Pernambucano,Sertão do Moxotó,Serra Talhada,Serra Talhada
+2601904,Bezerros,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2602001,Bodocó,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2602100,Bom Conselho,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2602209,Bom Jardim,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2602308,Bonito,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2602407,Brejão,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2602506,Brejinho,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2602605,Brejo da Madre de Deus,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2602704,Buenos Aires,Mata Pernambucana,Mata Setentrional Pernambucana,Carpina,Recife
+2602803,Buíque,Agreste Pernambucano,Vale do Ipanema,Arcoverde,Caruaru
+2602902,Cabo de Santo Agostinho,Metropolitana de Recife,Suape,Recife,Recife
+2603009,Cabrobó,São Francisco Pernambucano,Petrolina,Salgueiro,Petrolina
+2603108,Cachoeirinha,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2603207,Caetés,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2603306,Calçado,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2603405,Calumbi,Sertão Pernambucano,Pajeú,Serra Talhada,Serra Talhada
+2603454,Camaragibe,Metropolitana de Recife,Recife,Recife,Recife
+2603504,Camocim de São Félix,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2603603,Camutanga,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2603702,Canhotinho,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2603801,Capoeiras,Agreste Pernambucano,Vale do Ipojuca,Garanhuns,Caruaru
+2603900,Carnaíba,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2603926,Carnaubeira da Penha,São Francisco Pernambucano,Itaparica,Serra Talhada,Serra Talhada
+2604007,Carpina,Mata Pernambucana,Mata Setentrional Pernambucana,Carpina,Recife
+2604106,Caruaru,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2604155,Casinhas,Agreste Pernambucano,Alto Capibaribe,Surubim,Recife
+2604205,Catende,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2604304,Cedro,Sertão Pernambucano,Salgueiro,Salgueiro,Petrolina
+2604403,Chã de Alegria,Mata Pernambucana,Vitória de Santo Antão,Vitória de Santo Antão,Recife
+2604502,Chã Grande,Mata Pernambucana,Vitória de Santo Antão,Caruaru,Caruaru
+2604601,Condado,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2604700,Correntes,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2604809,Cortês,Mata Pernambucana,Mata Meridional Pernambucana,Escada - Ribeirão,Recife
+2604908,Cumaru,Agreste Pernambucano,Médio Capibaribe,Caruaru,Caruaru
+2605004,Cupira,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2605103,Custódia,Sertão Pernambucano,Sertão do Moxotó,Arcoverde,Caruaru
+2605152,Dormentes,São Francisco Pernambucano,Petrolina,Petrolina,Petrolina
+2605202,Escada,Mata Pernambucana,Mata Meridional Pernambucana,Escada - Ribeirão,Recife
+2605301,Exu,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2605400,Feira Nova,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2605459,Fernando de Noronha,Metropolitana de Recife,Fernando de Noronha,Recife,Recife
+2605509,Ferreiros,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2605608,Flores,Sertão Pernambucano,Pajeú,Serra Talhada,Serra Talhada
+2605707,Floresta,São Francisco Pernambucano,Itaparica,Serra Talhada,Serra Talhada
+2605806,Frei Miguelinho,Agreste Pernambucano,Alto Capibaribe,Surubim,Recife
+2605905,Gameleira,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2606002,Garanhuns,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2606101,Glória do Goitá,Mata Pernambucana,Vitória de Santo Antão,Vitória de Santo Antão,Recife
+2606200,Goiana,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2606309,Granito,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2606408,Gravatá,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2606507,Iati,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2606606,Ibimirim,Sertão Pernambucano,Sertão do Moxotó,Arcoverde,Caruaru
+2606705,Ibirajuba,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2606804,Igarassu,Metropolitana de Recife,Itamaracá,Recife,Recife
+2606903,Iguaracy,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2607000,Inajá,Sertão Pernambucano,Sertão do Moxotó,Arcoverde,Caruaru
+2607109,Ingazeira,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2607208,Ipojuca,Metropolitana de Recife,Suape,Recife,Recife
+2607307,Ipubi,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2607406,Itacuruba,São Francisco Pernambucano,Itaparica,Salgueiro,Petrolina
+2607505,Itaíba,Agreste Pernambucano,Vale do Ipanema,Arcoverde,Caruaru
+2607604,Ilha de Itamaracá,Metropolitana de Recife,Itamaracá,Recife,Recife
+2607653,Itambé,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2607703,Itapetim,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2607752,Itapissuma,Metropolitana de Recife,Itamaracá,Recife,Recife
+2607802,Itaquitinga,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2607901,Jaboatão dos Guararapes,Metropolitana de Recife,Recife,Recife,Recife
+2607950,Jaqueira,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2608008,Jataúba,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2608057,Jatobá,São Francisco Pernambucano,Itaparica,Serra Talhada,Serra Talhada
+2608107,João Alfredo,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2608206,Joaquim Nabuco,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2608255,Jucati,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2608305,Jupi,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2608404,Jurema,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2608453,Lagoa do Carro,Mata Pernambucana,Mata Setentrional Pernambucana,Carpina,Recife
+2608503,Lagoa de Itaenga,Mata Pernambucana,Mata Setentrional Pernambucana,Carpina,Recife
+2608602,Lagoa do Ouro,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2608701,Lagoa dos Gatos,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2608750,Lagoa Grande,São Francisco Pernambucano,Petrolina,Petrolina,Petrolina
+2608800,Lajedo,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2608909,Limoeiro,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2609006,Macaparana,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2609105,Machados,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2609154,Manari,Sertão Pernambucano,Sertão do Moxotó,Arcoverde,Caruaru
+2609204,Maraial,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2609303,Mirandiba,Sertão Pernambucano,Salgueiro,Serra Talhada,Serra Talhada
+2609402,Moreno,Metropolitana de Recife,Recife,Recife,Recife
+2609501,Nazaré da Mata,Mata Pernambucana,Mata Setentrional Pernambucana,Carpina,Recife
+2609600,Olinda,Metropolitana de Recife,Recife,Recife,Recife
+2609709,Orobó,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2609808,Orocó,São Francisco Pernambucano,Petrolina,Petrolina,Petrolina
+2609907,Ouricuri,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2610004,Palmares,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2610103,Palmeirina,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2610202,Panelas,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2610301,Paranatama,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2610400,Parnamirim,Sertão Pernambucano,Salgueiro,Salgueiro,Petrolina
+2610509,Passira,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2610608,Paudalho,Mata Pernambucana,Mata Setentrional Pernambucana,Recife,Recife
+2610707,Paulista,Metropolitana de Recife,Recife,Recife,Recife
+2610806,Pedra,Agreste Pernambucano,Vale do Ipanema,Arcoverde,Caruaru
+2610905,Pesqueira,Agreste Pernambucano,Vale do Ipojuca,Belo Jardim - Pesqueira,Caruaru
+2611002,Petrolândia,São Francisco Pernambucano,Itaparica,Serra Talhada,Serra Talhada
+2611101,Petrolina,São Francisco Pernambucano,Petrolina,Petrolina,Petrolina
+2611200,Poção,Agreste Pernambucano,Vale do Ipojuca,Belo Jardim - Pesqueira,Caruaru
+2611309,Pombos,Mata Pernambucana,Vitória de Santo Antão,Vitória de Santo Antão,Recife
+2611408,Primavera,Mata Pernambucana,Mata Meridional Pernambucana,Escada - Ribeirão,Recife
+2611507,Quipapá,Mata Pernambucana,Mata Meridional Pernambucana,Garanhuns,Caruaru
+2611533,Quixaba,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2611606,Recife,Metropolitana de Recife,Recife,Recife,Recife
+2611705,Riacho das Almas,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2611804,Ribeirão,Mata Pernambucana,Mata Meridional Pernambucana,Escada - Ribeirão,Recife
+2611903,Rio Formoso,Mata Pernambucana,Mata Meridional Pernambucana,Barreiros - Sirinhaém,Recife
+2612000,Sairé,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2612109,Salgadinho,Agreste Pernambucano,Médio Capibaribe,Limoeiro,Recife
+2612208,Salgueiro,Sertão Pernambucano,Salgueiro,Salgueiro,Petrolina
+2612307,Saloá,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2612406,Sanharó,Agreste Pernambucano,Vale do Ipojuca,Belo Jardim - Pesqueira,Caruaru
+2612455,Santa Cruz,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2612471,Santa Cruz da Baixa Verde,Sertão Pernambucano,Pajeú,Serra Talhada,Serra Talhada
+2612505,Santa Cruz do Capibaribe,Agreste Pernambucano,Alto Capibaribe,Caruaru,Caruaru
+2612554,Santa Filomena,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2612604,Santa Maria da Boa Vista,São Francisco Pernambucano,Petrolina,Petrolina,Petrolina
+2612703,Santa Maria do Cambucá,Agreste Pernambucano,Alto Capibaribe,Surubim,Recife
+2612802,Santa Terezinha,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2612901,São Benedito do Sul,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife
+2613008,São Bento do Una,Agreste Pernambucano,Vale do Ipojuca,Belo Jardim - Pesqueira,Caruaru
+2613107,São Caitano,Agreste Pernambucano,Vale do Ipojuca,Caruaru,Caruaru
+2613206,São João,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2613305,São Joaquim do Monte,Agreste Pernambucano,Brejo Pernambucano,Caruaru,Caruaru
+2613404,São José da Coroa Grande,Mata Pernambucana,Mata Meridional Pernambucana,Barreiros - Sirinhaém,Recife
+2613503,São José do Belmonte,Sertão Pernambucano,Salgueiro,Serra Talhada,Serra Talhada
+2613602,São José do Egito,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2613701,São Lourenço da Mata,Metropolitana de Recife,Recife,Recife,Recife
+2613800,São Vicente Férrer,Agreste Pernambucano,Médio Capibaribe,Goiana - Timbaúba,Recife
+2613909,Serra Talhada,Sertão Pernambucano,Pajeú,Serra Talhada,Serra Talhada
+2614006,Serrita,Sertão Pernambucano,Salgueiro,Salgueiro,Petrolina
+2614105,Sertânia,Sertão Pernambucano,Sertão do Moxotó,Arcoverde,Caruaru
+2614204,Sirinhaém,Mata Pernambucana,Mata Meridional Pernambucana,Barreiros - Sirinhaém,Recife
+2614303,Moreilândia,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2614402,Solidão,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2614501,Surubim,Agreste Pernambucano,Alto Capibaribe,Surubim,Recife
+2614600,Tabira,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2614709,Tacaimbó,Agreste Pernambucano,Vale do Ipojuca,Belo Jardim - Pesqueira,Caruaru
+2614808,Tacaratu,São Francisco Pernambucano,Itaparica,Serra Talhada,Serra Talhada
+2614857,Tamandaré,Mata Pernambucana,Mata Meridional Pernambucana,Barreiros - Sirinhaém,Recife
+2615003,Taquaritinga do Norte,Agreste Pernambucano,Alto Capibaribe,Caruaru,Caruaru
+2615102,Terezinha,Agreste Pernambucano,Garanhuns,Garanhuns,Caruaru
+2615201,Terra Nova,São Francisco Pernambucano,Petrolina,Salgueiro,Petrolina
+2615300,Timbaúba,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2615409,Toritama,Agreste Pernambucano,Alto Capibaribe,Caruaru,Caruaru
+2615508,Tracunhaém,Mata Pernambucana,Mata Setentrional Pernambucana,Carpina,Recife
+2615607,Trindade,Sertão Pernambucano,Araripina,Araripina,Petrolina
+2615706,Triunfo,Sertão Pernambucano,Pajeú,Serra Talhada,Serra Talhada
+2615805,Tupanatinga,Agreste Pernambucano,Vale do Ipanema,Arcoverde,Caruaru
+2615904,Tuparetama,Sertão Pernambucano,Pajeú,Afogados da Ingazeira,Serra Talhada
+2616001,Venturosa,Agreste Pernambucano,Vale do Ipanema,Arcoverde,Caruaru
+2616100,Verdejante,Sertão Pernambucano,Salgueiro,Salgueiro,Petrolina
+2616183,Vertente do Lério,Agreste Pernambucano,Alto Capibaribe,Surubim,Recife
+2616209,Vertentes,Agreste Pernambucano,Alto Capibaribe,Surubim,Recife
+2616308,Vicência,Mata Pernambucana,Mata Setentrional Pernambucana,Goiana - Timbaúba,Recife
+2616407,Vitória de Santo Antão,Mata Pernambucana,Vitória de Santo Antão,Vitória de Santo Antão,Recife
+2616506,Xexéu,Mata Pernambucana,Mata Meridional Pernambucana,Palmares,Recife

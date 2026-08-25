@@ -1,0 +1,72 @@
+# Mapa agravo → categoria de insumo esperado como resposta.
+#
+# Este arquivo é o que liga "o município tem surto de dengue" a "o município
+# comprou (ou não) larvicida" — é a base do detector 4 (suspeita de
+# desabastecimento) em index/anomalies.py. As categorias de insumo casam com
+# a classificação usada em seeds/catmat_saude.csv (coluna `categoria`).
+#
+# `janela_dias`: tempo esperado entre início de um surto sustentado e a
+# contratação do insumo. Compras públicas têm processo (mesmo dispensa leva
+# dias); um município que não contrata em uma janela razoável após o início
+# do surto é candidato a alerta, não qualquer atraso de 1 dia.
+
+DENG:
+  nome: Dengue
+  sinan_grupo: arbovirose
+  insumos_esperados:
+    - larvicida
+    - inseticida_adulticida
+    - teste_rapido_ns1_igm
+    - soro_fisiologico
+  janela_dias: 30
+
+CHIK:
+  nome: Chikungunya
+  sinan_grupo: arbovirose
+  insumos_esperados:
+    - larvicida
+    - inseticida_adulticida
+    - analgesico_antiinflamatorio
+  janela_dias: 30
+
+ZIKA:
+  nome: Zika
+  sinan_grupo: arbovirose
+  insumos_esperados:
+    - larvicida
+    - inseticida_adulticida
+  janela_dias: 30
+
+LEPT:
+  nome: Leptospirose
+  sinan_grupo: veiculacao_hidrica
+  insumos_esperados:
+    - antibiotico_penicilina
+    - soro_fisiologico
+    - kit_teste_leptospirose
+  janela_dias: 15  # doença aguda grave, resposta precisa ser mais rápida
+
+HEPA:
+  nome: Hepatite A
+  sinan_grupo: veiculacao_hidrica
+  insumos_esperados:
+    - vacina_hepatite_a
+    - kit_sorologia_hepatite
+  janela_dias: 45
+
+ESQU:
+  nome: Esquistossomose
+  sinan_grupo: veiculacao_hidrica
+  insumos_esperados:
+    - praziquantel
+    - kit_exame_parasitologico
+  janela_dias: 60
+
+DDA:
+  nome: "Doença Diarreica Aguda"
+  sinan_grupo: veiculacao_hidrica
+  insumos_esperados:
+    - soro_reidratacao_oral
+    - soro_fisiologico
+    - antibiotico_geral
+  janela_dias: 15

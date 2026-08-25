@@ -1,0 +1,23 @@
+cid10,descricao,grupo
+A00,Cólera,veiculacao_hidrica
+A01,Febres tifoide e paratifoide,veiculacao_hidrica
+A02,Outras infecções por Salmonella,veiculacao_hidrica
+A03,Shiguelose,veiculacao_hidrica
+A04,Outras infecções intestinais bacterianas,veiculacao_hidrica
+A05,Outras intoxicações alimentares bacterianas,veiculacao_hidrica
+A06,Amebíase,veiculacao_hidrica
+A07,Outras doenças intestinais por protozoários,veiculacao_hidrica
+A08,Infecções intestinais virais e outras especificadas,veiculacao_hidrica
+A09,Diarreia e gastroenterite de origem infecciosa presumível,veiculacao_hidrica
+A27,Leptospirose,veiculacao_hidrica
+B65,Esquistossomose,veiculacao_hidrica
+B76,Ancilostomíase,veiculacao_hidrica
+B77,Ascaridíase,veiculacao_hidrica
+B78,Estrongiloidíase,veiculacao_hidrica
+B79,Tricuríase,veiculacao_hidrica
+A90,Dengue [dengue clássico],arbovirose
+A91,Febre hemorrágica devida ao vírus do dengue,arbovirose
+A92.0,Doença pelo vírus Chikungunya,arbovirose
+A92.8,Outras infecções virais especificadas por arbovírus,arbovirose
+A928,Zika vírus,arbovirose
+B15,Hepatite aguda A,veiculacao_hidrica

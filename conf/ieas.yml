@@ -1,0 +1,71 @@
+# Parâmetros do Índice de Efetividade da Alocação Sanitária (IEAS).
+# Nenhum número mágico deve aparecer no código — tudo vive aqui.
+
+recorte:
+  uf: PE
+  cod_uf: 26
+  ano_inicio: 2020
+  ano_fim: 2024
+  ano_base_deflacao: 2024   # todos os valores em R$ deste ano
+
+# Eixo N — Necessidade. Pesos somam 1.0.
+necessidade:
+  pesos:
+    epidemiologico: 0.40
+    saneamento: 0.35
+    vulnerabilidade: 0.25
+
+  # Subíndice epidemiológico: taxas por 100 mil hab.
+  #
+  # O peso de internações (SIH) foi redistribuído proporcionalmente para
+  # arboviroses e veiculação hídrica. O spike de fontes (docs/spike-fontes.md)
+  # confirmou que nenhum código de grupo do SIH (RD, RJ, ER) retorna dado
+  # utilizável nesta versão do PySUS — só o grupo padrão SP, que não tem
+  # MUNIC_RES nem DIAG_PRINC. Path formal fica bloqueado até um acesso
+  # alternativo (FTP direto) ser viabilizado; até lá, o eixo epidemiológico
+  # funciona só com SINAN, com pesos re-normalizados para somar 1.0.
+  epidemiologico:
+    pesos:
+      arboviroses: 0.53          # dengue + chikungunya + zika (SINAN)
+      veiculacao_hidrica: 0.47   # DDA, hepatite A, leptospirose, esquistossomose (SINAN)
+      # internacoes_saneamento: bloqueado (SIH sem grupo utilizável) — ver acima
+
+  # Subíndice de saneamento: déficit = 1 - cobertura (SNIS)
+  saneamento:
+    pesos:
+      deficit_agua: 0.35
+      deficit_esgoto: 0.45       # maior peso: elo mais forte com agravos
+      deficit_residuos: 0.20
+
+  vulnerabilidade:
+    pesos:
+      extrema_pobreza: 0.50      # CadÚnico
+      pop_rural: 0.25            # IBGE
+      densidade_domiciliar: 0.25
+
+# Eixo A — Alocação. R$ per capita deflacionado.
+alocacao:
+  pesos:
+    l1_repasse_federal: 0.35     # Portal da Transparência
+    l2_execucao_propria: 0.40    # SIOPS
+    l3_contratacao_insumos: 0.25 # PNCP + Compras.gov.br
+
+# Limiares do semáforo, sobre gap = rank(A) - rank(N), em [-1, 1]
+farol:
+  vermelho_ate: -0.33
+  amarelo_ate: -0.10
+  verde_ate: 0.10
+  azul_a_partir: 0.33
+
+# Regra do cinza: sem cobertura mínima, o IEAS NÃO é calculado.
+cobertura_minima:
+  # fração dos indicadores de cada eixo que precisa estar presente
+  necessidade: 0.60
+  alocacao: 0.50
+
+alertas:
+  residuo_z_minimo: 2.0          # detector 2: regressão robusta
+  preco_iqr_fator: 1.5           # detector 3: sobrepreço
+  desabastecimento:
+    incidencia_percentil_minimo: 0.75  # detector 4: surto sustentado
+    janela_meses: 12

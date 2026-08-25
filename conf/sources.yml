@@ -1,0 +1,105 @@
+# Catálogo de fontes. Alimenta a ingestão E a página de Metodologia
+# (requisito do edital: referenciar conjuntos do dados.gov.br).
+
+ibge_malhas:
+  nome: "IBGE — Malhas Territoriais Municipais"
+  camada: geo
+  url: "https://servicodados.ibge.gov.br/api/v3/malhas/estados/26"
+  params: {intrarregiao: municipio, qualidade: intermediaria, formato: "application/vnd.geo+json"}
+  observacao: "A propriedade codarea do GeoJSON traz o código IBGE de 7 dígitos."
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/malhas-territoriais"
+  licenca: "Dados abertos — IBGE"
+  formato: geojson
+
+ibge_municipios:
+  nome: "IBGE — Localidades (municípios de PE)"
+  camada: dimensao
+  url: "https://servicodados.ibge.gov.br/api/v1/localidades/estados/26/municipios"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/divisao-territorial-brasileira"
+  licenca: "Dados abertos — IBGE"
+  formato: json
+  observacao: "Devolve U+00BF no lugar de travessão em nomes de região imediata; normalizado na ingestão."
+
+ibge_populacao:
+  nome: "IBGE — Estimativas de População"
+  camada: denominador
+  url: "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/{ano}/variaveis/9324"
+  params: {localidades: "N6[N3[26]]"}
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/estimativas-de-populacao"
+  licenca: "Dados abertos — IBGE"
+  formato: json
+
+ibge_ipca:
+  nome: "IBGE — IPCA (deflator)"
+  camada: deflator
+  url: "https://servicodados.ibge.gov.br/api/v3/agregados/1737/periodos/{periodo}/variaveis/2266"
+  params: {localidades: "N1[all]"}
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/indice-nacional-de-precos-ao-consumidor-amplo-ipca"
+  licenca: "Dados abertos — IBGE"
+  formato: json
+
+sinan:
+  nome: "DATASUS/SINAN — Notificação de agravos"
+  camada: epidemiologia
+  acesso: pysus
+  agravos: [DENG, CHIK, ZIKA, LEPT, HEPA, ESQU]
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/sistema-de-informacao-de-agravos-de-notificacao-sinan"
+  licenca: "Dados abertos — Ministério da Saúde"
+  observacao: "PySUS baixa arquivo Brasil inteiro; filtrar para PE e descartar o bruto."
+
+sih:
+  nome: "DATASUS/SIH-SUS — Internações hospitalares"
+  camada: epidemiologia
+  acesso: pysus
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/sistema-de-informacoes-hospitalares-do-sus-sihsus"
+  licenca: "Dados abertos — Ministério da Saúde"
+
+siops:
+  nome: "SIOPS — Orçamentos Públicos em Saúde"
+  camada: financeiro_l2
+  url: "https://siops.datasus.gov.br/"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/siops"
+  licenca: "Dados abertos — Ministério da Saúde"
+  observacao: "Sem API REST; coleta por download da série histórica de indicadores municipais."
+
+snis:
+  nome: "SNIS — Sistema Nacional de Informações sobre Saneamento"
+  camada: saneamento
+  url: "https://dadosabertos.cidades.gov.br/dataset/snis-serie-historica"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/snis---srie-histrica"
+  licenca: "Dados abertos — Ministério das Cidades"
+  observacao: "Publica com ~2 anos de defasagem; cobertura municipal incompleta."
+
+cadunico:
+  nome: "CadÚnico — Vulnerabilidade socioeconômica"
+  camada: vulnerabilidade
+  url: "https://aplicacoes.mds.gov.br/sagi/"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/cadastro-unico"
+  licenca: "Dados abertos — MDS"
+
+transparencia:
+  nome: "Portal da Transparência (CGU) — Transferências da União"
+  camada: financeiro_l1
+  url: "https://api.portaldatransparencia.gov.br/api-de-dados/transferencias"
+  auth: "header chave-api-dados (env PORTAL_TRANSPARENCIA_API_KEY)"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/portal-da-transparencia-do-governo-federal"
+  licenca: "Dados abertos — CGU"
+  formato: json
+
+pncp:
+  nome: "PNCP — Portal Nacional de Contratações Públicas"
+  camada: financeiro_l3
+  url: "https://pncp.gov.br/api/consulta"
+  swagger: "https://pncp.gov.br/api/pncp/swagger-ui/index.html"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/portal-nacional-de-contratacoes-publicas-pncp"
+  licenca: "Dados abertos — Ministério da Gestão"
+  observacao: "Fonte central: é onde as prefeituras publicam sob a Lei 14.133."
+
+compras_gov:
+  nome: "Compras.gov.br — Contratações federais (SIASG)"
+  camada: financeiro_l3
+  url: "https://dadosabertos.compras.gov.br"
+  swagger: "https://dadosabertos.compras.gov.br/swagger-ui/index.html"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/compras-publicas-do-governo-federal"
+  licenca: "Dados abertos — Ministério da Gestão"
+  observacao: "ESCOPO FEDERAL: compras por UASG, não por prefeitura. Geolocalizado pelo município da UASG."

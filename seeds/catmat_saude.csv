@@ -1,0 +1,15 @@
+categoria,descricao,exemplo_catmat,ligado_a_agravo
+larvicida,Larvicida para controle de vetores (Aedes aegypti),Larvicida biológico Bacillus thuringiensis,true
+inseticida_adulticida,Inseticida para nebulização/UBV,Inseticida piretroide para nebulização,true
+teste_rapido_ns1_igm,Teste rápido dengue NS1/IgM/IgG,Teste imunocromatográfico dengue NS1,true
+soro_fisiologico,Soro fisiológico 0.9% para hidratação/procedimentos,Cloreto de sódio 0.9% solução injetável,true
+soro_reidratacao_oral,Sais de reidratação oral,Sal para reidratação oral envelope,true
+analgesico_antiinflamatorio,Analgésicos e antiinflamatórios,Paracetamol / Dipirona comprimido,false
+antibiotico_penicilina,Antibióticos classe penicilina,Penicilina G cristalina injetável,true
+antibiotico_geral,Antibióticos de amplo espectro,Amoxicilina / Azitromicina,false
+kit_teste_leptospirose,Kit sorológico para leptospirose,Kit ELISA leptospirose,true
+vacina_hepatite_a,Vacina hepatite A,Vacina hepatite A inativada,true
+kit_sorologia_hepatite,Kit sorológico hepatites virais,Kit ELISA hepatite A IgM,true
+praziquantel,Praziquantel (tratamento esquistossomose),Praziquantel comprimido 600mg,true
+kit_exame_parasitologico,Kit para exame parasitológico de fezes,Kit Kato-Katz,true
+material_obra_saneamento,Material para obras de saneamento básico,Tubulação PVC / manilha de esgoto,false
