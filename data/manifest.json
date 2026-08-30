@@ -248,16 +248,16 @@
   },
   "pncp_itens": {
     "arquivo": "data/silver/pncp_itens.parquet",
-    "bytes": 1334063,
-    "coletado_em": "2026-08-30T03:00:38+00:00",
+    "bytes": 3494681,
+    "coletado_em": "2026-08-30T03:07:04+00:00",
     "erro": null,
     "extra": {
-      "contratacoes_coletadas": 220
+      "contratacoes_coletadas": 878
     },
     "fonte": "pncp_itens",
-    "linhas": 1623,
+    "linhas": 4691,
     "observacao": null,
-    "sha256": "abdee70d981ba7edc1cf58528c98ab319467576e9010268a1d4838284159a3b7",
+    "sha256": "0d53b6adec224e41e4c767219aa988ea4e2530de59c01b1d04d850dafc54fd50",
     "status": "ok",
     "url": "https://pncp.gov.br/api/pncp/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens"
   },

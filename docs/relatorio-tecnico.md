@@ -309,9 +309,9 @@ sinal que o IEAS existe para detectar**.
 
 ## 7. Detectores de anomalia
 
-Do plano de quatro detectores, **dois estão ativos** — os que dependem apenas
-de dado já disponível. Cada alerta traz uma `explicacao` em linguagem natural:
-um alerta que um cidadão não consegue ler não serve para auditoria.
+Do plano de quatro detectores, **três estão ativos**. Cada alerta traz uma
+`explicacao` em linguagem natural: um alerta que um cidadão não consegue ler
+não serve para auditoria.
 
 ### 7.1 Detector 1 — desalinhamento estrutural
 
@@ -319,7 +319,22 @@ Deriva direto do `gap`: todo farol vermelho é, por definição, um alerta de
 necessidade não atendida. Depende do IEAS ter cor, portanto **não produz linhas
 nesta versão** (tudo cinza).
 
-### 7.2 Detector 4 — suspeita de desabastecimento
+### 7.2 Detector 3 — suspeita de sobrepreço
+
+Preço unitário de um item de insumo acima de **Q3 + fator·IQR** da distribuição
+da mesma categoria em PE (`fator` em `conf/ieas.yml`). Comparar só dentro da
+categoria — via a coluna `palavras_chave` curada de `seeds/catmat_saude.csv` —
+evita o falso-positivo de confrontar o preço de uma seringa com o de um
+tomógrafo.
+
+O preço por item **não** vem do recurso de consulta genérico do PNCP (esse só
+traz o valor total da compra); vem de
+`/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens`. `ingest/pncp_itens.py` percorre
+esse recurso para as ~800 contratações de saúde (modalidades Pregão, Dispensa e
+Inexigibilidade; Concorrência é obra, sem preço unitário comparável), de forma
+retomável. Só entram itens `Material` sem orçamento sigiloso.
+
+### 7.3 Detector 4 — suspeita de desabastecimento
 
 O detector mais original do projeto. Liga **incidência sustentada de um agravo**
 (SINAN, taxa no percentil 75+ de PE num ano) à **ausência de contratação da
@@ -333,9 +348,8 @@ contratação é *lacuna de dado* (o PNCP ainda não é universal), não *falha 
 política* — flagá-lo transformaria a cobertura incompleta do portal em alarme
 falso.
 
-Os detectores 2 (resíduo de regressão robusta) e 3 (sobrepreço por item) ficam
-de fora: o 2 exige o eixo de Alocação completo (L1+L2+L3); o 3 exige preço
-unitário por item, e o recurso do PNCP usado devolve valor **total** da compra.
+O detector 2 (resíduo de regressão robusta) fica de fora: exige o eixo de
+Alocação completo (L1+L2+L3), e L1/L2 seguem bloqueados.
 
 ---
 
@@ -396,6 +410,7 @@ são serializados como `null` JSON válido — coberto por teste
 | | municípios cobertos | 172/185 |
 | | valor homologado total (nominal) | **R$ 3,28 bilhões** |
 | | por modalidade | Dispensa 2.646 · Pregão eletrônico 1.610 · Concorrência 1.140 · Inexigibilidade 751 |
+| PNCP itens | itens com preço unitário (contratações de saúde) | **4.691** de 878 contratações |
 | Gold | linhas em `fato_municipio_ano` | 925 (185 × 5) |
 | | município-anos com L3 | 336 |
 
@@ -421,15 +436,17 @@ selecionada.
 
 ### 9.3 Alertas
 
-**548 alertas de suspeita de desabastecimento**, em 151 municípios distintos,
-concentrados nos anos de surto de arbovirose:
+**585 alertas** no total: **581 de suspeita de desabastecimento** (152 municípios
+distintos, concentrados nos anos de surto de arbovirose) e **4 de suspeita de
+sobrepreço** (itens de dipirona e amoxicilina+clavulanato a 4,7–6,1× a mediana
+de PE da categoria).
 
-| Ano | Alertas |
+| Ano | Desabastecimento |
 |---|---|
-| 2021 | 16 |
-| 2022 | 195 |
-| 2023 | 108 |
-| 2024 | 229 |
+| 2021 | 20 |
+| 2022 | 203 |
+| 2023 | 121 |
+| 2024 | 237 |
 
 Exemplo de explicação gerada: *"Incidência de Dengue no percentil 75%+ de PE em
 2024, mas nenhuma contratação de larvicida, inseticida_adulticida,
@@ -468,7 +485,7 @@ cp .env.example .env                  # chave da Transparência, quando houver
 make spike                            # sonda as fontes, reporta cobertura real
 make ingest                           # baixa IBGE + SINAN + PNCP
 make silver gold ieas                 # camadas derivadas + índice + alertas
-uv run pytest -q                      # 51 testes
+uv run pytest -q                      # 55 testes
 make app                              # painel  (localhost:8501)
 make api                              # API     (localhost:8000/docs)
 ```
@@ -476,10 +493,10 @@ make api                              # API     (localhost:8000/docs)
 - **Determinismo**: a ingestão é idempotente; `data/manifest.json` registra
   SHA-256 e contagem de linhas de cada arquivo bruto.
 - **Configuração versionada**: todo parâmetro do índice em `conf/ieas.yml`.
-- **Testes**: 51 no total — garantias de grão do gold, regressão dos três bugs
+- **Testes**: 55 no total — garantias de grão do gold, regressão dos três bugs
   de corrupção silenciosa, comportamento do IEAS nas quatro cores com fixtures
-  sintéticas, fumaça da API.
-- **Tamanho**: ~3.000 linhas de Python em `src/`, ~620 em `tests/`.
+  sintéticas, os detectores 3 e 4 com fixtures, fumaça da API.
+- **Tamanho**: ~3.300 linhas de Python em `src/`, ~700 em `tests/`.
 
 ---
 
@@ -523,8 +540,10 @@ reais) refinou os caminhos:
    de fonte já ingerida, catalogada no `dados.gov.br`).
 4. **CadÚnico** — subíndice de vulnerabilidade via SAGI/MDS; os endpoints
    antigos deram 404 (o SAGI migrou), a URL atual precisa ser localizada.
-5. **Detector 3 (sobrepreço)** — sem caminho na API pública do PNCP: o recurso
-   usado devolve valor total da compra, não preço por item.
+5. **Detector 3 (sobrepreço)** — *implementado.* O preço por item vem de
+   `/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens` do PNCP (o recurso de consulta
+   genérico só traz o valor total); resta refinar a normalização por unidade de
+   medida (ampola × frasco) e rodar a coleta completa de itens.
 6. **Deploy do painel** — os arquivos estão prontos no repositório
    (`requirements.txt` só com a base leve, `.gitignore` versionando os ~1,7 MB
    de Parquet que o painel lê, `docs/deploy.md` com o passo a passo). Falta o

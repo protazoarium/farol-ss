@@ -660,15 +660,19 @@
 
     <section id="detectores">
       <h2><span class="num">§8</span>Detectores de anomalia</h2>
-      <p>Do plano de quatro detectores, <strong>dois estão ativos</strong> — os que dependem apenas de dado já disponível. Cada alerta traz uma <code>explicacao</code> em linguagem natural: um alerta que um cidadão não consegue ler não serve para auditoria.</p>
+      <p>Do plano de quatro detectores, <strong>três estão ativos</strong>. Cada alerta traz uma <code>explicacao</code> em linguagem natural: um alerta que um cidadão não consegue ler não serve para auditoria.</p>
 
       <h3><span class="num">8.1</span>Detector 1 — desalinhamento estrutural</h3>
       <p>Deriva direto do <code>gap</code>: todo farol vermelho é, por definição, um alerta de necessidade não atendida. Depende do IEAS ter cor, portanto <strong>não produz linhas nesta versão</strong> (tudo cinza).</p>
 
-      <h3><span class="num">8.2</span>Detector 4 — suspeita de desabastecimento</h3>
+      <h3><span class="num">8.2</span>Detector 3 — suspeita de sobrepreço</h3>
+      <p>Preço unitário de um item de insumo acima de <strong>Q3 + fator·IQR</strong> da distribuição da mesma categoria em PE. Comparar só dentro da categoria — via a coluna <code>palavras_chave</code> curada de <code>seeds/catmat_saude.csv</code> — evita o falso-positivo de confrontar o preço de uma seringa com o de um tomógrafo.</p>
+      <p>O preço por item <strong>não</strong> vem do recurso de consulta genérico do PNCP (esse só traz o valor total da compra); vem de <code>/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens</code>. <code>ingest/pncp_itens.py</code> percorre esse recurso para as ~800 contratações de saúde (Pregão, Dispensa e Inexigibilidade — Concorrência é obra, sem preço unitário comparável), de forma retomável, guardando só itens <code>Material</code> sem orçamento sigiloso.</p>
+
+      <h3><span class="num">8.3</span>Detector 4 — suspeita de desabastecimento</h3>
       <p>O detector mais original do projeto. Liga <strong>incidência sustentada de um agravo</strong> (SINAN, taxa no percentil 75+ de PE num ano) à <strong>ausência de contratação da categoria de insumo correspondente</strong> no PNCP, via o mapa <code>seeds/agravo_insumo.yml</code> (dengue → larvicida, inseticida, teste NS1, soro; leptospirose → antibiótico penicilina, kit sorológico; etc.).</p>
       <p>Uma salvaguarda importante: o detector <strong>só considera município-ano que aparece no PNCP naquele ano.</strong> Um município em surto que não publicou nenhuma contratação é <em>lacuna de dado</em> (o PNCP ainda não é universal), não <em>falha de política</em> — flagá-lo transformaria a cobertura incompleta do portal em alarme falso.</p>
-      <p>Os detectores 2 (resíduo de regressão robusta) e 3 (sobrepreço por item) ficam de fora: o 2 exige o eixo de Alocação completo; o 3 exige preço unitário por item, e o recurso do PNCP usado devolve valor <strong>total</strong> da compra.</p>
+      <p>O detector 2 (resíduo de regressão robusta) fica de fora: exige o eixo de Alocação completo (L1+L2+L3), e L1/L2 seguem bloqueados.</p>
     </section>
 
     <section id="apresentacao">
@@ -714,9 +718,9 @@
         <div><div class="v">271.505</div><div class="k">notificações SINAN · PE · 2020–24</div></div>
         <div><div class="v">6.150</div><div class="k">contratos municipais · PNCP</div></div>
         <div><div class="v">R$ 3,28 bi</div><div class="k">valor homologado (nominal)</div></div>
+        <div><div class="v">4.691</div><div class="k">itens PNCP com preço unitário</div></div>
         <div><div class="v">925</div><div class="k">linhas no gold (185 × 5)</div></div>
-        <div><div class="v">172 / 185</div><div class="k">municípios com dado no PNCP</div></div>
-        <div><div class="v">51</div><div class="k">testes automatizados</div></div>
+        <div><div class="v">55</div><div class="k">testes automatizados</div></div>
       </div>
       <div class="tw"><table>
         <thead><tr><th>SINAN — casos por agravo (por residência)</th><th class="num">2020–2024</th></tr></thead>
@@ -753,10 +757,10 @@
       <p>O subíndice epidemiológico (calculável) tem média 0,50 e vai de 0,23 a 0,78. Os municípios de maior carga relativa em 2024 concentram-se no Agreste e na Zona da Mata (Lagoa do Ouro, Moreno, Garanhuns, Limoeiro, Rio Formoso) — visível no mapa quando a camada "Necessidade" é selecionada.</p>
 
       <h3><span class="num">10.3</span>Alertas</h3>
-      <p><strong>548 alertas de suspeita de desabastecimento</strong>, em 151 municípios distintos, concentrados nos anos de surto de arbovirose:</p>
+      <p><strong>585 alertas</strong>: 581 de <strong>suspeita de desabastecimento</strong> (152 municípios, concentrados nos anos de surto) e 4 de <strong>suspeita de sobrepreço</strong> (dipirona e amoxicilina+clavulanato a 4,7–6,1× a mediana de PE da categoria).</p>
       <div class="tw"><table>
-        <thead><tr><th class="num">2021</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th></tr></thead>
-        <tbody><tr><td class="num">16</td><td class="num">195</td><td class="num">108</td><td class="num">229</td></tr></tbody>
+        <thead><tr><th>Desabastecimento por ano</th><th class="num">2021</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th></tr></thead>
+        <tbody><tr><td>alertas</td><td class="num">20</td><td class="num">203</td><td class="num">121</td><td class="num">237</td></tr></tbody>
       </table></div>
       <p>Exemplo de explicação gerada: <em>"Incidência de Dengue no percentil 75%+ de PE em 2024, mas nenhuma contratação de larvicida, inseticida_adulticida, teste_rapido_ns1_igm, soro_fisiologico encontrada no PNCP para o município no período."</em></p>
     </section>
@@ -780,14 +784,14 @@ cp .env.example .env                  <b># chave da Transparência, quando houve
 make spike                            <b># sonda as fontes, reporta cobertura real</b>
 make ingest                           <b># baixa IBGE + SINAN + PNCP</b>
 make silver gold ieas                 <b># camadas derivadas + índice + alertas</b>
-uv run pytest -q                      <b># 51 testes</b>
+uv run pytest -q                      <b># 55 testes</b>
 make app                              <b># painel  (localhost:8501)</b>
 make api                              <b># API     (localhost:8000/docs)</b></pre>
       <ul>
         <li><strong>Determinismo:</strong> ingestão idempotente; <code>manifest.json</code> registra SHA-256 e contagem de linhas de cada arquivo bruto.</li>
         <li><strong>Configuração versionada:</strong> todo parâmetro do índice em <code>conf/ieas.yml</code>.</li>
-        <li><strong>Testes:</strong> 51 — garantias de grão do gold, regressão dos três bugs de corrupção silenciosa, comportamento do IEAS nas quatro cores com fixtures sintéticas, fumaça da API.</li>
-        <li><strong>Tamanho:</strong> ~3.000 linhas de Python em <code>src/</code>, ~620 em <code>tests/</code>.</li>
+        <li><strong>Testes:</strong> 55 — garantias de grão do gold, regressão dos três bugs de corrupção silenciosa, IEAS nas quatro cores e os detectores 3 e 4 com fixtures, fumaça da API.</li>
+        <li><strong>Tamanho:</strong> ~3.300 linhas de Python em <code>src/</code>, ~700 em <code>tests/</code>.</li>
       </ul>
     </section>
 
@@ -811,7 +815,7 @@ make api                              <b># API     (localhost:8000/docs)</b></pr
         <li><strong>SIOPS (L2)</strong> — série histórica por TabNet/CSV; o site responde, o link direto de extração precisa ser garimpado. É a fonte que, sozinha, leva o eixo A a 67% e destrava as cores do farol.</li>
         <li><strong>SNIS (saneamento) — não há mirror funcional.</strong> O sistema encerrou em 2023 (sucessor SINISA, sem série histórica municipal ainda) e o domínio não resolve; o catálogo do <code>dadosabertos.cidades.gov.br</code> só aponta para o domínio morto. Rotas realistas: <strong>Base dos Dados</strong> (exige BigQuery) ou substituir o subíndice pelos dados de água/esgoto/lixo do <strong>Censo 2022 do IBGE</strong> (fonte já ingerida, catalogada no <code>dados.gov.br</code>).</li>
         <li><strong>CadÚnico</strong> — via SAGI/MDS; os endpoints antigos deram 404 (o SAGI migrou), a URL atual precisa ser localizada.</li>
-        <li><strong>Detector 3 (sobrepreço)</strong> — sem caminho na API pública do PNCP (o recurso usado devolve valor total da compra, não preço por item).</li>
+        <li><strong>Detector 3 (sobrepreço)</strong> — <em>implementado</em>: o preço por item vem de <code>/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens</code> do PNCP. Resta normalizar por unidade de medida (ampola × frasco) e rodar a coleta completa de itens.</li>
         <li><strong>Deploy do painel</strong> — arquivos prontos no repositório (<code>requirements.txt</code> só com a base leve, <code>.gitignore</code> versionando os ~1,7 MB de Parquet que o painel lê, <code>docs/deploy.md</code> com o passo a passo). Falta o push para o GitHub e o "New app" no Streamlit Community Cloud.</li>
       </ol>
     </section>
