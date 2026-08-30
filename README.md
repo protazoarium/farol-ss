@@ -9,34 +9,40 @@ Monitor territorial de efetividade de gastos em saúde e vulnerabilidade sanitá
 | Scaffold, config, seeds | ✅ | 185 municípios, pesos/limiares em `conf/ieas.yml` |
 | Ingestão — IBGE | ✅ | população, IPCA, malhas |
 | Ingestão — SINAN (epidemiologia) | ✅ | 6 agravos × 5 anos, 185/185 municípios |
-| Ingestão — PNCP (L3, compras municipais) | 🔄 | validado contra API real; volume alto, ainda rodando |
+| Ingestão — PNCP (L3, compras municipais) | ✅ | 6.150 contratos, 172/185 municípios, 2021–2024 |
 | Ingestão — Compras.gov.br (L3 federal) | ⏳ | endpoint validado no spike, módulo não escrito |
 | Ingestão — SIOPS (L2) | 🔴 | sem API real; TabNet legado exige scraping de formulário |
 | Ingestão — SNIS (saneamento) | 🔴 | domínio `app4.mdr.gov.br` não resolve DNS |
 | Ingestão — Portal da Transparência (L1) | 🔴 | HTTP 403 mesmo com chave ativada |
 | Ingestão — CadÚnico (vulnerabilidade) | ⏳ | não iniciado |
-| Camada silver (epidemiologia) | ✅ | consolidada, 3.111 linhas |
-| Camada gold (fato município×ano) | ✅ (parcial) | população + epidemiologia; financeiro/saneamento pendentes |
-| IEAS (`index/ieas.py`) | ✅ | testado com fixtures sintéticas (vermelho/verde/azul/cinza) |
-| Detectores de anomalia | 🔄 | 2 de 4 implementados (desalinhamento estrutural, desabastecimento) |
-| Painel Streamlit | ⏳ | não iniciado |
-| API FastAPI | ⏳ | não iniciado |
+| Camada silver | ✅ | epidemiologia (3.111 linhas) + PNCP (6.150 linhas) |
+| Camada gold (fato município×ano) | ✅ | 925 linhas; população + epidemiologia + L3 deflacionado; L1/L2/saneamento entram como NULL |
+| IEAS (`index/ieas.py`) | ✅ | testado com fixtures sintéticas (vermelho/verde/azul/cinza); hoje 100% cinza pela regra de cobertura |
+| Detectores de anomalia | ✅ (2 de 4) | desalinhamento estrutural + suspeita de desabastecimento (548 alertas) |
+| Painel Streamlit | ✅ | 6 páginas: Home, Farol (mapa), Município, Alertas, Metodologia, API |
+| API FastAPI | ✅ | `/municipios`, `/ieas`, `/alertas`, `/fontes` — JSON/CSV, sem auth |
 
-Detalhe completo de cada bloqueio e das correções de bug feitas durante a implementação está em `docs/spike-fontes.md`.
+Detalhe de cada bloqueio e das correções de bug está em `docs/spike-fontes.md`.
+**Relatório técnico completo (pipeline, decisões, resultados): `docs/relatorio-tecnico.md`.**
 
 ## Início rápido
 
 ```bash
-uv sync --extra dev --extra sus
-cp .env.example .env   # PORTAL_TRANSPARENCIA_API_KEY, se/quando destravar
+make install             # uv sync --all-extras (base + pipeline + api + sus + dev)
+cp .env.example .env     # PORTAL_TRANSPARENCIA_API_KEY, se/quando destravar
 
-make spike              # sonda as fontes federais, reporta cobertura real
-make ingest              # baixa IBGE + SINAN + PNCP para data/silver/
-uv run pytest -q         # 43 testes
+make spike               # sonda as fontes federais, reporta cobertura real
+make ingest              # baixa IBGE + SINAN + PNCP para data/bronze e silver/
+make silver gold ieas    # camadas derivadas + IEAS + alertas
+uv run pytest -q         # 51 testes
 
-make app                 # Streamlit — ainda não implementado
-make api                 # FastAPI — ainda não implementado
+make app                 # painel Streamlit (localhost:8501)
+make api                 # API aberta FastAPI (localhost:8000/docs)
 ```
+
+Dependências divididas em `pyproject.toml`: **base** (painel + API, leve) e
+extras `pipeline` (ingestão + CLI), `api` (FastAPI), `sus` (PySUS), `dev`.
+Deploy do painel: `requirements.txt` + `docs/deploy.md`.
 
 ## Arquitetura
 
@@ -92,16 +98,21 @@ reuso_projeto/
 │   ├── config.py
 │   ├── io/{duck.py, municipios.py}       # I/O Parquet + resolução de código IBGE
 │   ├── ingest/{base.py, spike.py, ibge.py, sinan.py, pncp.py}
-│   ├── transform/{silver_epidemiologia.py, gold_municipio_ano.py}
+│   ├── transform/{silver_epidemiologia.py, silver_pncp.py, gold_municipio_ano.py}
 │   ├── index/{normalize.py, ieas.py, anomalies.py}
-│   ├── api/                # não implementado
-│   ├── app/                # não implementado
+│   ├── proveniencia.py     # catálogo de fontes × manifesto de coleta
+│   ├── api/main.py         # API aberta FastAPI (JSON/CSV)
+│   ├── app/                # painel Streamlit — Home.py + pages/1..5
 │   └── cli.py
-├── tests/                  # 43 testes — regressão de bugs reais, fixtures sintéticas
+├── tests/                  # 51 testes — regressão de bugs reais, fixtures, fumaça de API
 ├── data/                   # gitignored
 │   ├── bronze/silver/gold/
 │   └── manifest.json       # proveniência: url, sha256, timestamp, linhas
-└── docs/spike-fontes.md    # bloqueios, correções de endpoint, bugs encontrados
+├── docs/
+│   ├── spike-fontes.md     # bloqueios, correções de endpoint, bugs encontrados
+│   ├── concurso-cgu.md     # regras do Concurso de Reúso de Dados Abertos da CGU
+│   └── relatorio-tecnico.md # relatório técnico completo
+└── .streamlit/config.toml
 ```
 
 ## Lições da implementação

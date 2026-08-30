@@ -1,0 +1,857 @@
+<title>Farol da Saúde & Saneamento</title>
+<meta name="description" content="Relatório técnico do IEAS — Índice de Efetividade da Alocação Sanitária para os 185 municípios de Pernambuco." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #f6f7f9;
+    --surface: #ffffff;
+    --surface-2: #eef1f5;
+    --ink: #191d27;
+    --ink-2: #545c6b;
+    --ink-3: #7f8797;
+    --rule: #dde1e8;
+    --rule-strong: #c6ccd6;
+    --accent: #1257a8;
+    --accent-ink: #0d4585;
+    --accent-soft: #e5eef8;
+    --farol-vermelho: #c62828;
+    --farol-amarelo: #ef6c00;
+    --farol-verde: #00897b;
+    --farol-azul: #1565c0;
+    --farol-cinza: #9e9e9e;
+    --maxw: 46rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #12151b;
+      --surface: #191d25;
+      --surface-2: #21262f;
+      --ink: #e7e9ed;
+      --ink-2: #a3abb9;
+      --ink-3: #7b8493;
+      --rule: #2b313c;
+      --rule-strong: #3a414e;
+      --accent: #6fa8dc;
+      --accent-ink: #9ec6e8;
+      --accent-soft: #1c2732;
+      --farol-vermelho: #e26b6b;
+      --farol-amarelo: #e0912f;
+      --farol-verde: #3aa99b;
+      --farol-azul: #5b9bd5;
+      --farol-cinza: #9aa0aa;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #12151b;
+    --surface: #191d25;
+    --surface-2: #21262f;
+    --ink: #e7e9ed;
+    --ink-2: #a3abb9;
+    --ink-3: #7b8493;
+    --rule: #2b313c;
+    --rule-strong: #3a414e;
+    --accent: #6fa8dc;
+    --accent-ink: #9ec6e8;
+    --accent-soft: #1c2732;
+    --farol-vermelho: #e26b6b;
+    --farol-amarelo: #e0912f;
+    --farol-verde: #3aa99b;
+    --farol-azul: #5b9bd5;
+    --farol-cinza: #9aa0aa;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+    font-size: 1.0625rem;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  @media (min-width: 62rem) {
+    .wrap {
+      grid-template-columns: 15rem minmax(0, var(--maxw)) 1fr;
+      column-gap: 3rem;
+      padding: 0 2rem;
+    }
+  }
+
+  /* ---- masthead ---- */
+  header.masthead {
+    grid-column: 1 / -1;
+    border-bottom: 2px solid var(--ink);
+    padding: 3.5rem 0 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (min-width: 62rem) {
+    header.masthead { padding-top: 4.5rem; }
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 1rem;
+  }
+  h1 {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5.5vw, 3.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0 0 0.6rem;
+  }
+  .standfirst {
+    font-size: 1.12rem;
+    color: var(--ink-2);
+    max-width: 42rem;
+    margin: 0 0 1.75rem;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+  .meta b { color: var(--ink-2); font-weight: 500; }
+
+  /* ---- toc ---- */
+  nav.toc {
+    grid-column: 1;
+    display: none;
+  }
+  @media (min-width: 62rem) {
+    nav.toc {
+      display: block;
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      padding-bottom: 3rem;
+    }
+  }
+  nav.toc p {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 0.85rem;
+  }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  nav.toc li { margin: 0.15rem 0; }
+  nav.toc a {
+    display: block;
+    padding: 0.28rem 0.5rem 0.28rem 2.2rem;
+    text-indent: -1.7rem;
+    color: var(--ink-2);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  nav.toc a::before {
+    counter-increment: toc;
+    content: counter(toc) "  ";
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    color: var(--ink-3);
+  }
+  nav.toc a:hover { color: var(--ink); background: var(--surface-2); }
+  nav.toc a.active {
+    color: var(--accent-ink);
+    border-left-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* ---- article ---- */
+  article {
+    grid-column: 1 / -1;
+    padding-bottom: 5rem;
+  }
+  @media (min-width: 62rem) {
+    article { grid-column: 2; }
+  }
+
+  section { scroll-margin-top: 1.5rem; margin-bottom: 3.25rem; }
+
+  h2 {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0 0 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  h2 .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--accent-ink);
+    margin-right: 0.85rem;
+  }
+  h3 {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    letter-spacing: -0.01em;
+    margin: 2rem 0 0.6rem;
+    color: var(--ink);
+  }
+  h3 .num { font-family: "IBM Plex Mono", monospace; font-weight: 400; color: var(--ink-3); margin-right: 0.6rem; font-size: 0.9rem; }
+
+  p { margin: 0 0 1.1rem; }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+  .lead { font-size: 1.15rem; color: var(--ink-2); }
+
+  ul, ol.body-list { margin: 0 0 1.2rem; padding-left: 1.3rem; }
+  ol.body-list { counter-reset: item; list-style: none; padding-left: 0; }
+  ol.body-list > li {
+    counter-increment: item;
+    position: relative;
+    padding-left: 2.4rem;
+    margin-bottom: 0.7rem;
+  }
+  ol.body-list > li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--accent-ink);
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    width: 1.6rem;
+    height: 1.6rem;
+    display: grid;
+    place-items: center;
+  }
+  li { margin-bottom: 0.35rem; }
+
+  code, .mono {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.86em;
+  }
+  p code, li code, td code {
+    background: var(--surface-2);
+    padding: 0.1em 0.36em;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  pre {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    overflow-x: auto;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0 0 1.3rem;
+  }
+  pre b { color: var(--accent-ink); font-weight: 500; }
+
+  /* ---- tables ---- */
+  .tw { overflow-x: auto; margin: 0 0 1.4rem; border: 1px solid var(--rule); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.85rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  thead th {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-2) 45%, transparent); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: "IBM Plex Mono", monospace; font-size: 0.86rem; }
+
+  .st { white-space: nowrap; font-family: "IBM Plex Sans", sans-serif; font-size: 0.82rem; font-weight: 500; }
+  .st-ok { color: var(--farol-verde); }
+  .st-block { color: var(--farol-vermelho); }
+  .st-wait { color: var(--ink-3); }
+
+  /* ---- pipeline diagram ---- */
+  figure { margin: 0 0 1.6rem; }
+  figcaption { font-family: "IBM Plex Sans", sans-serif; font-size: 0.8rem; color: var(--ink-3); margin-top: 0.6rem; }
+  .pipe {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+  }
+  .pipe .stage {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .pipe .stage:last-child { border-bottom: none; }
+  .pipe .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+  .pipe .body { font-size: 0.9rem; color: var(--ink-2); }
+  .pipe .body b { color: var(--ink); font-weight: 600; }
+  .pipe .arrow {
+    text-align: center;
+    padding: 0.15rem 0;
+    color: var(--rule-strong);
+    font-size: 0.9rem;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ---- semaphore chips ---- */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  .dot { width: 0.8rem; height: 0.8rem; border-radius: 3px; flex: none; border: 1px solid rgba(0,0,0,0.15); }
+  .d-v { background: var(--farol-vermelho); }
+  .d-a { background: var(--farol-amarelo); }
+  .d-e { background: var(--farol-verde); }
+  .d-z { background: var(--farol-azul); }
+  .d-c { background: var(--farol-cinza); }
+
+  /* ---- results stat band ---- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 0 1.6rem;
+  }
+  .stats div { background: var(--surface); padding: 1rem 1.1rem; }
+  .stats .v {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .stats .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 0.35rem;
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    margin: 0 0 1.4rem;
+    font-size: 0.96rem;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout .tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .footnote {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--rule-strong);
+    padding: 2rem 0 4rem;
+    font-size: 0.85rem;
+    color: var(--ink-3);
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+  @media (min-width: 62rem) { .footnote { grid-column: 2; } }
+
+  /* ---- theme toggle ---- */
+  .toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
+    background: var(--surface);
+    color: var(--ink-2);
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .toggle:hover { color: var(--ink); border-color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+  .hl { background: color-mix(in srgb, var(--farol-amarelo) 22%, transparent); padding: 0 0.15em; border-radius: 2px; }
+</style>
+
+<button class="toggle" id="themeToggle" aria-label="Alternar tema">tema</button>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">Relatório Técnico · v1.0</p>
+    <h1>Farol da Saúde &amp; Saneamento</h1>
+    <p class="standfirst">Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco — pipeline de dados abertos, painel e API.</p>
+    <div class="meta">
+      <span><b>Data</b> &nbsp;29 ago 2026</span>
+      <span><b>Recorte</b> &nbsp;PE · 2020–2024</span>
+      <span><b>Fontes</b> &nbsp;IBGE · SINAN · PNCP · CGU</span>
+      <span><b>Autoria</b> &nbsp;concebido e implementado com Claude (Anthropic)</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sumário">
+    <p>Sumário</p>
+    <ol id="tocList">
+      <li><a href="#resumo">Resumo</a></li>
+      <li><a href="#motivacao">Motivação e objetivo</a></li>
+      <li><a href="#fontes">Fontes de dados</a></li>
+      <li><a href="#arquitetura">Arquitetura do pipeline</a></li>
+      <li><a href="#metodologia">Metodologia do IEAS</a></li>
+      <li><a href="#correcao">Correção metodológica</a></li>
+      <li><a href="#bugs">Corrupção silenciosa</a></li>
+      <li><a href="#detectores">Detectores de anomalia</a></li>
+      <li><a href="#apresentacao">Camada de apresentação</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#limitacoes">Limitações e validade</a></li>
+      <li><a href="#reprodutibilidade">Reprodutibilidade</a></li>
+      <li><a href="#concurso">Conformidade com o concurso</a></li>
+      <li><a href="#futuro">Trabalhos futuros</a></li>
+    </ol>
+  </nav>
+
+  <article>
+
+    <section id="resumo">
+      <h2><span class="num">§1</span>Resumo</h2>
+      <p class="lead">O Farol-SS cruza <strong>execução financeira em saúde</strong> com <strong>carga epidemiológica</strong>, <strong>déficit sanitário</strong> e <strong>vulnerabilidade social</strong> nos 185 municípios de Pernambuco, produzindo o <strong>IEAS</strong> — um índice de <em>alinhamento territorial</em> entre o quanto um município precisa e o quanto recebe/gasta.</p>
+      <p>Esta versão entrega o <strong>pipeline de dados completo e reprodutível</strong> (ingestão → silver → gold → índice → alertas), um <strong>painel web</strong> de seis páginas e uma <strong>API aberta</strong> em JSON/CSV. Três das oito fontes financeiras e de saneamento previstas estão bloqueadas na origem — HTTP 403, ausência de API REST, falha de DNS —, o que mantém os dois eixos do índice abaixo da cobertura mínima configurada.</p>
+      <p>Por isso o IEAS, hoje, <span class="hl">não é calculado para nenhum município</span> e o mapa é integralmente cinza. Esse comportamento é a <em>regra do cinza</em> operando como projetada: o sistema recusa-se a publicar um número derivado de dado majoritariamente ausente. As camadas que já têm dado real — epidemiologia (SINAN) e contratação de insumos (PNCP) — são navegáveis no painel e servidas pela API.</p>
+      <p class="mono" style="font-size:0.8rem;color:var(--ink-3)">Palavras-chave: dados abertos · saúde pública · contratações públicas · PNCP · SINAN · índice territorial · arquitetura lakehouse · DuckDB</p>
+    </section>
+
+    <section id="motivacao">
+      <h2><span class="num">§2</span>Motivação e objetivo</h2>
+      <p>Gasto público em saúde e necessidade epidemiológica não se distribuem da mesma forma no território. Um município pode concentrar surtos de arbovirose e de doenças de veiculação hídrica e, ao mesmo tempo, executar menos recurso por habitante do que a média do estado. Esse <strong>descompasso</strong> é invisível nos portais de transparência, que publicam repasse e execução, mas não os confrontam com desfecho de saúde.</p>
+      <p>O objetivo do Farol-SS é tornar esse descompasso <strong>mensurável, comparável entre municípios e explicável para um cidadão</strong> — não para produzir um <em>ranking</em> de gestão, mas para apontar onde a alocação de recurso está desalinhada da necessidade sanitária, que é uma pergunta de controle social legítima.</p>
+      <p><strong>Recorte:</strong> Pernambuco (UF 26), 185 municípios, 2020–2024, valores monetários deflacionados para 2024.</p>
+    </section>
+
+    <section id="fontes">
+      <h2><span class="num">§3</span>Fontes de dados</h2>
+      <p>Todas as fontes são federais e abertas. O catálogo canônico — com URL, licença e link para o conjunto no Portal Brasileiro de Dados Abertos (<code>dados.gov.br</code>) — vive em <code>conf/sources.yml</code> e alimenta a ingestão, a página de Metodologia do painel e o endpoint <code>/fontes</code> da API.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Fonte</th><th>Papel no IEAS</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>IBGE — Localidades</td><td>dimensão dos 185 municípios</td><td class="st st-ok">ingerido</td></tr>
+          <tr><td>IBGE — Estimativas de População</td><td>denominador de toda taxa por 100 mil hab.</td><td class="st st-ok">ingerido</td></tr>
+          <tr><td>IBGE — IPCA (agregado 1737)</td><td>deflator para 2024</td><td class="st st-ok">ingerido</td></tr>
+          <tr><td>IBGE — Malhas Territoriais</td><td>geometria municipal (mapa)</td><td class="st st-ok">ingerido</td></tr>
+          <tr><td>DATASUS / SINAN (via PySUS)</td><td>eixo N · subíndice epidemiológico</td><td class="st st-ok">ingerido</td></tr>
+          <tr><td>PNCP — Contratações Públicas</td><td>eixo A · camada L3 (compras municipais)</td><td class="st st-ok">ingerido (parcial)</td></tr>
+          <tr><td>Compras.gov.br / SIASG</td><td>eixo A · L3 federal (complemento)</td><td class="st st-wait">endpoint validado</td></tr>
+          <tr><td>SIOPS</td><td>eixo A · camada L2 (execução própria)</td><td class="st st-block">sem API REST</td></tr>
+          <tr><td>SNIS</td><td>eixo N · subíndice de saneamento</td><td class="st st-block">encerrado (2023)</td></tr>
+          <tr><td>Portal da Transparência (CGU)</td><td>eixo A · camada L1 (repasse federal)</td><td class="st st-block">HTTP 403</td></tr>
+          <tr><td>CadÚnico</td><td>eixo N · subíndice de vulnerabilidade</td><td class="st st-wait">não iniciado</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3><span class="num">3.1</span>Sondagem de fontes (<em>spike</em>)</h3>
+      <p>Antes de escrever qualquer módulo de ingestão, cada fonte foi sondada com uma requisição real (<code>make spike</code>). <strong>11 de 12 fontes responderam.</strong> A sondagem revelou que <strong>três endpoints do plano original estavam errados</strong> e só apareceram contra dado real:</p>
+      <ol class="body-list">
+        <li><strong>IBGE malhas</strong> — não existe o sufixo <code>/municipios</code>; a chamada correta é <code>/malhas/estados/26?intrarregiao=municipio</code>.</li>
+        <li><strong>Compras.gov.br</strong> — o parâmetro <code>statusUasg</code> é obrigatório (sem ele a API devolve 404) e o filtro de UF chama-se <code>siglaUf</code>.</li>
+        <li><strong>PNCP</strong> — o recurso <code>/v1/contratos</code> do plano não expõe o município; o recurso útil é <code>/v1/contratacoes/publicacao</code>, cujo campo <code>unidadeOrgao.codigoIbge</code> geolocaliza a compra.</li>
+      </ol>
+      <p>A lição, registrada e reincidente: <strong>documentação de API não substitui um teste contra dado real.</strong></p>
+    </section>
+
+    <section id="arquitetura">
+      <h2><span class="num">§4</span>Arquitetura do pipeline</h2>
+      <p>O sistema segue o padrão <em>medallion</em> (bronze → silver → gold), <strong>sem servidor de banco de dados</strong>: o DuckDB lê Parquet direto do disco, e cada camada é um diretório de arquivos versionáveis.</p>
+
+      <figure>
+        <div class="pipe">
+          <div class="stage"><span class="lbl">Fontes</span><span class="body">APIs federais — requisição real, retomável por página, com checksum</span></div>
+          <div class="arrow">↓ &nbsp;ingest/*.py</div>
+          <div class="stage"><span class="lbl">bronze/</span><span class="body">dados brutos + <b>manifest.json</b> (url, sha256, linhas, timestamp)</span></div>
+          <div class="arrow">↓ &nbsp;transform/silver_*.py</div>
+          <div class="stage"><span class="lbl">silver/</span><span class="body"><b>epidemiologia</b> (3.111) · <b>pncp</b> (6.150) · ibge_* — tipagem, cod_ibge de 7 dígitos, grão por fonte</span></div>
+          <div class="arrow">↓ &nbsp;transform/gold_municipio_ano.py</div>
+          <div class="stage"><span class="lbl">gold/</span><span class="body"><b>fato_municipio_ano</b> — grão único (cod_ibge, ano), 925 linhas, LEFT JOIN sobre grade 185 × 5</span></div>
+          <div class="arrow">↓ &nbsp;index/ieas.py &nbsp;·&nbsp; index/anomalies.py</div>
+          <div class="stage"><span class="lbl">gold/</span><span class="body"><b>ieas.parquet</b> &nbsp;·&nbsp; <b>alertas.parquet</b></span></div>
+          <div class="arrow">↓</div>
+          <div class="stage"><span class="lbl">saída</span><span class="body">painel Streamlit · API FastAPI — leem só o gold, <b>nunca recalculam</b></span></div>
+        </div>
+        <figcaption>Fluxo de dados. Cada seta é um módulo; cada camada, um diretório de Parquet.</figcaption>
+      </figure>
+
+      <h3><span class="num">4.1</span>Princípios de projeto</h3>
+      <ul>
+        <li><strong>Grão canônico único:</strong> <code>(cod_ibge, ano)</code>. A grade é completa — os 185 municípios × 5 anos existem mesmo sem dado, com colunas em <code>NULL</code>. É isso que torna a <em>ausência</em> visível em vez de silenciosamente omitida.</li>
+        <li><strong>Município resolvido por código, nunca por nome.</strong> SINAN, SIOPS e SNIS divergem na grafia. Toda resolução passa por <code>io/municipios.resolve_por_codigo</code>, que converte códigos de 6 dígitos (DATASUS) para 7 e devolve <code>NA</code> para o que não é de PE.</li>
+        <li><strong>Nenhum número mágico no código.</strong> Pesos, limiares, ano-base de deflação e recorte vivem em <code>conf/ieas.yml</code>.</li>
+        <li><strong>Proveniência obrigatória.</strong> Cada arquivo bruto gera uma entrada em <code>manifest.json</code> com URL, SHA-256, contagem de linhas e timestamp.</li>
+        <li><strong>A camada de apresentação não calcula.</strong> Se um número está errado na tela, está errado no Parquet.</li>
+      </ul>
+
+      <h3><span class="num">4.2</span>Ingestão</h3>
+      <ul>
+        <li><strong>IBGE</strong> — APIs REST de localidades, agregados (população 6579, IPCA 1737) e malhas. População de 2022–2023 é interpolada linearmente e marcada como tal no manifesto.</li>
+        <li><strong>SINAN</strong> — via PySUS. A biblioteca baixa o Brasil inteiro por agravo-ano; o módulo pede <strong>os caminhos dos Parquet</strong>, filtra PE por <code>ID_MN_RESI</code> com DuckDB e só então materializa em pandas. Incidência por <strong>município de residência</strong>, não de notificação (§7.4).</li>
+        <li><strong>PNCP</strong> — paginação do recurso <code>/v1/contratacoes/publicacao</code> por (modalidade, ano). Cada página é gravada com <code>try/except</code> individual: o PNCP responde de forma instável (timeout, HTTP 204 sem corpo e 200 normal em tentativas sucessivas).</li>
+      </ul>
+
+      <h3><span class="num">4.3</span>Camada gold</h3>
+      <p><code>gold_municipio_ano.montar()</code> parte da grade 185 × 5 e aplica um <code>LEFT JOIN</code> por fonte: <strong>população</strong> (IBGE); <strong>epidemiologia</strong> (6 colunas <code>casos_*</code> e <code>taxa_*</code> por 100 mil hab.; município sem notificação recebe 0 casos, dado real, não <code>NULL</code>); <strong>financeiro L3</strong> (<code>l3_total</code> = soma do valor homologado do PNCP por município-ano, <strong>deflacionado para 2024</strong> pela média anual do IPCA; <code>l3_per_capita</code> = <code>l3_total</code> / população). As camadas L1 e L2 entram como <code>NULL</code>.</p>
+      <p>O resultado tem <strong>925 linhas, zero código órfão, zero par (município, ano) duplicado</strong> — garantido por teste.</p>
+    </section>
+
+    <section id="metodologia">
+      <h2><span class="num">§5</span>Metodologia do IEAS</h2>
+
+      <h3><span class="num">5.1</span>Dois eixos, cada um um rank percentil</h3>
+      <p>Cada eixo é normalizado como <strong>rank percentil ∈ [0, 1] entre os 185 municípios</strong>. O valor absoluto (R$, taxa por 100 mil) não entra na conta final — só a <strong>posição relativa</strong> dentro do estado. Isso torna o índice robusto a inflação, a mudança de escala das fontes e a <em>outliers</em>.</p>
+
+      <p><strong>Eixo N — Necessidade</strong> (pesos somam 1,0):</p>
+      <div class="tw"><table>
+        <thead><tr><th>Subíndice</th><th class="num">Peso</th><th>Fonte</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Epidemiológico</td><td class="num">0,40</td><td>SINAN</td><td class="st st-ok">✓</td></tr>
+          <tr><td>Saneamento (déficit = 1 − cobertura)</td><td class="num">0,35</td><td>SNIS</td><td class="st st-block">bloqueado</td></tr>
+          <tr><td>Vulnerabilidade</td><td class="num">0,25</td><td>CadÚnico + IBGE</td><td class="st st-wait">pendente</td></tr>
+        </tbody>
+      </table></div>
+      <p>O subíndice epidemiológico é ele próprio uma combinação: <strong>arboviroses 53%</strong> (dengue + chikungunya + zika) + <strong>veiculação hídrica 47%</strong> (leptospirose + hepatite A + esquistossomose). O peso previsto para internações (SIH) foi redistribuído: nenhum grupo utilizável do SIH nesta versão do PySUS traz simultaneamente município de residência e diagnóstico principal.</p>
+
+      <p><strong>Eixo A — Alocação</strong> (R$ per capita deflacionado, pesos somam 1,0):</p>
+      <div class="tw"><table>
+        <thead><tr><th>Camada</th><th class="num">Peso</th><th>Fonte</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>L1 — repasse federal</td><td class="num">0,35</td><td>Portal da Transparência</td><td class="st st-block">HTTP 403</td></tr>
+          <tr><td>L2 — execução própria municipal</td><td class="num">0,40</td><td>SIOPS</td><td class="st st-block">sem API</td></tr>
+          <tr><td>L3 — contratação de insumos</td><td class="num">0,25</td><td>PNCP + Compras.gov.br</td><td class="st st-ok">PNCP ✓</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3><span class="num">5.2</span>Do eixo ao farol</h3>
+      <p><strong>gap = rank(A) − rank(N)</strong> ∈ [−1, 1]. &nbsp; <strong>ieas = 1 − |gap|</strong> ∈ [0, 1] — usado <strong>apenas para ranquear</strong>, nunca para colorir: um <em>gap</em> muito positivo e um muito negativo têm o mesmo <code>|gap|</code>, mas significam coisas opostas, então o farol usa o <code>gap</code> <strong>com sinal</strong>.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Faixa de gap</th><th>Farol</th><th>Leitura</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">gap ≤ −0,33</td><td><span class="chip"><span class="dot d-v"></span>vermelho</span></td><td>necessidade muito acima da alocação</td></tr>
+          <tr><td class="mono">−0,33 &lt; gap ≤ −0,10</td><td><span class="chip"><span class="dot d-a"></span>amarelo</span></td><td>subalocação leve</td></tr>
+          <tr><td class="mono">|gap| ≤ 0,10</td><td><span class="chip"><span class="dot d-e"></span>verde</span></td><td>alinhado</td></tr>
+          <tr><td class="mono">gap ≥ 0,33</td><td><span class="chip"><span class="dot d-z"></span>azul</span></td><td>alocação acima da necessidade</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3><span class="num">5.3</span>A regra do cinza</h3>
+      <div class="callout">
+        <span class="tag">Por que o mapa está cinza</span>
+        <p>Um eixo cuja <strong>fração de componentes presentes</strong> cai abaixo do limiar (Necessidade 60%, Alocação 50%) <strong>não tem IEAS calculado</strong> — o <code>gap</code> vira <code>NaN</code> e o farol fica <span class="chip"><span class="dot d-c"></span>cinza</span>. Hoje cada eixo tem 1 de 3 componentes (33%), então <strong>todos os 925 município-anos saem cinza.</strong> Assim que L1, L2 e saneamento entrarem, a cobertura sobe para 67% em cada eixo e as cores aparecem automaticamente, sem alteração de código.</p>
+      </div>
+    </section>
+
+    <section id="correcao">
+      <h2><span class="num">§6</span>Correção metodológica sobre a proposta original</h2>
+      <p>A proposta inicial assumia ser possível ver "compras de medicamentos por município" no Compras.gov.br. <strong>Esse portal registra compras de órgãos federais</strong> (identificados por UASG), <strong>não de prefeituras.</strong> Manter a premissa produziria um eixo financeiro que mede a presença de órgãos federais no território, não a alocação municipal.</p>
+      <p>O eixo de Alocação foi então <strong>decomposto em três camadas genuinamente municipalizáveis:</strong></p>
+      <div class="tw"><table>
+        <thead><tr><th>Camada</th><th>Fonte</th><th>Campo que geolocaliza no município</th></tr></thead>
+        <tbody>
+          <tr><td>L1 — repasse federal</td><td>Portal da Transparência</td><td class="mono">codigoIbge da transferência</td></tr>
+          <tr><td>L2 — execução própria</td><td>SIOPS</td><td>município declarante</td></tr>
+          <tr><td>L3 — contratação de insumos</td><td><strong>PNCP</strong> (municipal) + Compras.gov.br (federal, escopo limitado)</td><td class="mono">unidadeOrgao.codigoIbge</td></tr>
+        </tbody>
+      </table></div>
+      <p>O <strong>PNCP</strong> — onde as prefeituras publicam suas contratações sob a Lei 14.133/2021 — é a fonte validada com dado real que viabiliza a análise por município. O Compras.gov.br entra como complemento de escopo federal, <strong>documentado como limitação, não escondido.</strong></p>
+    </section>
+
+    <section id="bugs">
+      <h2><span class="num">§7</span>Bugs de corrupção silenciosa encontrados</h2>
+      <p>Três classes de bug que <strong>não quebram o processo</strong> — produzem resultado plausível, porém errado — só apareceram no teste contra dado real e são hoje cobertas por teste de regressão.</p>
+
+      <h3><span class="num">7.1</span>Manipulação de string para reconstruir código</h3>
+      <p><code>.lstrip("260")</code> foi usado para normalizar códigos IBGE. <code>str.lstrip()</code> remove <strong>um conjunto de caracteres</strong>, não um prefixo: <code>"2602001"</code> (Bodocó) virava <code>"1"</code>. <strong>22 de 185 municípios</strong> mapeados para o código errado, silenciosamente. Correção: indexação explícita (<code>codigo[:6]</code>) e validação imediata contra o conjunto de códigos de PE.</p>
+
+      <h3><span class="num">7.2</span>Materialização de dataset grande sem filtro</h3>
+      <p><code>pysus.sinan(..., as_dataframe=True)</code> carrega o Brasil inteiro (~1,6 M linhas) em memória <strong>antes de qualquer filtro</strong>. Numa máquina de 7,5 GB, o processo foi morto pelo <em>OOM killer</em> (RSS 6,4 GB, confirmado em <code>dmesg</code>), sem traceback, parecendo travamento. Correção: pedir os caminhos dos Parquet e filtrar com DuckDB antes de tocar pandas.</p>
+
+      <h3><span class="num">7.3</span>Deduplicação que perde semântica de domínio</h3>
+      <p><code>drop_duplicates(subset=[cod_ibge, data, classificacao])</code> sobre notificações <strong>subcontou dengue em ~66%</strong> (12.630 em vez de 36.761 num teste). Várias pessoas notificadas no mesmo dia com a mesma classificação é o <strong>normal epidemiológico</strong>, não erro de digitação. Correção: agregação com <code>groupby().sum()</code>, e teste contra número oficial.</p>
+
+      <h3><span class="num">7.4</span>Município de residência vs. de notificação</h3>
+      <p>A incidência é atribuída ao <strong>município de residência</strong> (<code>ID_MN_RESI</code>), não ao de notificação. A diferença é material: 171/185 municípios cobertos por residência contra 149/185 por notificação. Notificação reflete onde fica o serviço de saúde, não onde vive a população em risco — usá-la inflaria os municípios-polo e esvaziaria os pequenos, <strong>invertendo justamente o sinal que o IEAS existe para detectar.</strong></p>
+    </section>
+
+    <section id="detectores">
+      <h2><span class="num">§8</span>Detectores de anomalia</h2>
+      <p>Do plano de quatro detectores, <strong>dois estão ativos</strong> — os que dependem apenas de dado já disponível. Cada alerta traz uma <code>explicacao</code> em linguagem natural: um alerta que um cidadão não consegue ler não serve para auditoria.</p>
+
+      <h3><span class="num">8.1</span>Detector 1 — desalinhamento estrutural</h3>
+      <p>Deriva direto do <code>gap</code>: todo farol vermelho é, por definição, um alerta de necessidade não atendida. Depende do IEAS ter cor, portanto <strong>não produz linhas nesta versão</strong> (tudo cinza).</p>
+
+      <h3><span class="num">8.2</span>Detector 4 — suspeita de desabastecimento</h3>
+      <p>O detector mais original do projeto. Liga <strong>incidência sustentada de um agravo</strong> (SINAN, taxa no percentil 75+ de PE num ano) à <strong>ausência de contratação da categoria de insumo correspondente</strong> no PNCP, via o mapa <code>seeds/agravo_insumo.yml</code> (dengue → larvicida, inseticida, teste NS1, soro; leptospirose → antibiótico penicilina, kit sorológico; etc.).</p>
+      <p>Uma salvaguarda importante: o detector <strong>só considera município-ano que aparece no PNCP naquele ano.</strong> Um município em surto que não publicou nenhuma contratação é <em>lacuna de dado</em> (o PNCP ainda não é universal), não <em>falha de política</em> — flagá-lo transformaria a cobertura incompleta do portal em alarme falso.</p>
+      <p>Os detectores 2 (resíduo de regressão robusta) e 3 (sobrepreço por item) ficam de fora: o 2 exige o eixo de Alocação completo; o 3 exige preço unitário por item, e o recurso do PNCP usado devolve valor <strong>total</strong> da compra.</p>
+    </section>
+
+    <section id="apresentacao">
+      <h2><span class="num">§9</span>Camada de apresentação</h2>
+
+      <h3><span class="num">9.1</span>Painel Streamlit</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Página</th><th>Conteúdo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Home</strong></td><td>o que o IEAS mede, estado real das fontes, por que o farol está cinza</td></tr>
+          <tr><td><strong>Farol</strong></td><td>mapa coroplético dos 185 municípios; seletor de camada (Farol / Necessidade / L3); filtro por mesorregião; legenda; tabela + CSV</td></tr>
+          <tr><td><strong>Município</strong></td><td>drill-down: componentes presentes/ausentes de cada eixo, série de notificações por agravo, incidência por 100 mil, contratações no PNCP, alertas</td></tr>
+          <tr><td><strong>Alertas</strong></td><td>tabela filtrável de anomalias com explicação em linguagem natural; distribuição por ano; CSV</td></tr>
+          <tr><td><strong>Metodologia</strong></td><td>fórmula do IEAS lida de <code>conf/ieas.yml</code>; regra do cinza; tabela de proveniência lida de <code>manifest.json</code> com link para o <code>dados.gov.br</code></td></tr>
+          <tr><td><strong>API</strong></td><td>documentação das rotas e download direto do gold</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout">
+        <span class="tag">Acessibilidade</span>
+        <p>A paleta do semáforo (<span class="chip"><span class="dot d-v"></span></span> <code>#c62828</code> &nbsp; <span class="chip"><span class="dot d-a"></span></span> <code>#ef6c00</code> &nbsp; <span class="chip"><span class="dot d-e"></span></span> <code>#00897b</code> &nbsp; <span class="chip"><span class="dot d-z"></span></span> <code>#1565c0</code>) foi validada com o script <code>validate_palette.js</code> (six-checks para daltonismo, modo claro): os quatro tons cromáticos passam o piso de separação para protanopia/deuteranopia (ΔE ≥ 8 em OKLab) e o de visão normal (ΔE ≥ 15). A cor <strong>nunca aparece sozinha</strong> — todo mapa vem com legenda rotulada, tooltip com o nome da categoria e tabela alternativa.</p>
+      </div>
+
+      <h3><span class="num">9.2</span>API aberta FastAPI</h3>
+      <p>Sem autenticação, JSON por padrão, <code>?formato=csv</code> em qualquer rota. Serve o gold, não recalcula.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Rota</th><th>Descrição</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">GET /municipios</td><td>os 185 municípios com meso/microrregião</td></tr>
+          <tr><td class="mono">GET /municipios/{cod_ibge}</td><td>série completa de um município</td></tr>
+          <tr><td class="mono">GET /ieas?ano=&amp;farol=</td><td>IEAS por município-ano, filtrável</td></tr>
+          <tr><td class="mono">GET /alertas?tipo=&amp;ano=</td><td>alertas explicáveis</td></tr>
+          <tr><td class="mono">GET /fontes</td><td>catálogo + proveniência</td></tr>
+        </tbody>
+      </table></div>
+      <p>Valores <code>NaN</code> (o caso de hoje) são serializados como <code>null</code> JSON válido — coberto por teste.</p>
+    </section>
+
+    <section id="resultados">
+      <h2><span class="num">§10</span>Resultados</h2>
+
+      <h3><span class="num">10.1</span>Volume ingerido</h3>
+      <div class="stats">
+        <div><div class="v">271.505</div><div class="k">notificações SINAN · PE · 2020–24</div></div>
+        <div><div class="v">6.150</div><div class="k">contratos municipais · PNCP</div></div>
+        <div><div class="v">R$ 3,28 bi</div><div class="k">valor homologado (nominal)</div></div>
+        <div><div class="v">925</div><div class="k">linhas no gold (185 × 5)</div></div>
+        <div><div class="v">172 / 185</div><div class="k">municípios com dado no PNCP</div></div>
+        <div><div class="v">51</div><div class="k">testes automatizados</div></div>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>SINAN — casos por agravo (por residência)</th><th class="num">2020–2024</th></tr></thead>
+        <tbody>
+          <tr><td>Dengue</td><td class="num">144.269</td></tr>
+          <tr><td>Chikungunya</td><td class="num">103.592</td></tr>
+          <tr><td>Zika</td><td class="num">16.436</td></tr>
+          <tr><td>Leptospirose</td><td class="num">3.880</td></tr>
+          <tr><td>Hepatite A</td><td class="num">2.492</td></tr>
+          <tr><td>Esquistossomose</td><td class="num">836</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tw"><table>
+        <thead><tr><th>PNCP — cobertura por ano</th><th class="num">Contratos</th><th class="num">Municípios</th><th class="num">Valor homolog. (R$ mi)</th></tr></thead>
+        <tbody>
+          <tr><td>2021</td><td class="num">100</td><td class="num">6</td><td class="num">0,9</td></tr>
+          <tr><td>2022</td><td class="num">1.941</td><td class="num">102</td><td class="num">333,7</td></tr>
+          <tr><td>2023</td><td class="num">2.349</td><td class="num">71</td><td class="num">1.184,8</td></tr>
+          <tr><td>2024</td><td class="num">1.760</td><td class="num">157</td><td class="num">1.759,1</td></tr>
+        </tbody>
+      </table></div>
+      <p>O PNCP tem <strong>crescimento acentuado de cobertura ano a ano</strong> (6 municípios em 2021 → 157 em 2024), reflexo da adesão progressiva à Lei 14.133/2021 — o que torna a série mais confiável nos anos recentes e é uma limitação explícita para análise retrospectiva.</p>
+
+      <h3><span class="num">10.2</span>IEAS</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
+        <tbody>
+          <tr><td>Município-anos com IEAS calculado</td><td><strong>0 de 925</strong></td></tr>
+          <tr><td>Farol</td><td>925 <span class="chip"><span class="dot d-c"></span>cinza</span></td></tr>
+          <tr><td>Cobertura do eixo Necessidade</td><td class="mono">0,33 (uniforme) — só subíndice epidemiológico</td></tr>
+          <tr><td>Cobertura do eixo Alocação</td><td class="mono">0,33 onde há L3, 0,00 no restante</td></tr>
+        </tbody>
+      </table></div>
+      <p>O subíndice epidemiológico (calculável) tem média 0,50 e vai de 0,23 a 0,78. Os municípios de maior carga relativa em 2024 concentram-se no Agreste e na Zona da Mata (Lagoa do Ouro, Moreno, Garanhuns, Limoeiro, Rio Formoso) — visível no mapa quando a camada "Necessidade" é selecionada.</p>
+
+      <h3><span class="num">10.3</span>Alertas</h3>
+      <p><strong>548 alertas de suspeita de desabastecimento</strong>, em 151 municípios distintos, concentrados nos anos de surto de arbovirose:</p>
+      <div class="tw"><table>
+        <thead><tr><th class="num">2021</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th></tr></thead>
+        <tbody><tr><td class="num">16</td><td class="num">195</td><td class="num">108</td><td class="num">229</td></tr></tbody>
+      </table></div>
+      <p>Exemplo de explicação gerada: <em>"Incidência de Dengue no percentil 75%+ de PE em 2024, mas nenhuma contratação de larvicida, inseticida_adulticida, teste_rapido_ns1_igm, soro_fisiologico encontrada no PNCP para o município no período."</em></p>
+    </section>
+
+    <section id="limitacoes">
+      <h2><span class="num">§11</span>Limitações e ameaças à validade</h2>
+      <ol class="body-list">
+        <li><strong>O IEAS não é calculável hoje.</strong> Três fontes bloqueadas na origem mantêm os dois eixos abaixo da cobertura mínima. O que se entrega é o pipeline que produz o índice, validado com fixtures sintéticas nas quatro cores, mais as camadas de dado real que já existem.</li>
+        <li><strong>Cobertura desigual do PNCP no tempo.</strong> A camada L3 é rala em 2021 e densa em 2024. Comparações entre anos devem considerar isso.</li>
+        <li><strong>Casamento compra × insumo por palavra-chave.</strong> O detector 4 casa o objeto da licitação com a descrição da categoria por termos, não por classificação CATMAT estruturada nem NLP. O alerta é uma <strong>suspeita para auditoria</strong>, não uma conclusão.</li>
+        <li><strong>Rank percentil dentro de PE</strong> mede posição relativa, não suficiência absoluta. Um estado inteiro subfinanciado teria municípios "azuis".</li>
+        <li><strong>População intercensitária interpolada</strong> (2022–2023) introduz erro pequeno nos denominadores desses anos.</li>
+        <li><strong>SIH ausente</strong> empobrece o subíndice epidemiológico, que fica só com notificações, sem internações.</li>
+      </ol>
+    </section>
+
+    <section id="reprodutibilidade">
+      <h2><span class="num">§12</span>Reprodutibilidade</h2>
+      <pre>uv sync --extra dev --extra sus       <b># ambiente</b>
+cp .env.example .env                  <b># chave da Transparência, quando houver</b>
+make spike                            <b># sonda as fontes, reporta cobertura real</b>
+make ingest                           <b># baixa IBGE + SINAN + PNCP</b>
+make silver gold ieas                 <b># camadas derivadas + índice + alertas</b>
+uv run pytest -q                      <b># 51 testes</b>
+make app                              <b># painel  (localhost:8501)</b>
+make api                              <b># API     (localhost:8000/docs)</b></pre>
+      <ul>
+        <li><strong>Determinismo:</strong> ingestão idempotente; <code>manifest.json</code> registra SHA-256 e contagem de linhas de cada arquivo bruto.</li>
+        <li><strong>Configuração versionada:</strong> todo parâmetro do índice em <code>conf/ieas.yml</code>.</li>
+        <li><strong>Testes:</strong> 51 — garantias de grão do gold, regressão dos três bugs de corrupção silenciosa, comportamento do IEAS nas quatro cores com fixtures sintéticas, fumaça da API.</li>
+        <li><strong>Tamanho:</strong> ~3.000 linhas de Python em <code>src/</code>, ~620 em <code>tests/</code>.</li>
+      </ul>
+    </section>
+
+    <section id="concurso">
+      <h2><span class="num">§13</span>Conformidade com o Concurso de Reúso de Dados Abertos da CGU</h2>
+      <ul>
+        <li><strong>Requisito de fonte</strong> (≥ 1 conjunto catalogado no <code>dados.gov.br</code>): atendido com quatro — IBGE, SINAN, PNCP e o próprio Portal da Transparência da CGU.</li>
+        <li><strong>Múltiplas fontes:</strong> o produto cruza epidemiologia (SINAN), contratações (PNCP) e demografia (IBGE) num grão único.</li>
+        <li><strong>Transparência / controle social:</strong> proveniência rastreável, alertas com explicação em linguagem natural, API aberta sem autenticação.</li>
+        <li><strong>Acessibilidade:</strong> paleta validada para daltonismo, tabela alternativa a cada mapa, contraste verificado.</li>
+        <li><strong>Formato:</strong> painel + API, categorias explicitamente aceitas pelo edital.</li>
+      </ul>
+      <p>Regras completas e cronograma em <code>docs/concurso-cgu.md</code>.</p>
+    </section>
+
+    <section id="futuro">
+      <h2><span class="num">§14</span>Trabalhos futuros</h2>
+      <p>Reconhecimento das fontes bloqueadas em 29/08/2026 (com chave e conexão reais) refinou os caminhos:</p>
+      <ol class="body-list">
+        <li><strong>Portal da Transparência — L1 parcial já é possível.</strong> A chave gratuita <strong>funciona</strong> para endpoints por município (<code>bolsa-familia-por-municipio</code>, <code>auxilio-emergencial-por-municipio</code>, <code>convenios</code> com <code>codigoIbge</code> → HTTP 200). Só <code>/transferencias</code> retorna 403 (exige nível de acesso gov.br elevado). Dá para montar um L1 parcial com o que responde.</li>
+        <li><strong>SIOPS (L2)</strong> — série histórica por TabNet/CSV; o site responde, o link direto de extração precisa ser garimpado. É a fonte que, sozinha, leva o eixo A a 67% e destrava as cores do farol.</li>
+        <li><strong>SNIS (saneamento) — não há mirror funcional.</strong> O sistema encerrou em 2023 (sucessor SINISA, sem série histórica municipal ainda) e o domínio não resolve; o catálogo do <code>dadosabertos.cidades.gov.br</code> só aponta para o domínio morto. Rotas realistas: <strong>Base dos Dados</strong> (exige BigQuery) ou substituir o subíndice pelos dados de água/esgoto/lixo do <strong>Censo 2022 do IBGE</strong> (fonte já ingerida, catalogada no <code>dados.gov.br</code>).</li>
+        <li><strong>CadÚnico</strong> — via SAGI/MDS; os endpoints antigos deram 404 (o SAGI migrou), a URL atual precisa ser localizada.</li>
+        <li><strong>Detector 3 (sobrepreço)</strong> — sem caminho na API pública do PNCP (o recurso usado devolve valor total da compra, não preço por item).</li>
+        <li><strong>Deploy do painel</strong> — arquivos prontos no repositório (<code>requirements.txt</code> só com a base leve, <code>.gitignore</code> versionando os ~1,7 MB de Parquet que o painel lê, <code>docs/deploy.md</code> com o passo a passo). Falta o push para o GitHub e o "New app" no Streamlit Community Cloud.</li>
+      </ol>
+    </section>
+
+  </article>
+
+  <footer class="footnote">
+    <p><strong>Referências de dados.</strong> PNCP · SINAN · IBGE Estimativas de População · Portal da Transparência — todos catalogados em <code>dados.gov.br/dados/conjuntos-dados/</code>.</p>
+    <p>Licença: dados públicos das fontes federais (IBGE, DATASUS, PNCP, CGU). A análise e a visualização (IEAS, painel, API) são obra derivada sob domínio público. Concebido e implementado com Claude (Anthropic).</p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("themeToggle");
+    function current() {
+      return root.getAttribute("data-theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    }
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      btn.textContent = next === "dark" ? "tema · claro" : "tema · escuro";
+    });
+
+    // scrollspy for the TOC
+    var links = Array.prototype.slice.call(document.querySelectorAll("#tocList a"));
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove("active"); });
+          var a = byId[e.target.id];
+          if (a) a.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-10% 0px -80% 0px" });
+    document.querySelectorAll("article section").forEach(function (s) { obs.observe(s); });
+  })();
+</script>

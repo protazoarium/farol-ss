@@ -1,101 +1,58 @@
-# Farol-SS Implementation Status
+# Farol-SS — estado do projeto
 
-**Date**: 2026-08-25 | **Phase**: MVP pipeline complete, awaiting financial data
+**Atualizado**: 2026-08-29 | Pipeline completo end-to-end; painel e API prontos.
 
-## Completed ✅
+Relatório técnico detalhado (pipeline, decisões metodológicas, resultados,
+limitações): **`docs/relatorio-tecnico.md`**.
 
-- [x] Etapa 1: Scaffold + Config (pyproject.toml, Makefile, CLI)
-- [x] Etapa 2: Spike validation (11/12 sources; 3 endpoints corrected)
-- [x] Etapa 3: Data ingest (IBGE, SINAN, PNCP partial)
-- [x] Etapa 4: Silver layer (epidemiologia consolidated)
-- [x] Etapa 5: Seeds curated (agravo→insumo, CID, CATMAT)
-- [x] Etapa 6: Gold layer (925 rows, 185×5, no orphans)
-- [x] Etapa 7: IEAS calculation (2 eixos, rank percentil, semáforo)
-- [x] Etapa 8: Anomaly detection (4 detectors, 2 implemented)
-- [x] Tests (43 passing, regressão + fixtures)
-- [x] Bootstrap script (consolidate_e_recalcula.sh)
+## Pronto ✅
 
-## Blocked 🔴
+| Bloco | Nota |
+|---|---|
+| Scaffold, config, seeds | 185 municípios, pesos/limiares em `conf/ieas.yml` |
+| Spike de 12 fontes | 3 endpoints do plano original corrigidos |
+| Ingestão IBGE | população, IPCA (deflator), malha municipal |
+| Ingestão SINAN | 6 agravos × 5 anos, 271.505 notificações, 185/185 municípios |
+| Ingestão PNCP | 6.150 contratos, 172/185 municípios, 2021–2024, R$ 3,28 bi homologados |
+| Silver | `epidemiologia.parquet` (3.111) + `pncp.parquet` (6.150) |
+| Gold | `fato_municipio_ano.parquet` — 925 linhas, grão único, L3 deflacionado p/ 2024 |
+| IEAS | 2 eixos, rank percentil, gap, semáforo, regra do cinza |
+| Detectores | 1 (desalinhamento estrutural) + 4 (suspeita de desabastecimento, 548 alertas) |
+| Painel Streamlit | 6 páginas: Home, Farol, Município, Alertas, Metodologia, API |
+| API FastAPI | `/municipios`, `/ieas`, `/alertas`, `/fontes` — JSON/CSV, sem auth |
+| Testes | 51 passando (`uv run pytest -q`) |
+| Paleta do mapa | validada p/ daltonismo (`dataviz/scripts/validate_palette.js`, modo claro) |
+| Deploy do painel | arquivos prontos: `requirements.txt` (base leve), `.gitignore` versiona ~1,7 MB de Parquet, `docs/deploy.md`. Falta o push + "New app" no Streamlit Cloud (contas do autor). |
+| Dependências | pyproject dividido: base (painel/API) + extras `pipeline` / `api` / `sus` / `dev` |
 
-| Source | Issue | Workaround |
-|---|---|---|
-| Transparência (L1) | HTTP 403 | Manual coleta ou propagação delay |
-| SIOPS (L2) | No real API | TabNet legado, scraping needed |
-| SNIS | DNS failure | `app4.mdr.gov.br` offline |
-| CadÚnico (vulnerability) | Not started | Next priority if funds available |
+## Bloqueado / pendente
 
-## Current Data State
+| Fonte | Eixo | Situação (recon 29/08) | Efeito |
+|---|---|---|---|
+| Portal da Transparência | A · L1 | chave **funciona** p/ `bolsa-familia-por-municipio`, `auxilio-emergencial-por-municipio`, `convenios`; só `/transferencias` dá 403 (nível gov.br) | L1 parcial é viável |
+| SIOPS | A · L2 | site responde; série histórica por TabNet/CSV, link de extração a garimpar | eixo A em 33% |
+| SNIS | N · saneamento | sistema encerrado em 2023 (→ SINISA); sem mirror funcional. Rotas: Base dos Dados ou Censo 2022 IBGE | eixo N em 33% |
+| CadÚnico | N · vulnerabilidade | SAGI migrou (endpoints antigos 404); URL atual a localizar | idem |
 
-```
-data/
-├── silver/
-│   ├── ibge_*.parquet (population, IPCA, malhas) ✓
-│   ├── sinan_*.parquet (30 files, 6 agravos, 5 anos) ✓
-│   ├── epidemiologia.parquet (consolidated, 3,111 rows) ✓
-│   ├── pncp_*.parquet (7 files, still ingesting) 🔄
-│   └── pncp.parquet (consolidated partial, 4,549 rows) ✓
-├── gold/
-│   ├── fato_municipio_ano.parquet (925 rows) ✓
-│   └── ieas.parquet (all cinza, pending L1+L2+SNIS) ✓
-└── manifest.json (proveniência) ✓
-```
+**Consequência**: os dois eixos ficam abaixo da cobertura mínima
+(`conf/ieas.yml`: N 60%, A 50%), então **o IEAS não é calculado e o farol é
+100% cinza** — a regra do cinza funcionando como projetada. O pipeline
+inteiro roda e passa a colorir sozinho quando L1/L2/saneamento entrarem.
 
-## To Finish MVP
-
-1. **Immediate** (when PNCP ingest completes):
-   ```bash
-   scripts/consolidate_e_recalcula.sh  # Rebuilds gold+IEAS with complete L3
-   ```
-
-2. **Next session** (Etapas 9-10):
-   - Streamlit painel (5 pages: farol, drill-down, alertas, metodologia, API docs)
-   - FastAPI service (JSON/CSV endpoints)
-   - Paleta de cores segura para daltonismo (via dataviz skill)
-
-3. **Optional enhancements**:
-   - SIOPS scraping (if time allows)
-   - Detectores 2-3 (quando L1+L2 chegarem)
-   - CadÚnico integração
-
-## Key Lessons Embedded
-
-**See `memory/data-pipeline-silent-bugs.md` for three critical corrections:**
-- `.lstrip("260")` corromped 22/185 codes
-- `pysus.sinan(as_dataframe=True)` OOM-killed at 6.4GB
-- `.drop_duplicates()` lost 66% of case data
-
-All caught by real-data testing, fixed with regression tests.
-
-## Commands
+## Comandos
 
 ```bash
-make spike              # Validate source accessibility
-make ingest             # Fetch IBGE, SINAN, PNCP
-make silver             # Consolidate epidemiologia
-make gold               # Join into grão único
-make ieas               # Calculate IEAS + alertas
-make all                # Complete pipeline
-
-make test               # 43 tests
-make lint               # ruff check + format
-
-scripts/consolidate_e_recalcula.sh  # Final step when PNCP done
+make spike | ingest | silver | gold | ieas | all
+make app                # painel Streamlit
+make api                # API aberta
+make test | lint
 ```
 
-## Commits
+## Próximos passos (fora do escopo desta entrega)
 
-- **07e5f6e**: MVP pipeline end-to-end (41 files, 6023 insertions)
-- **437e84b**: PNCP silver consolidation module
-- **8fc17a3**: Bootstrap script for PNCP completion
-
-## Next Session Checklist
-
-- [ ] Check if PNCP ingest finished (`ps aux | grep farol ingest`)
-- [ ] If yes, run `scripts/consolidate_e_recalcula.sh`
-- [ ] Verify IEAS shows real colors (not all cinza)
-- [ ] Build Streamlit pages (start with Farol map)
-- [ ] Use dataviz skill for color palette
-
----
-
-**Repository**: `/home/pedro/reuso_projeto/` | **Submissions ready at**: Etapas 1–8
+1. Destravar SIOPS (download da série histórica de indicadores municipais) —
+   é a fonte de Alocação mais viável e destrava as cores do farol.
+2. Reabrir o Portal da Transparência (investigar o 403 além do delay de
+   propagação da chave).
+3. Coletar SNIS por mirror alternativo (`dadosabertos.cidades.gov.br`).
+4. Deploy do painel (Streamlit Community Cloud) para a submissão do concurso.
