@@ -40,17 +40,31 @@ EOF
 #    (viraram metadados/abstract); começa em "## 1. Motivação e objetivo".
 sed -n '/^## 1\. Motiva/,$p' "$SRC" > "$TMP/body.md"
 
-cat "$TMP/meta.md" "$TMP/body.md" > "$TMP/full.md"
+# 3. Sumário estático (as seções já são numeradas à mão no .md). Linhas com
+#    quebra forte (\) e ponto escapado, para o Word não renumerar sozinho e
+#    não depender de "atualizar campos".
+{
+  echo "## Sumário"
+  echo
+  grep -E '^#{2,3} ' "$TMP/body.md" | sed -E \
+    -e 's/^### ([0-9]+)\.([0-9]+) /\&nbsp;\&nbsp;\&nbsp;\&nbsp;\1.\2 /' \
+    -e 's/^## ([0-9]+)\. /\1\\. /' \
+    -e 's/^## //' \
+    -e 's/$/\\/'
+  echo
+  # quebra de página antes do corpo (OpenXML bruto, entendido pelo Word)
+  printf '```{=openxml}\n<w:p><w:r><w:br w:type="page"/></w:r></w:p>\n```\n'
+  echo
+} > "$TMP/toc.md"
 
-# 3. Conversão. As seções do .md já são numeradas manualmente (1, 2, 2.1…),
-#    então não usamos --number-sections; só promovemos ## → # para virarem
-#    Título 1 no Word.
+cat "$TMP/meta.md" "$TMP/toc.md" "$TMP/body.md" > "$TMP/full.md"
+
+# 4. Conversão. Promove ## → # para virarem Título 1 no Word; sem
+#    --number-sections (a numeração 1, 2, 2.1… já está no texto).
 pandoc "$TMP/full.md" \
-  --from=gfm+yaml_metadata_block \
+  --from=markdown+pipe_tables+yaml_metadata_block+raw_attribute \
   --to=docx \
   --output="$OUT" \
-  --toc --toc-depth=3 \
-  --shift-heading-level-by=-1 \
-  --metadata=toc-title:"Sumário"
+  --shift-heading-level-by=-1
 
 echo "✓ $OUT ($(du -h "$OUT" | cut -f1))"
