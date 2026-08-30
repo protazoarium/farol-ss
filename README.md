@@ -11,14 +11,14 @@ Monitor territorial de efetividade de gastos em saúde e vulnerabilidade sanitá
 | Ingestão — SINAN (epidemiologia) | ✅ | 6 agravos × 5 anos, 185/185 municípios |
 | Ingestão — PNCP (L3, compras municipais) | ✅ | 6.150 contratos, 172/185 municípios, 2021–2024 |
 | Ingestão — Compras.gov.br (L3 federal) | ⏳ | endpoint validado no spike, módulo não escrito |
-| Ingestão — SIOPS (L2) | 🔴 | sem API real; TabNet legado exige scraping de formulário |
+| Ingestão — SIOPS (L2) | ✅ | execução própria R$/hab via TabNet legado (POST, ISO-8859-1); 184/185 |
 | Ingestão — SNIS (saneamento) | 🔴 | domínio `app4.mdr.gov.br` não resolve DNS |
 | Ingestão — Portal da Transparência (L1) | 🔴 | HTTP 403 mesmo com chave ativada |
-| Ingestão — CadÚnico (vulnerabilidade) | ⏳ | não iniciado |
+| Ingestão — CadÚnico (vulnerabilidade) | ✅ | taxa de extrema pobreza via SAGI/MDS (Solr); 185/185 |
 | Camada silver | ✅ | epidemiologia (3.111 linhas) + PNCP (6.150 linhas) |
 | Camada gold (fato município×ano) | ✅ | 925 linhas; população + epidemiologia + L3 deflacionado; L1/L2/saneamento entram como NULL |
-| IEAS (`index/ieas.py`) | ✅ | testado com fixtures sintéticas (vermelho/verde/azul/cinza); hoje 100% cinza pela regra de cobertura |
-| Detectores de anomalia | ✅ (2 de 4) | desalinhamento estrutural + suspeita de desabastecimento (548 alertas) |
+| IEAS (`index/ieas.py`) | ✅ | **calculado para 335/925 município-anos** (2024: 156/185 com cor); regra do cinza nos demais |
+| Detectores de anomalia | ✅ (3 de 4) | desalinhamento estrutural + desabastecimento + sobrepreço — 677 alertas |
 | Painel Streamlit | ✅ | 6 páginas: Home, Farol (mapa), Município, Alertas, Metodologia, API |
 | API FastAPI | ✅ | `/municipios`, `/ieas`, `/alertas`, `/fontes` — JSON/CSV, sem auth |
 
@@ -34,7 +34,7 @@ cp .env.example .env     # PORTAL_TRANSPARENCIA_API_KEY, se/quando destravar
 make spike               # sonda as fontes federais, reporta cobertura real
 make ingest              # baixa IBGE + SINAN + PNCP para data/bronze e silver/
 make silver gold ieas    # camadas derivadas + IEAS + alertas
-uv run pytest -q         # 51 testes
+uv run pytest -q         # 59 testes
 
 make app                 # painel Streamlit (localhost:8501)
 make api                 # API aberta FastAPI (localhost:8000/docs)
