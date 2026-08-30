@@ -2,7 +2,7 @@
 
 **Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco**
 
-Versão 1.1 · 30 de agosto de 2026 · Concebido e implementado com Claude (Anthropic)
+Versão 1.2 · 30 de agosto de 2026 · Concebido e implementado com Claude (Anthropic)
 
 ---
 
@@ -17,19 +17,22 @@ recebe/gasta, expresso num semáforo de quatro cores mais um estado "sem dado".
 
 Esta versão entrega o **pipeline de dados completo e reprodutível**
 (ingestão → silver → gold → índice → alertas), um **painel web** de seis páginas
-e uma **API aberta** em JSON/CSV. Cinco fontes federais alimentam o índice hoje:
-SINAN (epidemiologia), CadÚnico/SAGI (vulnerabilidade), PNCP (contratação de
-insumos, L3), SIOPS (execução própria municipal, L2) e IBGE (população, IPCA,
-malha). Com isso o eixo Necessidade fica **completo em 2 de 3 subíndices** e o
-eixo Alocação em **2 de 3 camadas** — ambos acima do limiar de cobertura —, e o
-**IEAS é calculado para 335 dos 925 município-anos** (156 dos 185 municípios em
-2024). Onde falta a camada L3 do PNCP no ano, a Alocação cai abaixo do limiar e
-o farol fica cinza: a *regra do cinza* recusa-se a publicar um número derivado
-de dado majoritariamente ausente.
+e uma **API aberta** em JSON/CSV. Sete fontes federais alimentam o índice:
+SINAN (epidemiologia), Censo 2022 do IBGE (saneamento), CadÚnico/SAGI
+(vulnerabilidade), PNCP (contratação de insumos, L3), SIOPS (execução própria
+municipal, L2), Portal da Transparência (repasse federal, L1 — parcial) e IBGE
+(população, IPCA, malha). O eixo **Necessidade fica completo em 3 de 3
+subíndices** para todos os 185 municípios; o eixo **Alocação** tem L2 e L3 para
+quase todos e L1 para 42 (a chave gratuita do Portal da Transparência é
+bloqueada por volume — a coleta é retomável). O **IEAS é calculado para 468 dos
+925 município-anos** (156 dos 185 municípios em 2024). Onde falta a camada L3 do
+PNCP no ano, a Alocação cai abaixo do limiar e o farol fica cinza: a *regra do
+cinza* recusa-se a publicar um número derivado de dado majoritariamente ausente.
 
-A única fonte ainda bloqueada é o **Portal da Transparência** (repasse federal
-L1, HTTP 403 no endpoint `/transferencias`); o SNIS foi encerrado em 2023 e o
-subíndice de saneamento aguarda substituição pelo Censo 2022 do IBGE.
+Os quatro detectores de anomalia do plano estão ativos, incluindo o de
+**resíduo de regressão** (alocação sistematicamente abaixo do que a necessidade
+prevê, controlando pelo padrão do estado), viável agora que a Alocação tem as
+três camadas.
 
 Palavras-chave: dados abertos, saúde pública, contratações públicas, PNCP,
 SINAN, índice territorial, arquitetura *lakehouse*, DuckDB.
@@ -69,12 +72,13 @@ Metodologia do painel e o endpoint `/fontes` da API.
 | IBGE — IPCA (agregado 1737) | deflator para 2024 | ✅ ingerido |
 | IBGE — Malhas Territoriais | geometria municipal (mapa) | ✅ ingerido |
 | DATASUS/SINAN (via PySUS) | eixo N · subíndice epidemiológico | ✅ ingerido |
+| IBGE — Censo 2022 (agregados 6803/6805/6892) | eixo N · subíndice de saneamento | ✅ ingerido (déficit de água/esgoto/lixo, 185/185) |
 | CadÚnico — MI Social / SAGI-MDS | eixo N · subíndice de vulnerabilidade | ✅ ingerido (índice Solr, 185/185, 2020–2024) |
-| PNCP — Portal Nacional de Contratações Públicas | eixo A · camada L3 (compras municipais) | ✅ ingerido (172/185; itens com preço unitário para ~880 contratos de saúde) |
+| PNCP — Portal Nacional de Contratações Públicas | eixo A · camada L3 (compras municipais) | ✅ ingerido (172/185; itens com preço unitário para 801 contratos de saúde) |
 | SIOPS | eixo A · camada L2 (execução própria municipal) | ✅ ingerido (TabNet legado por POST; 184/185, 2020–2024) |
+| Portal da Transparência (CGU) | eixo A · camada L1 (repasse federal) | 🔶 **L1 parcial**: `/transferencias` dá HTTP 403; as transferências sociais por município respondem, mas a chave gratuita é bloqueada por volume (42/185 coletados; retomável) |
 | Compras.gov.br / SIASG | eixo A · L3 federal (complemento) | ⏳ endpoint validado, módulo não escrito |
-| SNIS | eixo N · subíndice de saneamento | 🔴 sistema encerrado em 2023 (sucessor: SINISA); domínio da série histórica não resolve. Substituir pelo Censo 2022 do IBGE |
-| Portal da Transparência (CGU) | eixo A · camada L1 (repasse federal) | 🔴 endpoint `/transferencias` retorna HTTP 403 (exige nível de acesso gov.br elevado) |
+| SNIS | eixo N · subíndice de saneamento | 🔴 encerrado (2023) — substituído pelo Censo 2022 do IBGE (linha acima) |
 
 ### 2.1 Sondagem de fontes (*spike*)
 
@@ -190,11 +194,15 @@ painel Streamlit  ·  API FastAPI  (leem só o gold, nunca recalculam)
 2. **Epidemiologia** (SINAN) → `casos_<agravo>` (6 colunas) e
    `taxa_<agravo>` = casos / população × 100 000. Município sem notificação
    recebe **0 casos** (dado real), não `NULL`.
-3. **Alocação L3** (PNCP) e **L2** (SIOPS) → `l3_per_capita` e `l2_per_capita`,
-   ambos **deflacionados para 2024** pela média anual do IPCA. A camada L1
-   (Portal da Transparência) entra como `NULL`.
+3. **Alocação** — L2 (SIOPS), L3 (PNCP) e L1 (Transparência, parcial) →
+   `l2_per_capita`, `l3_per_capita`, `l1_per_capita`, todos **deflacionados
+   para 2024** pela média anual do IPCA (o L1 é o valor mensal de junho
+   anualizado × 12).
 4. **Vulnerabilidade** (CadÚnico) → `extrema_pobreza_por_mil_hab` = famílias em
    extrema pobreza / população × 1000.
+5. **Saneamento** (Censo 2022) → `sub_saneamento_bruto` = déficit ponderado de
+   água/esgoto/lixo (pesos de `conf/ieas.yml`), um retrato de 2022 aplicado a
+   todo o recorte.
 
 O resultado, `fato_municipio_ano.parquet`, tem **925 linhas, zero código órfão,
 zero par (município, ano) duplicado** — garantido por teste
@@ -216,7 +224,7 @@ conta final — apenas a **posição relativa** dentro do estado. Isso torna o
 | Subíndice | Peso | Fonte | Estado |
 |---|---|---|---|
 | Epidemiológico | 0,40 | SINAN | ✅ |
-| Saneamento (déficit = 1 − cobertura) | 0,35 | SNIS | 🔴 (substituir por Censo 2022 IBGE) |
+| Saneamento (déficit de água + esgoto + lixo) | 0,35 | Censo 2022 do IBGE | ✅ |
 | Vulnerabilidade (taxa de famílias em extrema pobreza) | 0,25 | CadÚnico/SAGI | ✅ |
 
 O subíndice epidemiológico é, ele próprio, uma combinação ponderada:
@@ -230,7 +238,7 @@ residência e diagnóstico principal.
 
 | Camada | Peso | Fonte | Estado |
 |---|---|---|---|
-| L1 — repasse federal | 0,35 | Portal da Transparência | 🔴 HTTP 403 |
+| L1 — repasse federal | 0,35 | Portal da Transparência | 🔶 parcial (42/185) |
 | L2 — execução própria municipal | 0,40 | SIOPS | ✅ |
 | L3 — contratação de insumos | 0,25 | PNCP + Compras.gov.br | ✅ (PNCP) |
 
@@ -255,14 +263,15 @@ Um eixo cuja **fração de componentes presentes** cai abaixo do limiar
 o `gap` vira `NaN` e o farol fica cinza. O sistema nunca publica um número
 derivado de dado majoritariamente ausente.
 
-Hoje: Necessidade tem **2 de 3** subíndices (epidemiológico + vulnerabilidade,
-67%) e Alocação tem **2 de 3** camadas (L2 + L3, 67% — mas só onde há PNCP no
-ano). Os dois eixos passam o limiar para **335 dos 925 município-anos** (156 dos
-185 municípios em 2024). Os 590 município-anos cinza são, na maioria, os que não
-têm contratação publicada no PNCP naquele ano — a cobertura da camada L3 sobe de
-6 municípios em 2021 para 157 em 2024, então 2020–2021 saem quase inteiros cinza.
-Ingerir a camada L1 (Portal da Transparência) fecharia o eixo Alocação em 3 de 3
-e reduziria bastante o cinza.
+Hoje a **Necessidade está completa (3 de 3 subíndices) para todos os 185
+municípios** — o subíndice de saneamento entrou via Censo 2022. A **Alocação**
+tem L2 e L3 para quase todos e L1 para 42 municípios (a chave do Portal da
+Transparência foi bloqueada por volume). O IEAS é calculado para **468 dos 925
+município-anos** (156 dos 185 municípios em 2024). Os cinza restantes são, na
+maioria, município-anos sem contratação no PNCP naquele ano — a cobertura de L3
+sobe de 6 municípios em 2021 para 157 em 2024, então 2020–2021 saem quase
+inteiros cinza. Completar a coleta de L1 leva o eixo Alocação a 3 de 3 para o
+resto do estado.
 
 ---
 
@@ -333,23 +342,34 @@ sinal que o IEAS existe para detectar**.
 
 ## 7. Detectores de anomalia
 
-Do plano de quatro detectores, **três estão ativos**. Cada alerta traz uma
+Os **quatro detectores** do plano estão ativos. Cada alerta traz uma
 `explicacao` em linguagem natural: um alerta que um cidadão não consegue ler
 não serve para auditoria.
 
 ### 7.1 Detector 1 — desalinhamento estrutural
 
 Deriva direto do `gap`: todo farol vermelho é, por definição, um alerta de
-necessidade não atendida. Depende do IEAS ter cor, portanto **não produz linhas
-nesta versão** (tudo cinza).
+necessidade não atendida. É um corte fixo (`gap ≤ −0,33`).
 
-### 7.2 Detector 3 — suspeita de sobrepreço
+### 7.2 Detector 2 — alocação abaixo do esperado
+
+Ao contrário do detector 1, **controla pela relação necessidade→alocação do
+estado inteiro**: ajusta, por ano, uma reta `alocacao_rank ~ necessidade_rank`
+e mede o resíduo de cada município, com escala robusta (1,4826·MAD, para que os
+próprios *outliers* não inflem o corte). Sinaliza quem tem resíduo padronizado
+≤ −2 **e** pelo menos 8 pontos percentuais abaixo do previsto — alocação
+sistematicamente aquém, dado o padrão do estado. Só roda sobre município-anos
+com o eixo de Alocação inteiro (L1+L2+L3), então hoje cobre os 76 município-anos
+que têm as três camadas.
+
+### 7.3 Detector 3 — suspeita de sobrepreço
 
 Preço unitário de um item de insumo acima de **Q3 + fator·IQR** da distribuição
-da mesma categoria em PE (`fator` em `conf/ieas.yml`). Comparar só dentro da
-categoria — via a coluna `palavras_chave` curada de `seeds/catmat_saude.csv` —
-evita o falso-positivo de confrontar o preço de uma seringa com o de um
-tomógrafo.
+da **mesma categoria e da mesma unidade de medida** em PE (`fator` em
+`conf/ieas.yml`). Comparar só dentro de (categoria, unidade) — a categoria via
+a coluna `palavras_chave` curada de `seeds/catmat_saude.csv`, a unidade
+normalizada (frasco/ampola/comprimido/…) — evita confrontar o preço de uma
+seringa com o de um tomógrafo, ou de um frasco com o de uma ampola.
 
 O preço por item **não** vem do recurso de consulta genérico do PNCP (esse só
 traz o valor total da compra); vem de
@@ -358,7 +378,7 @@ esse recurso para as ~800 contratações de saúde (modalidades Pregão, Dispens
 Inexigibilidade; Concorrência é obra, sem preço unitário comparável), de forma
 retomável. Só entram itens `Material` sem orçamento sigiloso.
 
-### 7.3 Detector 4 — suspeita de desabastecimento
+### 7.4 Detector 4 — suspeita de desabastecimento
 
 O detector mais original do projeto. Liga **incidência sustentada de um agravo**
 (SINAN, taxa no percentil 75+ de PE num ano) à **ausência de contratação da
@@ -371,9 +391,6 @@ no PNCP naquele ano**. Um município em surto que não publicou nenhuma
 contratação é *lacuna de dado* (o PNCP ainda não é universal), não *falha de
 política* — flagá-lo transformaria a cobertura incompleta do portal em alarme
 falso.
-
-O detector 2 (resíduo de regressão robusta) fica de fora: exige o eixo de
-Alocação completo (L1+L2+L3), e L1/L2 seguem bloqueados.
 
 ---
 
@@ -433,11 +450,13 @@ serializados como `null` JSON válido — coberto por teste (`tests/test_api.py`
 | | municípios cobertos | 172/185 |
 | | valor homologado total (nominal) | **R$ 3,28 bilhões** |
 | | por modalidade | Dispensa 2.646 · Pregão eletrônico 1.610 · Concorrência 1.140 · Inexigibilidade 751 |
-| PNCP itens | itens com preço unitário (contratações de saúde) | **4.691** de 878 contratações |
-| SIOPS | município-anos de execução própria em saúde (R$/hab) | **920** (184/185 municípios × 5 anos) |
-| CadÚnico/SAGI | município-anos de extrema pobreza | **925** (185/185 × 5 anos) |
+| PNCP itens | itens com preço unitário (801 contratos de saúde) | **4.691** |
+| SIOPS | município-anos de execução própria em saúde (R$/hab) | **920** (184/185 × 5 anos) |
+| CadÚnico/SAGI | município-anos de taxa de extrema pobreza | **925** (185/185 × 5 anos) |
+| IBGE Censo 2022 | municípios com déficit de água/esgoto/lixo | **185/185** (cobertura mediana: água 64%, esgoto 48%, lixo 74%) |
+| Transparência (L1 parcial) | município-anos de transferências sociais federais | **209** (42/185 municípios; coleta interrompida por bloqueio da chave) |
 | Gold | linhas em `fato_municipio_ano` | 925 (185 × 5) |
-| | município-anos com L3 | 336 |
+| | município-anos com L3 / L1 | 336 / 209 |
 
 O PNCP tem **crescimento acentuado de cobertura ano a ano** (6 municípios em
 2021 → 157 em 2024), reflexo da adesão progressiva à Lei 14.133/2021 — o que
@@ -448,40 +467,42 @@ análise retrospectiva.
 
 | Métrica | Valor |
 |---|---|
-| Município-anos com IEAS calculado | **335 de 925** |
-| Farol (todos os anos) | 130 verde · 92 vermelho · 62 azul · 51 amarelo · 590 cinza |
-| Farol em 2024 | 68 verde · 41 azul · 26 amarelo · 21 vermelho · 29 cinza |
-| Cobertura do eixo Necessidade | 0,67 (uniforme) — epidemiológico + vulnerabilidade |
-| Cobertura do eixo Alocação | 0,67 onde há L2 + L3; 0,33 onde só L2 |
+| Município-anos com IEAS calculado | **468 de 925** |
+| Farol (todos os anos) | 166 verde · 109 vermelho · 104 azul · 89 amarelo · 457 cinza |
+| Farol em 2024 | 64 verde · 36 azul · 31 amarelo · 30 vermelho · 24 cinza |
+| Cobertura do eixo Necessidade | **1,00 para todos** — epidemiológico + saneamento + vulnerabilidade |
+| Cobertura do eixo Alocação | 1,00 (L1+L2+L3) em 76 · 0,67 (L2+L3) em 392 · 0,33 (só L2) em 453 |
 
 Distribuição do farol por ano (só município-anos com IEAS calculado):
 
 | Ano | 🔴 verm. | 🟠 amar. | 🟢 verde | 🔵 azul | cinza |
 |---|---|---|---|---|---|
-| 2020 | — | — | — | — | 185 |
-| 2021 | 3 | 1 | 2 | 0 | 179 |
-| 2022 | 50 | 16 | 32 | 4 | 83 |
-| 2023 | 18 | 8 | 28 | 17 | 114 |
-| 2024 | 21 | 26 | 68 | 41 | 29 |
+| 2020 | 2 | 7 | 15 | 18 | 143 |
+| 2021 | 4 | 9 | 21 | 13 | 138 |
+| 2022 | 54 | 28 | 29 | 6 | 68 |
+| 2023 | 19 | 14 | 37 | 31 | 84 |
+| 2024 | 30 | 31 | 64 | 36 | 24 |
 
 Os municípios **vermelhos** em 2024 — necessidade no topo do estado, alocação no
-fundo — concentram-se na Zona da Mata Norte e no Agreste: Aliança (necessidade
-percentil 93, alocação 16), Paudalho (74 / 6), Bonito (88 / 21), Moreno (79 /
-13), Catende (91 / 25). É exatamente o descompasso que o IEAS existe para
-detectar. O subíndice epidemiológico tem média 0,50 (faixa 0,23–0,78); o de
-vulnerabilidade, taxa de extrema pobreza mediana de ~190 famílias por mil
-habitantes (faixa 6–608).
+fundo — concentram-se na Zona da Mata Norte e na Região Metropolitana: Ilha de
+Itamaracá (necessidade percentil 95, alocação 15), Paudalho (75 / 4), Feira Nova
+(77 / 12), Carpina (74 / 10), Pedra (88 / 24). É exatamente o descompasso que o
+IEAS existe para detectar. As coberturas censitárias de saneamento em PE são
+baixas — água 64%, esgoto 48%, lixo 74% na mediana —, o que puxa o subíndice de
+Necessidade para cima em quase todo o estado.
 
 ### 9.3 Alertas
 
-**677 alertas** no total:
+**692 alertas** no total, dos quatro detectores:
 
 - **581 de suspeita de desabastecimento** — 152 municípios, concentrados nos
   anos de surto de arbovirose (2022 e 2024).
-- **92 de desalinhamento estrutural** — os faróis vermelhos, agora que o índice
-  tem cor (o detector 1 não produzia nada na versão anterior).
-- **4 de suspeita de sobrepreço** — itens de dipirona e amoxicilina+clavulanato
-  a 4,7–6,1× a mediana de PE da categoria.
+- **109 de desalinhamento estrutural** — os faróis vermelhos.
+- **1 de alocação abaixo do esperado** (detector 2) — hoje conservador porque só
+  76 município-anos têm o eixo de Alocação inteiro; cresce com a coleta de L1.
+- **1 de suspeita de sobrepreço** — após restringir a comparação a (categoria,
+  unidade de medida), sobra um item de amoxicilina em comprimido a 4,2× a
+  mediana de PE.
 
 | Ano | Desabastecimento |
 |---|---|
@@ -499,23 +520,25 @@ período."*
 
 ## 10. Limitações e ameaças à validade
 
-1. **O eixo Alocação ainda tem só 2 de 3 camadas.** Falta L1 (repasse federal,
-   Portal da Transparência). O `gap` de hoje compara necessidade contra L2+L3;
-   quando L1 entrar, o ranking de alocação muda para alguns municípios.
-2. **O subíndice de saneamento está ausente** (SNIS encerrado). O eixo
-   Necessidade combina epidemiologia e vulnerabilidade, mas não déficit
-   sanitário — que é justamente o elo mais forte com as doenças de veiculação
-   hídrica. Substituto planejado: Censo 2022 do IBGE.
-3. **Cobertura desigual do PNCP no tempo.** A camada L3 é rala em 2020–2021
-   (2020 sai inteiro cinza) e densa em 2024. Comparações entre anos devem
-   considerar isso.
-4. **Casamento compra × insumo por palavra-chave.** Os detectores 3 e 4 casam
+1. **L1 (repasse federal) é parcial** — 42 de 185 municípios. A chave gratuita
+   do Portal da Transparência é bloqueada por volume de requisições; a coleta
+   é retomável (`farol ingest-l1`), com pausa de 1,5 s entre chamadas. Onde L1
+   ainda falta, o eixo de Alocação usa só L2+L3.
+2. **L1 mede transferências sociais, não repasse fundo a fundo.** O endpoint
+   `/transferencias` (repasse ao ente) exige acesso gov.br elevado; usamos
+   Bolsa Família + BPC por município como proxy do dinheiro federal no
+   território, documentado como tal.
+3. **Saneamento é um retrato de 2022.** O Censo não é anual; o mesmo déficit é
+   aplicado aos 5 anos do recorte. O SNIS, que era anual, foi encerrado.
+4. **Cobertura desigual do PNCP no tempo.** A camada L3 é rala em 2020–2021 e
+   densa em 2024. Comparações entre anos devem considerar isso.
+5. **Casamento compra × insumo por palavra-chave.** Os detectores 3 e 4 casam
    texto de licitação com categorias de `seeds/catmat_saude.csv` por termos
    curados, não por classificação CATMAT estruturada nem NLP. São **suspeitas
    para auditoria**, não conclusões.
-5. **Detector 3 não normaliza por unidade de medida.** Compara preços unitários
-   de "ampola" com "frasco" dentro da mesma categoria — a explicação mostra a
-   unidade para o auditor julgar, mas o corte por IQR ainda mistura unidades.
+6. **Detector 3 agrupa por unidade, mas não converte dose.** "Comprimido de
+   500 mg" e "comprimido de 250 mg" ainda caem no mesmo grupo — falta parsear
+   a dosagem da descrição.
 6. **Rank percentil dentro de PE** mede posição relativa, não suficiência
    absoluta. Um estado inteiro subfinanciado teria municípios "azuis".
 7. **CadÚnico**: a taxa de extrema pobreza usa a competência de dezembro de cada
@@ -535,7 +558,7 @@ make spike                            # sonda as fontes, reporta cobertura real
 make ingest                           # IBGE + SINAN + PNCP + SIOPS + CadÚnico
 farol ingest-itens                    # itens do PNCP (preço unitário; retomável)
 make silver gold ieas                 # camadas derivadas + índice + alertas
-uv run pytest -q                      # 59 testes
+uv run pytest -q                      # 64 testes
 make app                              # painel  (localhost:8501)
 make api                              # API     (localhost:8000/docs)
 ```
@@ -543,7 +566,7 @@ make api                              # API     (localhost:8000/docs)
 - **Determinismo**: a ingestão é idempotente; `data/manifest.json` registra
   SHA-256 e contagem de linhas de cada arquivo bruto.
 - **Configuração versionada**: todo parâmetro do índice em `conf/ieas.yml`.
-- **Testes**: 59 no total — grão do gold (incluindo o join L2/vulnerabilidade),
+- **Testes**: 64 no total — grão do gold, os quatro detectores com fixtures,
   regressão dos três bugs de corrupção silenciosa, IEAS nas quatro cores e os
   detectores 3 e 4 com fixtures, parsers de SIOPS e CadÚnico, fumaça da API.
 - **Tamanho**: ~3.700 linhas de Python em `src/`, ~800 em `tests/`.
@@ -570,28 +593,22 @@ Regras completas e cronograma em `docs/concurso-cgu.md`.
 
 ## 13. Trabalhos futuros
 
-Entre a v1.0 e a v1.1, três fontes que constavam como bloqueadas foram
-destravadas — SIOPS (L2), CadÚnico (vulnerabilidade) e o recurso de item do
-PNCP (detector 3) —, o que deu cor ao farol. O que resta:
+Da v1.0 à v1.2, todas as fontes do plano foram destravadas — SIOPS (L2),
+CadÚnico (vulnerabilidade), Censo 2022 (saneamento), Portal da Transparência
+(L1 parcial), preço por item do PNCP (detector 3) — e os quatro detectores
+estão ativos. O que resta:
 
-1. **Portal da Transparência — L1.** O endpoint `/transferencias` exige nível de
-   acesso gov.br elevado (HTTP 403). A chave gratuita já **funciona** para
-   `bolsa-familia-por-municipio`, `auxilio-emergencial-por-municipio` e
-   `convenios` (todos com `codigoIbge` → HTTP 200); dá para montar um L1 parcial
-   com esses e fechar o eixo Alocação em 3 de 3 camadas.
-2. **Saneamento (substituto do SNIS).** O SNIS foi encerrado em 2023 (sucessor
-   SINISA, sem série histórica municipal) e o domínio da série histórica não
-   resolve. Substituir o subíndice pelos dados de **abastecimento de água /
-   esgoto / lixo do Censo 2022 do IBGE** — mesma família de fonte já ingerida,
-   catalogada no `dados.gov.br` —, o que fecha o eixo Necessidade em 3 de 3.
-3. **Detector 3 — normalização por unidade.** Comparar preço unitário só entre
-   itens da mesma unidade de medida (ou converter mg/ml → dose), e rodar
-   `farol ingest-itens` completo (hoje ~880 de ~1.400 contratos de saúde).
-4. **Detector 2 (resíduo de regressão)** passa a ser viável quando L1 entrar e o
-   eixo Alocação ficar completo.
-5. **Deploy do painel** — arquivos prontos no repositório; o push já foi feito
-   para <https://github.com/protazoarium/farol-ss>. Falta o "New app" no
-   Streamlit Community Cloud (conta do autor).
+1. **Completar o L1.** 42 de 185 municípios coletados antes de a chave da
+   Transparência ser bloqueada por volume. `farol ingest-l1` retoma de onde
+   parou (pausa de 1,5 s/chamada, ~40 min para o resto). Isso fecha o eixo
+   Alocação em 3 de 3 para o estado inteiro e dá base ao detector 2.
+2. **Dose no detector 3.** Parsear a dosagem (mg, ml) da descrição do item para
+   comparar preços de fato equivalentes.
+3. **Compras.gov.br (L3 federal)** — complemento de escopo federal ao L3
+   municipal do PNCP; endpoint já validado no spike.
+4. **Deploy do painel** — arquivos prontos; o push já foi feito para
+   <https://github.com/protazoarium/farol-ss>. Falta o "New app" no Streamlit
+   Community Cloud (conta do autor).
 
 ---
 

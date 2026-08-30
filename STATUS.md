@@ -16,13 +16,15 @@ limitações): **`docs/relatorio-tecnico.md`**.
 | Ingestão PNCP | 6.150 contratos + 4.691 itens com preço unitário; 172/185 municípios |
 | Ingestão SIOPS (L2) | execução própria em saúde R$/hab via TabNet legado; 184/185 × 5 anos |
 | Ingestão CadÚnico (vulnerabilidade) | taxa de extrema pobreza via SAGI/MDS (Solr); 185/185 × 5 anos |
+| Ingestão saneamento (N) | déficit água/esgoto/lixo do Censo 2022 do IBGE; 185/185 |
+| Ingestão L1 (Transparência) | transf. sociais federais por município; **42/185** (chave bloqueada por volume; retomável) |
 | Silver | `epidemiologia.parquet` (3.111) + `pncp.parquet` (6.150) |
 | Gold | `fato_municipio_ano.parquet` — 925 linhas, grão único, L3 deflacionado p/ 2024 |
-| IEAS | **calculado para 335/925 município-anos** (era 0); 2024: 156/185 com cor |
-| Detectores | 1, 3 e 4 ativos — 677 alertas (581 desabastecimento, 92 desalinhamento, 4 sobrepreço) |
+| IEAS | **calculado para 468/925 município-anos**; Necessidade 3/3 para todos; 2024: 161/185 com cor |
+| Detectores | **os 4 ativos** — 692 alertas (581 desabast., 109 desalinh., 1 resíduo-regressão, 1 sobrepreço) |
 | Painel Streamlit | 6 páginas: Home, Farol, Município, Alertas, Metodologia, API |
 | API FastAPI | `/municipios`, `/ieas`, `/alertas`, `/fontes` — JSON/CSV, sem auth |
-| Testes | 59 passando (`uv run pytest -q`) |
+| Testes | 64 passando (`uv run pytest -q`) |
 | Paleta do mapa | validada p/ daltonismo (`dataviz/scripts/validate_palette.js`, modo claro) |
 | Deploy do painel | arquivos prontos: `requirements.txt` (base leve), `.gitignore` versiona ~1,7 MB de Parquet, `docs/deploy.md`. Falta o push + "New app" no Streamlit Cloud (contas do autor). |
 | Dependências | pyproject dividido: base (painel/API) + extras `pipeline` / `api` / `sus` / `dev` |
