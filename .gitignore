@@ -1,4 +1,25 @@
-data/
+# Dados: ignora os brutos do PySUS, caches e arquivos por-página, mas versiona
+# o pequeno recorte derivado (~1,7 MB) que o painel implantado precisa ler —
+# senão o deploy no Streamlit Cloud exigiria rodar o pipeline inteiro.
+# Regerar os derivados a qualquer momento com `make silver gold ieas`.
+data/*
+!data/bronze
+!data/silver
+!data/gold
+!data/manifest.json
+
+data/bronze/*
+!data/bronze/ibge_malhas.parquet
+
+data/silver/*
+!data/silver/epidemiologia.parquet
+!data/silver/pncp.parquet
+
+data/gold/*
+!data/gold/fato_municipio_ano.parquet
+!data/gold/ieas.parquet
+!data/gold/alertas.parquet
+
 .venv/
 __pycache__/
 *.pyc
@@ -6,3 +27,6 @@ __pycache__/
 .ruff_cache/
 .env
 .streamlit/secrets.toml
+
+# Harness Claude Code (local)
+.claude/

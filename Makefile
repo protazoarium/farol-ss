@@ -3,8 +3,8 @@
 help:
 	@grep -E '^[a-z-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
 
-install:  ## Cria o venv e instala as dependências
-	uv sync --extra dev --extra sus
+install:  ## Cria o venv e instala tudo (base + pipeline + api + sus + dev)
+	uv sync --all-extras
 
 spike:    ## Sonda cada fonte federal e reporta cobertura real em PE
 	uv run farol spike

@@ -1,0 +1,11 @@
+# Dependências de RUNTIME do painel Streamlit (deploy no Streamlit Community Cloud).
+# O pipeline de ingestão (pysus, typer, httpx, tenacity) NÃO entra aqui — o
+# painel só lê os Parquet já materializados em data/gold e data/silver.
+# Ambiente de desenvolvimento continua sendo `uv sync` (pyproject.toml + uv.lock).
+
+# Instala o pacote e as dependências de base do pyproject.toml
+# (streamlit, folium, streamlit-folium, shapely, duckdb, pandas, pyarrow,
+# numpy, pyyaml) — sem os extras `pipeline`/`api`/`sus`. Basta para o painel:
+# geopandas fica de fora porque a conversão WKB→GeoJSON é feita só com shapely,
+# e pysus/httpx/typer só servem para (re)rodar o pipeline de ingestão.
+-e .
