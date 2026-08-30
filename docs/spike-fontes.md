@@ -60,13 +60,13 @@ em 64 MB, baixadas em 18 s. O recorte de 5 anos cabe folgado nos 12 GB livres.
   (repasses federais). Cadastro gratuito em
   `portaldatransparencia.gov.br/api-de-dados/cadastrar-email`, depois
   `PORTAL_TRANSPARENCIA_API_KEY` no `.env`.
-- **SIH sem grupo utilizável.** Nenhum código de grupo (`RD`, `RJ`, `ER`)
-  retorna dados nesta versão; só o padrão `SP` (serviços profissionais), que não
-  traz `MUNIC_RES` nem `DIAG_PRINC`. O subíndice de internações por CID
-  sensível a saneamento (peso 0,25 do eixo epidemiológico) fica bloqueado até
-  resolver por FTP direto. **Se não resolver, redistribuir o peso** entre
-  arboviroses e veiculação hídrica em `conf/ieas.yml`, e registrar na página de
-  Metodologia.
+- ~~**SIH sem grupo utilizável.**~~ **RESOLVIDO (v1.3).** A conclusão original
+  estava errada: `pysus.sih("PE", ano, mes, group="RD")` baixa o grupo **RD
+  (AIH Reduzida)**, que traz `MUNIC_RES` (185/185 municípios de PE),
+  `DIAG_PRINC` (CID-10) e `ANO_CMPT`, em ~2,7 MB/mês. O erro anterior foi
+  chamar o helper sem o parâmetro `group` e concluir a partir do grupo padrão
+  `SP`. O subíndice de internações por doença relacionada a saneamento
+  (DRSAI/ISA, peso 0,25 do eixo epidemiológico) voltou — ver `ingest/sih.py`.
 - **BNAFAR devolve 0 recursos.** O dataset de estoque de medicamentos seria o
   upgrade natural do detector de desabastecimento — medir estoque em vez de
   inferir da ausência de compra. Está listado no catálogo mas vem vazio;
@@ -124,9 +124,10 @@ alcançabilidade, não o comportamento fim a fim):
   falha, é ano ainda não publicado pelo DATASUS para esse agravo especificamente
   (outros agravos têm 2024 completo).
 
-Peso do subíndice de internações (SIH) redistribuído em `conf/ieas.yml`:
-arboviroses 0,40→0,53 e veiculação hídrica 0,35→0,47, mantendo soma 1,0. O
-eixo epidemiológico do IEAS roda hoje só com SINAN.
+~~Peso do subíndice de internações (SIH) redistribuído em `conf/ieas.yml`.~~
+**Revertido na v1.3**: o SIH (grupo RD) foi destravado (ver acima), e os pesos
+do eixo epidemiológico voltaram a arboviroses 0,40 / veiculação hídrica 0,35 /
+internações-saneamento 0,25.
 
 ## SIOPS (L2) — tentativa adicional, ainda bloqueado
 
@@ -148,3 +149,40 @@ Investiguei duas rotas além da já documentada (TabNet legado):
 Nenhuma das duas rotas foi implementada nesta sessão — fica como próximo
 passo, não como bloqueio permanente. A camada L2 (execução própria em saúde)
 do IEAS fica sem fonte até uma das duas ser resolvida.
+
+## Atualização — v1.3 (fechamento das lacunas de fonte)
+
+Sessão dedicada a resolver as oito lacunas listadas em `STATUS.md`. Resultado:
+
+- **SIH destravado** (grupo RD). Ver acima. Novo `ingest/sih.py`, novo subíndice
+  de internações DRSAI no eixo epidemiológico, peso do SIH restaurado em
+  `conf/ieas.yml`.
+- **L3 federal (Compras.gov.br) implementado.** Novo `ingest/compras_gov.py`.
+  Endpoint `/modulo-contratacoes/1_consultarContratacoes_PNCP_14133` do
+  `dadosabertos.compras.gov.br` (aberto, sem chave). Filtra
+  `orgaoEntidadeEsferaId == "F"` (só esfera federal — a municipal é o próprio
+  PNCP, já coletado) e `unidadeOrgaoCodigoIbge` em PE. Modalidades 3/5/6/7
+  (Concorrência-E, Pregão-E, Dispensa, Inexigibilidade). Cobre 2021+. O valor
+  federal é somado ao L3 municipal no gold, num único `l3_per_capita`.
+- **`/transferencias` do Portal da Transparência: 403 confirmado como
+  permanente** com a chave gratuita (testadas as variantes `/transferencias` e
+  `/transferencias/por-municipio`). A camada L1 continua sendo um **proxy** —
+  transferências sociais federais por município (Bolsa Família/Novo Bolsa
+  Família + BPC), não repasse fundo a fundo ao SUS. Documentado em
+  `conf/ieas.yml`, `ingest/transparencia.py` e no relatório §10.
+- **Detector 3 passou a normalizar dose/concentração.** `_dose_norm` extrai
+  `500mg`, `50mg/ml`, `0,9%` etc. da descrição do item; o agrupamento fino é
+  (categoria, unidade, dose) e só cai no grosso (categoria, unidade) quando não
+  há dose parseável ou o grupo fino é pequeno.
+- **Detector 4 passou a consultar a descrição dos itens**, não só o
+  `objeto_compra` da contratação. O `itemCategoriaNome` do PNCP foi verificado
+  e vem `"Não se aplica"` em 100% dos itens — não há categoria CATMAT
+  estruturada a usar; o casamento continua sendo por palavra-chave curada, e
+  isso está dito explicitamente no código e no relatório.
+- **Saneamento: `saneamento_ano_referencia = 2022`** agora é uma coluna do
+  gold, para o painel e a API declararem que é um retrato censitário aplicado a
+  todo o recorte (o SNIS anual foi encerrado e não tem substituto municipal).
+- **Cobertura desigual do PNCP no tempo: `l3_maturidade_pncp_uf`** agora é uma
+  coluna do gold (fração dos 185 municípios de PE com contratação no PNCP
+  naquele ano) — baixa em 2020–2021, o que quantifica a ameaça à validade em
+  vez de só descrevê-la.

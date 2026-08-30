@@ -5,11 +5,15 @@ fonte não tenha dado para todo mundo, o município continua existindo na
 grade — é isso que permite a regra do cinza: "sem dado" é visível, não
 ausente da tabela). Cada fonte entra como um LEFT JOIN nessa grade.
 
-Como as fontes vão ficando prontas incrementalmente (SIOPS, SNIS e CadÚnico
-ainda não estão implementados — ver docs/spike-fontes.md), este módulo junta
-o que existe em silver/ e preenche o resto com NULL, sem falhar. A cobertura
-de cada indicador vai para uma coluna `cobertura_<indicador>` que o IEAS usa
-para decidir a regra do cinza.
+Cada fonte entra como um LEFT JOIN tolerante: se o Parquet de silver/ ainda
+não existe, a(s) coluna(s) daquela fonte saem como NULL e o pipeline não
+falha. É o `index/ieas.py` que, a partir da fração de componentes presentes
+em cada eixo, aplica a regra do cinza.
+
+Fontes hoje: população/IPCA (IBGE), epidemiologia (SINAN), internações DRSAI
+(SIH grupo RD), L1 (Transparência, proxy), L2 (SIOPS), L3 municipal (PNCP) +
+L3 federal (Compras.gov.br), vulnerabilidade (CadÚnico), saneamento (Censo
+2022 — retrato aplicado a todo o recorte; ver `saneamento_ano_referencia`).
 """
 
 from __future__ import annotations
@@ -77,31 +81,72 @@ def _deflator_por_ano() -> dict[int, float]:
     return (ref / media_anual).to_dict()
 
 
-def _juntar_l3_pncp(base: pd.DataFrame) -> pd.DataFrame:
-    """Camada L3 — contratação de insumos (PNCP), deflacionada para o ano-base."""
-    if not duck.exists(config.SILVER, "pncp"):
+def _l3_por_fonte(nome: str) -> pd.DataFrame | None:
+    """Soma nominal de contratações por (cod_ibge, ano) de uma fonte L3.
+
+    Vale para `pncp` (municipal) e `compras_gov` (federal): ambas têm
+    `valor_total_homologado`/`valor_total_estimado` e o mesmo grão.
+    """
+    if not duck.exists(config.SILVER, nome):
+        return None
+    df = duck.read_silver(nome)
+    valor = df["valor_total_homologado"].fillna(df["valor_total_estimado"])
+    l3 = (
+        df.assign(valor=valor)
+        .dropna(subset=["cod_ibge", "ano"])
+        .groupby(["cod_ibge", "ano"], as_index=False)["valor"]
+        .sum()
+    )
+    l3["ano"] = l3["ano"].astype(int)
+    return l3
+
+
+def _maturidade_l3_por_ano(pncp: pd.DataFrame) -> dict[int, float]:
+    """Fração dos 185 municípios de PE com ao menos uma contratação no PNCP em
+    cada ano. Serve para ler um *zero* de L3 com cautela: valor baixo significa
+    que o zero pode ser lacuna (adesão à Lei 14.133 ainda parcial, ou a coleta
+    do snapshot ter parado numa página instável do PNCP) e não ausência real de
+    contratação. É um indicador de confiança, não uma medida exata de adesão.
+    """
+    total = len(M.codigos())
+    cob = pncp.dropna(subset=["cod_ibge", "ano"]).groupby("ano")["cod_ibge"].nunique()
+    return (cob / total).to_dict()
+
+
+def _juntar_l3(base: pd.DataFrame) -> pd.DataFrame:
+    """Camada L3 — contratação de insumos, deflacionada para o ano-base.
+
+    Soma o L3 **municipal** (PNCP, `ingest/pncp.py`) e o L3 **federal**
+    (Compras.gov.br, `ingest/compras_gov.py`, esfera federal em municípios de
+    PE) num único `l3_per_capita`. `l3_maturidade_pncp_uf` guarda a fração de
+    municípios de PE presentes no PNCP naquele ano — baixa em 2020–2021, o que
+    é uma ameaça à validade documentada (`docs/relatorio-tecnico.md` §10).
+    """
+    pncp = _l3_por_fonte("pncp")
+    if pncp is None:
         base["l3_total"] = pd.NA
         base["l3_per_capita"] = pd.NA
+        base["l3_maturidade_pncp_uf"] = pd.NA
         return base
 
-    pncp = duck.read_silver("pncp")
-    # valor homologado é o efetivamente contratado; quando ausente (compra em
-    # andamento), cai para o estimado, marcando que houve processo.
-    valor = pncp["valor_total_homologado"].fillna(pncp["valor_total_estimado"])
+    partes = [pncp]
+    federal = _l3_por_fonte("compras_gov")
+    if federal is not None and not federal.empty:
+        partes.append(federal)
     l3 = (
-        pncp.assign(valor=valor)
-        .dropna(subset=["cod_ibge", "ano"])
+        pd.concat(partes, ignore_index=True)
         .groupby(["cod_ibge", "ano"], as_index=False)["valor"]
         .sum()
         .rename(columns={"valor": "_l3_nominal"})
     )
-    l3["ano"] = l3["ano"].astype(int)
 
     out = base.merge(l3, on=["cod_ibge", "ano"], how="left")
     deflator = _deflator_por_ano()
     out["l3_total"] = out["_l3_nominal"] * out["ano"].map(deflator)
     if "populacao" in out.columns:
         out["l3_per_capita"] = out["l3_total"] / out["populacao"]
+    maturidade = _maturidade_l3_por_ano(pncp)
+    out["l3_maturidade_pncp_uf"] = out["ano"].map(maturidade)
     return out.drop(columns=["_l3_nominal"])
 
 
@@ -152,10 +197,33 @@ def _juntar_l1_transparencia(base: pd.DataFrame) -> pd.DataFrame:
 
 def _juntar_financeiro(base: pd.DataFrame) -> pd.DataFrame:
     """Eixo Alocação: L1 (Transparência, parcial) + L2 (SIOPS) + L3 (PNCP)."""
-    base = _juntar_l3_pncp(base)
+    base = _juntar_l3(base)
     base = _juntar_l2_siops(base)
     base = _juntar_l1_transparencia(base)
     return base
+
+
+def _juntar_sih(base: pd.DataFrame) -> pd.DataFrame:
+    """Subíndice de internações por doenças relacionadas a saneamento ambiental
+    inadequado (DRSAI) — SIH-SUS, grupo RD. Ver `ingest/sih.py`.
+
+    `taxa_internacoes_drsai` = internações DRSAI / população × 100 000. Município
+    sem internação DRSAI recebe 0 (dado real), como no SINAN.
+    """
+    if not duck.exists(config.SILVER, "sih"):
+        base["internacoes_drsai"] = pd.NA
+        return base
+
+    sih = duck.read_silver("sih")
+    sih["ano"] = sih["ano"].astype(int)
+    out = base.merge(
+        sih[["cod_ibge", "ano", "internacoes_drsai"]], on=["cod_ibge", "ano"], how="left"
+    )
+    # SIH cobre os 185 × 5; ausência aqui é 0 internação, não dado faltante
+    out["internacoes_drsai"] = out["internacoes_drsai"].fillna(0)
+    if "populacao" in out.columns:
+        out["taxa_internacoes_drsai"] = out["internacoes_drsai"] / out["populacao"] * 100_000
+    return out
 
 
 def _juntar_saneamento(base: pd.DataFrame) -> pd.DataFrame:
@@ -171,7 +239,11 @@ def _juntar_saneamento(base: pd.DataFrame) -> pd.DataFrame:
         return base
 
     san = duck.read_silver(path_name)[["cod_ibge", "sub_saneamento_bruto"]]
-    return base.merge(san, on="cod_ibge", how="left")
+    out = base.merge(san, on="cod_ibge", how="left")
+    # o Censo não é anual: registramos o ano de referência do retrato para que
+    # o painel e a API declarem a limitação em vez de escondê-la.
+    out["saneamento_ano_referencia"] = 2022
+    return out
 
 
 def _juntar_vulnerabilidade(base: pd.DataFrame) -> pd.DataFrame:
@@ -203,6 +275,7 @@ def montar() -> pd.DataFrame:
     base = _grade_base()
     base = _juntar_populacao(base)
     base = _juntar_epidemiologia(base)
+    base = _juntar_sih(base)
     base = _juntar_financeiro(base)
     base = _juntar_vulnerabilidade(base)
     base = _juntar_saneamento(base)

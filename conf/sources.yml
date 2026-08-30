@@ -51,8 +51,10 @@ sih:
   nome: "DATASUS/SIH-SUS — Internações hospitalares"
   camada: epidemiologia
   acesso: pysus
+  agravos: [RD]
   dados_gov: "https://dados.gov.br/dados/conjuntos-dados/sistema-de-informacoes-hospitalares-do-sus-sihsus"
   licenca: "Dados abertos — Ministério da Saúde"
+  observacao: "Grupo RD (AIH Reduzida) via pysus.sih('PE', ano, mes, group='RD'): tem MUNIC_RES + DIAG_PRINC. Subíndice de internações por doença relacionada a saneamento (DRSAI/ISA)."
 
 siops:
   nome: "SIOPS — Orçamentos Públicos em Saúde"
@@ -97,10 +99,10 @@ pncp:
   observacao: "Fonte central: é onde as prefeituras publicam sob a Lei 14.133."
 
 compras_gov:
-  nome: "Compras.gov.br — Contratações federais (SIASG)"
+  nome: "Compras.gov.br — Contratações federais (Lei 14.133)"
   camada: financeiro_l3
-  url: "https://dadosabertos.compras.gov.br"
+  url: "https://dadosabertos.compras.gov.br/modulo-contratacoes/1_consultarContratacoes_PNCP_14133"
   swagger: "https://dadosabertos.compras.gov.br/swagger-ui/index.html"
   dados_gov: "https://dados.gov.br/dados/conjuntos-dados/compras-publicas-do-governo-federal"
   licenca: "Dados abertos — Ministério da Gestão"
-  observacao: "ESCOPO FEDERAL: compras por UASG, não por prefeitura. Geolocalizado pelo município da UASG."
+  observacao: "L3 FEDERAL: só a esfera federal (orgaoEntidadeEsferaId='F') sediada em municípios de PE, geolocalizada por unidadeOrgaoCodigoIbge. A esfera municipal é excluída para não duplicar o PNCP. Cobre 2021+."

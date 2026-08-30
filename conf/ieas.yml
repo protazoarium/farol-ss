@@ -15,40 +15,50 @@ necessidade:
     saneamento: 0.35
     vulnerabilidade: 0.25
 
-  # Subíndice epidemiológico: taxas por 100 mil hab.
+  # Subíndice epidemiológico: taxas por 100 mil hab. Três componentes, cada um
+  # normalizado por rank percentil dentro de PE e combinado com estes pesos.
   #
-  # O peso de internações (SIH) foi redistribuído proporcionalmente para
-  # arboviroses e veiculação hídrica. O spike de fontes (docs/spike-fontes.md)
-  # confirmou que nenhum código de grupo do SIH (RD, RJ, ER) retorna dado
-  # utilizável nesta versão do PySUS — só o grupo padrão SP, que não tem
-  # MUNIC_RES nem DIAG_PRINC. Path formal fica bloqueado até um acesso
-  # alternativo (FTP direto) ser viabilizado; até lá, o eixo epidemiológico
-  # funciona só com SINAN, com pesos re-normalizados para somar 1.0.
+  # O componente de internações usa o SIH-SUS (grupo RD, AIH Reduzida), que
+  # traz MUNIC_RES + DIAG_PRINC — a afirmação do spike original de que "nenhum
+  # grupo do SIH retorna dado utilizável" estava errada (a chamada certa é
+  # `pysus.sih("PE", ano, mes, group="RD")`). Ver `ingest/sih.py`.
   epidemiologico:
     pesos:
-      arboviroses: 0.53          # dengue + chikungunya + zika (SINAN)
-      veiculacao_hidrica: 0.47   # DDA, hepatite A, leptospirose, esquistossomose (SINAN)
-      # internacoes_saneamento: bloqueado (SIH sem grupo utilizável) — ver acima
+      arboviroses: 0.40          # dengue + chikungunya + zika (SINAN)
+      veiculacao_hidrica: 0.35   # hepatite A, leptospirose, esquistossomose (SINAN)
+      internacoes_saneamento: 0.25  # internações por doença relacionada a saneamento (SIH, grupo RD)
 
-  # Subíndice de saneamento: déficit = 1 - cobertura (SNIS)
+  # Subíndice de saneamento: déficit = 1 - cobertura domiciliar do Censo 2022
+  # do IBGE (agregados 6803/6805/6892). Estes pesos são aplicados uma única vez,
+  # na ingestão (ingest/ibge_saneamento.py), para formar `sub_saneamento_bruto`;
+  # o index/ apenas faz rank percentil desse valor.
   saneamento:
     pesos:
       deficit_agua: 0.35
       deficit_esgoto: 0.45       # maior peso: elo mais forte com agravos
-      deficit_residuos: 0.20
+      deficit_residuos: 0.20     # aplicado sobre o déficit de coleta de lixo
 
+  # Subíndice de vulnerabilidade: um único componente — o rank percentil da taxa
+  # de famílias em extrema pobreza no CadÚnico (`extrema_pobreza_por_mil_hab`,
+  # cli.py). Não há sub-pesos: a fonte não expõe, no grão município-ano, as
+  # outras dimensões (população rural, densidade domiciliar) de forma
+  # comparável na série 2020–2024.
   vulnerabilidade:
-    pesos:
-      extrema_pobreza: 0.50      # CadÚnico
-      pop_rural: 0.25            # IBGE
-      densidade_domiciliar: 0.25
+    componente: extrema_pobreza_por_mil_hab
 
 # Eixo A — Alocação. R$ per capita deflacionado.
+#
+# L1 é um PROXY: o endpoint /transferencias (repasse fundo a fundo ao ente)
+# exige acesso gov.br elevado e responde HTTP 403 com a chave gratuita. O que
+# a chave livre acessa são as transferências SOCIAIS federais por município
+# (Bolsa Família/Novo Bolsa Família + BPC) — dinheiro federal que chega ao
+# território, usado como aproximação da presença de recurso federal. Ver
+# ingest/transparencia.py e docs/relatorio-tecnico.md §10.
 alocacao:
   pesos:
-    l1_repasse_federal: 0.35     # Portal da Transparência
+    l1_repasse_federal: 0.35     # Portal da Transparência (proxy: transf. sociais)
     l2_execucao_propria: 0.40    # SIOPS
-    l3_contratacao_insumos: 0.25 # PNCP + Compras.gov.br
+    l3_contratacao_insumos: 0.25 # PNCP (municipal) + Compras.gov.br (federal)
 
 # Limiares do semáforo, sobre gap = rank(A) - rank(N), em [-1, 1]
 farol:
@@ -68,4 +78,3 @@ alertas:
   preco_iqr_fator: 1.5           # detector 3: sobrepreço
   desabastecimento:
     incidencia_percentil_minimo: 0.75  # detector 4: surto sustentado
-    janela_meses: 12

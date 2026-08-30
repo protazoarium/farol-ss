@@ -49,9 +49,11 @@ def ingest() -> None:
     """Baixa todas as fontes para data/bronze (idempotente)."""
     from farol_ss.ingest import (
         cadunico,
+        compras_gov,
         ibge,
         ibge_saneamento,
         pncp,
+        sih,
         sinan,
         siops,
         transparencia,
@@ -70,8 +72,22 @@ def ingest() -> None:
             console.print(f"  [yellow]⚠ Saneamento indisponível: {type(e).__name__}[/yellow]")
         console.print("[cyan]• SINAN[/cyan] (agravos notificáveis)")
         sinan.rodar()
+        console.print(
+            "[cyan]• SIH[/cyan] (internações por doença relacionada a saneamento — grupo RD)"
+        )
+        try:
+            sih.rodar()
+        except Exception as e:  # noqa: BLE001 — DATASUS instável não derruba a ingestão
+            console.print(f"  [yellow]⚠ SIH indisponível: {type(e).__name__}[/yellow]")
         console.print("[cyan]• PNCP[/cyan] (contratações municipais)")
         pncp.rodar()
+        console.print(
+            "[cyan]• Compras.gov.br[/cyan] (L3 federal — contratações federais de saúde em PE)"
+        )
+        try:
+            compras_gov.rodar()
+        except Exception as e:  # noqa: BLE001 — API instável não derruba a ingestão
+            console.print(f"  [yellow]⚠ Compras.gov.br indisponível: {type(e).__name__}[/yellow]")
         console.print("[cyan]• SIOPS[/cyan] (execução própria em saúde — TabNet)")
         try:
             siops.rodar()
@@ -83,7 +99,7 @@ def ingest() -> None:
         except Exception as e:  # noqa: BLE001 — SAGI fora do ar não derruba a ingestão
             console.print(f"  [yellow]⚠ CadÚnico indisponível: {type(e).__name__}[/yellow]")
         console.print(
-            "[cyan]• Portal da Transparência[/cyan] (L1 parcial — transf. sociais; ~20 min)"
+            "[cyan]• Portal da Transparência[/cyan] (L1 — transf. sociais; ~20 min)"
         )
         try:
             transparencia.rodar()
@@ -99,14 +115,38 @@ def ingest() -> None:
 def ingest_l1(
     limite: int = typer.Option(None, help="teto de município-anos novos nesta execução"),
 ) -> None:
-    """Baixa a camada L1 parcial (transferências sociais federais) do Portal da
-    Transparência. Retomável: pula o que já está em `silver/transparencia.parquet`.
-    São 925 município-anos (~2 chamadas cada); a coleta completa leva ~20 min."""
+    """Baixa a camada L1 (transferências sociais federais, proxy do repasse) do
+    Portal da Transparência. Retomável: pula o que já está em
+    `silver/transparencia.parquet`. São 925 município-anos (~2 chamadas cada); a
+    coleta completa leva ~20 min."""
     from farol_ss.ingest import transparencia
 
     config.ensure_dirs()
     transparencia.rodar(limite=limite)
     console.print("[green]✓ L1 (Transparência) concluído[/green]")
+
+
+@app.command(name="ingest-sih")
+def ingest_sih() -> None:
+    """Baixa o SIH-SUS (grupo RD, AIH Reduzida) e monta o subíndice de
+    internações por doença relacionada a saneamento (DRSAI). ~2,7 MB/mês × 60
+    meses."""
+    from farol_ss.ingest import sih
+
+    config.ensure_dirs()
+    sih.rodar()
+    console.print("[green]✓ SIH concluído[/green]")
+
+
+@app.command(name="ingest-l3-federal")
+def ingest_l3_federal() -> None:
+    """Baixa o L3 federal (contratações de saúde de órgãos federais em PE) do
+    Compras.gov.br. Complementa o L3 municipal do PNCP. Cobre 2021+."""
+    from farol_ss.ingest import compras_gov
+
+    config.ensure_dirs()
+    compras_gov.rodar()
+    console.print("[green]✓ L3 federal (Compras.gov.br) concluído[/green]")
 
 
 @app.command(name="ingest-itens")
@@ -151,30 +191,24 @@ def gold() -> None:
 def ieas() -> None:
     """Calcula o IEAS e os alertas a partir do gold.
 
-    Necessidade = epidemiológico (SINAN) + saneamento (Censo 2022) +
-    vulnerabilidade (CadÚnico). Alocação = L1 parcial (Transparência) + L2
-    (SIOPS) + L3 (PNCP). Município-ano abaixo da cobertura mínima de
-    `conf/ieas.yml` (ainda comum onde falta L1 ou L3 no PNCP) sai cinza —
-    a regra do cinza, não um bug.
+    Necessidade = epidemiológico (SINAN + SIH) + saneamento (Censo 2022) +
+    vulnerabilidade (CadÚnico). Alocação = L1 (Transparência, proxy) + L2
+    (SIOPS) + L3 (PNCP + Compras.gov.br). Município-ano abaixo da cobertura
+    mínima de `conf/ieas.yml` (hoje raro — sobretudo onde falta L2 e L3) sai
+    cinza: a regra do cinza, não um bug.
     """
     from farol_ss.index import anomalies
-    from farol_ss.index.ieas import calcular_ieas
+    from farol_ss.index.ieas import calcular_ieas, montar_sub_epidemiologico
     from farol_ss.index.normalize import rank_percentil
     from farol_ss.io import duck
 
     df = duck.read_gold("fato_municipio_ano")
 
-    # Único subíndice de necessidade disponível hoje: epidemiológico, a
-    # partir das taxas por 100 mil hab. já calculadas no gold. Cada taxa
-    # normalizada por rank percentil e combinada com pesos iguais — uma
-    # aproximação até os pesos de conf/ieas.yml (arboviroses vs. veiculação
-    # hídrica) poderem ser aplicados por agravo individualmente.
-    taxa_cols = [c for c in df.columns if c.startswith("taxa_")]
-    if taxa_cols:
-        ranks = df[taxa_cols].apply(rank_percentil)
-        df["sub_epidemiologico"] = ranks.mean(axis=1)
-    else:
-        df["sub_epidemiologico"] = np.nan
+    # Subíndice epidemiológico: arboviroses + veiculação hídrica (SINAN) +
+    # internações por doença relacionada a saneamento (SIH, grupo RD), com os
+    # pesos de conf/ieas.yml aplicados por componente. Ver
+    # `index/ieas.montar_sub_epidemiologico`.
+    df["sub_epidemiologico"] = montar_sub_epidemiologico(df)
 
     # Subíndice de vulnerabilidade: rank percentil da taxa de famílias em
     # extrema pobreza (CadÚnico), calculada no gold. Mesma forma do epi.

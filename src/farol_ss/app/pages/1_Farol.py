@@ -1,12 +1,11 @@
 """Página Farol — mapa coroplético dos 185 municípios de PE.
 
-O IEAS só ganha cor quando os dois eixos alcançam a cobertura mínima de
-`conf/ieas.yml`. Hoje isso não acontece (falta L1/Transparência, L2/SIOPS e
-saneamento/SNIS — ver `docs/spike-fontes.md`), então a camada "Farol" sai
-toda cinza — de propósito. Para a página ser útil já, o seletor de camada
-deixa olhar os sub-índices que JÁ têm dado: a carga epidemiológica (SINAN) e
-a contratação de insumos L3 (PNCP). Quando as fontes destravarem, a camada
-"Farol" passa a colorir sozinha, sem mudar código aqui.
+O IEAS ganha cor quando os dois eixos alcançam a cobertura mínima de
+`conf/ieas.yml`. Com o L1 (Transparência) completo, os dois eixos têm cobertura
+para 921 dos 925 município-anos; o cinza que resta é o Distrito Estadual de
+Fernando de Noronha (sem SIOPS nem PNCP municipais). O seletor de camada abre
+cada subíndice isolado — carga epidemiológica, saneamento, vulnerabilidade, cada
+camada de alocação — além do Farol combinado.
 """
 
 from __future__ import annotations
@@ -26,22 +25,34 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+tema.aplicar_estilo()
 
-st.title("🚦 Farol da alocação sanitária")
-st.caption(
-    "Cada município colorido pelo descompasso entre **necessidade** (carga de "
-    "doença, déficit sanitário, vulnerabilidade) e **alocação** (R$/hab em "
-    "saúde). Vermelho = necessidade não atendida."
+tema.cabecalho(
+    "🚦 Farol da alocação sanitária",
+    "Cada município colorido pelo descompasso entre necessidade (carga de doença, "
+    "déficit sanitário, vulnerabilidade) e alocação (R$/hab em saúde). "
+    "Vermelho = necessidade não atendida.",
 )
 
-# --- Filtros -------------------------------------------------------------
+tema.nota(
+    "<strong>Como ler.</strong> O <em>Farol</em> combina os dois eixos num "
+    "semáforo. As demais camadas mostram um subíndice ou uma camada de gasto "
+    "isolada, sempre como <strong>percentil</strong> — a posição do município no "
+    "ranking dos 185 (50% = mediana estadual). Municípios <strong>sem dado</strong> "
+    "na camada aparecem esmaecidos: é ausência de informação, não valor zero."
+)
+
+# ── Filtros ────────────────────────────────────────────────────────────
 anos = dados.anos()
 ano = st.sidebar.selectbox("Ano", anos, index=len(anos) - 1)
-camadas = list(tema.CAMADAS)
 camada = st.sidebar.selectbox(
     "Camada",
-    camadas,
+    list(tema.CAMADAS),
     format_func=lambda k: tema.CAMADAS[k],
+)
+st.sidebar.caption(
+    "O **Farol** combina os dois eixos. As demais camadas mostram um subíndice "
+    "ou uma camada de gasto isolada, para entender de onde vem a cor."
 )
 
 df = dados.coropletico(ano, camada)
@@ -52,8 +63,8 @@ if meso != "(todas)":
     df = df[df["mesorregiao"] == meso]
 
 categorico = camada == "farol"
+e_dinheiro = camada in tema.CAMADA_UNIDADE
 
-# --- Faixa de valores da camada contínua -------------------------------
 if not categorico:
     serie = df["valor"].dropna()
     vmin = float(serie.min()) if not serie.empty else 0.0
@@ -61,10 +72,9 @@ if not categorico:
 
 
 def _fmt(v: float) -> str:
-    """Formata um valor da camada contínua conforme a unidade."""
-    if camada == "l3_per_capita":
+    if e_dinheiro:
         return f"R$ {v:,.0f}/hab".replace(",", ".")
-    return f"percentil {v:.0%}"  # sub_epidemiologico é rank ∈ [0, 1]
+    return f"percentil {v:.0%}"
 
 
 def _cor(cod: str) -> str:
@@ -89,40 +99,47 @@ def _rotulo_valor(cod: str) -> str:
     return _fmt(v)
 
 
-# --- KPIs --------------------------------------------------------------
+# ── Indicadores ────────────────────────────────────────────────────────
 n_total = df["cod_ibge"].nunique()
 if categorico:
+    dist = df["valor"].value_counts()
     com_cor = int((df["valor"] != "cinza").sum())
-    k1, k2, k3 = st.columns(3)
-    k1.metric("Municípios", n_total)
-    k2.metric("Com IEAS calculado", com_cor)
-    k3.metric("Cinza (sem cobertura)", n_total - com_cor)
+    tema.cartoes(
+        [
+            (str(n_total), "municípios no recorte"),
+            (str(com_cor), "com IEAS calculado"),
+            (str(int(dist.get("vermelho", 0))), "no vermelho (necessidade não atendida)"),
+            (str(int(dist.get("cinza", 0))), "cinza (cobertura de dados insuficiente)"),
+        ]
+    )
     if com_cor == 0:
         st.info(
-            "**Tudo cinza neste recorte.** A regra do cinza (`conf/ieas.yml`) só "
-            "calcula o IEAS quando os dois eixos têm cobertura mínima. Para "
-            f"{ano}, algum eixo ainda não alcança o limiar — troque o ano ou a "
-            "camada.",
+            "**Tudo cinza neste recorte.** A regra do cinza só calcula o IEAS "
+            "quando os dois eixos têm cobertura mínima. Troque o ano ou a camada.",
             icon="ℹ️",
         )
     elif n_total - com_cor > 0:
         st.caption(
-            f"{n_total - com_cor} municípios em cinza: sem a camada L3 (PNCP) no "
-            "ano, a cobertura do eixo Alocação fica abaixo do limiar. O eixo "
-            "Necessidade (epidemiologia + vulnerabilidade) já está completo; "
-            "falta só L1 (Portal da Transparência) para fechar a Alocação."
+            f"{n_total - com_cor} município(s) em cinza: a cobertura do eixo "
+            "Alocação (L1 + L2 + L3) fica abaixo do limiar. O eixo Necessidade "
+            "(epidemiologia + saneamento + vulnerabilidade) está completo para os "
+            "185 municípios em todos os anos."
         )
 else:
     com_dado = int(df["valor"].notna().sum())
-    k1, k2, k3 = st.columns(3)
-    k1.metric("Municípios", n_total)
-    k2.metric("Com dado nesta camada", com_dado)
-    k3.metric(
-        "Cobertura",
-        f"{com_dado / n_total:.0%}" if n_total else "—",
+    tema.cartoes(
+        [
+            (str(n_total), "municípios no recorte"),
+            (str(com_dado), "com dado nesta camada"),
+            (f"{com_dado / n_total:.0%}" if n_total else "—", "cobertura da camada"),
+            (
+                _fmt(float(df["valor"].median())) if com_dado else "—",
+                "mediana estadual",
+            ),
+        ]
     )
 
-# --- Mapa -------------------------------------------------------------
+# ── Mapa ───────────────────────────────────────────────────────────────
 nome_por_cod = dados.ieas().drop_duplicates("cod_ibge").set_index("cod_ibge")["nome"].to_dict()
 geojson = copy.deepcopy(dados.malhas_geojson())
 for feat in geojson["features"]:
@@ -133,7 +150,6 @@ for feat in geojson["features"]:
         "valor": _rotulo_valor(cod),
     }
 
-# OpenStreetMap: sem chave de API (o basemap CartoDB passou a exigir uma).
 mapa = folium.Map(location=[-8.3, -37.6], zoom_start=7, tiles="OpenStreetMap")
 
 
@@ -154,7 +170,7 @@ folium.GeoJson(
     highlight_function=lambda _f: {"weight": 2.2, "color": "#1a1a19"},
     tooltip=folium.GeoJsonTooltip(
         fields=["nome", "valor"],
-        aliases=["Município", tema.CAMADAS[camada].split("—")[0].strip() + ":"],
+        aliases=["Município", tema.CAMADAS[camada].split("—")[0].split("·")[0].strip() + ":"],
         sticky=True,
     ),
 ).add_to(mapa)
@@ -180,20 +196,34 @@ with col_leg:
         for cor, rot in itens
     )
     st.markdown(linhas, unsafe_allow_html=True)
+    if categorico:
+        st.caption(
+            "Verde é o alvo (alinhamento), não o topo de uma escala. Azul é sobrealocação relativa."
+        )
 
-# --- Tabela (identidade nunca só por cor) -----------------------------
-with st.expander("Ver tabela"):
-    cols = ["cod_ibge", "nome", "mesorregiao", "valor"]
-    tab = df[cols].rename(
-        columns={
-            "cod_ibge": "Cód. IBGE",
-            "nome": "Município",
-            "mesorregiao": "Mesorregião",
-            "valor": tema.CAMADAS[camada].split("—")[0].strip(),
-        }
-    )
-    ordenar = tab.columns[-1]
-    tab = tab.sort_values(ordenar, ascending=categorico, na_position="last")
+# ── Ranking + tabela (identidade nunca só por cor) ─────────────────────
+rot_valor = tema.CAMADAS[camada].split("—")[0].split("·")[-1].strip()
+tab = df[["cod_ibge", "nome", "mesorregiao", "valor"]].rename(
+    columns={
+        "cod_ibge": "Cód. IBGE",
+        "nome": "Município",
+        "mesorregiao": "Mesorregião",
+        "valor": rot_valor,
+    }
+)
+tab = tab.sort_values(rot_valor, ascending=categorico, na_position="last")
+
+if not categorico:
+    st.subheader("Extremos nesta camada")
+    e1, e2 = st.columns(2)
+    with e1:
+        st.markdown(f"**Maiores** — {rot_valor}")
+        st.dataframe(tab.head(8), width="stretch", hide_index=True)
+    with e2:
+        st.markdown(f"**Menores** — {rot_valor}")
+        st.dataframe(tab.dropna(subset=[rot_valor]).tail(8)[::-1], width="stretch", hide_index=True)
+
+with st.expander("Ver tabela completa"):
     st.dataframe(tab, width="stretch", hide_index=True)
     st.download_button(
         "Baixar CSV",
@@ -202,23 +232,24 @@ with st.expander("Ver tabela"):
         mime="text/csv",
     )
 
-# --- Alertas do ano (resumo; detalhe na página Alertas) --------------
+# ── Alertas do ano ─────────────────────────────────────────────────────
 al = dados.alertas()
 al = al[al["ano"] == ano] if not al.empty else al
 if not al.empty:
     st.subheader(f"Alertas em {ano}")
     dim = dados.ieas().drop_duplicates("cod_ibge").set_index("cod_ibge")["nome"]
-    al = al.assign(município=al["cod_ibge"].map(dim))
+    al = al.assign(Município=al["cod_ibge"].map(dim))
     st.dataframe(
-        al[["município", "tipo", "severidade", "explicacao"]].rename(
+        al[["Município", "tipo", "severidade", "explicacao"]].rename(
             columns={"tipo": "Tipo", "severidade": "Severidade", "explicacao": "Explicação"}
         ),
         width="stretch",
         hide_index=True,
     )
-    st.caption("Detalhe e filtros na página **Alertas** (menu lateral).")
+    st.caption("Detalhe, filtros e a definição de cada detector na página **Alertas**.")
 
-st.caption(
-    "Fonte: SINAN/DATASUS (epidemiologia), PNCP (compras L3), IBGE (população, "
-    "malha). Metodologia completa em `docs/` e `conf/ieas.yml`."
+tema.rodape(
+    "SINAN e SIH (epidemiologia), PNCP e Compras.gov.br (L3), SIOPS (L2), "
+    "Portal da Transparência (L1), Censo 2022 (saneamento), CadÚnico "
+    "(vulnerabilidade), IBGE (população, malha)."
 )

@@ -1,5 +1,5 @@
-"""Fumaça da API aberta — as rotas respondem e o JSON é válido mesmo com
-colunas majoritariamente NaN (o caso de hoje, com o farol todo cinza)."""
+"""Fumaça da API aberta — as rotas respondem e o JSON é válido mesmo nas
+linhas em que gap/ieas são NaN (município-anos cinza, sem cobertura mínima)."""
 
 import pandas as pd
 import pytest
@@ -27,16 +27,15 @@ def test_municipio_inexistente_404():
 
 
 def test_ieas_json_valido_com_nan():
-    r = client.get("/ieas?ano=2024")
+    r = client.get("/ieas")
     assert r.status_code == 200
     linhas = r.json()
-    assert len(linhas) == 185
+    assert len(linhas) == 925
     # onde o farol é cinza (cobertura insuficiente), gap/ieas são NaN — o
     # encoder tem de emitir null em vez de quebrar com "Out of range float".
     cinza = [linha for linha in linhas if linha["farol"] == "cinza"]
-    assert cinza, "esperava ao menos um município cinza em 2024"
-    assert cinza[0]["gap"] is None
-    assert cinza[0]["ieas"] is None
+    assert cinza, "esperava ao menos um município-ano cinza no recorte"
+    assert all(linha["gap"] is None and linha["ieas"] is None for linha in cinza)
 
 
 def test_formato_csv():

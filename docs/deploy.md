@@ -14,16 +14,14 @@ derivados estejam commitados.
 | `.gitignore` | versiona só os ~1,7 MB de Parquet que o painel lê (o resto de `data/` continua ignorado) |
 | `pyproject.toml` | dependências divididas em base + extras `pipeline` / `api` / `sus` / `dev` |
 
-Os dados versionados para o deploy:
+Os dados versionados para o deploy (o `.gitignore` versiona só estes ~1,7 MB):
 
 ```
 data/manifest.json
 data/bronze/ibge_malhas.parquet
-data/silver/epidemiologia.parquet
-data/silver/pncp.parquet
-data/gold/fato_municipio_ano.parquet
-data/gold/ieas.parquet
-data/gold/alertas.parquet
+data/silver/{epidemiologia, sih, pncp, pncp_itens, compras_gov,
+             siops, cadunico, transparencia, ibge_saneamento}.parquet
+data/gold/{fato_municipio_ano, ieas, alertas}.parquet
 ```
 
 Regenerar a qualquer momento com `make silver gold ieas` e commitar de novo.
@@ -41,6 +39,8 @@ Regenerar a qualquer momento com `make silver gold ieas` e commitar de novo.
    - Repository: `<voce>/farol-ss`
    - Branch: `main`
    - **Main file path**: `src/farol_ss/app/Home.py`
+   - **App URL**: `farol-ss` → gera `https://farol-ss.streamlit.app` (é essa a
+     URL registrada nos formulários do concurso; ver `docs/publicacao-reuso.md`)
    - Advanced settings → **Python version: 3.12**
 4. **Deploy**. O primeiro build leva ~3–5 min (instala o `requirements.txt`).
 
@@ -48,9 +48,12 @@ Não há `secrets` a configurar — o painel não usa chave de API.
 
 ## Verificação pós-deploy
 
-- A página **Farol** deve abrir na camada "Necessidade" com o mapa colorido.
-- A página **Metodologia** deve listar a tabela de proveniência com os links
-  para o `dados.gov.br`.
+- A **Home** deve mostrar os cartões do recorte, o semáforo e a lista das oito
+  fontes com o selo de estado de cada uma.
+- A página **Farol** deve abrir com o mapa colorido; o seletor de camada troca
+  entre o Farol e cada subíndice/camada de gasto.
+- A página **Fontes** deve listar as oito fichas e a tabela de proveniência
+  com os links para o `dados.gov.br`.
 - Se o mapa não renderizar: confirme que `data/bronze/ibge_malhas.parquet` foi
   para o repositório (`git ls-files data/`).
 

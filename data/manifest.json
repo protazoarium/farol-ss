@@ -21,6 +21,27 @@
     "status": "ok",
     "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial"
   },
+  "compras_gov": {
+    "arquivo": "data/silver/compras_gov.parquet",
+    "bytes": 768904,
+    "coletado_em": "2026-08-30T14:08:35+00:00",
+    "erro": null,
+    "extra": {
+      "anos": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "municipios": 10
+    },
+    "fonte": "compras_gov",
+    "linhas": 858,
+    "observacao": "L3 FEDERAL: contratações de saúde de órgãos da esfera federal sediados em municípios de PE (unidadeOrgaoCodigoIbge). Complementa o L3 municipal do PNCP; esfera municipal excluída para não duplicar.",
+    "sha256": "91f9c9e8e1453412d0585f1849dda95a23d2f78a069f30ef592aa5c754f85ad9",
+    "status": "ok",
+    "url": "https://dadosabertos.compras.gov.br/modulo-contratacoes/1_consultarContratacoes_PNCP_14133?unidadeOrgaoUfSigla=PE&codigoModalidade={3,5,6,7}"
+  },
   "ibge_ipca": {
     "arquivo": "data/silver/ibge_ipca.parquet",
     "bytes": 3972,
@@ -78,7 +99,7 @@
   "pncp_4_2023": {
     "arquivo": "data/silver/pncp_4_2023.parquet",
     "bytes": 33055,
-    "coletado_em": "2026-08-25T22:22:39+00:00",
+    "coletado_em": "2026-08-30T14:09:49+00:00",
     "erro": null,
     "extra": {
       "ano": 2023,
@@ -93,24 +114,24 @@
   },
   "pncp_4_2024": {
     "arquivo": "data/silver/pncp_4_2024.parquet",
-    "bytes": 1091107,
-    "coletado_em": "2026-08-25T22:25:41+00:00",
+    "bytes": 140835,
+    "coletado_em": "2026-08-30T14:10:07+00:00",
     "erro": null,
     "extra": {
       "ano": 2024,
       "modalidade": "Concorrência - Eletrônica"
     },
     "fonte": "pncp_4_2024",
-    "linhas": 1107,
+    "linhas": 150,
     "observacao": null,
-    "sha256": "5d25bd8a0a39439bc7d655b3a787bbfbc9ae7671717a2704c284111178689d3a",
+    "sha256": "d5b9a834de1d50a31c713f8cf1372f291fde50835fbcb1ffc79adf52161e0be1",
     "status": "ok",
     "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
   },
   "pncp_6_2022": {
     "arquivo": "data/silver/pncp_6_2022.parquet",
     "bytes": 201408,
-    "coletado_em": "2026-08-25T22:26:01+00:00",
+    "coletado_em": "2026-08-30T14:10:42+00:00",
     "erro": null,
     "extra": {
       "ano": 2022,
@@ -126,7 +147,7 @@
   "pncp_6_2023": {
     "arquivo": "data/silver/pncp_6_2023.parquet",
     "bytes": 1125377,
-    "coletado_em": "2026-08-25T22:28:30+00:00",
+    "coletado_em": "2026-08-30T14:14:26+00:00",
     "erro": null,
     "extra": {
       "ano": 2023,
@@ -297,6 +318,28 @@
     "sha256": "0d53b6adec224e41e4c767219aa988ea4e2530de59c01b1d04d850dafc54fd50",
     "status": "ok",
     "url": "https://pncp.gov.br/api/pncp/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens"
+  },
+  "sih": {
+    "arquivo": "data/silver/sih.parquet",
+    "bytes": 74132,
+    "coletado_em": "2026-08-30T13:57:50+00:00",
+    "erro": null,
+    "extra": {
+      "anos": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "municipios": 185
+    },
+    "fonte": "sih",
+    "linhas": 925,
+    "observacao": "AIH Reduzida (grupo RD). internacoes_drsai = AIH cujo DIAG_PRINC está no grupo veiculação hídrica de seeds/cid_saneamento.csv (indicador DRSAI/ISA). Atribuída ao município de residência.",
+    "sha256": "7339341404be7093fd592157794ef857b30036437924981f30f8b97412eaa812",
+    "status": "ok",
+    "url": "pysus.sih(\"PE\", {ano}, 1..12, group=\"RD\")"
   },
   "sinan_CHIK_2020": {
     "arquivo": "data/silver/sinan_chik_2020.parquet",
@@ -786,8 +829,8 @@
   },
   "transparencia": {
     "arquivo": "data/silver/transparencia.parquet",
-    "bytes": 18524,
-    "coletado_em": "2026-08-30T04:30:57+00:00",
+    "bytes": 81532,
+    "coletado_em": "2026-08-30T15:06:13+00:00",
     "erro": null,
     "extra": {
       "anos": [
@@ -797,12 +840,12 @@
         2023,
         2024
       ],
-      "municipios": 42
+      "municipios": 185
     },
     "fonte": "transparencia",
-    "linhas": 209,
+    "linhas": 925,
     "observacao": "L1 PARCIAL: transferências sociais federais por município (Bolsa Família/Auxílio Brasil/Novo Bolsa Família + BPC), competência junho. /transferencias fundo a fundo segue bloqueado (HTTP 403).",
-    "sha256": "ffcfc9cc0e6f61703ae0b8e95be4a42edfacd82160af1a75ad7e5100f00cc52e",
+    "sha256": "7c3187525a4c5c59056568be7878468cd6235293b55a141f406dcf7e9978fd2a",
     "status": "ok",
     "url": "https://api.portaldatransparencia.gov.br/api-de-dados/{programa}-por-municipio"
   }

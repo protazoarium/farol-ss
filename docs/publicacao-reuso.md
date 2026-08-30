@@ -17,9 +17,9 @@ Guia de preenchimento dos dois formulários exigidos para submeter o Farol-SS ao
 | Conta **gov.br** (a mesma serve para o dados.gov.br e para o formulário da CGU) | do autor |
 | **Perfil de consumidor** no Portal de Dados Abertos (usuário comum) | criar no primeiro acesso — ver passo a passo |
 | Repositório público | ✅ <https://github.com/protazoarium/farol-ss> |
-| Painel no ar (Streamlit Community Cloud) | ⏳ pendente — `docs/deploy.md` |
+| Painel no ar (Streamlit Community Cloud) | ⏳ pendente — passos em `docs/deploy.md`. **URL de publicação:** `https://farol-ss.streamlit.app` (reservar esse subdomínio no deploy) |
 | Logo 1:1 ≥ 200×200 px | criar (sugestão: o emoji 🚦 sobre fundo `#1257a8`, ou um recorte do mapa) |
-| 1–3 telas do painel 1:1 ≥ 200×200 px | recortar do painel: mapa do Farol, página Alertas, página Metodologia |
+| 1–3 telas do painel 1:1 ≥ 200×200 px | recortar do painel: mapa da página **Farol**, a página **Alertas** e a página **Fontes** |
 
 ---
 
@@ -32,7 +32,7 @@ Guia de preenchimento dos dois formulários exigidos para submeter o Farol-SS ao
 | Nome da iniciativa | **Farol da Saúde & Saneamento (Farol-SS)** |
 | Descrição curta | Monitor territorial que cruza execução financeira em saúde com carga epidemiológica e vulnerabilidade social, produzindo o IEAS — Índice de Efetividade da Alocação Sanitária — para os 185 municípios de Pernambuco. |
 | Tipo de solução | Painel / plataforma de dados |
-| URL da solução | *(URL do Streamlit Cloud, após o deploy)* |
+| URL da solução | `https://farol-ss.streamlit.app` |
 | Repositório | <https://github.com/protazoarium/farol-ss> |
 | Conjuntos de dados usados (dados.gov.br) | ver lista na seção "Conjunto de dados de origem" abaixo |
 | Desenvolvedores | *(nome, e-mail — até 20 pessoas)* |
@@ -50,8 +50,8 @@ Depois de enviar, **avance imediatamente para a Etapa 2**.
 | Campo do formulário | Valor a digitar |
 |---|---|
 | **Nome** | `Farol da Saúde & Saneamento (Farol-SS)` |
-| **URL** | *(URL pública do painel no Streamlit Community Cloud)* |
-| **Descrição** *(máx. 255 caracteres)* | `Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco: cruza execução financeira em saúde (SIOPS, PNCP) com carga epidemiológica (SINAN) e vulnerabilidade social (CadÚnico). Painel, alertas explicáveis e API aberta.` *(254 caracteres)* |
+| **URL** | `https://farol-ss.streamlit.app` |
+| **Descrição** *(máx. 255 caracteres)* | `Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco: cruza execução financeira em saúde (SIOPS, PNCP) com carga epidemiológica (SINAN, SIH) e vulnerabilidade social (CadÚnico). Painel, alertas explicáveis e API aberta.` *(252 caracteres)* |
 | **Tipos** | `Painel` |
 | **Nome do responsável** | *(nome do autor)* |
 | **Email do responsável** | *(e-mail do autor)* |
@@ -86,8 +86,10 @@ selecione todos no campo "Conjunto de dados de origem":
 | Sinan/Dengue | `dados.gov.br/dados/conjuntos-dados/arboviroses-dengue` | subíndice epidemiológico |
 | Sinan/Febre de Chikungunya | `dados.gov.br/dados/conjuntos-dados/arboviroses-febre-de-chikungunya` | subíndice epidemiológico |
 | Sinan/Vírus Zika | `dados.gov.br/dados/conjuntos-dados/arboviroses-zika-virus` | subíndice epidemiológico |
+| Sistema de Informações Hospitalares do SUS — SIH/SUS | `dados.gov.br/dados/conjuntos-dados/sistema-de-informacoes-hospitalares-do-sus-sihsus` | subíndice epidemiológico — internações por doença relacionada a saneamento (DRSAI) |
 | Sistema de Informações sobre Orçamentos Públicos em Saúde — SIOPS | `dados.gov.br/dados/conjuntos-dados/siops` | eixo Alocação, camada L2 (execução própria) |
 | Portal Nacional de Contratações Públicas — PNCP | `dados.gov.br/dados/conjuntos-dados/pncp` | eixo Alocação, camada L3 (compras de insumos) + detector de sobrepreço |
+| Compras Públicas do Governo Federal (Compras.gov.br) | `dados.gov.br/dados/conjuntos-dados/compras-publicas-do-governo-federal` | eixo Alocação, camada L3 federal (complemento) |
 | Famílias Inscritas no Cadastro Único | `dados.gov.br/dados/conjuntos-dados/familias-inscritas-no-cadastro-unico` | subíndice de vulnerabilidade (extrema pobreza) |
 | Malha Geométrica dos Municípios Brasileiros | `dados.gov.br/dados/conjuntos-dados/malha-geometrica-dos-municipios-brasileiros` | geometria do mapa coroplético |
 
@@ -103,7 +105,7 @@ Campo "Conjunto de dados não catalizados" — separar por ponto-e-vírgula, URL
 entre parênteses:
 
 ```
-IBGE — Estimativas de População, agregado 6579 (https://servicodados.ibge.gov.br/api/v3/agregados/6579); IBGE — IPCA, agregado 1737, usado como deflator (https://servicodados.ibge.gov.br/api/v3/agregados/1737); SINAN — Leptospirose, Hepatite A e Esquistossomose via PySUS (https://github.com/AlertaDengue/PySUS)
+IBGE — Estimativas de População, agregado 6579 (https://servicodados.ibge.gov.br/api/v3/agregados/6579); IBGE — IPCA, agregado 1737, usado como deflator (https://servicodados.ibge.gov.br/api/v3/agregados/1737); IBGE — Censo 2022, agregados 6803/6805/6892, déficit de saneamento (https://servicodados.ibge.gov.br/api/v3/agregados/6803); SINAN — Leptospirose, Hepatite A e Esquistossomose via PySUS (https://github.com/AlertaDengue/PySUS); CadÚnico via Matriz de Informações Sociais SAGI/MDS (https://aplicacoes.mds.gov.br/sagi/servicos/misocial)
 ```
 
 ---
@@ -113,24 +115,26 @@ IBGE — Estimativas de População, agregado 6579 (https://servicodados.ibge.go
 > O **Farol da Saúde & Saneamento (Farol-SS)** é um monitor territorial que
 > torna visível o descompasso entre o quanto um município **precisa** e o
 > quanto ele **recebe e gasta** em saúde. Para os 185 municípios de Pernambuco
-> (2020–2024), o projeto cruza cinco fontes federais abertas — carga
-> epidemiológica (SINAN), vulnerabilidade social (CadÚnico), execução própria
-> municipal em saúde (SIOPS), contratação de insumos (PNCP) e demografia (IBGE)
-> — num grão único de município × ano, e produz o **IEAS — Índice de
-> Efetividade da Alocação Sanitária**: dois eixos normalizados por rank
-> percentil dentro do estado, cuja diferença colore um semáforo (vermelho =
-> necessidade não atendida).
+> (2020–2024), o projeto cruza **oito fontes federais abertas** — carga
+> epidemiológica (SINAN e internações do SIH), déficit de saneamento (Censo
+> 2022 do IBGE), vulnerabilidade social (CadÚnico), execução própria municipal
+> em saúde (SIOPS), contratação de insumos (PNCP e Compras.gov.br) e repasse
+> federal (Portal da Transparência) — num grão único de município × ano, e
+> produz o **IEAS — Índice de Efetividade da Alocação Sanitária**: dois eixos
+> normalizados por rank percentil dentro do estado, cuja diferença colore um
+> semáforo (vermelho = necessidade não atendida).
 >
 > A entrega é um **pipeline de dados reprodutível** (do dado bruto ao índice,
-> com proveniência rastreável), um **painel web** de seis páginas com mapa
-> coroplético acessível (paleta validada para daltonismo) e uma **API aberta**
-> em JSON/CSV. Três detectores geram **alertas explicáveis em linguagem
-> natural** para auditoria cidadã, incluindo a suspeita de desabastecimento
-> (incidência sustentada de um agravo sem a contratação do insumo
-> correspondente no PNCP) e a suspeita de sobrepreço (preço unitário de insumo
-> fora da curva da mesma categoria no estado).
+> com proveniência rastreável em `manifest.json`), um **painel web** de seis
+> páginas com mapa coroplético acessível (paleta validada para daltonismo) e
+> uma **API aberta** em JSON/CSV. Quatro detectores geram **alertas explicáveis
+> em linguagem natural** para auditoria cidadã, incluindo a suspeita de
+> desabastecimento (incidência sustentada de um agravo sem a contratação do
+> insumo correspondente) e a suspeita de sobrepreço (preço unitário de insumo
+> fora da curva da mesma categoria, unidade e dose no estado).
 >
-> Código aberto sob domínio público: <https://github.com/protazoarium/farol-ss>.
+> Painel: <https://farol-ss.streamlit.app> · Código aberto sob domínio público:
+> <https://github.com/protazoarium/farol-ss>.
 
 ---
 

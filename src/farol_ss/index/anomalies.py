@@ -6,7 +6,8 @@
    contrário do detector 1. Só roda onde o eixo de Alocação está completo
    (L1+L2+L3).
 3. Suspeita de sobrepreço — preço unitário de um item acima de Q3 + fator·IQR
-   da mesma categoria E unidade de medida em PE. Usa `silver/pncp_itens.parquet`
+   da mesma categoria, unidade de medida E dose/concentração em PE. Usa
+   `silver/pncp_itens.parquet`
    (ver `ingest/pncp_itens.py`), que puxa o preço por item do recurso
    `/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens` do PNCP — o recurso de consulta
    genérico só traz o valor total da compra.
@@ -19,6 +20,8 @@ sem explicação não serve para auditoria cidadã.
 """
 
 from __future__ import annotations
+
+import re
 
 import numpy as np
 import pandas as pd
@@ -64,26 +67,42 @@ def _termos_categoria(catmat: pd.DataFrame, categoria: str) -> list[str]:
     return [t.strip() for t in bruto.split("|") if t.strip()]
 
 
-def _municipio_comprou_categoria(
-    compras: pd.DataFrame, cod_ibge: str, ano: int, categoria: str, catmat: pd.DataFrame
-) -> bool:
-    """Casamento por palavra-chave (coluna `palavras_chave` de
-    `seeds/catmat_saude.csv`) entre o `objeto_compra` e a categoria de insumo —
-    heurística simples e explicável, não NLP."""
+def _corpus_compras_por_municipio_ano(
+    compras: pd.DataFrame, itens: pd.DataFrame | None
+) -> dict[tuple[str, int], str]:
+    """Junta, por (cod_ibge, ano), todo o texto que descreve o que o município
+    comprou: o `objeto_compra` da contratação (genérico, nível de processo) E a
+    `descricao` de cada item (específica — "AMOXICILINA 500MG", "larvicida...").
+
+    Consultar o item, não só o objeto, é o que torna o detector 4 capaz de
+    afirmar "não comprou o insumo" com alguma precisão: um objeto "aquisição de
+    medicamentos" não diz nada, mas os itens dizem.
+    """
+    corpus: dict[tuple[str, int], list[str]] = {}
+    if "objeto_compra" in compras.columns:
+        for cod, ano, obj in zip(
+            compras["cod_ibge"], compras["ano"], compras["objeto_compra"].fillna("")
+        ):
+            corpus.setdefault((cod, int(ano)), []).append(_normaliza(obj))
+    if itens is not None and not itens.empty and "descricao" in itens.columns:
+        for cod, ano, desc in zip(itens["cod_ibge"], itens["ano"], itens["descricao"].fillna("")):
+            corpus.setdefault((cod, int(ano)), []).append(_normaliza(desc))
+    return {k: " || ".join(v) for k, v in corpus.items()}
+
+
+def _comprou_categoria(texto: str, categoria: str, catmat: pd.DataFrame) -> bool:
+    """`texto` é o corpus de compras de um município-ano (ver acima). Casamento
+    por palavra-chave curada (`seeds/catmat_saude.csv`) — heurística explicável,
+    não NLP nem classificação CATMAT estruturada (o PNCP não expõe a categoria
+    CATMAT do item: `itemCategoriaNome` vem "Não se aplica" em 100% dos casos)."""
     termos = _termos_categoria(catmat, categoria)
-    if not termos or "objeto_compra" not in compras.columns:
-        return False
-
-    do_municipio = compras[(compras["cod_ibge"] == cod_ibge) & (compras["ano"] == ano)]
-    if do_municipio.empty:
-        return False
-
-    objetos = do_municipio["objeto_compra"].fillna("").map(_normaliza)
-    return objetos.apply(lambda texto: any(t in texto for t in termos)).any()
+    return bool(termos) and any(t in texto for t in termos)
 
 
 def detectar_desabastecimento(
-    epidemiologia: pd.DataFrame, compras: pd.DataFrame | None
+    epidemiologia: pd.DataFrame,
+    compras: pd.DataFrame | None,
+    itens: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Detector 4: surto sustentado sem a contratação de insumo correspondente.
 
@@ -108,9 +127,8 @@ def detectar_desabastecimento(
     # detector confunde lacuna de cobertura do PNCP (a maioria dos casos hoje,
     # já que o portal só começa a ser universal com a Lei 14.133) com falha
     # real de resposta, e o alerta perde valor para auditoria.
-    municipio_ano_com_compra = set(
-        map(tuple, compras[["cod_ibge", "ano"]].dropna().drop_duplicates().to_numpy())
-    )
+    corpus = _corpus_compras_por_municipio_ano(compras, itens)
+    municipio_ano_com_compra = set(corpus)
 
     achados = []
     for agravo_cod, spec in agravo_insumo.items():
@@ -122,12 +140,13 @@ def detectar_desabastecimento(
         surto = epidemiologia[epidemiologia[col_taxa] >= corte]
 
         for _, row in surto.iterrows():
-            if (row["cod_ibge"], row["ano"]) not in municipio_ano_com_compra:
+            chave = (row["cod_ibge"], int(row["ano"]))
+            if chave not in municipio_ano_com_compra:
                 continue
 
+            texto = corpus[chave]
             comprou_algo = any(
-                _municipio_comprou_categoria(compras, row["cod_ibge"], row["ano"], cat, catmat)
-                for cat in spec["insumos_esperados"]
+                _comprou_categoria(texto, cat, catmat) for cat in spec["insumos_esperados"]
             )
             if not comprou_algo:
                 achados.append(
@@ -141,7 +160,8 @@ def detectar_desabastecimento(
                             f"Incidência de {spec['nome']} no percentil "
                             f"{limiar:.0%}+ de PE em {row['ano']}, mas nenhuma "
                             f"contratação de {', '.join(spec['insumos_esperados'])} "
-                            f"encontrada no PNCP para o município no período."
+                            "encontrada no PNCP (objeto e itens) para o município "
+                            "no período."
                         ),
                     }
                 )
@@ -219,16 +239,83 @@ def _unidade_norm(u) -> str:
     return _UNIDADES.get(_normaliza(u).strip(), _normaliza(u).strip() or "sem_unidade")
 
 
+# dose/concentração declarada na descrição do item ("AMOXICILINA 500MG",
+# "50mg/ml", "0,9%"). Ordem importa: os compostos (mg/ml) antes dos simples.
+_DOSE_RE = re.compile(
+    r"(\d+(?:[.,]\d+)?)\s*(mg/ml|mcg/ml|ui/ml|mg/g|mg|mcg|ui|g|ml|%)", re.IGNORECASE
+)
+
+
+def _dose_norm(descricao) -> str:
+    """Assinatura da dose de um item, para não comparar preços de
+    apresentações diferentes ("comprimido 500 mg" vs "250 mg"). Devolve string
+    vazia quando não há dose parseável — nesse caso o item é comparado só por
+    (categoria, unidade), como antes.
+
+    Um conjunto ordenado captura combinações ("amoxicilina 500mg + clavulanato
+    125mg" → "125mg+500mg"), que são um produto distinto do simples 500mg.
+    """
+    txt = _normaliza(descricao)
+    achados = set()
+    for val, uni in _DOSE_RE.findall(txt):
+        try:
+            f = float(val.replace(",", "."))
+        except ValueError:
+            continue
+        achados.add(f"{f:g}{uni.lower()}")
+    return "+".join(sorted(achados))
+
+
+def _achados_grupo(grupo: pd.DataFrame, rotulo: str, fator: float) -> list[dict]:
+    """Sinaliza itens acima de Q3 + fator·IQR dentro de `grupo` (já homogêneo
+    em categoria/unidade/dose). `rotulo` descreve o grupo para a explicação."""
+    precos = grupo["valor_unitario_estimado"]
+    if len(precos) < 5:  # sem base para uma distribuição
+        return []
+    q1, q3 = precos.quantile(0.25), precos.quantile(0.75)
+    iqr = q3 - q1
+    if iqr <= 0:
+        return []
+    limite = q3 + fator * iqr
+    mediana = precos.median()
+    out = []
+    for _, item in grupo[grupo["valor_unitario_estimado"] > limite].iterrows():
+        razao = item["valor_unitario_estimado"] / mediana if mediana else float("inf")
+        out.append(
+            {
+                "cod_ibge": item["cod_ibge"],
+                "ano": item["ano"],
+                "tipo": "suspeita_sobrepreco",
+                "severidade": "alta" if razao >= 3 else "moderada",
+                "categoria": item["categoria"],
+                "explicacao": (
+                    f"Item '{str(item['descricao'])[:60]}' contratado a "
+                    f"R$ {item['valor_unitario_estimado']:,.2f} — {razao:.1f}× a "
+                    f"mediana de PE para {rotulo} (R$ {mediana:,.2f}). "
+                    f"Contratação {item['numero_controle_pncp']}."
+                ).replace(",", "."),
+            }
+        )
+    return out
+
+
 def detectar_sobrepreco(itens: pd.DataFrame | None) -> pd.DataFrame:
     """Detector 3: preço unitário fora da curva dentro da mesma categoria de
-    insumo **e da mesma unidade de medida**.
+    insumo, **da mesma unidade de medida e da mesma dose/concentração**.
 
     `itens` é o `silver/pncp_itens.parquet` (um registro por item de compra,
-    com `valor_unitario_estimado`). Para cada par (categoria, unidade), o
-    detector calcula o IQR dos preços unitários entre municípios e sinaliza os
-    itens acima de Q3 + fator·IQR (`conf/ieas.yml::alertas.preco_iqr_fator`).
-    Agrupar por (categoria, unidade) evita comparar o preço de um frasco com o
-    de uma ampola do mesmo medicamento.
+    com `valor_unitario_estimado`). O detector calcula o IQR dos preços
+    unitários entre municípios e sinaliza os itens acima de Q3 + fator·IQR
+    (`conf/ieas.yml::alertas.preco_iqr_fator`).
+
+    Duas camadas de agrupamento:
+
+    1. **fina** — (categoria, unidade, dose): compara "amoxicilina cápsula
+       500 mg" só com outras "amoxicilina cápsula 500 mg", nunca com a de
+       250 mg nem com a suspensão 50 mg/ml. Só vale quando o grupo tem ≥ 5
+       itens com dose parseável.
+    2. **grossa** — (categoria, unidade): recebe os itens sem dose parseável
+       ou cujo grupo fino é pequeno demais. É o comportamento anterior.
     """
     schema_vazio = pd.DataFrame(
         columns=["cod_ibge", "ano", "tipo", "severidade", "categoria", "explicacao"]
@@ -252,36 +339,23 @@ def detectar_sobrepreco(itens: pd.DataFrame | None) -> pd.DataFrame:
     # a categoria de obras de saneamento é, por definição, de valor global
     df = df[df["categoria"] != "material_obra_saneamento"]
     df["unidade_norm"] = df["unidade_medida"].map(_unidade_norm)
+    df["dose_norm"] = df["descricao"].map(_dose_norm)
 
-    achados = []
-    for (categoria, unidade), grupo in df.groupby(["categoria", "unidade_norm"]):
-        precos = grupo["valor_unitario_estimado"]
-        if len(precos) < 5:  # sem base para uma distribuição
+    achados: list[dict] = []
+    coberto = pd.Series(False, index=df.index)
+
+    # 1. camada fina: (categoria, unidade, dose) com dose e ≥ 5 itens
+    com_dose = df[df["dose_norm"] != ""]
+    for (cat, uni, dose), grupo in com_dose.groupby(["categoria", "unidade_norm", "dose_norm"]):
+        if len(grupo) < 5:
             continue
-        q1, q3 = precos.quantile(0.25), precos.quantile(0.75)
-        iqr = q3 - q1
-        if iqr <= 0:
-            continue
-        limite = q3 + fator * iqr
-        mediana = precos.median()
-        for _, item in grupo[grupo["valor_unitario_estimado"] > limite].iterrows():
-            razao = item["valor_unitario_estimado"] / mediana if mediana else float("inf")
-            achados.append(
-                {
-                    "cod_ibge": item["cod_ibge"],
-                    "ano": item["ano"],
-                    "tipo": "suspeita_sobrepreco",
-                    "severidade": "alta" if razao >= 3 else "moderada",
-                    "categoria": categoria,
-                    "explicacao": (
-                        f"Item '{str(item['descricao'])[:60]}' contratado a "
-                        f"R$ {item['valor_unitario_estimado']:,.2f} por {unidade} "
-                        f"— {razao:.1f}× a mediana de PE para {categoria} nessa "
-                        f"unidade (R$ {mediana:,.2f}). "
-                        f"Contratação {item['numero_controle_pncp']}."
-                    ).replace(",", "."),
-                }
-            )
+        coberto.loc[grupo.index] = True
+        achados += _achados_grupo(grupo, f"{cat} {dose} ({uni})", fator)
+
+    # 2. camada grossa: (categoria, unidade) para o que sobrou
+    resto = df[~coberto]
+    for (cat, uni), grupo in resto.groupby(["categoria", "unidade_norm"]):
+        achados += _achados_grupo(grupo, f"{cat} ({uni}, dose não normalizada)", fator)
 
     return pd.DataFrame(achados) if achados else schema_vazio
 
@@ -360,6 +434,6 @@ def rodar(
     d1 = detectar_desalinhamento_estrutural(df_ieas)
     d2 = detectar_residuo_alocacao(df_ieas)
     d3 = detectar_sobrepreco(itens)
-    d4 = detectar_desabastecimento(epidemiologia, compras)
+    d4 = detectar_desabastecimento(epidemiologia, compras, itens)
     comuns = ["cod_ibge", "ano", "tipo", "severidade", "explicacao"]
     return pd.concat([d1[comuns], d2[comuns], d3[comuns], d4[comuns]], ignore_index=True)

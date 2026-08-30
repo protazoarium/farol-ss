@@ -41,19 +41,19 @@ página — confirmar no PDF do edital antes de assumir.
 Pelo menos **um** dos conjuntos de dados usados precisa estar catalogado no
 Portal Brasileiro de Dados Abertos (dados.gov.br). **Não** precisa ser dado da
 CGU — qualquer organização serve. O Farol-SS cumpre com folga: IBGE
-(população, IPCA, malhas), SINAN, PNCP e o próprio Portal da Transparência da
-CGU têm entrada no dados.gov.br (URLs em `conf/sources.yml`, campo `dados_gov`
-— todas verificadas HTTP 200 em 29/08/2026).
+(população, IPCA, malhas), SINAN, SIH, PNCP, SIOPS, CadÚnico, Compras.gov.br e
+o próprio Portal da Transparência da CGU têm entrada no dados.gov.br (URLs em
+`conf/sources.yml`, campo `dados_gov`).
 
 ## Critérios de julgamento (total 11 pontos)
 
 | Critério | Peso | Onde o Farol-SS pontua | Lacuna |
 |---|---|---|---|
-| Apresentação | 2 | painel Streamlit, README, docs de metodologia | falta demo hospedada ou vídeo; painel 100% cinza hoje é risco visual |
+| Apresentação | 2 | painel Streamlit, README, docs de metodologia; o farol tem cor (921/925 município-anos, 185/185 em 2024) | falta demo hospedada ou vídeo |
 | Inovação | 2 | detector de desabastecimento (incidência SINAN sustentada × ausência de compra do insumo no PNCP) | descrever bem esse diferencial no formulário |
 | Transparência / fomento ao controle social | 2 | proveniência (`manifest.json`), alertas com `explicacao` legível, enfoque "auditoria cidadã" | página de Metodologia expondo isso ao público |
 | Foco nas pessoas / impacto social | 2 | desfecho é carga de doença evitável por município | enquadrar a narrativa em saúde, não em dado |
-| Múltiplas fontes de dados | 1 | já cruza IBGE + SINAN + PNCP | ponto praticamente garantido |
+| Múltiplas fontes de dados | 1 | cruza IBGE + SINAN + SIH + PNCP + Compras.gov.br + SIOPS + CadÚnico + Censo 2022 | ponto garantido |
 | Uso de ferramentas tecnológicas | 1 | pipeline em camadas, DuckDB sobre Parquet, Streamlit | ok |
 | Inclusão / acessibilidade | 1 | paleta do semáforo validada para daltonismo (dataviz skill) | declarar explicitamente: tabela alternativa a cada mapa, contraste, textos alt |
 
@@ -82,4 +82,4 @@ de soluções inovadoras do dados.gov.br. (Não é prêmio em dinheiro.)
 - [ ] Hospedar a demo (seguir `docs/deploy.md`) **ou** gravar um screencast de 2–3 min
 - [ ] Página de Metodologia pública (fórmula do IEAS, tabela de proveniência)
 - [ ] Declaração de acessibilidade (tabela alternativa a cada mapa, paleta CVD, contraste)
-- [ ] Decidir se dá para destravar ao menos uma fonte de Alocação (SIOPS é a mais viável — download da série histórica) para o farol sair do cinza em parte dos municípios
+- [x] Destravar as fontes de Alocação — feito: SIOPS (L2), PNCP + Compras.gov.br (L3), L1 completo (Transparência, 185/185). O farol tem cor.

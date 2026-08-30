@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from farol_ss.index.anomalies import (
+    _dose_norm,
     detectar_desabastecimento,
     detectar_desalinhamento_estrutural,
     detectar_sobrepreco,
@@ -94,6 +95,26 @@ def test_detector4_nao_dispara_quando_municipio_comprou_insumo():
     assert alertas.empty
 
 
+def test_detector4_consulta_descricao_dos_itens_nao_so_o_objeto():
+    """O objeto da contratação é genérico ('aquisição de medicamentos'); é a
+    descrição do item que revela o insumo. Um município cujo objeto não casa
+    mas cujos itens contêm 'larvicida' NÃO deve virar alerta de dengue."""
+    epidemiologia = pd.DataFrame({"cod_ibge": ["2600054"], "ano": [2024], "taxa_deng": [500.0]})
+    compras = pd.DataFrame(
+        {"cod_ibge": ["2600054"], "ano": [2024], "objeto_compra": ["Aquisição de medicamentos"]}
+    )
+    itens = pd.DataFrame(
+        {
+            "cod_ibge": ["2600054"],
+            "ano": [2024],
+            "descricao": ["LARVICIDA BIOLOGICO BACILLUS THURINGIENSIS - SACHE 10G"],
+        }
+    )
+    assert detectar_desabastecimento(epidemiologia, compras, itens).empty
+    # sem os itens, o mesmo caso dispara (o objeto não casa)
+    assert not detectar_desabastecimento(epidemiologia, compras, None).empty
+
+
 def test_detector4_sem_dado_de_compras_devolve_tabela_vazia_com_schema():
     epidemiologia = pd.DataFrame({"cod_ibge": ["2600054"], "ano": [2024], "taxa_deng": [500.0]})
     alertas = detectar_desabastecimento(epidemiologia, None)
@@ -128,6 +149,38 @@ def _itens_sinteticos(precos_por_municipio: dict[str, float]) -> pd.DataFrame:
             "orcamento_sigiloso": False,
         }
     )
+
+
+def test_dose_norm_extrai_e_normaliza_concentracao():
+    assert _dose_norm("AMOXICILINA 500MG") == "500mg"
+    assert _dose_norm("Amoxicilina 500 mg cápsula") == "500mg"
+    assert _dose_norm("amoxicilina 50mg/ml suspensão 60ml") == "50mg/ml+60ml"
+    assert _dose_norm("cloreto de sódio 0,9%") == "0.9%"
+    assert _dose_norm("seringa descartável 5 ml") == "5ml"
+    assert _dose_norm("larvicida sem dose declarada") == ""
+
+
+def test_detector3_nao_confunde_doses_diferentes_da_mesma_categoria():
+    """8 municípios pagam ~R$0,20 por cápsula de amoxicilina 500 mg; um paga
+    R$12 por FRASCO de suspensão 50 mg/ml. Sem separar por dose/unidade, o
+    frasco viraria 'sobrepreço'; com a separação, cada apresentação tem seu
+    próprio grupo e (com só 1 frasco) o frasco não é comparável."""
+    base = {
+        "cod_ibge": [f"260000{i}" for i in range(8)] + ["2699999"],
+        "ano": 2024,
+        "numero_controle_pncp": [f"00000000000000-1-{i:06d}/2024" for i in range(9)],
+        "numero_item": 1,
+        "descricao": ["AMOXICILINA 500MG CAPSULA"] * 8 + ["AMOXICILINA 50MG/ML SUSPENSAO 60ML"],
+        "material_ou_servico": "Material",
+        "quantidade": 100.0,
+        "unidade_medida": ["CAPSULA"] * 8 + ["FRASCO"],
+        "valor_unitario_estimado": [0.20 + 0.01 * i for i in range(8)] + [12.0],
+        "valor_total": 100.0,
+        "item_categoria_nome": "Não se aplica",
+        "orcamento_sigiloso": False,
+    }
+    alertas = detectar_sobrepreco(pd.DataFrame(base))
+    assert not (alertas["cod_ibge"] == "2699999").any()
 
 
 def test_detector3_preco_muito_acima_do_iqr_dispara():

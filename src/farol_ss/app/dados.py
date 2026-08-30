@@ -68,6 +68,32 @@ def pncp() -> pd.DataFrame:
 
 
 @st.cache_data(show_spinner=False)
+def fato() -> pd.DataFrame:
+    """Fato município × ano com IEAS e todas as colunas do gold (l1/l2/l3,
+    subíndices, colunas de confiança), já com nome e região do município."""
+    df = duck.read_gold("ieas")
+    dim = M.municipios()[["cod_ibge", "nome", "mesorregiao", "regiao_intermediaria"]]
+    return df.merge(dim, on="cod_ibge", how="left")
+
+
+@st.cache_data(show_spinner=False)
+def compras_federais() -> pd.DataFrame:
+    """L3 federal (Compras.gov.br), ou vazio se não ingerido."""
+    if not duck.exists(config.SILVER, "compras_gov"):
+        return pd.DataFrame()
+    return duck.read_silver("compras_gov")
+
+
+@st.cache_data(show_spinner=False)
+def resumo_fontes() -> dict[str, dict]:
+    """manifest.json indexado por fonte — linhas coletadas e data da coleta."""
+    from farol_ss import proveniencia
+
+    tab = proveniencia.tabela()
+    return {r["fonte"]: r for r in tab.to_dict(orient="records")}
+
+
+@st.cache_data(show_spinner=False)
 def fontes() -> pd.DataFrame:
     """Catálogo de fontes × manifesto de coleta — ver `farol_ss.proveniencia`."""
     from farol_ss import proveniencia

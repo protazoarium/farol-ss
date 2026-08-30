@@ -22,6 +22,42 @@ import pandas as pd
 from farol_ss.config import ieas_conf
 from farol_ss.index.normalize import media_ponderada, rank_percentil
 
+_ARBOVIROSES = ("taxa_deng", "taxa_chik", "taxa_zika")
+_VEICULACAO_HIDRICA = ("taxa_lept", "taxa_hepa", "taxa_esqu")
+
+
+def montar_sub_epidemiologico(df: pd.DataFrame) -> pd.Series:
+    """Subíndice epidemiológico do eixo Necessidade, em [0, 1].
+
+    Três componentes, cada um um rank percentil dentro de PE, combinados com os
+    pesos de `conf/ieas.yml::necessidade.epidemiologico.pesos`:
+
+    - **arboviroses**: rank da soma das taxas de dengue + chikungunya + zika;
+    - **veiculação hídrica**: rank da soma das taxas de leptospirose +
+      hepatite A + esquistossomose (SINAN);
+    - **internações por saneamento (DRSAI)**: rank da taxa de internações do
+      SIH cujo diagnóstico é doença relacionada a saneamento ambiental
+      inadequado (ver `ingest/sih.py`).
+
+    A soma-antes-do-rank (em vez de média de ranks) dá a um município com carga
+    alta em vários agravos a posição que ele de fato ocupa, sem diluir.
+    """
+    pesos = ieas_conf()["necessidade"]["epidemiologico"]["pesos"]
+    comp = pd.DataFrame(index=df.index)
+
+    arbo = [c for c in _ARBOVIROSES if c in df.columns]
+    comp["arboviroses"] = rank_percentil(df[arbo].sum(axis=1)) if arbo else np.nan
+
+    hidr = [c for c in _VEICULACAO_HIDRICA if c in df.columns]
+    comp["veiculacao_hidrica"] = rank_percentil(df[hidr].sum(axis=1)) if hidr else np.nan
+
+    if "taxa_internacoes_drsai" in df.columns:
+        comp["internacoes_saneamento"] = rank_percentil(df["taxa_internacoes_drsai"])
+    else:
+        comp["internacoes_saneamento"] = np.nan
+
+    return media_ponderada(comp, {k: pesos[k] for k in comp.columns if k in pesos})
+
 
 def _cobertura_por_eixo(df: pd.DataFrame, colunas: list[str]) -> pd.Series:
     """Fração das colunas do eixo presentes (não-NaN) em cada linha."""

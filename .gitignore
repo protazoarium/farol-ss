@@ -19,6 +19,8 @@ data/silver/*
 !data/silver/cadunico.parquet
 !data/silver/transparencia.parquet
 !data/silver/ibge_saneamento.parquet
+!data/silver/sih.parquet
+!data/silver/compras_gov.parquet
 
 data/gold/*
 !data/gold/fato_municipio_ano.parquet

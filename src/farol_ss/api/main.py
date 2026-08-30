@@ -100,8 +100,11 @@ def ieas(
         "gap",
         "ieas",
         "farol",
+        # transparência sobre as limitações de dado (ver docs/relatorio-tecnico.md §10)
+        "l3_maturidade_pncp_uf",  # fração de municípios de PE no PNCP naquele ano
+        "saneamento_ano_referencia",  # o subíndice de saneamento é um retrato de 2022
     ]
-    return _entrega(df[cols], formato)
+    return _entrega(df[[c for c in cols if c in df.columns]], formato)
 
 
 @api.get("/alertas", tags=["índice"])
