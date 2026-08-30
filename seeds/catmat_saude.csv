@@ -1,15 +1,15 @@
-categoria,descricao,exemplo_catmat,ligado_a_agravo
-larvicida,Larvicida para controle de vetores (Aedes aegypti),Larvicida biológico Bacillus thuringiensis,true
-inseticida_adulticida,Inseticida para nebulização/UBV,Inseticida piretroide para nebulização,true
-teste_rapido_ns1_igm,Teste rápido dengue NS1/IgM/IgG,Teste imunocromatográfico dengue NS1,true
-soro_fisiologico,Soro fisiológico 0.9% para hidratação/procedimentos,Cloreto de sódio 0.9% solução injetável,true
-soro_reidratacao_oral,Sais de reidratação oral,Sal para reidratação oral envelope,true
-analgesico_antiinflamatorio,Analgésicos e antiinflamatórios,Paracetamol / Dipirona comprimido,false
-antibiotico_penicilina,Antibióticos classe penicilina,Penicilina G cristalina injetável,true
-antibiotico_geral,Antibióticos de amplo espectro,Amoxicilina / Azitromicina,false
-kit_teste_leptospirose,Kit sorológico para leptospirose,Kit ELISA leptospirose,true
-vacina_hepatite_a,Vacina hepatite A,Vacina hepatite A inativada,true
-kit_sorologia_hepatite,Kit sorológico hepatites virais,Kit ELISA hepatite A IgM,true
-praziquantel,Praziquantel (tratamento esquistossomose),Praziquantel comprimido 600mg,true
-kit_exame_parasitologico,Kit para exame parasitológico de fezes,Kit Kato-Katz,true
-material_obra_saneamento,Material para obras de saneamento básico,Tubulação PVC / manilha de esgoto,false
+categoria,descricao,exemplo_catmat,ligado_a_agravo,palavras_chave
+larvicida,Larvicida para controle de vetores (Aedes aegypti),Larvicida biológico Bacillus thuringiensis,true,larvicida|pyriproxyfen|bacillus thuringiensis|espinosade|diflubenzuron
+inseticida_adulticida,Inseticida para nebulização/UBV,Inseticida piretroide para nebulização,true,adulticida|inseticida piretroide|malathion|deltametrina uso saude publica|nebulizacao espacial
+teste_rapido_ns1_igm,Teste rápido dengue NS1/IgM/IgG,Teste imunocromatográfico dengue NS1,true,teste rapido dengue|teste ns1|dengue ns1|dengue igm/igg|imunocromatografico dengue
+soro_fisiologico,Soro fisiológico 0.9% para hidratação/procedimentos,Cloreto de sódio 0.9% solução injetável,true,soro fisiologico|cloreto de sodio 0,9|cloreto de sodio 0.9|solucao fisiologica 0,9
+soro_reidratacao_oral,Sais de reidratação oral,Sal para reidratação oral envelope,true,sais de reidratacao|soro de reidratacao oral|sais para reidratacao|soro reidratante oral
+analgesico_antiinflamatorio,Analgésicos e antiinflamatórios,Paracetamol / Dipirona comprimido,false,dipirona|paracetamol|ibuprofeno comprimido|acido acetilsalicilico comprimido
+antibiotico_penicilina,Antibióticos classe penicilina,Penicilina G cristalina injetável,true,penicilina|benzilpenicilina|amoxicilina|ampicilina
+antibiotico_geral,Antibióticos de amplo espectro,Amoxicilina / Azitromicina,false,azitromicina|ceftriaxona|doxiciclina|cefalexina
+kit_teste_leptospirose,Kit sorológico para leptospirose,Kit ELISA leptospirose,true,teste leptospirose|elisa leptospirose|sorologia leptospirose|igm leptospira
+vacina_hepatite_a,Vacina hepatite A,Vacina hepatite A inativada,true,vacina hepatite a|vacina contra hepatite a|vacina hepatite tipo a
+kit_sorologia_hepatite,Kit sorológico hepatites virais,Kit ELISA hepatite A IgM,true,sorologia hepatite|marcador hepatite|anti-hav|hbsag|elisa hepatite
+praziquantel,Praziquantel (tratamento esquistossomose),Praziquantel comprimido 600mg,true,praziquantel
+kit_exame_parasitologico,Kit para exame parasitológico de fezes,Kit Kato-Katz,true,kato-katz|kato katz|parasitologico de fezes|exame parasitologico|epf coprologico
+material_obra_saneamento,Material para obras de saneamento básico,Tubulação PVC / manilha de esgoto,false,manilha de esgoto|tubo pvc esgoto|tubulacao de esgoto|rede coletora de esgoto|estacao de tratamento de esgoto

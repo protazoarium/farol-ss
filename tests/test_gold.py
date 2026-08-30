@@ -8,7 +8,7 @@ import pytest
 
 from farol_ss import config
 from farol_ss.io import municipios as M
-from farol_ss.transform.gold_municipio_ano import montar
+from farol_ss.transform.gold_municipio_ano import _deflator_por_ano, montar
 
 
 @pytest.fixture(scope="module")
@@ -40,3 +40,21 @@ def test_taxas_nao_negativas(gold):
 def test_populacao_positiva_onde_presente(gold):
     com_pop = gold["populacao"].dropna()
     assert (com_pop > 0).all()
+
+
+def test_l3_per_capita_nao_negativo_e_esparso(gold):
+    """L3 vem do PNCP, que não cobre todo município-ano — a coluna é esparsa
+    de propósito. Onde existe, é ≥ 0."""
+    assert "l3_per_capita" in gold.columns
+    presente = gold["l3_per_capita"].dropna()
+    assert (presente >= 0).all()
+    assert 0 < len(presente) < len(gold)  # nem vazia, nem completa
+
+
+def test_deflator_leva_ano_base_para_um(gold):
+    """O fator do ano-base de deflação deve ser 1.0 (referência de si mesmo)."""
+    base = config.recorte()["ano_base_deflacao"]
+    deflator = _deflator_por_ano()
+    assert deflator[base] == pytest.approx(1.0)
+    # anos anteriores ao base inflacionam: fator > 1
+    assert all(deflator[a] >= 1.0 for a in deflator if a < base)

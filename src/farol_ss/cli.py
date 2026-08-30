@@ -65,13 +65,32 @@ def ingest() -> None:
         raise
 
 
+@app.command(name="ingest-itens")
+def ingest_itens(
+    limite: int = typer.Option(None, help="teto de contratações novas nesta execução"),
+) -> None:
+    """Baixa os itens (com preço unitário) das contratações de saúde do PNCP.
+
+    Alimenta o detector 3 (sobrepreço). Retomável: pula o que já está em
+    `silver/pncp_itens.parquet`. São ~800 contratações de saúde; sem `--limite`
+    a coleta completa leva alguns minutos (o PNCP é lento).
+    """
+    from farol_ss.ingest import pncp_itens
+
+    config.ensure_dirs()
+    pncp_itens.rodar(limite=limite)
+    console.print("[green]✓ Itens do PNCP concluídos[/green]")
+
+
 @app.command()
 def silver() -> None:
     """Consolida os arquivos por fonte em tabelas únicas por domínio."""
-    from farol_ss.transform import silver_epidemiologia
+    from farol_ss.transform import silver_epidemiologia, silver_pncp
 
     console.print("[cyan]• Epidemiologia[/cyan] (consolidando sinan_*.parquet)")
     silver_epidemiologia.rodar()
+    console.print("[cyan]• PNCP[/cyan] (consolidando pncp_*.parquet)")
+    silver_pncp.rodar()
     console.print("[green]✓ Silver concluído[/green]")
 
 
@@ -136,10 +155,17 @@ def ieas() -> None:
         f"  ✓ IEAS calculado para {cobertos}/{len(out)} município-anos (resto: cinza, cobertura insuficiente)"
     )
 
-    alertas = anomalies.detectar_desalinhamento_estrutural(out)
+    # Detectores de anomalia. O detector 1 (desalinhamento) roda sobre o IEAS;
+    # o 4 (desabastecimento) cruza as taxas do gold com o objeto das compras do
+    # PNCP; o 3 (sobrepreço) usa os itens do PNCP com preço unitário. Cada fonte
+    # ausente vira `None` e o detector correspondente devolve tabela vazia.
+    compras = duck.read_silver("pncp") if duck.exists(config.SILVER, "pncp") else None
+    itens = duck.read_silver("pncp_itens") if duck.exists(config.SILVER, "pncp_itens") else None
+    alertas = anomalies.rodar(out, out, compras, itens)
     if not alertas.empty:
         duck.write_gold(alertas, "alertas")
-        console.print(f"  ✓ {len(alertas)} alertas de desalinhamento estrutural")
+        por_tipo = alertas["tipo"].value_counts().to_dict()
+        console.print(f"  ✓ {len(alertas)} alertas: {por_tipo}")
 
     console.print("[green]✓ IEAS concluído[/green]")
 
