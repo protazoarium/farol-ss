@@ -7,7 +7,7 @@ ibge_malhas:
   url: "https://servicodados.ibge.gov.br/api/v3/malhas/estados/26"
   params: {intrarregiao: municipio, qualidade: intermediaria, formato: "application/vnd.geo+json"}
   observacao: "A propriedade codarea do GeoJSON traz o código IBGE de 7 dígitos."
-  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/malhas-territoriais"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/malha-geometrica-dos-municipios-brasileiros"
   licenca: "Dados abertos — IBGE"
   formato: geojson
 
@@ -43,7 +43,7 @@ sinan:
   camada: epidemiologia
   acesso: pysus
   agravos: [DENG, CHIK, ZIKA, LEPT, HEPA, ESQU]
-  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/sistema-de-informacao-de-agravos-de-notificacao-sinan"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/arboviroses-dengue"
   licenca: "Dados abertos — Ministério da Saúde"
   observacao: "PySUS baixa arquivo Brasil inteiro; filtrar para PE e descartar o bruto."
 
@@ -75,7 +75,7 @@ cadunico:
   nome: "CadÚnico — Vulnerabilidade socioeconômica"
   camada: vulnerabilidade
   url: "https://aplicacoes.mds.gov.br/sagi/"
-  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/cadastro-unico"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/familias-inscritas-no-cadastro-unico"
   licenca: "Dados abertos — MDS"
 
 transparencia:
@@ -92,7 +92,7 @@ pncp:
   camada: financeiro_l3
   url: "https://pncp.gov.br/api/consulta"
   swagger: "https://pncp.gov.br/api/pncp/swagger-ui/index.html"
-  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/portal-nacional-de-contratacoes-publicas-pncp"
+  dados_gov: "https://dados.gov.br/dados/conjuntos-dados/pncp"
   licenca: "Dados abertos — Ministério da Gestão"
   observacao: "Fonte central: é onde as prefeituras publicam sob a Lei 14.133."
 

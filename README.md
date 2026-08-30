@@ -111,7 +111,11 @@ reuso_projeto/
 ├── docs/
 │   ├── spike-fontes.md     # bloqueios, correções de endpoint, bugs encontrados
 │   ├── concurso-cgu.md     # regras do Concurso de Reúso de Dados Abertos da CGU
-│   └── relatorio-tecnico.md # relatório técnico completo
+│   ├── deploy.md            # deploy do painel no Streamlit Community Cloud
+│   ├── publicacao-reuso.md  # valores prontos para os formulários do concurso
+│   ├── passo-a-passo-dados-gov.md  # navegação no dados.gov.br p/ publicar o reúso
+│   ├── relatorio-tecnico.md # relatório técnico completo (fonte)
+│   └── relatorio-tecnico.docx # idem, formato acadêmico (gerar com scripts/gerar-docx.sh)
 └── .streamlit/config.toml
 ```
 
