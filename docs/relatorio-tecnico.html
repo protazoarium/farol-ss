@@ -597,7 +597,7 @@
           <tr><td>Vulnerabilidade (extrema pobreza)</td><td class="num">0,25</td><td>CadÚnico/SAGI</td><td class="st st-ok">✓</td></tr>
         </tbody>
       </table></div>
-      <p>O subíndice epidemiológico é ele próprio uma combinação de três componentes, cada um um rank percentil: <strong>arboviroses 40%</strong> (dengue + chikungunya + zika, SINAN) + <strong>veiculação hídrica 35%</strong> (leptospirose + hepatite A + esquistossomose, SINAN) + <strong>internações por doença relacionada a saneamento 25%</strong> (SIH, grupo RD — indicador DRSAI/ISA). O peso do SIH havia sido redistribuído na v1.2 por um erro do <em>spike</em>; a chamada correta é <code>pysus.sih("PE", ano, mes, group="RD")</code>.</p>
+      <p>O subíndice de <strong>saneamento</strong> é o rank percentil de um déficit ponderado — <code>0,35·água + 0,45·esgoto + 0,20·lixo</code>, pesos aplicados uma única vez na ingestão. O de <strong>vulnerabilidade</strong> é um componente único (a fonte não expõe, no grão município-ano, outras dimensões comparáveis na série). O <strong>epidemiológico</strong> é ele próprio uma combinação de três componentes, cada um um rank percentil: <strong>arboviroses 40%</strong> (dengue + chikungunya + zika, SINAN) + <strong>veiculação hídrica 35%</strong> (leptospirose + hepatite A + esquistossomose, SINAN) + <strong>internações por doença relacionada a saneamento 25%</strong> (SIH, grupo RD — indicador DRSAI/ISA). O peso do SIH havia sido redistribuído na v1.2 por um erro do <em>spike</em>; a chamada correta é <code>pysus.sih("PE", ano, mes, group="RD")</code>.</p>
 
       <p><strong>Eixo A — Alocação</strong> (R$ per capita deflacionado, pesos somam 1,0):</p>
       <div class="tw"><table>
@@ -686,16 +686,16 @@
       <h2><span class="num">§9</span>Camada de apresentação</h2>
 
       <h3><span class="num">9.1</span>Painel Streamlit &nbsp;·&nbsp; <a href="https://farol-ss.streamlit.app">farol-ss.streamlit.app</a></h3>
-      <p>Identidade institucional própria (<code>app/tema.py</code>: cabeçalho, rodapé, cartões e CSS compartilhados). Home mais seis páginas, todas lendo o gold via <code>farol_ss.app.dados</code> (cacheado); o texto longo e o catálogo curado de fontes vivem em <code>app/conteudo.py</code>.</p>
+      <p>Sistema de design institucional próprio (<code>app/tema.py</code>: cabeçalho, rodapé, cartões de indicador, notas/callouts, molduras de fórmula e CSS compartilhados). O mesmo módulo desenha em SVG um <strong>diagrama de construção do índice</strong> — das oito fontes aos dois eixos ponderados, ao rank percentil, ao <code>gap</code> e ao semáforo — com os pesos lidos de <code>conf/ieas.yml</code>. Home mais seis páginas, todas lendo o gold via <code>farol_ss.app.dados</code> (cacheado); a redação institucional, o catálogo curado de fontes e o catálogo de fórmulas vivem em <code>app/conteudo.py</code>.</p>
       <div class="tw"><table>
         <thead><tr><th>Página</th><th>Conteúdo</th></tr></thead>
         <tbody>
-          <tr><td><strong>Home</strong></td><td>o que o índice mede e para quem, como se lê o IEAS, o semáforo com a leitura de cada cor, as oito fontes com selo de estado e data da última coleta</td></tr>
+          <tr><td><strong>Home</strong></td><td>o que o índice mede e para quem, como se lê o IEAS, o diagrama de construção, o semáforo com a leitura de cada cor, as oito fontes com selo de estado e data da última coleta</td></tr>
           <tr><td><strong>Farol</strong></td><td>mapa coroplético dos 185 municípios; seletor de camada (Farol, cada subíndice de Necessidade, cada camada L1/L2/L3); filtro por mesorregião; ranking de extremos; tabela + CSV</td></tr>
           <tr><td><strong>Município</strong></td><td>drill-down: valor de cada componente dos dois eixos, séries de notificação (SINAN) e internação (SIH), incidência por 100 mil, gasto per capita por camada, contratações no PNCP, alertas</td></tr>
           <tr><td><strong>Alertas</strong></td><td>tabela filtrável de anomalias com explicação em linguagem natural; a definição de cada um dos quatro detectores; CSV</td></tr>
-          <tr><td><strong>Fontes</strong></td><td>catálogo curado das oito fontes — papel no IEAS, cobertura real, limitações — cruzado com a proveniência de <code>manifest.json</code></td></tr>
-          <tr><td><strong>Metodologia</strong></td><td>fórmula do IEAS lida de <code>conf/ieas.yml</code>; regra do cinza; decisões metodológicas que mudam o resultado; tabela de proveniência com link para o <code>dados.gov.br</code></td></tr>
+          <tr><td><strong>Fontes</strong></td><td>catálogo curado das oito fontes — papel no IEAS, variável bruta → transformação até a coluna do gold, cobertura real, limitações — cruzado com a proveniência de <code>manifest.json</code></td></tr>
+          <tr><td><strong>Metodologia</strong></td><td>da fonte ao indicador (ficha por fonte); <strong>todas as fórmulas em notação matemática</strong> (<code>st.latex</code>/KaTeX) — taxa, deflator, rank percentil, média ponderada, os três subíndices, os dois eixos, <code>gap</code>/<code>ieas</code>, os quatro detectores — com os parâmetros interpolados de <code>conf/ieas.yml</code>; regra do cinza; decisões metodológicas; tabela de proveniência com link para o <code>dados.gov.br</code></td></tr>
           <tr><td><strong>API</strong></td><td>documentação das rotas e download direto do gold</td></tr>
         </tbody>
       </table></div>
@@ -816,14 +816,15 @@ make api                              <b># API     (localhost:8000/docs)</b></pr
         <li><strong>Determinismo:</strong> ingestão idempotente; <code>manifest.json</code> registra SHA-256 e contagem de linhas de cada arquivo bruto.</li>
         <li><strong>Configuração versionada:</strong> todo parâmetro do índice em <code>conf/ieas.yml</code>.</li>
         <li><strong>Testes:</strong> 75 — grão do gold, regressão dos três bugs de corrupção silenciosa, IEAS nas quatro cores e os <strong>quatro detectores</strong> com fixtures, ingestão do SIH, normalização de dose, L3 federal, parsers de SIOPS/CadÚnico, fumaça da API.</li>
-        <li><strong>Tamanho:</strong> ~4.200 linhas de Python em <code>src/</code>, ~900 em <code>tests/</code>.</li>
+        <li><strong>Configuração versionada:</strong> todo parâmetro do índice em <code>conf/ieas.yml</code>, e toda chave do arquivo é de fato lida pelo código (as chaves inertes herdadas do plano original foram removidas).</li>
+        <li><strong>Tamanho:</strong> ~6.100 linhas de Python em <code>src/</code>, ~970 em <code>tests/</code>.</li>
       </ul>
     </section>
 
     <section id="concurso">
       <h2><span class="num">§13</span>Conformidade com o Concurso de Reúso de Dados Abertos da CGU</h2>
       <ul>
-        <li><strong>Requisito de fonte</strong> (≥ 1 conjunto catalogado no <code>dados.gov.br</code>): atendido com sobra — IBGE (incl. Censo 2022), SINAN, SIH, PNCP, Compras.gov.br, SIOPS, CadÚnico e o Portal da Transparência da própria CGU.</li>
+        <li><strong>Requisito de fonte</strong> (≥ 1 conjunto catalogado no <code>dados.gov.br</code>): atendido com sobra — o reúso referencia treze conjuntos catalogados (as três arboviroses do SINAN, SIH, Censo 2022, CadÚnico, SIOPS, PNCP, Compras.gov.br, Portal da Transparência da própria CGU, Estimativas de População, IPCA e a Malha Municipal). Leptospirose, hepatite A e esquistossomose do SINAN entram como não catalogados (via PySUS).</li>
         <li><strong>Múltiplas fontes:</strong> cruza epidemiologia (SINAN + SIH), vulnerabilidade (CadÚnico), execução orçamentária (SIOPS), contratações (PNCP + Compras.gov.br) e demografia (IBGE) num grão único.</li>
         <li><strong>Transparência / controle social:</strong> proveniência rastreável, alertas com explicação em linguagem natural, API aberta sem autenticação.</li>
         <li><strong>Acessibilidade:</strong> paleta validada para daltonismo, tabela alternativa a cada mapa, contraste verificado.</li>

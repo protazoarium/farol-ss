@@ -38,7 +38,7 @@ cp .env.example .env      # PORTAL_TRANSPARENCIA_API_KEY (chave gratuita, login 
 make spike               # sonda as fontes federais, reporta cobertura real
 make ingest              # IBGE + SINAN + SIH + PNCP + Compras.gov.br + SIOPS + CadÚnico + L1
 make silver gold ieas    # camadas derivadas + IEAS + alertas
-uv run pytest -q         # 70 testes
+uv run pytest -q         # 75 testes
 
 make app                 # painel Streamlit (localhost:8501)
 make api                 # API aberta FastAPI (localhost:8000/docs)
@@ -77,7 +77,7 @@ Fontes federais → bronze/ (bruto + manifest.json de proveniência)
 - **gap = rank(A) − rank(N)** ∈ [−1, 1] → colore o farol (vermelho = necessidade não atendida)
 - **ieas = 1 − |gap|** ∈ [0, 1] → score de alinhamento, usado só para ranquear
 
-Regra do cinza: um eixo cuja fração de componentes presentes cai abaixo do limiar em `conf/ieas.yml` (`cobertura_minima`) não tem IEAS calculado — o farol mostra cinza, nunca um número sobre dado majoritariamente ausente. O eixo Necessidade está completo para os 185 municípios; o cinza que resta é sobretudo município-ano sem contratação no PNCP naquele ano (`l3_maturidade_pncp_uf` mede essa adesão).
+Regra do cinza: um eixo cuja fração de componentes presentes cai abaixo do limiar em `conf/ieas.yml` (`cobertura_minima`) não tem IEAS calculado — o farol mostra cinza, nunca um número sobre dado majoritariamente ausente. Com o L1 completo, o IEAS é calculado para 921 dos 925 município-anos; os 4 cinza restantes são o Distrito Estadual de Fernando de Noronha (sem SIOPS nem PNCP municipais). A coluna `l3_maturidade_pncp_uf` ainda registra a adesão ao PNCP por ano, baixa em 2020–2021.
 
 ## Correção metodológica em relação à proposta original
 
@@ -118,7 +118,7 @@ reuso_projeto/
 │   ├── api/main.py         # API aberta FastAPI (JSON/CSV)
 │   ├── app/                # painel Streamlit — Home.py + pages/1..6 + tema.py + conteudo.py
 │   └── cli.py
-├── tests/                  # 70 testes — regressão de bugs reais, fixtures, fumaça de API
+├── tests/                  # 75 testes — regressão de bugs reais, fixtures, fumaça de API
 ├── data/                   # derivados versionados (~1,7 MB); bruto gitignored
 │   ├── bronze/silver/gold/
 │   └── manifest.json       # proveniência: url, sha256, timestamp, linhas
@@ -129,6 +129,7 @@ reuso_projeto/
 │   ├── publicacao-reuso.md  # valores prontos para os formulários do concurso
 │   ├── passo-a-passo-dados-gov.md  # navegação no dados.gov.br p/ publicar o reúso
 │   ├── relatorio-tecnico.md # relatório técnico completo (fonte)
+│   ├── relatorio-tecnico.html # idem, versão web
 │   └── relatorio-tecnico.docx # idem, formato acadêmico (gerar com scripts/gerar-docx.sh)
 └── .streamlit/config.toml
 ```

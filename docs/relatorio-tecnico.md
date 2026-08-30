@@ -229,8 +229,13 @@ conta final — apenas a **posição relativa** dentro do estado. Isso torna o
 | Saneamento (déficit de água + esgoto + lixo) | 0,35 | Censo 2022 do IBGE | ✅ |
 | Vulnerabilidade (taxa de famílias em extrema pobreza) | 0,25 | CadÚnico/SAGI | ✅ |
 
-O subíndice epidemiológico é, ele próprio, uma combinação ponderada de três
-componentes, cada um um rank percentil dentro de PE:
+O subíndice de **saneamento** é o rank percentil de um déficit ponderado —
+`0,35·déficit_água + 0,45·déficit_esgoto + 0,20·déficit_lixo`, com os pesos
+aplicados uma única vez, na ingestão (`ingest/ibge_saneamento.py`). O de
+**vulnerabilidade** é um componente único: o rank percentil da taxa de famílias
+em extrema pobreza (a fonte não expõe, no grão município-ano, outras dimensões
+comparáveis na série 2020–2024). O **epidemiológico** é, ele próprio, uma
+combinação ponderada de três componentes, cada um um rank percentil dentro de PE:
 **arboviroses 40%** (dengue + chikungunya + zika, SINAN) +
 **veiculação hídrica 35%** (leptospirose + hepatite A + esquistossomose, SINAN) +
 **internações por doença relacionada a saneamento 25%** (SIH, grupo RD — o
@@ -429,19 +434,24 @@ cobertura incompleta do portal em alarme falso.
 
 ### 8.1 Painel Streamlit (`make app` · <https://farol-ss.streamlit.app>)
 
-Identidade institucional própria (`app/tema.py`: cabeçalho, rodapé, cartões e
-CSS compartilhados; azul `#1257a8`, o mesmo deste relatório). Home mais seis
-páginas, todas lendo o gold via `farol_ss.app.dados` (cacheado); o texto
-longo e o catálogo curado de fontes vivem em `app/conteudo.py`.
+Sistema de design institucional próprio (`app/tema.py`: cabeçalho, rodapé,
+cartões de indicador, notas/*callouts*, molduras de fórmula e CSS
+compartilhados; azul `#1257a8`, o mesmo deste relatório). O módulo também
+desenha, em SVG puro, um **diagrama de construção do índice** — das oito fontes
+aos dois eixos ponderados, ao rank percentil, ao `gap` e ao semáforo — com os
+pesos lidos de `conf/ieas.yml` para nunca divergir do cálculo. Home mais seis
+páginas, todas lendo o gold via `farol_ss.app.dados` (cacheado); a redação
+institucional, o catálogo curado de fontes e o catálogo de fórmulas vivem em
+`app/conteudo.py`.
 
 | Página | Conteúdo |
 |---|---|
-| **Home** | o que o índice mede e para quem, como se lê o IEAS, o semáforo com a leitura de cada cor, as oito fontes com selo de estado e data da última coleta |
+| **Home** | o que o índice mede e para quem, como se lê o IEAS, o diagrama de construção, o semáforo com a leitura de cada cor, as oito fontes com selo de estado e data da última coleta |
 | **Farol** | mapa coroplético dos 185 municípios; seletor de camada (Farol, cada subíndice de Necessidade, cada camada L1/L2/L3 de Alocação); filtro por mesorregião; legenda; ranking de extremos; tabela + CSV |
 | **Município** | *drill-down*: valor de cada componente dos dois eixos, cobertura, séries de notificação (SINAN) e internação (SIH), incidência por 100 mil, gasto per capita por camada, contratações no PNCP, alertas |
 | **Alertas** | tabela filtrável de anomalias com explicação em linguagem natural; distribuição por ano; a definição de cada um dos quatro detectores; CSV |
-| **Fontes** | catálogo curado das oito fontes — papel no IEAS, cobertura real, limitações — cruzado com a proveniência de `manifest.json` |
-| **Metodologia** | fórmula do IEAS lida de `conf/ieas.yml`, regra do cinza, decisões metodológicas que mudam o resultado, tabela de proveniência com link para o `dados.gov.br` |
+| **Fontes** | catálogo curado das oito fontes — papel no IEAS, **variável bruta → transformação até a coluna do gold**, cobertura real, limitações — cruzado com a proveniência de `manifest.json` |
+| **Metodologia** | da fonte ao indicador (uma ficha por fonte); **todas as fórmulas em notação matemática** (`st.latex`/KaTeX) — taxa, deflator, rank percentil, média ponderada, os três subíndices, os dois eixos, `gap`/`ieas`, os quatro detectores — com os parâmetros interpolados de `conf/ieas.yml`; regra do cinza; decisões metodológicas; tabela de proveniência com link para o `dados.gov.br` |
 | **API** | documentação das rotas e *download* direto do gold |
 
 **Acessibilidade.** A paleta do semáforo
@@ -618,7 +628,7 @@ make spike                            # sonda as fontes, reporta cobertura real
 make ingest                           # IBGE + SINAN + SIH + PNCP + Compras.gov.br + SIOPS + CadÚnico + L1
 farol ingest-itens                    # itens do PNCP (preço unitário; retomável)
 make silver gold ieas                 # camadas derivadas + índice + alertas
-uv run pytest -q                      # 70 testes
+uv run pytest -q                      # 75 testes
 make app                              # painel  (localhost:8501)
 make api                              # API     (localhost:8000/docs)
 ```
@@ -628,24 +638,30 @@ Comandos de coleta retomável: `farol ingest-sih`, `farol ingest-l3-federal`,
 
 - **Determinismo**: a ingestão é idempotente; `data/manifest.json` registra
   SHA-256 e contagem de linhas de cada arquivo bruto.
-- **Configuração versionada**: todo parâmetro do índice em `conf/ieas.yml`.
-- **Testes**: 70 no total — grão do gold, os quatro detectores com fixtures,
+- **Configuração versionada**: todo parâmetro do índice em `conf/ieas.yml` —
+  e todo parâmetro do arquivo é de fato lido pelo código (as chaves inertes
+  herdadas do plano original foram removidas).
+- **Testes**: 75 no total — grão do gold, os quatro detectores com fixtures,
   regressão dos três bugs de corrupção silenciosa, IEAS nas quatro cores,
   ingestão do SIH (casamento de CID DRSAI), normalização de dose do detector 3,
   detector 4 sobre a descrição dos itens, parsers de SIOPS e CadÚnico, fumaça
-  da API.
-- **Tamanho**: ~4.200 linhas de Python em `src/`, ~900 em `tests/`.
+  da API (serialização de `NaN`).
+- **Tamanho**: ~6.100 linhas de Python em `src/`, ~970 em `tests/`.
 
 ---
 
 ## 12. Conformidade com o Concurso de Reúso de Dados Abertos da CGU
 
 - **Requisito de fonte** (≥ 1 conjunto catalogado no `dados.gov.br`): atendido
-  com sobra — IBGE, SINAN, SIH, PNCP, SIOPS, CadÚnico e o Portal da
-  Transparência da própria CGU.
-- **Múltiplas fontes**: o produto cruza epidemiologia (SINAN + SIH),
-  vulnerabilidade (CadÚnico), execução orçamentária (SIOPS), contratações
-  (PNCP + Compras.gov.br) e demografia (IBGE) num grão único.
+  com sobra — o reúso referencia treze conjuntos catalogados (as três
+  arboviroses do SINAN, SIH, Censo 2022, CadÚnico, SIOPS, PNCP, Compras.gov.br,
+  Portal da Transparência da própria CGU, Estimativas de População, IPCA e a
+  Malha Municipal). Leptospirose, hepatite A e esquistossomose do SINAN entram
+  como não catalogados (acessados via PySUS).
+- **Múltiplas fontes**: o produto cruza epidemiologia (SINAN + SIH), déficit de
+  saneamento (Censo 2022), vulnerabilidade (CadÚnico), execução orçamentária
+  (SIOPS), contratações (PNCP + Compras.gov.br), repasse federal (Portal da
+  Transparência) e demografia (IBGE) num grão único.
 - **Transparência / controle social**: proveniência rastreável
   (`manifest.json`), alertas com explicação em linguagem natural, API aberta
   sem autenticação.
