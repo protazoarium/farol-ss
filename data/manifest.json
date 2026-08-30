@@ -60,6 +60,21 @@
     "status": "ok",
     "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/{ano}/variaveis/9324"
   },
+  "ibge_saneamento": {
+    "arquivo": "data/silver/ibge_saneamento.parquet",
+    "bytes": 20852,
+    "coletado_em": "2026-08-30T04:31:15+00:00",
+    "erro": null,
+    "extra": {
+      "municipios": 185
+    },
+    "fonte": "ibge_saneamento",
+    "linhas": 185,
+    "observacao": "Censo 2022 — déficit de água/esgoto/lixo; retrato único aplicado a todo o recorte (SNIS encerrado).",
+    "sha256": "61ff7559349a356445c5cfbec9b1ac628c9e48635e6971f265b4d118b7d02661",
+    "status": "ok",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/{6803|6805|6892}/periodos/2022/variaveis/381"
+  },
   "pncp_4_2023": {
     "arquivo": "data/silver/pncp_4_2023.parquet",
     "bytes": 33055,
@@ -270,8 +285,8 @@
   },
   "pncp_itens": {
     "arquivo": "data/silver/pncp_itens.parquet",
-    "bytes": 3494681,
-    "coletado_em": "2026-08-30T03:07:04+00:00",
+    "bytes": 3921562,
+    "coletado_em": "2026-08-30T04:34:54+00:00",
     "erro": null,
     "extra": {
       "contratacoes_coletadas": 878
@@ -768,5 +783,27 @@
     "sha256": "ca210943e91fc1235bfcc87218d4d10b0713f583762499671c31e6f33345e6d4",
     "status": "ok",
     "url": "http://siops-asp.datasus.gov.br/cgi/tabcgi.exe?siops/serhist/MUNICIPIO/indicPE.def"
+  },
+  "transparencia": {
+    "arquivo": "data/silver/transparencia.parquet",
+    "bytes": 18524,
+    "coletado_em": "2026-08-30T04:30:57+00:00",
+    "erro": null,
+    "extra": {
+      "anos": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "municipios": 42
+    },
+    "fonte": "transparencia",
+    "linhas": 209,
+    "observacao": "L1 PARCIAL: transferências sociais federais por município (Bolsa Família/Auxílio Brasil/Novo Bolsa Família + BPC), competência junho. /transferencias fundo a fundo segue bloqueado (HTTP 403).",
+    "sha256": "ffcfc9cc0e6f61703ae0b8e95be4a42edfacd82160af1a75ad7e5100f00cc52e",
+    "status": "ok",
+    "url": "https://api.portaldatransparencia.gov.br/api-de-dados/{programa}-por-municipio"
   }
 }
