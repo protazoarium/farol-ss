@@ -1,0 +1,728 @@
+{
+  "ibge_ipca": {
+    "arquivo": "data/silver/ibge_ipca.parquet",
+    "bytes": 3972,
+    "coletado_em": "2026-08-25T22:21:22+00:00",
+    "erro": null,
+    "extra": {},
+    "fonte": "ibge_ipca",
+    "linhas": 60,
+    "observacao": null,
+    "sha256": "800e213fcb54fe9345a7bb9e2f28c8fade02d92f793bdb5ff861acfbae590ed8",
+    "status": "ok",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/1737/periodos/202001-202412/variaveis/2266?localidades=N1%5Ball%5D"
+  },
+  "ibge_malhas": {
+    "arquivo": "data/bronze/ibge_malhas.parquet",
+    "bytes": 223489,
+    "coletado_em": "2026-08-25T22:21:22+00:00",
+    "erro": null,
+    "extra": {},
+    "fonte": "ibge_malhas",
+    "linhas": 185,
+    "observacao": null,
+    "sha256": "148078d58bbc3cd164385492e519c02f12a7d57b898eb038742b01432b20d67f",
+    "status": "ok",
+    "url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/26?intrarregiao=municipio&qualidade=intermediaria&formato=application%2Fvnd.geo%2Bjson"
+  },
+  "ibge_populacao": {
+    "arquivo": "data/silver/ibge_populacao.parquet",
+    "bytes": 118347,
+    "coletado_em": "2026-08-25T22:21:21+00:00",
+    "erro": null,
+    "extra": {},
+    "fonte": "ibge_populacao",
+    "linhas": 925,
+    "observacao": "anos interpolados: [2022, 2023]",
+    "sha256": "8c86e987d3657696ccc52742c0012c97f22f0b9cb78c124341720754241eb07a",
+    "status": "ok",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/{ano}/variaveis/9324"
+  },
+  "pncp_4_2023": {
+    "arquivo": "data/silver/pncp_4_2023.parquet",
+    "bytes": 33055,
+    "coletado_em": "2026-08-25T22:22:39+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2023,
+      "modalidade": "Concorrência - Eletrônica"
+    },
+    "fonte": "pncp_4_2023",
+    "linhas": 33,
+    "observacao": null,
+    "sha256": "929893ae88b17f5b140d99d8c035a6ffd603dd262f57485844a076c9380d5346",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_4_2024": {
+    "arquivo": "data/silver/pncp_4_2024.parquet",
+    "bytes": 1091107,
+    "coletado_em": "2026-08-25T22:25:41+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2024,
+      "modalidade": "Concorrência - Eletrônica"
+    },
+    "fonte": "pncp_4_2024",
+    "linhas": 1107,
+    "observacao": null,
+    "sha256": "5d25bd8a0a39439bc7d655b3a787bbfbc9ae7671717a2704c284111178689d3a",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_6_2022": {
+    "arquivo": "data/silver/pncp_6_2022.parquet",
+    "bytes": 201408,
+    "coletado_em": "2026-08-25T22:26:01+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2022,
+      "modalidade": "Pregão - Eletrônico"
+    },
+    "fonte": "pncp_6_2022",
+    "linhas": 200,
+    "observacao": null,
+    "sha256": "fd28011251af7e27c629c490439371b30ed9dd84f188b733f12461506e11d246",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_6_2023": {
+    "arquivo": "data/silver/pncp_6_2023.parquet",
+    "bytes": 1125377,
+    "coletado_em": "2026-08-25T22:28:30+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2023,
+      "modalidade": "Pregão - Eletrônico"
+    },
+    "fonte": "pncp_6_2023",
+    "linhas": 1110,
+    "observacao": null,
+    "sha256": "e65bcb4ab061ef277bdf815304d5ac66e704f3abad4cad59823948f5c36f79e7",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_6_2024": {
+    "arquivo": "data/silver/pncp_6_2024.parquet",
+    "bytes": 311325,
+    "coletado_em": "2026-08-25T22:28:52+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2024,
+      "modalidade": "Pregão - Eletrônico"
+    },
+    "fonte": "pncp_6_2024",
+    "linhas": 300,
+    "observacao": null,
+    "sha256": "c5cc1cfc0f22435751750b2dd2a89115cab11d122af2d6422c10690f8f2dca87",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_7_2024": {
+    "arquivo": "data/silver/pncp_7_2024.parquet",
+    "bytes": 3774,
+    "coletado_em": "2026-08-25T22:29:08+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2024,
+      "modalidade": "Pregão - Presencial"
+    },
+    "fonte": "pncp_7_2024",
+    "linhas": 3,
+    "observacao": null,
+    "sha256": "53ce86695306c0e5d49a0fc339da415dee18ad7aa2b8dd2c1c057aec8b7652ed",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_8_2021": {
+    "arquivo": "data/silver/pncp_8_2021.parquet",
+    "bytes": 84372,
+    "coletado_em": "2026-08-25T22:29:27+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2021,
+      "modalidade": "Dispensa de Licitação"
+    },
+    "fonte": "pncp_8_2021",
+    "linhas": 100,
+    "observacao": null,
+    "sha256": "cd9af59ed63cfd4435fbeb5bb8f4edcd0355a77cb71d4b6365bbf4247f2cc79f",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_8_2022": {
+    "arquivo": "data/silver/pncp_8_2022.parquet",
+    "bytes": 1351674,
+    "coletado_em": "2026-08-25T22:34:35+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2022,
+      "modalidade": "Dispensa de Licitação"
+    },
+    "fonte": "pncp_8_2022",
+    "linhas": 1696,
+    "observacao": null,
+    "sha256": "311131b7784cc9f168e975b697d3ca13a4efca4a5b6e60b0344db7048f9a720c",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_8_2023": {
+    "arquivo": "data/silver/pncp_8_2023.parquet",
+    "bytes": 563861,
+    "coletado_em": "2026-08-25T22:37:34+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2023,
+      "modalidade": "Dispensa de Licitação"
+    },
+    "fonte": "pncp_8_2023",
+    "linhas": 650,
+    "observacao": null,
+    "sha256": "b327f6bbb4179f6c293705b32177b938a55879c3f911edd45d3f488f118e5219",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_8_2024": {
+    "arquivo": "data/silver/pncp_8_2024.parquet",
+    "bytes": 188429,
+    "coletado_em": "2026-08-25T22:43:11+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2024,
+      "modalidade": "Dispensa de Licitação"
+    },
+    "fonte": "pncp_8_2024",
+    "linhas": 200,
+    "observacao": null,
+    "sha256": "0fe6a1c7d7bea919cb406629f160fec30d83aff301f4be814c106deb8d51b2e1",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_9_2022": {
+    "arquivo": "data/silver/pncp_9_2022.parquet",
+    "bytes": 37348,
+    "coletado_em": "2026-08-25T22:43:12+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2022,
+      "modalidade": "Inexigibilidade"
+    },
+    "fonte": "pncp_9_2022",
+    "linhas": 45,
+    "observacao": null,
+    "sha256": "f20af2a3937383e29ddd76e9d18ba5640dcc01a170e87d195103e18159420f00",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_9_2023": {
+    "arquivo": "data/silver/pncp_9_2023.parquet",
+    "bytes": 499089,
+    "coletado_em": "2026-08-25T22:44:11+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2023,
+      "modalidade": "Inexigibilidade"
+    },
+    "fonte": "pncp_9_2023",
+    "linhas": 556,
+    "observacao": null,
+    "sha256": "21e4c5c88bf242205a5fed3cf064743e5b97806dc81ffd9937467522f709893a",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_9_2024": {
+    "arquivo": "data/silver/pncp_9_2024.parquet",
+    "bytes": 118179,
+    "coletado_em": "2026-08-25T22:44:30+00:00",
+    "erro": null,
+    "extra": {
+      "ano": 2024,
+      "modalidade": "Inexigibilidade"
+    },
+    "fonte": "pncp_9_2024",
+    "linhas": 150,
+    "observacao": null,
+    "sha256": "558fa46978c41b9cf53859b6614b9b95e81d2d45ab26bccedd5a3053012a586b",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+  },
+  "pncp_itens": {
+    "arquivo": "data/silver/pncp_itens.parquet",
+    "bytes": 1334063,
+    "coletado_em": "2026-08-30T03:00:38+00:00",
+    "erro": null,
+    "extra": {
+      "contratacoes_coletadas": 220
+    },
+    "fonte": "pncp_itens",
+    "linhas": 1623,
+    "observacao": null,
+    "sha256": "abdee70d981ba7edc1cf58528c98ab319467576e9010268a1d4838284159a3b7",
+    "status": "ok",
+    "url": "https://pncp.gov.br/api/pncp/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens"
+  },
+  "sinan_CHIK_2020": {
+    "arquivo": "data/silver/sinan_chik_2020.parquet",
+    "bytes": 12532,
+    "coletado_em": "2026-08-25T22:21:38+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Chikungunya",
+      "ano": 2020
+    },
+    "fonte": "sinan_CHIK_2020",
+    "linhas": 155,
+    "observacao": null,
+    "sha256": "213bbdd16774dd3cace338146b86ea5e3f47b91e8064273001b32603a94bdc25",
+    "status": "ok",
+    "url": "pysus.sinan('CHIK', 2020)"
+  },
+  "sinan_CHIK_2021": {
+    "arquivo": "data/silver/sinan_chik_2021.parquet",
+    "bytes": 12532,
+    "coletado_em": "2026-08-25T22:21:41+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Chikungunya",
+      "ano": 2021
+    },
+    "fonte": "sinan_CHIK_2021",
+    "linhas": 155,
+    "observacao": null,
+    "sha256": "d53039cd7c0e2b0f1732637333060cfbb887a6ff2ebc5cc73dadbed7a942cb9b",
+    "status": "ok",
+    "url": "pysus.sinan('CHIK', 2021)"
+  },
+  "sinan_CHIK_2022": {
+    "arquivo": "data/silver/sinan_chik_2022.parquet",
+    "bytes": 14132,
+    "coletado_em": "2026-08-25T22:21:43+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Chikungunya",
+      "ano": 2022
+    },
+    "fonte": "sinan_CHIK_2022",
+    "linhas": 175,
+    "observacao": null,
+    "sha256": "4c8a1c53bb15851a5f9c06332b73d881a7a491f3799bb34811e549a7c49bcc8a",
+    "status": "ok",
+    "url": "pysus.sinan('CHIK', 2022)"
+  },
+  "sinan_CHIK_2023": {
+    "arquivo": "data/silver/sinan_chik_2023.parquet",
+    "bytes": 12132,
+    "coletado_em": "2026-08-25T22:21:46+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Chikungunya",
+      "ano": 2023
+    },
+    "fonte": "sinan_CHIK_2023",
+    "linhas": 150,
+    "observacao": null,
+    "sha256": "93b8f9f2533cfd9c9d0d10396143e57bdb9efa4cb275f6cf3146f27732100e2e",
+    "status": "ok",
+    "url": "pysus.sinan('CHIK', 2023)"
+  },
+  "sinan_CHIK_2024": {
+    "arquivo": "data/silver/sinan_chik_2024.parquet",
+    "bytes": 13572,
+    "coletado_em": "2026-08-25T22:21:48+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Chikungunya",
+      "ano": 2024
+    },
+    "fonte": "sinan_CHIK_2024",
+    "linhas": 168,
+    "observacao": null,
+    "sha256": "f29a2731086fcf838f94c5236ac5f07ce325529c7036e45cecf86a01017c5a88",
+    "status": "ok",
+    "url": "pysus.sinan('CHIK', 2024)"
+  },
+  "sinan_DENG_2020": {
+    "arquivo": "data/silver/sinan_deng_2020.parquet",
+    "bytes": 17892,
+    "coletado_em": "2026-08-25T22:21:26+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Dengue",
+      "ano": 2020
+    },
+    "fonte": "sinan_DENG_2020",
+    "linhas": 222,
+    "observacao": null,
+    "sha256": "e6b31beb866f0ffd3215b36d19d6d3eb2533a38dde7a8a519d8f38c37edf336c",
+    "status": "ok",
+    "url": "pysus.sinan('DENG', 2020)"
+  },
+  "sinan_DENG_2021": {
+    "arquivo": "data/silver/sinan_deng_2021.parquet",
+    "bytes": 15172,
+    "coletado_em": "2026-08-25T22:21:28+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Dengue",
+      "ano": 2021
+    },
+    "fonte": "sinan_DENG_2021",
+    "linhas": 188,
+    "observacao": null,
+    "sha256": "777927bda03ace75875e84581a807e1f1c181ac5df5f368bbfffe555f8d2d22b",
+    "status": "ok",
+    "url": "pysus.sinan('DENG', 2021)"
+  },
+  "sinan_DENG_2022": {
+    "arquivo": "data/silver/sinan_deng_2022.parquet",
+    "bytes": 14852,
+    "coletado_em": "2026-08-25T22:21:31+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Dengue",
+      "ano": 2022
+    },
+    "fonte": "sinan_DENG_2022",
+    "linhas": 184,
+    "observacao": null,
+    "sha256": "a9f9ec7c591a7d27f0e89f1c9e94d4d1f893ff7f4501b1526399bb4e6a4c4216",
+    "status": "ok",
+    "url": "pysus.sinan('DENG', 2022)"
+  },
+  "sinan_DENG_2023": {
+    "arquivo": "data/silver/sinan_deng_2023.parquet",
+    "bytes": 13812,
+    "coletado_em": "2026-08-25T22:21:33+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Dengue",
+      "ano": 2023
+    },
+    "fonte": "sinan_DENG_2023",
+    "linhas": 171,
+    "observacao": null,
+    "sha256": "d7b2528560a379456bf46eb9015512b1558a90483bee76b23f1bfa26c6d00b32",
+    "status": "ok",
+    "url": "pysus.sinan('DENG', 2023)"
+  },
+  "sinan_DENG_2024": {
+    "arquivo": "data/silver/sinan_deng_2024.parquet",
+    "bytes": 14932,
+    "coletado_em": "2026-08-25T22:21:36+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Dengue",
+      "ano": 2024
+    },
+    "fonte": "sinan_DENG_2024",
+    "linhas": 185,
+    "observacao": null,
+    "sha256": "d0582ea8fad7b0032128575ce63a5d6dde6f759d7fd01c7b80f26714ed0739dc",
+    "status": "ok",
+    "url": "pysus.sinan('DENG', 2024)"
+  },
+  "sinan_ESQU_2020": {
+    "arquivo": "data/silver/sinan_esqu_2020.parquet",
+    "bytes": 2940,
+    "coletado_em": "2026-08-25T22:22:28+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Esquistossomose",
+      "ano": 2020
+    },
+    "fonte": "sinan_ESQU_2020",
+    "linhas": 39,
+    "observacao": null,
+    "sha256": "156ae190daed035afd9b7cebe6bb6b576b76f1c066f0dfce341afb4f03b084b9",
+    "status": "ok",
+    "url": "pysus.sinan('ESQU', 2020)"
+  },
+  "sinan_ESQU_2021": {
+    "arquivo": "data/silver/sinan_esqu_2021.parquet",
+    "bytes": 3732,
+    "coletado_em": "2026-08-25T22:22:30+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Esquistossomose",
+      "ano": 2021
+    },
+    "fonte": "sinan_ESQU_2021",
+    "linhas": 50,
+    "observacao": null,
+    "sha256": "010702cb4941fd65b990492e1af29aeb6782974739f76f6235a3b79c2fd5034e",
+    "status": "ok",
+    "url": "pysus.sinan('ESQU', 2021)"
+  },
+  "sinan_ESQU_2022": {
+    "arquivo": "data/silver/sinan_esqu_2022.parquet",
+    "bytes": 3156,
+    "coletado_em": "2026-08-25T22:22:33+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Esquistossomose",
+      "ano": 2022
+    },
+    "fonte": "sinan_ESQU_2022",
+    "linhas": 42,
+    "observacao": null,
+    "sha256": "ca6a6e8369be2696f1d2ca30454524c53b41fbc183ea3f7e94ea61a33a6ee3f2",
+    "status": "ok",
+    "url": "pysus.sinan('ESQU', 2022)"
+  },
+  "sinan_ESQU_2023": {
+    "arquivo": "data/silver/sinan_esqu_2023.parquet",
+    "bytes": 3588,
+    "coletado_em": "2026-08-25T22:22:35+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Esquistossomose",
+      "ano": 2023
+    },
+    "fonte": "sinan_ESQU_2023",
+    "linhas": 48,
+    "observacao": null,
+    "sha256": "fdec019b09a5579a375860650733da481c9df8f97bbcee417b01b0e6eb39d41a",
+    "status": "ok",
+    "url": "pysus.sinan('ESQU', 2023)"
+  },
+  "sinan_ESQU_2024": {
+    "arquivo": "data/silver/sinan_esqu_2024.parquet",
+    "bytes": 4524,
+    "coletado_em": "2026-08-25T22:22:38+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Esquistossomose",
+      "ano": 2024
+    },
+    "fonte": "sinan_ESQU_2024",
+    "linhas": 61,
+    "observacao": null,
+    "sha256": "f4ba668326922b8f5fc703fbf60e402bf72db24b14e233f431e114513346526e",
+    "status": "ok",
+    "url": "pysus.sinan('ESQU', 2024)"
+  },
+  "sinan_HEPA_2020": {
+    "arquivo": "data/silver/sinan_hepa_2020.parquet",
+    "bytes": 5892,
+    "coletado_em": "2026-08-25T22:22:15+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Hepatite A",
+      "ano": 2020
+    },
+    "fonte": "sinan_HEPA_2020",
+    "linhas": 72,
+    "observacao": null,
+    "sha256": "b4e7d4b95ad30b5d4d8a83e1fefb66209928e1ac17bcdbbeafc2fa3ab92a5b9d",
+    "status": "ok",
+    "url": "pysus.sinan('HEPA', 2020)"
+  },
+  "sinan_HEPA_2021": {
+    "arquivo": "data/silver/sinan_hepa_2021.parquet",
+    "bytes": 6452,
+    "coletado_em": "2026-08-25T22:22:18+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Hepatite A",
+      "ano": 2021
+    },
+    "fonte": "sinan_HEPA_2021",
+    "linhas": 79,
+    "observacao": null,
+    "sha256": "75ee328defca376b48b082929f5ce4ef9b1fb8b8e6ca234cd5ce30b5fda3525c",
+    "status": "ok",
+    "url": "pysus.sinan('HEPA', 2021)"
+  },
+  "sinan_HEPA_2022": {
+    "arquivo": "data/silver/sinan_hepa_2022.parquet",
+    "bytes": 5892,
+    "coletado_em": "2026-08-25T22:22:20+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Hepatite A",
+      "ano": 2022
+    },
+    "fonte": "sinan_HEPA_2022",
+    "linhas": 72,
+    "observacao": null,
+    "sha256": "3f899fdb6023a4764acbcc88ed648b065ab4042ac486f08439833936c5decb60",
+    "status": "ok",
+    "url": "pysus.sinan('HEPA', 2022)"
+  },
+  "sinan_HEPA_2023": {
+    "arquivo": "data/silver/sinan_hepa_2023.parquet",
+    "bytes": 7252,
+    "coletado_em": "2026-08-25T22:22:23+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Hepatite A",
+      "ano": 2023
+    },
+    "fonte": "sinan_HEPA_2023",
+    "linhas": 89,
+    "observacao": null,
+    "sha256": "76bca5b100392dbb90a3d20730aa0c5e9b33508a1da6a819128ae7e04b5b1135",
+    "status": "ok",
+    "url": "pysus.sinan('HEPA', 2023)"
+  },
+  "sinan_LEPT_2020": {
+    "arquivo": "data/silver/sinan_lept_2020.parquet",
+    "bytes": 4372,
+    "coletado_em": "2026-08-25T22:22:03+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Leptospirose",
+      "ano": 2020
+    },
+    "fonte": "sinan_LEPT_2020",
+    "linhas": 53,
+    "observacao": null,
+    "sha256": "e531cb262534eabe8466c275dc72fe7b1e3243641082c88113feb47eca56f251",
+    "status": "ok",
+    "url": "pysus.sinan('LEPT', 2020)"
+  },
+  "sinan_LEPT_2021": {
+    "arquivo": "data/silver/sinan_lept_2021.parquet",
+    "bytes": 4212,
+    "coletado_em": "2026-08-25T22:22:06+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Leptospirose",
+      "ano": 2021
+    },
+    "fonte": "sinan_LEPT_2021",
+    "linhas": 51,
+    "observacao": null,
+    "sha256": "c2629f3c9cd0c3ce16580bbe65644f07096def595bf3cef1e31a3ccb904481e5",
+    "status": "ok",
+    "url": "pysus.sinan('LEPT', 2021)"
+  },
+  "sinan_LEPT_2022": {
+    "arquivo": "data/silver/sinan_lept_2022.parquet",
+    "bytes": 6132,
+    "coletado_em": "2026-08-25T22:22:08+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Leptospirose",
+      "ano": 2022
+    },
+    "fonte": "sinan_LEPT_2022",
+    "linhas": 75,
+    "observacao": null,
+    "sha256": "aa4f9fc5f07c1b077b7dd408c74644542fa50bd2f6a83bdb5b50d01bdd4099d2",
+    "status": "ok",
+    "url": "pysus.sinan('LEPT', 2022)"
+  },
+  "sinan_LEPT_2023": {
+    "arquivo": "data/silver/sinan_lept_2023.parquet",
+    "bytes": 6852,
+    "coletado_em": "2026-08-25T22:22:10+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Leptospirose",
+      "ano": 2023
+    },
+    "fonte": "sinan_LEPT_2023",
+    "linhas": 84,
+    "observacao": null,
+    "sha256": "c2f32b449a3e9471df6363f9eba08f6b1bd48d4331d488a9f90f56407c1742c1",
+    "status": "ok",
+    "url": "pysus.sinan('LEPT', 2023)"
+  },
+  "sinan_LEPT_2024": {
+    "arquivo": "data/silver/sinan_lept_2024.parquet",
+    "bytes": 6532,
+    "coletado_em": "2026-08-25T22:22:13+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Leptospirose",
+      "ano": 2024
+    },
+    "fonte": "sinan_LEPT_2024",
+    "linhas": 80,
+    "observacao": null,
+    "sha256": "19f52831cc617127d1bc34b96ab89b49e0f6b7c157328cb7256897bbf822044d",
+    "status": "ok",
+    "url": "pysus.sinan('LEPT', 2024)"
+  },
+  "sinan_ZIKA_2020": {
+    "arquivo": "data/silver/sinan_zika_2020.parquet",
+    "bytes": 6692,
+    "coletado_em": "2026-08-25T22:21:51+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Zika",
+      "ano": 2020
+    },
+    "fonte": "sinan_ZIKA_2020",
+    "linhas": 82,
+    "observacao": null,
+    "sha256": "45724ad488e6245158c015f3b503ed699d3b5f2b3dc10b026976147d75ce8c18",
+    "status": "ok",
+    "url": "pysus.sinan('ZIKA', 2020)"
+  },
+  "sinan_ZIKA_2021": {
+    "arquivo": "data/silver/sinan_zika_2021.parquet",
+    "bytes": 7812,
+    "coletado_em": "2026-08-25T22:21:53+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Zika",
+      "ano": 2021
+    },
+    "fonte": "sinan_ZIKA_2021",
+    "linhas": 96,
+    "observacao": null,
+    "sha256": "38d9c530a1d52563e55d49111306294744e4ed804309e1771e76b42b6d57a39b",
+    "status": "ok",
+    "url": "pysus.sinan('ZIKA', 2021)"
+  },
+  "sinan_ZIKA_2022": {
+    "arquivo": "data/silver/sinan_zika_2022.parquet",
+    "bytes": 8932,
+    "coletado_em": "2026-08-25T22:21:56+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Zika",
+      "ano": 2022
+    },
+    "fonte": "sinan_ZIKA_2022",
+    "linhas": 110,
+    "observacao": null,
+    "sha256": "9649fd3d73888f6a662b0e63bfbd106d8d56f86e54114d26d63789163821f18f",
+    "status": "ok",
+    "url": "pysus.sinan('ZIKA', 2022)"
+  },
+  "sinan_ZIKA_2023": {
+    "arquivo": "data/silver/sinan_zika_2023.parquet",
+    "bytes": 6292,
+    "coletado_em": "2026-08-25T22:21:58+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Zika",
+      "ano": 2023
+    },
+    "fonte": "sinan_ZIKA_2023",
+    "linhas": 77,
+    "observacao": null,
+    "sha256": "2a799b948c4b3f99191bd1ebd47e7f1cb51f07014277a046d804500ff73437b8",
+    "status": "ok",
+    "url": "pysus.sinan('ZIKA', 2023)"
+  },
+  "sinan_ZIKA_2024": {
+    "arquivo": "data/silver/sinan_zika_2024.parquet",
+    "bytes": 7972,
+    "coletado_em": "2026-08-25T22:22:01+00:00",
+    "erro": null,
+    "extra": {
+      "agravo": "Zika",
+      "ano": 2024
+    },
+    "fonte": "sinan_ZIKA_2024",
+    "linhas": 98,
+    "observacao": null,
+    "sha256": "c4c08198dce56a3da8218f21d52d00006b3de7604ad64bdf4171299a38cad961",
+    "status": "ok",
+    "url": "pysus.sinan('ZIKA', 2024)"
+  }
+}
