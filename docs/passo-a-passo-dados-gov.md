@@ -9,11 +9,16 @@ em 30/08/2026. Os valores a digitar em cada campo estão em
 
 ## 0. Antes de começar
 
-1. **Deploy do painel** primeiro (`docs/deploy.md`). O formulário pede a URL
-   pública onde o reúso está hospedado — sem ela não há o que publicar.
-2. Tenha em mãos: a URL do painel, o link do repositório
-   (<https://github.com/protazoarium/farol-ss>), uma **logo 1:1 de no mínimo
-   200×200 px** e **1 a 3 capturas de tela** do painel no mesmo formato.
+1. **Deploy do painel** primeiro (`docs/deploy.md` — agora com o passo a passo
+   do login no Streamlit Cloud e de como deixar o app público). O formulário
+   pede a URL pública onde o reúso está hospedado — sem ela não há o que
+   publicar. Estado do projeto: v1.4, pipeline completo, L1 completo, IEAS para
+   921/925 município-anos.
+2. Tenha em mãos: a URL do painel (`https://farol-ss.streamlit.app`), o link do
+   repositório (<https://github.com/protazoarium/farol-ss>), uma **logo 1:1 de
+   no mínimo 200×200 px** e **1 a 3 capturas de tela** do painel no mesmo
+   formato (sugestão: mapa da página Farol, o diagrama do índice, a página
+   Alertas ou Fontes).
 
 ---
 

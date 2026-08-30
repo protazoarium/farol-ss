@@ -78,7 +78,7 @@ de soluções inovadoras do dados.gov.br. (Não é prêmio em dinheiro.)
 - [ ] Preencher a Etapa 1 (formulário CGU) — não esperar o código ficar pronto; pode revisar depois
 - [ ] Publicar o reúso no dados.gov.br com as URLs de `conf/sources.yml` e "Enviar para homologação"
 - [ ] Ler o PDF do edital (DOU 23/06/2026) e conferir: vedações, exigência de anexos, formato de vídeo
-- [x] Preparar arquivos de deploy do painel (`requirements.txt`, `.gitignore`, `docs/deploy.md`) — **falta o push + "New app" no Streamlit Cloud**
+- [x] Preparar arquivos de deploy do painel (`requirements.txt`, `.gitignore`, `docs/deploy.md`) e **push do `main`** (feito) — **falta só o "Create app" no Streamlit Cloud** (login + passo a passo em `docs/deploy.md`)
 - [ ] Hospedar a demo (seguir `docs/deploy.md`) **ou** gravar um screencast de 2–3 min
 - [ ] Página de Metodologia pública (fórmula do IEAS, tabela de proveniência)
 - [ ] Declaração de acessibilidade (tabela alternativa a cada mapa, paleta CVD, contraste)

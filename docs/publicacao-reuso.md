@@ -5,8 +5,14 @@ Guia de preenchimento dos dois formulários exigidos para submeter o Farol-SS ao
 `docs/concurso-cgu.md`; passo a passo de navegação em
 `docs/passo-a-passo-dados-gov.md`).
 
-> **Ordem correta**: primeiro faça o **deploy do painel** (`docs/deploy.md`) para
-> ter uma URL pública; só então preencha os formulários, que pedem essa URL.
+> **Ordem correta**: primeiro faça o **deploy do painel** (`docs/deploy.md`, que
+> agora traz o passo a passo do login no Streamlit Cloud) para ter uma URL
+> pública; só então preencha os formulários, que pedem essa URL.
+>
+> **Estado do projeto (v1.4)**: pipeline completo, oito fontes, **L1 completo**
+> (185/185 × 5 anos), IEAS calculado para 921 dos 925 município-anos, 777
+> alertas explicáveis. Painel com sistema de design institucional, diagrama do
+> índice e página de Metodologia com todas as fórmulas. Falta só o deploy.
 
 ---
 
@@ -16,10 +22,10 @@ Guia de preenchimento dos dois formulários exigidos para submeter o Farol-SS ao
 |---|---|
 | Conta **gov.br** (a mesma serve para o dados.gov.br e para o formulário da CGU) | do autor |
 | **Perfil de consumidor** no Portal de Dados Abertos (usuário comum) | criar no primeiro acesso — ver passo a passo |
-| Repositório público | ✅ <https://github.com/protazoarium/farol-ss> |
-| Painel no ar (Streamlit Community Cloud) | ⏳ pendente — passos em `docs/deploy.md`. **URL de publicação:** `https://farol-ss.streamlit.app` (reservar esse subdomínio no deploy) |
+| Repositório público | ✅ <https://github.com/protazoarium/farol-ss> (branch `main` atualizada, v1.4) |
+| Painel no ar (Streamlit Community Cloud) | ⏳ pendente — passos em `docs/deploy.md` (inclui como logar e deixar o app público). **URL de publicação:** `https://farol-ss.streamlit.app` (reservar esse subdomínio no deploy) |
 | Logo 1:1 ≥ 200×200 px | criar (sugestão: o emoji 🚦 sobre fundo `#1257a8`, ou um recorte do mapa) |
-| 1–3 telas do painel 1:1 ≥ 200×200 px | recortar do painel: mapa da página **Farol**, a página **Alertas** e a página **Fontes** |
+| 1–3 telas do painel 1:1 ≥ 200×200 px | recortar do painel: mapa da página **Farol**, o **diagrama do índice** na Home ou na Metodologia, e a página **Alertas** ou **Fontes** |
 
 ---
 
@@ -30,7 +36,7 @@ Guia de preenchimento dos dois formulários exigidos para submeter o Farol-SS ao
 | Campo | O que informar |
 |---|---|
 | Nome da iniciativa | **Farol da Saúde & Saneamento (Farol-SS)** |
-| Descrição curta | Monitor territorial que cruza execução financeira em saúde com carga epidemiológica e vulnerabilidade social, produzindo o IEAS — Índice de Efetividade da Alocação Sanitária — para os 185 municípios de Pernambuco. |
+| Descrição curta | Monitor territorial que cruza execução financeira em saúde com carga epidemiológica, déficit de saneamento e vulnerabilidade social, produzindo o IEAS — Índice de Efetividade da Alocação Sanitária — para os 185 municípios de Pernambuco. |
 | Tipo de solução | Painel / plataforma de dados |
 | URL da solução | `https://farol-ss.streamlit.app` |
 | Repositório | <https://github.com/protazoarium/farol-ss> |
@@ -51,11 +57,11 @@ Depois de enviar, **avance imediatamente para a Etapa 2**.
 |---|---|
 | **Nome** | `Farol da Saúde & Saneamento (Farol-SS)` |
 | **URL** | `https://farol-ss.streamlit.app` |
-| **Descrição** *(máx. 255 caracteres)* | `Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco: cruza execução financeira em saúde (SIOPS, PNCP) com carga epidemiológica (SINAN, SIH) e vulnerabilidade social (CadÚnico). Painel, alertas explicáveis e API aberta.` *(252 caracteres)* |
+| **Descrição** *(máx. 255 caracteres)* | `IEAS — Índice de Efetividade da Alocação Sanitária para os 185 municípios de Pernambuco: cruza gasto público em saúde (SIOPS, PNCP, Transparência) com carga de doença (SINAN, SIH), saneamento (Censo 2022) e vulnerabilidade (CadÚnico). Painel e API.` *(248 caracteres)* |
 | **Tipos** | `Painel` |
 | **Nome do responsável** | *(nome do autor)* |
 | **Email do responsável** | *(e-mail do autor)* |
-| **Data de lançamento do reúso** | *(data do deploy do painel)* |
+| **Data de lançamento do reúso** | *(a data em que o `farol-ss.streamlit.app` ficou público — ver `docs/deploy.md` passo 4)* |
 | **Botão de descontinuado** | deixar em branco (o reúso está ativo) |
 | **Logo do reúso** | imagem 1:1 ≥ 200×200 px (ver pré-requisitos) |
 | **Telas do reúso** | 1–3 capturas do painel, 1:1 ≥ 200×200 px |
@@ -63,7 +69,7 @@ Depois de enviar, **avance imediatamente para a Etapa 2**.
 | **Conjunto de dados de origem** | selecionar os conjuntos da tabela abaixo (busca por nome dentro do próprio campo) |
 | **Conjunto de dados não catalogados** | ver seção "Conjuntos não catalogados" |
 | **Temas** | `Saúde` (principal); adicionar `Economia e Finanças` e `Governo e Política` |
-| **Palavras-chave** | `IEAS; saúde pública; dados abertos; contratações públicas; PNCP; SINAN; SIOPS; CadÚnico; Pernambuco; controle social; arboviroses; vulnerabilidade social` |
+| **Palavras-chave** | `IEAS; saúde pública; dados abertos; contratações públicas; PNCP; SINAN; SIH; SIOPS; CadÚnico; saneamento; Censo 2022; Pernambuco; controle social; arboviroses; vulnerabilidade social` |
 | **Visibilidade** | **Pública** |
 
 Depois: **Salvar** → abrir de novo em **Editar** → rolar até o fim →
@@ -78,24 +84,28 @@ aguardando a autorização da CGU.
 
 ## Conjunto de dados de origem (catalogados no dados.gov.br)
 
-O concurso exige **pelo menos um**. O Farol-SS usa seis conjuntos catalogados —
-selecione todos no campo "Conjunto de dados de origem":
+O concurso exige **pelo menos um**. O Farol-SS referencia **onze conjuntos
+catalogados** no dados.gov.br — selecione todos no campo "Conjunto de dados de
+origem" (o campo tem busca por nome):
 
 | Conjunto (nome no portal) | URL | Uso no Farol-SS |
 |---|---|---|
-| Sinan/Dengue | `dados.gov.br/dados/conjuntos-dados/arboviroses-dengue` | subíndice epidemiológico |
-| Sinan/Febre de Chikungunya | `dados.gov.br/dados/conjuntos-dados/arboviroses-febre-de-chikungunya` | subíndice epidemiológico |
-| Sinan/Vírus Zika | `dados.gov.br/dados/conjuntos-dados/arboviroses-zika-virus` | subíndice epidemiológico |
+| Sinan/Dengue | `dados.gov.br/dados/conjuntos-dados/arboviroses-dengue` | subíndice epidemiológico (arboviroses) |
+| Sinan/Febre de Chikungunya | `dados.gov.br/dados/conjuntos-dados/arboviroses-febre-de-chikungunya` | subíndice epidemiológico (arboviroses) |
+| Sinan/Vírus Zika | `dados.gov.br/dados/conjuntos-dados/arboviroses-zika-virus` | subíndice epidemiológico (arboviroses) |
 | Sistema de Informações Hospitalares do SUS — SIH/SUS | `dados.gov.br/dados/conjuntos-dados/sistema-de-informacoes-hospitalares-do-sus-sihsus` | subíndice epidemiológico — internações por doença relacionada a saneamento (DRSAI) |
-| Sistema de Informações sobre Orçamentos Públicos em Saúde — SIOPS | `dados.gov.br/dados/conjuntos-dados/siops` | eixo Alocação, camada L2 (execução própria) |
+| Censo Demográfico 2022 | `dados.gov.br/dados/conjuntos-dados/censo-demografico-2022` | subíndice de saneamento (déficit de água/esgoto/lixo) |
+| Famílias Inscritas no Cadastro Único | `dados.gov.br/dados/conjuntos-dados/familias-inscritas-no-cadastro-unico` | subíndice de vulnerabilidade (extrema pobreza) |
+| Sistema de Informações sobre Orçamentos Públicos em Saúde — SIOPS | `dados.gov.br/dados/conjuntos-dados/siops` | eixo Alocação, camada L2 (execução própria municipal) |
 | Portal Nacional de Contratações Públicas — PNCP | `dados.gov.br/dados/conjuntos-dados/pncp` | eixo Alocação, camada L3 (compras de insumos) + detector de sobrepreço |
 | Compras Públicas do Governo Federal (Compras.gov.br) | `dados.gov.br/dados/conjuntos-dados/compras-publicas-do-governo-federal` | eixo Alocação, camada L3 federal (complemento) |
-| Famílias Inscritas no Cadastro Único | `dados.gov.br/dados/conjuntos-dados/familias-inscritas-no-cadastro-unico` | subíndice de vulnerabilidade (extrema pobreza) |
+| Portal da Transparência do Governo Federal | `dados.gov.br/dados/conjuntos-dados/portal-da-transparencia-do-governo-federal` | eixo Alocação, camada L1 (repasse federal — proxy de transferências sociais) |
 | Malha Geométrica dos Municípios Brasileiros | `dados.gov.br/dados/conjuntos-dados/malha-geometrica-dos-municipios-brasileiros` | geometria do mapa coroplético |
 
-*(Leptospirose, hepatite A e esquistossomose do SINAN também são usados; se
-houver conjuntos correspondentes no portal, adicione-os. As URLs acima foram
-verificadas em 30/08/2026.)*
+*(As três arboviroses do SINAN contam como três conjuntos distintos no portal.
+Leptospirose, hepatite A e esquistossomose do SINAN também alimentam o índice,
+mas não têm conjunto próprio catalogado — entram como não catalogados, abaixo.
+URLs verificadas em 30/08/2026.)*
 
 ---
 
@@ -125,13 +135,15 @@ IBGE — Estimativas de População, agregado 6579 (https://servicodados.ibge.go
 > semáforo (vermelho = necessidade não atendida).
 >
 > A entrega é um **pipeline de dados reprodutível** (do dado bruto ao índice,
-> com proveniência rastreável em `manifest.json`), um **painel web** de seis
-> páginas com mapa coroplético acessível (paleta validada para daltonismo) e
-> uma **API aberta** em JSON/CSV. Quatro detectores geram **alertas explicáveis
-> em linguagem natural** para auditoria cidadã, incluindo a suspeita de
-> desabastecimento (incidência sustentada de um agravo sem a contratação do
-> insumo correspondente) e a suspeita de sobrepreço (preço unitário de insumo
-> fora da curva da mesma categoria, unidade e dose no estado).
+> com proveniência rastreável em `manifest.json`), um **painel web** com mapa
+> coroplético acessível (paleta validada para daltonismo), um **diagrama de
+> construção do índice** e uma página de **Metodologia que expõe todas as
+> fontes e todas as fórmulas** em notação matemática, e uma **API aberta** em
+> JSON/CSV. Quatro detectores geram **alertas explicáveis em linguagem
+> natural** para auditoria cidadã, incluindo a suspeita de desabastecimento
+> (incidência sustentada de um agravo sem a contratação do insumo
+> correspondente) e a suspeita de sobrepreço (preço unitário de insumo fora da
+> curva da mesma categoria, unidade e dose no estado).
 >
 > Painel: <https://farol-ss.streamlit.app> · Código aberto sob domínio público:
 > <https://github.com/protazoarium/farol-ss>.
