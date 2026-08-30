@@ -84,7 +84,7 @@ aguardando a autorização da CGU.
 
 ## Conjunto de dados de origem (catalogados no dados.gov.br)
 
-O concurso exige **pelo menos um**. O Farol-SS referencia **onze conjuntos
+O concurso exige **pelo menos um**. O Farol-SS referencia **treze conjuntos
 catalogados** no dados.gov.br — selecione todos no campo "Conjunto de dados de
 origem" (o campo tem busca por nome):
 
@@ -100,6 +100,8 @@ origem" (o campo tem busca por nome):
 | Portal Nacional de Contratações Públicas — PNCP | `dados.gov.br/dados/conjuntos-dados/pncp` | eixo Alocação, camada L3 (compras de insumos) + detector de sobrepreço |
 | Compras Públicas do Governo Federal (Compras.gov.br) | `dados.gov.br/dados/conjuntos-dados/compras-publicas-do-governo-federal` | eixo Alocação, camada L3 federal (complemento) |
 | Portal da Transparência do Governo Federal | `dados.gov.br/dados/conjuntos-dados/portal-da-transparencia-do-governo-federal` | eixo Alocação, camada L1 (repasse federal — proxy de transferências sociais) |
+| Estimativas de População | `dados.gov.br/dados/conjuntos-dados/estimativas-de-populacao` | denominador de toda taxa por 100 mil habitantes |
+| Índice Nacional de Preços ao Consumidor Amplo — IPCA | `dados.gov.br/dados/conjuntos-dados/indice-nacional-de-precos-ao-consumidor-amplo-ipca` | deflator (todos os valores em R$ de 2024) |
 | Malha Geométrica dos Municípios Brasileiros | `dados.gov.br/dados/conjuntos-dados/malha-geometrica-dos-municipios-brasileiros` | geometria do mapa coroplético |
 
 *(As três arboviroses do SINAN contam como três conjuntos distintos no portal.
@@ -115,8 +117,12 @@ Campo "Conjunto de dados não catalizados" — separar por ponto-e-vírgula, URL
 entre parênteses:
 
 ```
-IBGE — Estimativas de População, agregado 6579 (https://servicodados.ibge.gov.br/api/v3/agregados/6579); IBGE — IPCA, agregado 1737, usado como deflator (https://servicodados.ibge.gov.br/api/v3/agregados/1737); IBGE — Censo 2022, agregados 6803/6805/6892, déficit de saneamento (https://servicodados.ibge.gov.br/api/v3/agregados/6803); SINAN — Leptospirose, Hepatite A e Esquistossomose via PySUS (https://github.com/AlertaDengue/PySUS); CadÚnico via Matriz de Informações Sociais SAGI/MDS (https://aplicacoes.mds.gov.br/sagi/servicos/misocial)
+SINAN — Leptospirose, Hepatite A e Esquistossomose, obtidos via PySUS (não têm conjunto próprio no portal; só as arboviroses têm) (https://github.com/AlertaDengue/PySUS); CadÚnico — taxa de extrema pobreza pela Matriz de Informações Sociais da SAGI/MDS, endpoint misocial (o conjunto catalogado "Famílias Inscritas no CadÚnico" traz o extrato mensal, não esse agregado) (https://aplicacoes.mds.gov.br/sagi/servicos/misocial)
 ```
+
+Os agregados do IBGE usados via API `servicodados` (população 6579, IPCA 1737,
+Censo 2022 6803/6805/6892) **correspondem a conjuntos catalogados** — já estão
+na tabela acima; não precisam entrar como não catalogados.
 
 ---
 

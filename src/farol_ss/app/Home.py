@@ -124,11 +124,6 @@ for f in conteudo.FONTES:
         unsafe_allow_html=True,
     )
 
-tema.nota(
-    conteudo.CORRECAO_METODOLOGICA.strip(),
-    rotulo="Correção metodológica sobre a proposta original.",
-)
-
 # ── Navegação ─────────────────────────────────────────────────────────
 st.header("Navegar")
 n1, n2, n3 = st.columns(3)
