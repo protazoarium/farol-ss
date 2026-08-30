@@ -144,10 +144,6 @@ Vale ler `docs/spike-fontes.md` na íntegra, mas os pontos que mais mudariam uma
 - **PNCP é operacionalmente instável**: a mesma consulta respondeu timeout, HTTP 204 sem corpo e 200 normal em tentativas sucessivas. A ingestão pagina com try/except por página, preservando progresso parcial.
 - **A chave gratuita do Portal da Transparência tem dois tetos**: `/transferencias` (repasse fundo a fundo) é 403 permanente, e volume alto sustentado bloqueia a chave por horas. A coleta de L1 é retomável por construção.
 
-## Autoria
+## Licença
 
-Desenhado e implementado com Claude (Anthropic).
-
----
-
-**Licença**: dados públicos das fontes federais (IBGE, DATASUS, PNCP, CGU, MDS). Análise e visualização (IEAS, painel) são obra derivada sob domínio público.
+Dados públicos das fontes federais (IBGE, DATASUS, PNCP, CGU, MDS). Análise e visualização (IEAS, painel, API) são obra derivada sob domínio público.

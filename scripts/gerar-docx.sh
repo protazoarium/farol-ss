@@ -15,7 +15,7 @@ cat > "$TMP/meta.md" <<'EOF'
 ---
 title: "Farol da Saúde & Saneamento"
 subtitle: "Relatório Técnico — Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco"
-author: "Concebido e implementado com Claude (Anthropic)"
+author: ""
 date: "Versão 1.4 · 30 de agosto de 2026"
 lang: pt-BR
 abstract: |

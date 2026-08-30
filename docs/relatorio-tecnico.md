@@ -2,7 +2,7 @@
 
 **Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco**
 
-Versão 1.4 · 30 de agosto de 2026 · Concebido e implementado com Claude (Anthropic)
+Versão 1.4 · 30 de agosto de 2026
 
 ---
 

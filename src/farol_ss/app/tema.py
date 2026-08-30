@@ -294,8 +294,7 @@ def rodape(fontes: str = "") -> None:
           <p>{MARCA} · {DESCRICAO_CURTA}. Dados públicos das fontes federais
           (IBGE, DATASUS, PNCP, CGU, MDS); o IEAS, o painel e a API são obra
           derivada sob domínio público.</p>
-          <p>Código aberto: <a href="{REPO_URL}">{REPO_URL}</a> ·
-          Concebido e implementado com Claude (Anthropic).</p>
+          <p>Código aberto: <a href="{REPO_URL}">{REPO_URL}</a></p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -362,13 +361,13 @@ font-family="-apple-system, Segoe UI, Roboto, sans-serif">
   <path class="lig" d="M300,204 L210,262"/>
   <path class="lig" d="M400,204 L490,262"/>
 
-  {chip(40, 262, 290, "Epidemiologia", f"peso {pe} · arbo + hídricas + DRSAI", FAROL_COR["vermelho"])}
-  {chip(40, 320, 290, "Déficit de saneamento", f"peso {ps} · água + esgoto + lixo", FAROL_COR["amarelo"])}
-  {chip(40, 378, 290, "Vulnerabilidade social", f"peso {pv} · extrema pobreza (CadÚnico)", FAROL_COR["verde"])}
+  {chip(40, 262, 290, "Epidemiologia", f"peso {pe} · arbo + hídricas + DRSAI", AZUL)}
+  {chip(40, 320, 290, "Déficit de saneamento", f"peso {ps} · água + esgoto + lixo", AZUL)}
+  {chip(40, 378, 290, "Vulnerabilidade social", f"peso {pv} · extrema pobreza (CadÚnico)", AZUL)}
 
-  {chip(370, 262, 290, "L1 · repasse federal", f"peso {l1} · transferências sociais", "#1565c0")}
-  {chip(370, 320, 290, "L2 · execução própria", f"peso {l2} · R$/hab próprios (SIOPS)", "#1565c0")}
-  {chip(370, 378, 290, "L3 · contratação de insumos", f"peso {l3} · R$/hab (PNCP + Compras)", "#1565c0")}
+  {chip(370, 262, 290, "L1 · repasse federal", f"peso {l1} · transferências sociais", "#00695c")}
+  {chip(370, 320, 290, "L2 · execução própria", f"peso {l2} · R$/hab próprios (SIOPS)", "#00695c")}
+  {chip(370, 378, 290, "L3 · contratação de insumos", f"peso {l3} · R$/hab (PNCP + Compras)", "#00695c")}
 
   <text x="185" y="452" text-anchor="middle" class="rot">regra do cinza: cobertura ≥ 60%</text>
   <text x="515" y="452" text-anchor="middle" class="rot">regra do cinza: cobertura ≥ 50%</text>
