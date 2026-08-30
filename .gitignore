@@ -35,7 +35,7 @@ __pycache__/
 .env
 .streamlit/secrets.toml
 
-# Harness Claude Code (local)
+# Configuração local de ferramentas de edição
 .claude/
 
 # LibreOffice lock files

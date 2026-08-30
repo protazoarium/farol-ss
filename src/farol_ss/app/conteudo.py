@@ -473,8 +473,8 @@ FORMULAS: list[Formula] = [
     Formula(
         "per_capita",
         "Camadas de gasto per capita (deflacionadas)",
-        r"L1_m = \dfrac{\text{transf. sociais}_m \times 12 \times \text{deflator}}{\text{população}_m},\quad"
-        r"L2_m = \text{ind. SIOPS}_m \times \text{deflator},\quad"
+        r"L1_m = \dfrac{\text{transf. sociais}_m \times 12 \times \text{deflator}}{\text{população}_m}, \quad "
+        r"L2_m = \text{ind. SIOPS}_m \times \text{deflator}, \quad "
         r"L3_m = \dfrac{\sum \text{contratos}_m \times \text{deflator}}{\text{população}_m}",
         "L1 é a transferência social de junho anualizada (proxy do repasse "
         "federal). L2 já vem per capita do SIOPS, só é deflacionado. L3 soma "
@@ -509,18 +509,19 @@ FORMULAS: list[Formula] = [
     Formula(
         "d1",
         "Detector 1 — desalinhamento estrutural",
-        r"\text{alerta}_m \iff \text{gap}_m \le \tau_{\text{vermelho}} \qquad"
+        r"\text{alerta}_m \iff \text{gap}_m \le \tau \qquad"
         r"\text{severidade} = \begin{cases}\text{alta} & \text{gap}_m \le -0{,}6\\ \text{moderada} & \text{caso contrário}\end{cases}",
         "O farol vermelho é, por definição, o alerta mais direto: necessidade no "
-        "topo do estado, alocação no fundo.",
+        "topo do estado, alocação no fundo. τ é o limiar do vermelho de "
+        "`conf/ieas.yml` (hoje −0,33).",
         bloco="detectores",
         dependencias=["gap_ieas"],
     ),
     Formula(
         "d2",
         "Detector 2 — alocação abaixo do esperado",
-        r"\hat{A}(N) = \beta_0 + \beta_1 N \;\;(\text{ajuste por ano}) \qquad"
-        r"z_m = \frac{r_m - \tilde{r}}{1{,}4826\,\text{MAD}(r)},\quad r_m = A_m - \hat{A}(N_m)",
+        r"\hat{A}(N) = \beta_0 + \beta_1 N \;\;(\text{ajuste por ano}) \qquad "
+        r"z_m = \frac{r_m - \tilde{r}}{1{,}4826\,\text{MAD}(r)}, \quad r_m = A_m - \hat{A}(N_m)",
         "Ajusta, por ano, uma reta necessidade→alocação para todo o estado e mede "
         "o resíduo de cada município com escala robusta (MAD, não desvio-padrão). "
         "Alerta quando z ≤ −2 **e** o resíduo é ≥ 8 pontos percentuais abaixo do "
