@@ -31,8 +31,12 @@ def test_ieas_json_valido_com_nan():
     assert r.status_code == 200
     linhas = r.json()
     assert len(linhas) == 185
-    # necessidade_rank é NaN hoje → deve sair como null, não quebrar o encoder
-    assert linhas[0]["necessidade_rank"] is None
+    # onde o farol é cinza (cobertura insuficiente), gap/ieas são NaN — o
+    # encoder tem de emitir null em vez de quebrar com "Out of range float".
+    cinza = [linha for linha in linhas if linha["farol"] == "cinza"]
+    assert cinza, "esperava ao menos um município cinza em 2024"
+    assert cinza[0]["gap"] is None
+    assert cinza[0]["ieas"] is None
 
 
 def test_formato_csv():

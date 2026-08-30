@@ -47,7 +47,7 @@ def spike() -> None:
 @app.command()
 def ingest() -> None:
     """Baixa todas as fontes para data/bronze (idempotente)."""
-    from farol_ss.ingest import ibge, pncp, sinan
+    from farol_ss.ingest import cadunico, ibge, pncp, sinan, siops
 
     config.ensure_dirs()
     console.print("[bold]Ingestão — Etapa 3[/bold]")
@@ -59,6 +59,16 @@ def ingest() -> None:
         sinan.rodar()
         console.print("[cyan]• PNCP[/cyan] (contratações municipais)")
         pncp.rodar()
+        console.print("[cyan]• SIOPS[/cyan] (execução própria em saúde — TabNet)")
+        try:
+            siops.rodar()
+        except Exception as e:  # noqa: BLE001 — TabNet instável não derruba a ingestão
+            console.print(f"  [yellow]⚠ SIOPS indisponível: {type(e).__name__}[/yellow]")
+        console.print("[cyan]• CadÚnico[/cyan] (vulnerabilidade — SAGI/MDS)")
+        try:
+            cadunico.rodar()
+        except Exception as e:  # noqa: BLE001 — SAGI fora do ar não derruba a ingestão
+            console.print(f"  [yellow]⚠ CadÚnico indisponível: {type(e).__name__}[/yellow]")
         console.print("[green]✓ Ingestão concluída[/green]")
     except Exception as e:
         console.print(f"[red]✗ Erro: {e}[/red]", highlight=False)
@@ -135,9 +145,15 @@ def ieas() -> None:
     else:
         df["sub_epidemiologico"] = np.nan
 
+    # Subíndice de vulnerabilidade: rank percentil da taxa de famílias em
+    # extrema pobreza (CadÚnico), calculada no gold. Mesma forma do epi.
+    if "extrema_pobreza_por_mil_hab" in df.columns:
+        df["sub_vulnerabilidade"] = rank_percentil(df["extrema_pobreza_por_mil_hab"])
+    else:
+        df["sub_vulnerabilidade"] = np.nan
+
     for col in (
         "sub_saneamento",
-        "sub_vulnerabilidade",
         "l1_per_capita",
         "l2_per_capita",
         "l3_per_capita",

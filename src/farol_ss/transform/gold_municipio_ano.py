@@ -77,14 +77,8 @@ def _deflator_por_ano() -> dict[int, float]:
     return (ref / media_anual).to_dict()
 
 
-def _juntar_financeiro(base: pd.DataFrame) -> pd.DataFrame:
-    """Eixo Alocação, camada L3 — contratação de insumos (PNCP).
-
-    L1 (repasse federal / Portal da Transparência) e L2 (execução própria /
-    SIOPS) seguem pendentes — ver docs/spike-fontes.md. As colunas entram
-    como NULL para o município-ano sem contratação publicada no PNCP, que é
-    o comportamento certo: a regra do cinza precisa enxergar a ausência.
-    """
+def _juntar_l3_pncp(base: pd.DataFrame) -> pd.DataFrame:
+    """Camada L3 — contratação de insumos (PNCP), deflacionada para o ano-base."""
     if not duck.exists(config.SILVER, "pncp"):
         base["l3_total"] = pd.NA
         base["l3_per_capita"] = pd.NA
@@ -111,15 +105,73 @@ def _juntar_financeiro(base: pd.DataFrame) -> pd.DataFrame:
     return out.drop(columns=["_l3_nominal"])
 
 
+def _juntar_l2_siops(base: pd.DataFrame) -> pd.DataFrame:
+    """Camada L2 — execução própria municipal em saúde (SIOPS).
+
+    `l2_rec_proprios_per_capita` vem em R$ correntes do ano; aqui é
+    deflacionado para o ano-base. `pct_receita_propria_saude` (piso EC 29/15%)
+    é razão, não passa por deflação.
+    """
+    if not duck.exists(config.SILVER, "siops"):
+        base["l2_per_capita"] = pd.NA
+        base["l2_pct_receita_saude"] = pd.NA
+        return base
+
+    siops = duck.read_silver("siops")
+    siops["ano"] = siops["ano"].astype(int)
+    out = base.merge(
+        siops[["cod_ibge", "ano", "l2_rec_proprios_per_capita", "pct_receita_propria_saude"]],
+        on=["cod_ibge", "ano"],
+        how="left",
+    )
+    deflator = _deflator_por_ano()
+    out["l2_per_capita"] = out["l2_rec_proprios_per_capita"] * out["ano"].map(deflator)
+    out["l2_pct_receita_saude"] = out["pct_receita_propria_saude"]
+    return out.drop(columns=["l2_rec_proprios_per_capita", "pct_receita_propria_saude"])
+
+
+def _juntar_financeiro(base: pd.DataFrame) -> pd.DataFrame:
+    """Eixo Alocação: L2 (SIOPS) + L3 (PNCP). L1 (Portal da Transparência)
+    segue pendente e entra como NULL — a regra do cinza precisa ver a ausência."""
+    base = _juntar_l3_pncp(base)
+    base = _juntar_l2_siops(base)
+    return base
+
+
+def _juntar_vulnerabilidade(base: pd.DataFrame) -> pd.DataFrame:
+    """Subíndice de vulnerabilidade (eixo Necessidade) — CadÚnico via SAGI.
+
+    `extrema_pobreza_por_mil_hab` = famílias em extrema pobreza / população
+    (IBGE, já na grade) × 1000. A normalização por rank percentil fica no
+    `index/ieas.py`, como nos demais subíndices.
+    """
+    if not duck.exists(config.SILVER, "cadunico"):
+        base["extrema_pobreza_por_mil_hab"] = pd.NA
+        return base
+
+    cad = duck.read_silver("cadunico")
+    cad["ano"] = cad["ano"].astype(int)
+    out = base.merge(
+        cad[["cod_ibge", "ano", "familias_extrema_pobreza", "familias_cadastradas"]],
+        on=["cod_ibge", "ano"],
+        how="left",
+    )
+    if "populacao" in out.columns:
+        out["extrema_pobreza_por_mil_hab"] = (
+            out["familias_extrema_pobreza"] / out["populacao"] * 1000
+        )
+    return out.drop(columns=["familias_extrema_pobreza"])
+
+
 def montar() -> pd.DataFrame:
     base = _grade_base()
     base = _juntar_populacao(base)
     base = _juntar_epidemiologia(base)
     base = _juntar_financeiro(base)
+    base = _juntar_vulnerabilidade(base)
     # TODO próximas fontes conforme forem ficando prontas:
-    #   _juntar_financeiro: L2 (SIOPS) e L1 (Transparência)
-    #   _juntar_saneamento (SNIS)
-    #   _juntar_vulnerabilidade (CadÚnico)
+    #   _juntar_financeiro: L1 (Portal da Transparência)
+    #   _juntar_saneamento (SNIS — sistema encerrado; via Censo 2022 IBGE)
     return base
 
 

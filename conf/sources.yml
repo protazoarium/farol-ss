@@ -57,10 +57,11 @@ sih:
 siops:
   nome: "SIOPS — Orçamentos Públicos em Saúde"
   camada: financeiro_l2
-  url: "https://siops.datasus.gov.br/"
+  url: "http://siops-asp.datasus.gov.br/cgi/tabcgi.exe?siops/serhist/MUNICIPIO/indicPE.def"
   dados_gov: "https://dados.gov.br/dados/conjuntos-dados/siops"
   licenca: "Dados abertos — Ministério da Saúde"
-  observacao: "Sem API REST; coleta por download da série histórica de indicadores municipais."
+  observacao: "Sem API REST. Coletado do TabNet legado por POST de formulário (charset ISO-8859-1). Indicador: D.R.Próprios_em_Saúde/Hab."
+  formato: html
 
 snis:
   nome: "SNIS — Sistema Nacional de Informações sobre Saneamento"
