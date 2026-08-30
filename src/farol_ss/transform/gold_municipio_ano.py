@@ -130,12 +130,48 @@ def _juntar_l2_siops(base: pd.DataFrame) -> pd.DataFrame:
     return out.drop(columns=["l2_rec_proprios_per_capita", "pct_receita_propria_saude"])
 
 
+def _juntar_l1_transparencia(base: pd.DataFrame) -> pd.DataFrame:
+    """Camada L1 — repasse federal (parcial): transferências sociais federais
+    por município (Portal da Transparência). Valor mensal de junho → anual
+    (×12) e deflacionado. Ver `ingest/transparencia.py` para a limitação."""
+    if not duck.exists(config.SILVER, "transparencia"):
+        base["l1_per_capita"] = pd.NA
+        return base
+
+    tr = duck.read_silver("transparencia")
+    tr["ano"] = tr["ano"].astype(int)
+    out = base.merge(
+        tr[["cod_ibge", "ano", "l1_transf_sociais_mes"]], on=["cod_ibge", "ano"], how="left"
+    )
+    deflator = _deflator_por_ano()
+    l1_anual = out["l1_transf_sociais_mes"] * 12 * out["ano"].map(deflator)
+    if "populacao" in out.columns:
+        out["l1_per_capita"] = l1_anual / out["populacao"]
+    return out.drop(columns=["l1_transf_sociais_mes"])
+
+
 def _juntar_financeiro(base: pd.DataFrame) -> pd.DataFrame:
-    """Eixo Alocação: L2 (SIOPS) + L3 (PNCP). L1 (Portal da Transparência)
-    segue pendente e entra como NULL — a regra do cinza precisa ver a ausência."""
+    """Eixo Alocação: L1 (Transparência, parcial) + L2 (SIOPS) + L3 (PNCP)."""
     base = _juntar_l3_pncp(base)
     base = _juntar_l2_siops(base)
+    base = _juntar_l1_transparencia(base)
     return base
+
+
+def _juntar_saneamento(base: pd.DataFrame) -> pd.DataFrame:
+    """Subíndice de saneamento (eixo Necessidade) — Censo 2022 do IBGE.
+
+    `sub_saneamento_bruto` já é o déficit ponderado (água/esgoto/lixo) calculado
+    na ingestão a partir dos pesos de `conf/ieas.yml`. É um retrato de 2022
+    aplicado a todos os anos do recorte (o SNIS, que era anual, foi encerrado).
+    """
+    path_name = "ibge_saneamento"
+    if not duck.exists(config.SILVER, path_name):
+        base["sub_saneamento_bruto"] = pd.NA
+        return base
+
+    san = duck.read_silver(path_name)[["cod_ibge", "sub_saneamento_bruto"]]
+    return base.merge(san, on="cod_ibge", how="left")
 
 
 def _juntar_vulnerabilidade(base: pd.DataFrame) -> pd.DataFrame:
@@ -169,9 +205,7 @@ def montar() -> pd.DataFrame:
     base = _juntar_epidemiologia(base)
     base = _juntar_financeiro(base)
     base = _juntar_vulnerabilidade(base)
-    # TODO próximas fontes conforme forem ficando prontas:
-    #   _juntar_financeiro: L1 (Portal da Transparência)
-    #   _juntar_saneamento (SNIS — sistema encerrado; via Censo 2022 IBGE)
+    base = _juntar_saneamento(base)
     return base
 
 

@@ -47,7 +47,15 @@ def spike() -> None:
 @app.command()
 def ingest() -> None:
     """Baixa todas as fontes para data/bronze (idempotente)."""
-    from farol_ss.ingest import cadunico, ibge, pncp, sinan, siops
+    from farol_ss.ingest import (
+        cadunico,
+        ibge,
+        ibge_saneamento,
+        pncp,
+        sinan,
+        siops,
+        transparencia,
+    )
 
     config.ensure_dirs()
     console.print("[bold]Ingestão — Etapa 3[/bold]")
@@ -55,6 +63,11 @@ def ingest() -> None:
     try:
         console.print("[cyan]• IBGE[/cyan] (pop, IPCA, malhas)")
         ibge.rodar()
+        console.print("[cyan]• IBGE saneamento[/cyan] (Censo 2022 — água/esgoto/lixo)")
+        try:
+            ibge_saneamento.rodar()
+        except Exception as e:  # noqa: BLE001 — não derruba a ingestão
+            console.print(f"  [yellow]⚠ Saneamento indisponível: {type(e).__name__}[/yellow]")
         console.print("[cyan]• SINAN[/cyan] (agravos notificáveis)")
         sinan.rodar()
         console.print("[cyan]• PNCP[/cyan] (contratações municipais)")
@@ -69,10 +82,31 @@ def ingest() -> None:
             cadunico.rodar()
         except Exception as e:  # noqa: BLE001 — SAGI fora do ar não derruba a ingestão
             console.print(f"  [yellow]⚠ CadÚnico indisponível: {type(e).__name__}[/yellow]")
+        console.print(
+            "[cyan]• Portal da Transparência[/cyan] (L1 parcial — transf. sociais; ~20 min)"
+        )
+        try:
+            transparencia.rodar()
+        except Exception as e:  # noqa: BLE001 — API instável/sem chave não derruba a ingestão
+            console.print(f"  [yellow]⚠ Transparência indisponível: {type(e).__name__}[/yellow]")
         console.print("[green]✓ Ingestão concluída[/green]")
     except Exception as e:
         console.print(f"[red]✗ Erro: {e}[/red]", highlight=False)
         raise
+
+
+@app.command(name="ingest-l1")
+def ingest_l1(
+    limite: int = typer.Option(None, help="teto de município-anos novos nesta execução"),
+) -> None:
+    """Baixa a camada L1 parcial (transferências sociais federais) do Portal da
+    Transparência. Retomável: pula o que já está em `silver/transparencia.parquet`.
+    São 925 município-anos (~2 chamadas cada); a coleta completa leva ~20 min."""
+    from farol_ss.ingest import transparencia
+
+    config.ensure_dirs()
+    transparencia.rodar(limite=limite)
+    console.print("[green]✓ L1 (Transparência) concluído[/green]")
 
 
 @app.command(name="ingest-itens")
@@ -117,14 +151,11 @@ def gold() -> None:
 def ieas() -> None:
     """Calcula o IEAS e os alertas a partir do gold.
 
-    O eixo de Alocação (L1+L2+L3) e os subíndices de saneamento/
-    vulnerabilidade ainda não têm fonte ingerida (ver docs/spike-fontes.md) —
-    por isso, hoje, a cobertura de quase todo município fica abaixo do
-    limiar em conf/ieas.yml e o farol sai cinza para a maioria. Isso é a
-    regra do cinza funcionando como projetada, não um bug: o comando já
-    prova a canalização inteira (gold → normalização → IEAS → alertas) e
-    passa a produzir cor de verdade assim que SNIS/SIOPS/Transparência
-    destravarem.
+    Necessidade = epidemiológico (SINAN) + saneamento (Censo 2022) +
+    vulnerabilidade (CadÚnico). Alocação = L1 parcial (Transparência) + L2
+    (SIOPS) + L3 (PNCP). Município-ano abaixo da cobertura mínima de
+    `conf/ieas.yml` (ainda comum onde falta L1 ou L3 no PNCP) sai cinza —
+    a regra do cinza, não um bug.
     """
     from farol_ss.index import anomalies
     from farol_ss.index.ieas import calcular_ieas
@@ -152,8 +183,15 @@ def ieas() -> None:
     else:
         df["sub_vulnerabilidade"] = np.nan
 
+    # Subíndice de saneamento: rank percentil do déficit ponderado
+    # (água/esgoto/lixo) do Censo 2022, já calculado no gold. Déficit maior =
+    # necessidade maior, então o rank é direto.
+    if "sub_saneamento_bruto" in df.columns:
+        df["sub_saneamento"] = rank_percentil(df["sub_saneamento_bruto"])
+    else:
+        df["sub_saneamento"] = np.nan
+
     for col in (
-        "sub_saneamento",
         "l1_per_capita",
         "l2_per_capita",
         "l3_per_capita",

@@ -44,6 +44,26 @@ def anos() -> list[int]:
     return list(range(r["ano_inicio"], r["ano_fim"] + 1))
 
 
+def _carregar_dotenv() -> None:
+    """Lê o .env da raiz para o ambiente, sem sobrescrever o que já existe.
+
+    Parser mínimo (KEY=VALUE, ignora comentários e linhas vazias) para não
+    obrigar uma dependência só por isto.
+    """
+    env = ROOT / ".env"
+    if not env.exists():
+        return
+    for linha in env.read_text(encoding="utf-8").splitlines():
+        linha = linha.strip()
+        if not linha or linha.startswith("#") or "=" not in linha:
+            continue
+        chave, _, valor = linha.partition("=")
+        os.environ.setdefault(chave.strip(), valor.strip().strip("\"'"))
+
+
+_carregar_dotenv()
+
+
 def transparencia_key() -> str | None:
     """Chave da API do Portal da Transparência (gratuita, login gov.br)."""
     return os.environ.get("PORTAL_TRANSPARENCIA_API_KEY") or None

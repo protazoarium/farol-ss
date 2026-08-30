@@ -17,6 +17,8 @@ data/silver/*
 !data/silver/pncp_itens.parquet
 !data/silver/siops.parquet
 !data/silver/cadunico.parquet
+!data/silver/transparencia.parquet
+!data/silver/ibge_saneamento.parquet
 
 data/gold/*
 !data/gold/fato_municipio_ano.parquet
@@ -33,3 +35,6 @@ __pycache__/
 
 # Harness Claude Code (local)
 .claude/
+
+# LibreOffice lock files
+.~lock.*#
