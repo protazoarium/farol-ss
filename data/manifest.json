@@ -1,4 +1,26 @@
 {
+  "cadunico": {
+    "arquivo": "data/silver/cadunico.parquet",
+    "bytes": 88932,
+    "coletado_em": "2026-08-30T03:19:52+00:00",
+    "erro": null,
+    "extra": {
+      "anos": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "municipios": 185
+    },
+    "fonte": "cadunico",
+    "linhas": 925,
+    "observacao": "MI Social (SAGI/MDS), índice Solr; competência dez/ano; taxa de famílias em extrema pobreza",
+    "sha256": "d8d2f8f8a39866c3a8bd65466c22743dd67398ef8d238e30e18c3b52ed21ae4b",
+    "status": "ok",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial"
+  },
   "ibge_ipca": {
     "arquivo": "data/silver/ibge_ipca.parquet",
     "bytes": 3972,
@@ -724,5 +746,27 @@
     "sha256": "c4c08198dce56a3da8218f21d52d00006b3de7604ad64bdf4171299a38cad961",
     "status": "ok",
     "url": "pysus.sinan('ZIKA', 2024)"
+  },
+  "siops": {
+    "arquivo": "data/silver/siops.parquet",
+    "bytes": 73732,
+    "coletado_em": "2026-08-30T03:16:21+00:00",
+    "erro": null,
+    "extra": {
+      "anos": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "municipios": 184
+    },
+    "fonte": "siops",
+    "linhas": 920,
+    "observacao": "TabNet legado (POST de formulário); indicador D.R.Próprios_em_Saúde/Hab",
+    "sha256": "ca210943e91fc1235bfcc87218d4d10b0713f583762499671c31e6f33345e6d4",
+    "status": "ok",
+    "url": "http://siops-asp.datasus.gov.br/cgi/tabcgi.exe?siops/serhist/MUNICIPIO/indicPE.def"
   }
 }

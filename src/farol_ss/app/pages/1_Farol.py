@@ -37,14 +37,10 @@ st.caption(
 # --- Filtros -------------------------------------------------------------
 anos = dados.anos()
 ano = st.sidebar.selectbox("Ano", anos, index=len(anos) - 1)
-# Padrão: Necessidade — é a camada com dado real hoje (SINAN, 185/185). O
-# farol fica cinza até L1/L2/saneamento entrarem, então abrir nele passaria
-# uma tela vazia; a página começa mostrando algo interpretável.
 camadas = list(tema.CAMADAS)
 camada = st.sidebar.selectbox(
     "Camada",
     camadas,
-    index=camadas.index("sub_epidemiologico"),
     format_func=lambda k: tema.CAMADAS[k],
 )
 
@@ -103,12 +99,18 @@ if categorico:
     k3.metric("Cinza (sem cobertura)", n_total - com_cor)
     if com_cor == 0:
         st.info(
-            "**Tudo cinza é o resultado correto hoje.** A regra do cinza "
-            "(`conf/ieas.yml`) não deixa o IEAS ser calculado enquanto os dois "
-            "eixos não têm cobertura mínima — falta o gasto L1 (Portal da "
-            "Transparência, HTTP 403), L2 (SIOPS, sem API) e o saneamento (SNIS, "
-            "DNS fora do ar). Troque a camada para ver o que já tem dado.",
+            "**Tudo cinza neste recorte.** A regra do cinza (`conf/ieas.yml`) só "
+            "calcula o IEAS quando os dois eixos têm cobertura mínima. Para "
+            f"{ano}, algum eixo ainda não alcança o limiar — troque o ano ou a "
+            "camada.",
             icon="ℹ️",
+        )
+    elif n_total - com_cor > 0:
+        st.caption(
+            f"{n_total - com_cor} municípios em cinza: sem a camada L3 (PNCP) no "
+            "ano, a cobertura do eixo Alocação fica abaixo do limiar. O eixo "
+            "Necessidade (epidemiologia + vulnerabilidade) já está completo; "
+            "falta só L1 (Portal da Transparência) para fechar a Alocação."
         )
 else:
     com_dado = int(df["valor"].notna().sum())
