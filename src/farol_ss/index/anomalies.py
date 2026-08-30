@@ -1,23 +1,18 @@
-"""Detectores de gargalo e vulnerabilidade.
+"""Detectores de gargalo e vulnerabilidade — os quatro do plano.
 
-Três dos quatro detectores do plano estão implementados:
-
-1. Desalinhamento estrutural — trivial, deriva direto do `gap` do ieas.py.
-   Depende do IEAS ter cor, então hoje não produz linhas (tudo cinza).
-3. Suspeita de sobrepreço — preço unitário de um item de insumo acima de
-   Q3 + fator·IQR da distribuição da mesma categoria em PE. Usa
-   `silver/pncp_itens.parquet` (ver `ingest/pncp_itens.py`), que puxa o preço
-   por item do recurso `/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens` do PNCP —
-   o recurso de consulta genérico só traz o valor total da compra.
-4. Suspeita de desabastecimento — o detector mais original do projeto: liga
-   incidência sustentada de um agravo (SINAN) à ausência de contratação da
-   categoria de insumo correspondente (PNCP), via `seeds/agravo_insumo.yml`.
-
-O detector 2 (resíduo de regressão robusta) fica de fora: precisa do eixo de
-Alocação completo (L1+L2+L3 per capita); como L1 (Transparência) e L2 (SIOPS)
-ainda estão bloqueados (ver docs/spike-fontes.md), implementá-lo agora
-produziria um resíduo calculado sobre um terço do gasto real — enganoso, não
-apenas incompleto.
+1. Desalinhamento estrutural — o farol vermelho: corte fixo no `gap`.
+2. Alocação abaixo do esperado — resíduo de um ajuste robusto
+   necessidade→alocação, por ano. Controla pela relação do estado inteiro, ao
+   contrário do detector 1. Só roda onde o eixo de Alocação está completo
+   (L1+L2+L3).
+3. Suspeita de sobrepreço — preço unitário de um item acima de Q3 + fator·IQR
+   da mesma categoria E unidade de medida em PE. Usa `silver/pncp_itens.parquet`
+   (ver `ingest/pncp_itens.py`), que puxa o preço por item do recurso
+   `/v1/orgaos/{cnpj}/compras/{ano}/{seq}/itens` do PNCP — o recurso de consulta
+   genérico só traz o valor total da compra.
+4. Suspeita de desabastecimento — o detector mais original: liga incidência
+   sustentada de um agravo (SINAN) à ausência de contratação da categoria de
+   insumo correspondente (PNCP), via `seeds/agravo_insumo.yml`.
 
 Cada detector devolve linhas com `explicacao` em texto legível — um alerta
 sem explicação não serve para auditoria cidadã.
@@ -25,6 +20,7 @@ sem explicação não serve para auditoria cidadã.
 
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
 import yaml
 
@@ -175,15 +171,64 @@ def _categoria_do_item(descricao: str, catmat: pd.DataFrame) -> str | None:
     return None
 
 
+# normalização de unidade de medida do PNCP (só o suficiente para agrupar
+# preços comparáveis; um "frasco" e uma "ampola" do mesmo antibiótico não
+# devem entrar na mesma distribuição).
+_UNIDADES = {
+    "un": "unidade",
+    "und": "unidade",
+    "unid": "unidade",
+    "unidade": "unidade",
+    "ud": "unidade",
+    "cx": "caixa",
+    "caixa": "caixa",
+    "cxa": "caixa",
+    "fr": "frasco",
+    "frasco": "frasco",
+    "fco": "frasco",
+    "frs": "frasco",
+    "frasco/ampola": "frasco",
+    "amp": "ampola",
+    "ampola": "ampola",
+    "ampolas": "ampola",
+    "cp": "comprimido",
+    "comp": "comprimido",
+    "comprimido": "comprimido",
+    "cpr": "comprimido",
+    "compr": "comprimido",
+    "cápsula": "comprimido",
+    "capsula": "comprimido",
+    "ml": "ml",
+    "l": "litro",
+    "litro": "litro",
+    "kg": "kg",
+    "g": "grama",
+    "grama": "grama",
+    "tubo": "tubo",
+    "bisnaga": "tubo",
+    "envelope": "envelope",
+    "sache": "envelope",
+    "sachê": "envelope",
+    "teste": "teste",
+    "kit": "kit",
+    "unitário": "unidade",
+}
+
+
+def _unidade_norm(u) -> str:
+    return _UNIDADES.get(_normaliza(u).strip(), _normaliza(u).strip() or "sem_unidade")
+
+
 def detectar_sobrepreco(itens: pd.DataFrame | None) -> pd.DataFrame:
-    """Detector 3: preço unitário fora da curva dentro da mesma categoria de insumo.
+    """Detector 3: preço unitário fora da curva dentro da mesma categoria de
+    insumo **e da mesma unidade de medida**.
 
     `itens` é o `silver/pncp_itens.parquet` (um registro por item de compra,
-    com `valor_unitario_estimado`). Para cada categoria de insumo de saúde, o
+    com `valor_unitario_estimado`). Para cada par (categoria, unidade), o
     detector calcula o IQR dos preços unitários entre municípios e sinaliza os
-    itens acima de Q3 + fator·IQR (fator em `conf/ieas.yml::alertas.preco_iqr_fator`).
-    Comparar só dentro da categoria evita o falso-positivo óbvio de comparar o
-    preço de uma seringa com o de um tomógrafo.
+    itens acima de Q3 + fator·IQR (`conf/ieas.yml::alertas.preco_iqr_fator`).
+    Agrupar por (categoria, unidade) evita comparar o preço de um frasco com o
+    de uma ampola do mesmo medicamento.
     """
     schema_vazio = pd.DataFrame(
         columns=["cod_ibge", "ano", "tipo", "severidade", "categoria", "explicacao"]
@@ -206,9 +251,10 @@ def detectar_sobrepreco(itens: pd.DataFrame | None) -> pd.DataFrame:
     df = df.dropna(subset=["categoria"])
     # a categoria de obras de saneamento é, por definição, de valor global
     df = df[df["categoria"] != "material_obra_saneamento"]
+    df["unidade_norm"] = df["unidade_medida"].map(_unidade_norm)
 
     achados = []
-    for categoria, grupo in df.groupby("categoria"):
+    for (categoria, unidade), grupo in df.groupby(["categoria", "unidade_norm"]):
         precos = grupo["valor_unitario_estimado"]
         if len(precos) < 5:  # sem base para uma distribuição
             continue
@@ -229,13 +275,79 @@ def detectar_sobrepreco(itens: pd.DataFrame | None) -> pd.DataFrame:
                     "categoria": categoria,
                     "explicacao": (
                         f"Item '{str(item['descricao'])[:60]}' contratado a "
-                        f"R$ {item['valor_unitario_estimado']:,.2f}/{item['unidade_medida']} "
-                        f"— {razao:.1f}× a mediana de PE para {categoria} "
-                        f"(R$ {mediana:,.2f}). Contratação {item['numero_controle_pncp']}."
+                        f"R$ {item['valor_unitario_estimado']:,.2f} por {unidade} "
+                        f"— {razao:.1f}× a mediana de PE para {categoria} nessa "
+                        f"unidade (R$ {mediana:,.2f}). "
+                        f"Contratação {item['numero_controle_pncp']}."
                     ).replace(",", "."),
                 }
             )
 
+    return pd.DataFrame(achados) if achados else schema_vazio
+
+
+def detectar_residuo_alocacao(df_ieas: pd.DataFrame) -> pd.DataFrame:
+    """Detector 2: alocação muito abaixo do que a necessidade prevê.
+
+    Ao contrário do detector 1 (que é o farol vermelho, um corte fixo no
+    `gap`), este controla pela **relação necessidade→alocação do estado**:
+    ajusta, por ano, uma reta `alocacao_rank ~ necessidade_rank` e mede o
+    resíduo de cada município. A escala do resíduo é robusta (1,4826·MAD), não
+    o desvio-padrão, para que os próprios *outliers* não inflem o corte.
+    Sinaliza quem tem resíduo padronizado ≤ −`alertas.residuo_z_minimo`
+    (`conf/ieas.yml`) — alocação sistematicamente aquém, dado o padrão do
+    estado.
+
+    Só roda sobre município-anos com o eixo de Alocação inteiro (L1+L2+L3);
+    onde falta camada, o rank de alocação é NaN e a linha fica de fora.
+    """
+    schema_vazio = pd.DataFrame(
+        columns=["cod_ibge", "ano", "tipo", "severidade", "residuo_z", "explicacao"]
+    )
+    cols = {"necessidade_rank", "alocacao_rank", "alocacao_cobertura"}
+    if not cols.issubset(df_ieas.columns):
+        return schema_vazio
+
+    z_min = ieas_conf()["alertas"]["residuo_z_minimo"]
+    base = df_ieas[
+        df_ieas["necessidade_rank"].notna()
+        & df_ieas["alocacao_rank"].notna()
+        & (df_ieas["alocacao_cobertura"] >= 0.99)  # eixo A completo
+    ].copy()
+
+    achados = []
+    for ano, grupo in base.groupby("ano"):
+        if len(grupo) < 15:  # amostra pequena demais para um ajuste
+            continue
+        x = grupo["necessidade_rank"].to_numpy()
+        y = grupo["alocacao_rank"].to_numpy()
+        coef = np.polyfit(x, y, 1)
+        residuo = y - np.polyval(coef, x)
+        escala = 1.4826 * np.median(np.abs(residuo - np.median(residuo)))
+        if escala <= 0:
+            continue
+        z = (residuo - np.median(residuo)) / escala
+        for (_, linha), zi, ri in zip(grupo.iterrows(), z, residuo):
+            # exige desvio estatístico E prático (≥ 8 pontos percentuais abaixo
+            # do previsto) — assim ruído gaussiano normal não vira alerta.
+            if zi <= -z_min and ri <= -0.08:
+                achados.append(
+                    {
+                        "cod_ibge": linha["cod_ibge"],
+                        "ano": int(ano),
+                        "tipo": "alocacao_abaixo_do_esperado",
+                        "severidade": "alta" if zi <= -3 else "moderada",
+                        "residuo_z": round(float(zi), 2),
+                        "explicacao": (
+                            f"Alocação no percentil {linha['alocacao_rank']:.0%}, "
+                            f"mas o padrão necessidade→alocação de PE em {int(ano)} "
+                            f"previa ~{np.polyval(coef, linha['necessidade_rank']):.0%} "
+                            f"para uma necessidade no percentil "
+                            f"{linha['necessidade_rank']:.0%} — resíduo de {zi:.1f} "
+                            "desvios robustos abaixo do esperado."
+                        ),
+                    }
+                )
     return pd.DataFrame(achados) if achados else schema_vazio
 
 
@@ -246,7 +358,8 @@ def rodar(
     itens: pd.DataFrame | None = None,
 ):
     d1 = detectar_desalinhamento_estrutural(df_ieas)
-    d4 = detectar_desabastecimento(epidemiologia, compras)
+    d2 = detectar_residuo_alocacao(df_ieas)
     d3 = detectar_sobrepreco(itens)
+    d4 = detectar_desabastecimento(epidemiologia, compras)
     comuns = ["cod_ibge", "ano", "tipo", "severidade", "explicacao"]
-    return pd.concat([d1[comuns], d4[comuns], d3[comuns]], ignore_index=True)
+    return pd.concat([d1[comuns], d2[comuns], d3[comuns], d4[comuns]], ignore_index=True)
