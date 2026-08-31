@@ -5,17 +5,21 @@ Rodado o workflow (`01` → `04`). Resumo:
 | | |
 |---|---|
 | Artigos selecionados (Qualis A1/A2) | **24** — `referencias.ris`, `referencias.csv` |
-| PDFs de acesso aberto baixados | **17** (SciELO/CC-BY + BMJ Global Health via Europe PMC) — `pdfs/` |
-| Texto completo extraído | **17** — `texto/` |
-| Fichas geradas (esqueleto) | **24** — `fichamento.ris` (+ espelho `fichamento.md`) |
+| PDFs de acesso aberto baixados | **18** (SciELO/CC-BY + BMJ Global Health + Epidemiol. Serv. Saúde via SciELO-IEC) — `pdfs/` |
+| Texto completo extraído | **18** — `texto/` |
+| Fichas analíticas redigidas | **24 de 24** — 18 a partir do texto integral, 6 a partir do resumo publicado (PubMed/Semantic Scholar) — `fichamento.ris` / `fichamento.md` |
 
-## 7 artigos sem versão de acesso aberto — obter no Portal de Periódicos CAPES
+## 5 artigos sem PDF — ficha redigida a partir do resumo publicado; obter o texto integral na CAPES para as citações diretas
 
-Todos são de editoras comerciais (Elsevier/Lancet, Oxford) ou de servidor que
-bloqueia download automático. Baixe cada PDF logado no
-**Portal de Periódicos CAPES** (`periodicos.capes.gov.br`, acesso pela sua
-instituição ou pela CAFe) e salve em `pdfs/<chave>.pdf`; depois rode
-`python3 03_extrair_texto.py && python3 04_gerar_fichamento.py` de novo.
+Boccolini (Epidemiol. Serv. Saúde) foi obtido do SciELO-IEC e já tem ficha
+completa. Os cinco abaixo (Elsevier/Lancet, Oxford, Elsevier/GIQ) têm ficha
+**parcial**, redigida a partir do resumo publicado — o resumo autoral, o
+conceito, a relação com o Farol-SS e a citação indireta já estão prontos; falta
+o **trecho literal e a página** da citação direta, que exigem o texto integral.
+Baixe cada PDF logado no **Portal de Periódicos CAPES**
+(`periodicos.capes.gov.br`, via instituição ou CAFe), salve em
+`pdfs/<chave>.pdf`, acrescente a citação direta em `fichas_analiticas.yml`
+(removendo `tipo: parcial`) e rode `03` e `05` de novo.
 
 | chave | referência | DOI |
 |---|---|---|
@@ -25,7 +29,6 @@ instituição ou pela CAFe) e salve em `pdfs/<chave>.pdf`; depois rode
 | `rasella_2013_effect` | RASELLA, D. et al. Effect of a conditional cash transfer programme on childhood mortality. The Lancet, v. 382, n. 9886, 2013. | 10.1016/S0140-6736(13)60715-1 |
 | `dixon_2006_financing` | DIXON, A. et al. Financing mental health services in low- and middle-income countries. Health Policy and Planning, v. 21, n. 3, 2006. | 10.1093/heapol/czl004 |
 | `matheus_2021_design` | MATHEUS, R.; JANSSEN, M.; JANOWSKI, T. Design principles for creating digital transparency in government. Government Information Quarterly, v. 38, n. 1, 2021. | 10.1016/j.giq.2020.101550 |
-| `boccolini_2011_relacao` | BOCCOLINI, C. S. et al. Relação entre aleitamento materno e internações por doenças diarreicas. Epidemiologia e Serviços de Saúde, v. 20, n. 1, 2011. | 10.5123/s1679-49742011000100003 |
 
 > `barreto_2007` e `rasella_2013` são referências de peso (efeito de saneamento
 > e de transferência de renda sobre desfechos infantis) — vale o esforço de

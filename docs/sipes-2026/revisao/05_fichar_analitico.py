@@ -54,14 +54,20 @@ for n, (k, meta) in enumerate(SEL.items(), 1):
     a = ANA.get(k)
 
     if a:
+        tipo = a.get("tipo", "completa")
+        rot = {"completa": "ficha completa (texto integral)",
+               "parcial": "ficha parcial — redigida a partir do RESUMO publicado; "
+                          "citação direta e página exigem o texto integral"}[tipo]
         n1 = [
-            f"=== FICHA {n:02d} · {k}  ·  Qualis {meta['qualis']} ===",
+            f"=== FICHA {n:02d} · {k}  ·  Qualis {meta['qualis']}  ·  {rot} ===",
             f"REFERÊNCIA (NBR 6023): {ref}",
             f"CHAMADA (NBR 10520): {dentro}  |  no texto: {no_texto}",
             "",
             f"RESUMO (redação própria): {w(a['resumo'])}",
             "",
-            f"CITAÇÃO DIRETA — trecho literal ({a.get('citacao_direta_local','conferir página')}):",
+            (f"CITAÇÃO DIRETA — trecho literal ({a.get('citacao_direta_local','conferir página')}):"
+             if tipo == "completa" else
+             f"CITAÇÃO DIRETA — do resumo publicado, CONFIRMAR no texto integral ({a.get('citacao_direta_local','')}):"),
             f'  "{q(a["citacao_direta"])}" {dentro[:-1]}, p. [conferir]).',
             "",
             f"CITAÇÃO INDIRETA (paráfrase própria): {w(a['citacao_indireta'])} {dentro}.",
@@ -85,19 +91,22 @@ for n, (k, meta) in enumerate(SEL.items(), 1):
 
     ris_out.append(ris_record(item, extra={
         "KW": ["fichamento SIPES 2026", f"Qualis {meta['qualis']}",
-               "ficha completa" if a else "ficha pendente"],
+               ("ficha completa" if a.get("tipo","completa")=="completa" else "ficha parcial") if a else "ficha pendente"],
         "N1": n1,
     }))
 
     # espelho markdown
     md.append(f"\n## {n:02d}. {html.unescape((item.get('title') or [''])[0])}\n")
-    md.append(f"**Qualis {meta['qualis']}** · {html.unescape(meta['periodico'])} · "
-              f"{'ficha completa' if a else 'ficha pendente (sem PDF)'}\n")
+    _st = ("ficha completa" if (a and a.get("tipo","completa")=="completa")
+           else "ficha parcial (do resumo publicado)" if a else "ficha pendente (sem PDF)")
+    md.append(f"**Qualis {meta['qualis']}** · {html.unescape(meta['periodico'])} · {_st}\n")
     md.append(f"**Referência (NBR 6023):** {ref}\n")
     md.append(f"**Chamada (NBR 10520):** {dentro} · no texto: {no_texto}\n")
     if a:
         md.append(f"**Resumo (redação própria):** {w(a['resumo'])}\n")
-        md.append(f"**Citação direta** ({a.get('citacao_direta_local','conferir página')}):\n\n"
+        _lbl = ("Citação direta" if a.get("tipo","completa")=="completa"
+                else "Citação direta — do resumo publicado, CONFIRMAR no texto integral")
+        md.append(f"**{_lbl}** ({a.get('citacao_direta_local','conferir página')}):\n\n"
                   f"> \"{q(a['citacao_direta'])}\" {dentro[:-1]}, p. [conferir]).\n")
         md.append(f"**Citação indireta:** {w(a['citacao_indireta'])} {dentro}.\n")
         md.append(f"**Conceito:** {w(a['conceito'])}  \n"

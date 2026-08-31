@@ -423,3 +423,184 @@ neves-silva_2018_gente:
     Necessidade — o Farol-SS usa a extrema pobreza do CadÚnico como proxy dessa
     privação acumulada.
   onde: Introdução
+
+# ── fichas acrescentadas após obter PDF (boccolini) ou o resumo publicado
+#    via PubMed/Semantic Scholar (as demais). tipo: parcial = redigida a
+#    partir do resumo; a citação DIRETA e a página exigem o texto integral.
+
+boccolini_2011_relacao:
+  resumo: >
+    Estudo epidemiológico ecológico que avalia a relação entre aleitamento
+    materno e internações por doenças diarreicas em crianças com menos de um ano
+    de vida nas capitais brasileiras e no Distrito Federal, em 2008, com modelo
+    binomial negativo ajustado por rede de abastecimento de água, esgoto e
+    alfabetização (proxy de pobreza). Tanto o aleitamento materno exclusivo
+    (razão de taxas 0,76; IC95% 0,61–0,94) quanto o aleitamento entre nove e
+    doze meses incompletos (razão de taxas 0,72; IC95% 0,52–0,99) associam-se a
+    menores taxas de internação por diarreia.
+  citacao_direta: >
+    tanto o aleitamento materno exclusivo (razão de taxas = 0,76; IC95%:
+    0,61-0,94) quanto o aleitamento materno em crianças com nove a doze meses
+    incompletos de vida (razão de taxas = 0,72; IC95%: 0,52-0,99) podem reduzir
+    as taxas de internação por doenças diarreicas na população estudada
+  citacao_direta_local: "Resumo, p. 19–28 (Epidemiol. Serv. Saúde 20(1))"
+  citacao_indireta: >
+    a carga de internação por diarreia infantil responde a determinantes
+    proximais (aleitamento) além dos ambientais (água e esgoto), o que reforça
+    a natureza multicausal do indicador
+  conceito: "internação por diarreia como desfecho multicausal; água/esgoto e alfabetização como covariáveis"
+  relacao_farol: >
+    METODOLOGIA e LIMITAÇÕES: mostra que o componente hospitalar do eixo
+    Necessidade capta um fenômeno influenciado por fatores não sanitários —
+    daí o Farol-SS o tratar como subcomponente ponderado, não como medida
+    isolada de saneamento.
+  onde: Metodologia
+
+matheus_2021_design:
+  tipo: parcial
+  resumo: >
+    Artigo que propõe princípios de projeto para criar transparência digital no
+    governo. Os autores identificam barreiras à transparência digital, definem
+    16 princípios para superá-las e os avaliam em três estudos de caso de
+    países diferentes. Alguns princípios aplicam-se a projetos, outros a
+    sistemas e outros a organizações inteiras; a tese central é que, antes de
+    construir soluções digitais, o governo precisa estabelecer fundações
+    tecnológicas e institucionais e organizar-se para a transparência.
+  citacao_direta: >
+    [trecho literal e página a obter no texto integral — Portal CAPES]
+  citacao_direta_local: "resumo via Semantic Scholar; texto integral pendente (GIQ 38(1), 101550)"
+  citacao_indireta: >
+    a transparência digital não decorre da mera publicação de dados, mas de
+    fundações tecnológicas e institucionais e de princípios de projeto
+    deliberados
+  conceito: "princípios de projeto para transparência digital; fundações tecnológicas e institucionais"
+  relacao_farol: >
+    METODOLOGIA e CONCLUSÃO: enquadra o Farol-SS como uma dessas soluções — API
+    aberta, proveniência rastreável e explicabilidade dos alertas são escolhas
+    de projeto para transparência, não subprodutos.
+  onde: Conclusão
+
+paim_2011_brazilian:
+  tipo: parcial
+  resumo: >
+    Relatório da série do Lancet sobre a saúde no Brasil que examina o
+    desenvolvimento histórico e os componentes do sistema de saúde brasileiro,
+    com foco no processo de reforma dos 40 anos anteriores e na criação do SUS.
+    Os autores destacam que a reforma foi conduzida pela sociedade civil, que o
+    SUS ampliou o acesso num contexto de privatização crescente e que muito
+    resta a fazer para a cobertura universal — sobretudo reestruturar o
+    financiamento e redefinir os papéis dos setores público e privado, num país
+    de desigualdades regionais e sociais amplas.
+  citacao_direta: >
+    "Brazil is a country of continental dimensions with widespread regional and
+    social inequalities"
+  citacao_direta_local: "resumo (PubMed); página no texto integral (Lancet 377(9779):1778–1797)"
+  citacao_indireta: >
+    o SUS ampliou o acesso à saúde num contexto de privatização, mas a
+    cobertura universal ainda depende de reestruturar o financiamento
+  conceito: "reforma sanitária conduzida pela sociedade civil; desigualdades regionais e sociais amplas"
+  relacao_farol: >
+    INTRODUÇÃO: âncora histórica — as desigualdades regionais e sociais que o
+    Farol-SS mede são um traço estrutural do sistema, não uma conjuntura.
+  onde: Introdução
+
+castro_2019_brazil:
+  tipo: parcial
+  resumo: >
+    Balanço dos 30 anos do SUS publicado no Lancet. Reconhece os ganhos em
+    acesso e desfechos, mas identifica como problemas persistentes o
+    subfinanciamento, a fragmentação da governança e a alocação de recursos
+    desigual entre regiões e grupos sociais, agravados pela política de
+    austeridade fiscal. Aponta a necessidade de fortalecer a atenção primária,
+    a coordenação federativa e o financiamento público.
+  citacao_direta: >
+    [trecho literal e página a obter no texto integral — Portal CAPES]
+  citacao_direta_local: "texto integral pendente (Lancet 394(10195):345–356)"
+  citacao_indireta: >
+    após três décadas, o SUS ainda convive com subfinanciamento e alocação
+    regionalmente desigual de recursos, tensões que a austeridade acentua
+  conceito: "trajetória do SUS; subfinanciamento e desigualdade regional de alocação como problemas persistentes"
+  relacao_farol: >
+    INTRODUÇÃO: reforça, em fonte de alto impacto e recente, a premissa do
+    trabalho — a alocação regionalmente desigual segue sendo um problema aberto.
+  onde: Introdução
+
+barreto_2007_effect:
+  tipo: parcial
+  resumo: >
+    Avaliação epidemiológica do efeito de um programa de saneamento de escala
+    urbana em Salvador (Bahia), iniciado em 1997 para ampliar a cobertura de
+    esgotamento de 26% para 80% dos domicílios, sobre a diarreia em crianças
+    menores de três anos. O desenho combina dois estudos de coorte — um antes
+    (1997–98) e um depois (2003–04) da intervenção — em 24 áreas-sentinela
+    escolhidas para representar as condições ambientais da cidade, com visitas
+    domiciliares duas vezes por semana para registro diário de diarreia. O
+    efeito foi estimado por modelo hierárquico.
+  citacao_direta: >
+    "A city-wide sanitation intervention was started in Salvador, Brazil, in
+    1997 to improve sewerage coverage from 26% of households to 80%"
+  citacao_direta_local: "resumo (PubMed); Lancet 370(9599):1622–1628"
+  citacao_indireta: >
+    a expansão da cobertura de esgotamento sanitário em escala urbana produziu
+    redução mensurável da diarreia infantil em Salvador
+  conceito: "efeito populacional (city-wide) do saneamento sobre a diarreia infantil; avaliação por coortes antes-depois"
+  relacao_farol: >
+    INTRODUÇÃO: evidência forte (Lancet) de que investir em esgotamento reduz
+    carga de doença — o tipo de decisão que o Farol-SS ajuda a priorizar
+    territorialmente.
+  onde: Introdução
+
+rasella_2013_effect:
+  tipo: parcial
+  resumo: >
+    Análise nacional do efeito do Programa Bolsa Família sobre a mortalidade de
+    menores de cinco anos nos municípios brasileiros, 2004–2009, com desenho
+    ecológico misto e 2.853 municípios com estatísticas vitais de qualidade
+    adequada. A cobertura do programa foi classificada em faixas (baixa,
+    intermediária, alta, consolidada) e os modelos de painel com efeitos fixos
+    (binomial negativo) foram ajustados por determinantes sociais e econômicos.
+    O estudo associa maior cobertura do programa a menor mortalidade infantil,
+    sobretudo por causas ligadas à pobreza — desnutrição, diarreia e infecções
+    respiratórias.
+  citacao_direta: >
+    "We aimed to assess the effect of the BFP on deaths of children younger
+    than 5 years (under-5), overall and resulting from specific causes
+    associated with poverty: malnutrition, diarrhoea, and lower respiratory
+    infections"
+  citacao_direta_local: "resumo (PubMed); Lancet 382(9886):57–64"
+  citacao_indireta: >
+    transferências de renda condicionadas reduzem a mortalidade infantil por
+    causas ligadas à pobreza, o que liga a camada de vulnerabilidade social à
+    carga de doença evitável
+  conceito: "efeito de transferência de renda sobre mortalidade infantil por causas de pobreza; vulnerabilidade social"
+  relacao_farol: >
+    INTRODUÇÃO e METODOLOGIA: justifica incluir a vulnerabilidade social
+    (extrema pobreza, CadÚnico) no eixo Necessidade — ela condiciona a carga de
+    doença tanto quanto o saneamento.
+  onde: Introdução
+
+dixon_2006_financing:
+  tipo: parcial
+  resumo: >
+    Revisão, com estudos de caso de países, sobre como os arranjos de
+    financiamento afetam o uso eficiente e equitativo dos serviços de saúde
+    mental em países de baixa e média renda. Compara pagamento direto do
+    bolso, seguro privado, seguro social e financiamento por impostos. Conclui
+    que cobrar do paciente leva a uso abaixo do socialmente eficiente, porque
+    os benefícios passam a se distribuir conforme a capacidade de pagar,
+    gerando acesso iníquo; o seguro social tende a oferecer mais proteção.
+  citacao_direta: >
+    "charging patients for mental health services results in levels of use
+    which are below socially efficient levels as the benefits of the services
+    are distributed according to ability to pay, resulting in inequitable
+    access to care"
+  citacao_direta_local: "resumo (PubMed); Health Policy Plan. 21(3):171–182"
+  citacao_indireta: >
+    o desenho do financiamento — quem paga e como — determina se o uso dos
+    serviços fica abaixo do nível socialmente eficiente e se o acesso é iníquo
+  conceito: "financiamento e uso socialmente eficiente; equidade no acesso conforme capacidade de pagar"
+  relacao_farol: >
+    INTRODUÇÃO/DISCUSSÃO: dá base conceitual internacional à ideia de
+    'efetividade da alocação' — não basta gastar, importa como o gasto se
+    distribui frente à necessidade.
+  onde: Introdução

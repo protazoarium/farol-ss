@@ -2,29 +2,49 @@
 
 > Referências: **ABNT NBR 6023:2018**. Chamada no texto: **autor-data NBR 10520:2023** (direta ≤ 3 linhas entre aspas com página; > 3 linhas em recuo de 4 cm, fonte menor, sem aspas).
 
-> `resumo` = redação própria a partir do texto completo do PDF. `citação direta` = trecho literal — **confira a página exata no PDF** (o intervalo do artigo está indicado). 17 de 24 fichas analíticas preenchidas; as demais aguardam o PDF (ver RESULTADO.md).
+> `resumo` = redação própria a partir do texto completo do PDF. `citação direta` = trecho literal — **confira a página exata no PDF** (o intervalo do artigo está indicado). 24 de 24 fichas analíticas preenchidas; as demais aguardam o PDF (ver RESULTADO.md).
 
 
 ## 01. The Brazilian health system: history, advances, and challenges
 
-**Qualis A1** · The Lancet · ficha pendente (sem PDF)
+**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
 
 **Referência (NBR 6023):** PAIM, J. et al. The Brazilian health system: history, advances, and challenges. The Lancet, v. 377, n. 9779, p. 1778-1797, 2011. DOI: https://doi.org/10.1016/s0140-6736(11)60054-8. Acesso em: [DATA].
 
 **Chamada (NBR 10520):** (PAIM et al., 2011) · no texto: Paim et al. (2011)
 
-_Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md)._
+**Resumo (redação própria):** Relatório da série do Lancet sobre a saúde no Brasil que examina o desenvolvimento histórico e os componentes do sistema de saúde brasileiro, com foco no processo de reforma dos 40 anos anteriores e na criação do SUS. Os autores destacam que a reforma foi conduzida pela sociedade civil, que o SUS ampliou o acesso num contexto de privatização crescente e que muito resta a fazer para a cobertura universal — sobretudo reestruturar o financiamento e redefinir os papéis dos setores público e privado, num país de desigualdades regionais e sociais amplas.
+
+**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); página no texto integral (Lancet 377(9779):1778–1797)):
+
+> "Brazil is a country of continental dimensions with widespread regional and social inequalities" (PAIM et al., 2011, p. [conferir]).
+
+**Citação indireta:** o SUS ampliou o acesso à saúde num contexto de privatização, mas a cobertura universal ainda depende de reestruturar o financiamento (PAIM et al., 2011).
+
+**Conceito:** reforma sanitária conduzida pela sociedade civil; desigualdades regionais e sociais amplas  
+**Relação com o Farol-SS:** INTRODUÇÃO: âncora histórica — as desigualdades regionais e sociais que o Farol-SS mede são um traço estrutural do sistema, não uma conjuntura.  
+**Onde entra:** Introdução
 
 
 ## 02. Brazil's unified health system: the first 30 years and prospects for the future
 
-**Qualis A1** · The Lancet · ficha pendente (sem PDF)
+**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
 
 **Referência (NBR 6023):** CASTRO, M. C. et al. Brazil's unified health system: the first 30 years and prospects for the future. The Lancet, v. 394, n. 10195, p. 345-356, 2019. DOI: https://doi.org/10.1016/s0140-6736(19)31243-7. Acesso em: [DATA].
 
 **Chamada (NBR 10520):** (CASTRO et al., 2019) · no texto: Castro et al. (2019)
 
-_Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md)._
+**Resumo (redação própria):** Balanço dos 30 anos do SUS publicado no Lancet. Reconhece os ganhos em acesso e desfechos, mas identifica como problemas persistentes o subfinanciamento, a fragmentação da governança e a alocação de recursos desigual entre regiões e grupos sociais, agravados pela política de austeridade fiscal. Aponta a necessidade de fortalecer a atenção primária, a coordenação federativa e o financiamento público.
+
+**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (texto integral pendente (Lancet 394(10195):345–356)):
+
+> "[trecho literal e página a obter no texto integral — Portal CAPES]" (CASTRO et al., 2019, p. [conferir]).
+
+**Citação indireta:** após três décadas, o SUS ainda convive com subfinanciamento e alocação regionalmente desigual de recursos, tensões que a austeridade acentua (CASTRO et al., 2019).
+
+**Conceito:** trajetória do SUS; subfinanciamento e desigualdade regional de alocação como problemas persistentes  
+**Relação com o Farol-SS:** INTRODUÇÃO: reforça, em fonte de alto impacto e recente, a premissa do trabalho — a alocação regionalmente desigual segue sendo um problema aberto.  
+**Onde entra:** Introdução
 
 
 ## 03. The Brazilian health system at crossroads: progress, crisis and resilience
@@ -50,46 +70,86 @@ _Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md).
 
 ## 04. Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies
 
-**Qualis A1** · The Lancet · ficha pendente (sem PDF)
+**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
 
 **Referência (NBR 6023):** BARRETO, M. L. et al. Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies. The Lancet, v. 370, n. 9599, p. 1622-1628, 2007. DOI: https://doi.org/10.1016/s0140-6736(07)61638-9. Acesso em: [DATA].
 
 **Chamada (NBR 10520):** (BARRETO et al., 2007) · no texto: Barreto et al. (2007)
 
-_Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md)._
+**Resumo (redação própria):** Avaliação epidemiológica do efeito de um programa de saneamento de escala urbana em Salvador (Bahia), iniciado em 1997 para ampliar a cobertura de esgotamento de 26% para 80% dos domicílios, sobre a diarreia em crianças menores de três anos. O desenho combina dois estudos de coorte — um antes (1997–98) e um depois (2003–04) da intervenção — em 24 áreas-sentinela escolhidas para representar as condições ambientais da cidade, com visitas domiciliares duas vezes por semana para registro diário de diarreia. O efeito foi estimado por modelo hierárquico.
+
+**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); Lancet 370(9599):1622–1628):
+
+> "A city-wide sanitation intervention was started in Salvador, Brazil, in 1997 to improve sewerage coverage from 26% of households to 80%" (BARRETO et al., 2007, p. [conferir]).
+
+**Citação indireta:** a expansão da cobertura de esgotamento sanitário em escala urbana produziu redução mensurável da diarreia infantil em Salvador (BARRETO et al., 2007).
+
+**Conceito:** efeito populacional (city-wide) do saneamento sobre a diarreia infantil; avaliação por coortes antes-depois  
+**Relação com o Farol-SS:** INTRODUÇÃO: evidência forte (Lancet) de que investir em esgotamento reduz carga de doença — o tipo de decisão que o Farol-SS ajuda a priorizar territorialmente.  
+**Onde entra:** Introdução
 
 
 ## 05. Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities
 
-**Qualis A1** · The Lancet · ficha pendente (sem PDF)
+**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
 
 **Referência (NBR 6023):** RASELLA, D. et al. Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities. The Lancet, v. 382, n. 9886, p. 57-64, 2013. DOI: https://doi.org/10.1016/s0140-6736(13)60715-1. Acesso em: [DATA].
 
 **Chamada (NBR 10520):** (RASELLA et al., 2013) · no texto: Rasella et al. (2013)
 
-_Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md)._
+**Resumo (redação própria):** Análise nacional do efeito do Programa Bolsa Família sobre a mortalidade de menores de cinco anos nos municípios brasileiros, 2004–2009, com desenho ecológico misto e 2.853 municípios com estatísticas vitais de qualidade adequada. A cobertura do programa foi classificada em faixas (baixa, intermediária, alta, consolidada) e os modelos de painel com efeitos fixos (binomial negativo) foram ajustados por determinantes sociais e econômicos. O estudo associa maior cobertura do programa a menor mortalidade infantil, sobretudo por causas ligadas à pobreza — desnutrição, diarreia e infecções respiratórias.
+
+**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); Lancet 382(9886):57–64):
+
+> "We aimed to assess the effect of the BFP on deaths of children younger than 5 years (under-5), overall and resulting from specific causes associated with poverty: malnutrition, diarrhoea, and lower respiratory infections" (RASELLA et al., 2013, p. [conferir]).
+
+**Citação indireta:** transferências de renda condicionadas reduzem a mortalidade infantil por causas ligadas à pobreza, o que liga a camada de vulnerabilidade social à carga de doença evitável (RASELLA et al., 2013).
+
+**Conceito:** efeito de transferência de renda sobre mortalidade infantil por causas de pobreza; vulnerabilidade social  
+**Relação com o Farol-SS:** INTRODUÇÃO e METODOLOGIA: justifica incluir a vulnerabilidade social (extrema pobreza, CadÚnico) no eixo Necessidade — ela condiciona a carga de doença tanto quanto o saneamento.  
+**Onde entra:** Introdução
 
 
 ## 06. Financing mental health services in low- and middle-income countries
 
-**Qualis A1** · Health Policy and Planning · ficha pendente (sem PDF)
+**Qualis A1** · Health Policy and Planning · ficha parcial (do resumo publicado)
 
 **Referência (NBR 6023):** DIXON, A. Financing mental health services in low- and middle-income countries. Health Policy and Planning, v. 21, n. 3, p. 171-182, 2006. DOI: https://doi.org/10.1093/heapol/czl004. Acesso em: [DATA].
 
 **Chamada (NBR 10520):** (DIXON, 2006) · no texto: Dixon (2006)
 
-_Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md)._
+**Resumo (redação própria):** Revisão, com estudos de caso de países, sobre como os arranjos de financiamento afetam o uso eficiente e equitativo dos serviços de saúde mental em países de baixa e média renda. Compara pagamento direto do bolso, seguro privado, seguro social e financiamento por impostos. Conclui que cobrar do paciente leva a uso abaixo do socialmente eficiente, porque os benefícios passam a se distribuir conforme a capacidade de pagar, gerando acesso iníquo; o seguro social tende a oferecer mais proteção.
+
+**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); Health Policy Plan. 21(3):171–182):
+
+> "charging patients for mental health services results in levels of use which are below socially efficient levels as the benefits of the services are distributed according to ability to pay, resulting in inequitable access to care" (DIXON, 2006, p. [conferir]).
+
+**Citação indireta:** o desenho do financiamento — quem paga e como — determina se o uso dos serviços fica abaixo do nível socialmente eficiente e se o acesso é iníquo (DIXON, 2006).
+
+**Conceito:** financiamento e uso socialmente eficiente; equidade no acesso conforme capacidade de pagar  
+**Relação com o Farol-SS:** INTRODUÇÃO/DISCUSSÃO: dá base conceitual internacional à ideia de 'efetividade da alocação' — não basta gastar, importa como o gasto se distribui frente à necessidade.  
+**Onde entra:** Introdução
 
 
 ## 07. Design principles for creating digital transparency in government
 
-**Qualis A1** · Government Information Quarterly · ficha pendente (sem PDF)
+**Qualis A1** · Government Information Quarterly · ficha parcial (do resumo publicado)
 
 **Referência (NBR 6023):** MATHEUS, R.; JANSSEN, M.; JANOWSKI, T. Design principles for creating digital transparency in government. Government Information Quarterly, v. 38, n. 1, p. 101550, 2021. DOI: https://doi.org/10.1016/j.giq.2020.101550. Acesso em: [DATA].
 
 **Chamada (NBR 10520):** (MATHEUS; JANSSEN; JANOWSKI, 2021) · no texto: Matheus; Janssen e Janowski (2021)
 
-_Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md)._
+**Resumo (redação própria):** Artigo que propõe princípios de projeto para criar transparência digital no governo. Os autores identificam barreiras à transparência digital, definem 16 princípios para superá-las e os avaliam em três estudos de caso de países diferentes. Alguns princípios aplicam-se a projetos, outros a sistemas e outros a organizações inteiras; a tese central é que, antes de construir soluções digitais, o governo precisa estabelecer fundações tecnológicas e institucionais e organizar-se para a transparência.
+
+**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo via Semantic Scholar; texto integral pendente (GIQ 38(1), 101550)):
+
+> "[trecho literal e página a obter no texto integral — Portal CAPES]" (MATHEUS; JANSSEN; JANOWSKI, 2021, p. [conferir]).
+
+**Citação indireta:** a transparência digital não decorre da mera publicação de dados, mas de fundações tecnológicas e institucionais e de princípios de projeto deliberados (MATHEUS; JANSSEN; JANOWSKI, 2021).
+
+**Conceito:** princípios de projeto para transparência digital; fundações tecnológicas e institucionais  
+**Relação com o Farol-SS:** METODOLOGIA e CONCLUSÃO: enquadra o Farol-SS como uma dessas soluções — API aberta, proveniência rastreável e explicabilidade dos alertas são escolhas de projeto para transparência, não subprodutos.  
+**Onde entra:** Conclusão
 
 
 ## 08. A lenda urbana sobre internações devidas à falta de saneamento
@@ -304,13 +364,23 @@ _Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md).
 
 ## 18. Relação entre aleitamento materno e internações por doenças diarreicas nas crianças com menos de um ano de vida nas Capitais Brasileiras e Distrito Federal, 2008
 
-**Qualis A2** · Epidemiologia e Serviços de Saúde · ficha pendente (sem PDF)
+**Qualis A2** · Epidemiologia e Serviços de Saúde · ficha completa
 
 **Referência (NBR 6023):** BOCCOLINI, C. S.; BOCCOLINI, P. d. M. M. Relação entre aleitamento materno e internações por doenças diarreicas nas crianças com menos de um ano de vida nas Capitais Brasileiras e Distrito Federal, 2008. Epidemiologia e Serviços de Saúde, v. 20, n. 1, p. 19-26, 2011. DOI: https://doi.org/10.5123/s1679-49742011000100003. Acesso em: [DATA].
 
 **Chamada (NBR 10520):** (BOCCOLINI; BOCCOLINI, 2011) · no texto: Boccolini e Boccolini (2011)
 
-_Ficha pendente — [PREENCHER APÓS LER O PDF] (obter o PDF, ver RESULTADO.md)._
+**Resumo (redação própria):** Estudo epidemiológico ecológico que avalia a relação entre aleitamento materno e internações por doenças diarreicas em crianças com menos de um ano de vida nas capitais brasileiras e no Distrito Federal, em 2008, com modelo binomial negativo ajustado por rede de abastecimento de água, esgoto e alfabetização (proxy de pobreza). Tanto o aleitamento materno exclusivo (razão de taxas 0,76; IC95% 0,61–0,94) quanto o aleitamento entre nove e doze meses incompletos (razão de taxas 0,72; IC95% 0,52–0,99) associam-se a menores taxas de internação por diarreia.
+
+**Citação direta** (Resumo, p. 19–28 (Epidemiol. Serv. Saúde 20(1))):
+
+> "tanto o aleitamento materno exclusivo (razão de taxas = 0,76; IC95%: 0,61-0,94) quanto o aleitamento materno em crianças com nove a doze meses incompletos de vida (razão de taxas = 0,72; IC95%: 0,52-0,99) podem reduzir as taxas de internação por doenças diarreicas na população estudada" (BOCCOLINI; BOCCOLINI, 2011, p. [conferir]).
+
+**Citação indireta:** a carga de internação por diarreia infantil responde a determinantes proximais (aleitamento) além dos ambientais (água e esgoto), o que reforça a natureza multicausal do indicador (BOCCOLINI; BOCCOLINI, 2011).
+
+**Conceito:** internação por diarreia como desfecho multicausal; água/esgoto e alfabetização como covariáveis  
+**Relação com o Farol-SS:** METODOLOGIA e LIMITAÇÕES: mostra que o componente hospitalar do eixo Necessidade capta um fenômeno influenciado por fatores não sanitários — daí o Farol-SS o tratar como subcomponente ponderado, não como medida isolada de saneamento.  
+**Onde entra:** Metodologia
 
 
 ## 19. Associação entre condições socioeconômicas, sanitárias e de atenção básica e a morbidade hospitalar por doenças de veiculação hídrica no Brasil

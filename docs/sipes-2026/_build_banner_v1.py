@@ -30,10 +30,10 @@ RIS = HERE / "revisao" / "referencias.ris"
 DAT = json.loads((HERE / "revisao" / "_farol_dados.json").read_text(encoding="utf-8"))
 OUT = HERE / "banner-v1-sipes-2026.docx"
 
-CITADOS = ["barcellos_2005", "carvalho_2021", "chaves_2017", "cohn_2005",
-           "correia_2014", "duarte_2019", "funcia_2019", "lima_2009",
-           "massuda_2018", "neves-silva_2016", "paiva_2018", "rodrigues_2021",
-           "santos-neto_2017", "silva_2009", "viacava_2019"]
+CITADOS = ["barcellos_2005", "barreto_2007", "carvalho_2021", "chaves_2017",
+           "cohn_2005", "correia_2014", "duarte_2019", "funcia_2019", "lima_2009",
+           "massuda_2018", "neves-silva_2016", "paiva_2018", "rasella_2013",
+           "rodrigues_2021", "santos-neto_2017", "silva_2009", "viacava_2019"]
 
 
 def refs_abnt():
@@ -186,6 +186,11 @@ just(L,
      T(" — ainda que a magnitude atribuível ao saneamento seja menor do que o "
        "senso comum sugere e exija rigor na definição do indicador "),
      c("(BARCELLOS, 2005)"),
+     T(". A relação inversa é robusta: um programa de saneamento de escala "
+       "urbana em Salvador reduziu a diarreia infantil "), c("(BARRETO et al., 2007)"),
+     T(", e transferências de renda condicionadas reduziram a mortalidade de "
+       "menores de cinco anos por causas ligadas à pobreza "),
+     c("(RASELLA et al., 2013)"),
      T(". Os portais de transparência informam quanto se gasta, mas não "
        "permitem avaliar se o gasto acompanha a necessidade de cada município."))
 
