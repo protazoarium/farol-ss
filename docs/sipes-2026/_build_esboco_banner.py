@@ -146,7 +146,11 @@ add(doc, [("Farol da Saúde & Saneamento: um índice territorial de efetividade 
 add(doc, [("SOBRENOME, Nome¹; SOBRENOME, Nome²  [até 6 autores; ¹e ² = filiação]",
            {"size": 10.5})], align=WD_ALIGN_PARAGRAPH.CENTER, after=1)
 add(doc, [("¹Instituição, cidade/UF · ²Instituição · e-mail do autor apresentador",
-           {"size": 8.5, "color": GREY})], align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
+           {"size": 8.5, "color": GREY})], align=WD_ALIGN_PARAGRAPH.CENTER, after=2)
+add(doc, [("Palavras-chave (DeCS): ", {"size": 9, "bold": True, "color": GREY}),
+          ("Saneamento; Alocação de Recursos; Gastos em Saúde",
+           {"size": 9, "color": GREY})],
+    align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
 
 # corpo 2 colunas
 b = doc.add_table(rows=1, cols=2)

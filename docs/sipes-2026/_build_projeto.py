@@ -140,10 +140,9 @@ kv_table(doc, [
     ("Autores (até 6; 1º autor = responsável e apresentador)",
      "[nome completo, e-mail, instituição] — preencher; o 1º autor só pode ser "
      "principal em um trabalho"),
-    ("Palavras-chave (3, DeCS/MeSH — confirmar em decs.bvsalud.org)",
-     "Equidade em Saúde; Alocação de Recursos para a Atenção à Saúde; Saneamento "
-     "Básico  ·  alternativas: Sistemas de Informação em Saúde; Vigilância em "
-     "Saúde Pública; Indicadores de Desigualdade em Saúde"),
+    ("Palavras-chave (3, confirmadas no DeCS)",
+     "Saneamento [D012499]; Alocação de Recursos [D040841]; "
+     "Gastos em Saúde [D005102]"),
 ])
 p(doc, "Regras do evento que condicionam o texto (fonte: sipes.com.br/trabalhos, "
        "consultado em 30/08/2026 — reconferir antes de enviar):", bold=True)
@@ -215,22 +214,25 @@ grid_table(doc,
      ["Repositórios de dados/gov", "documentação metodológica de SINAN, SIH, SIOPS, PNCP, Censo", "não conta como referência teórica"],
     ],
     [3.2, 6.5, 6.5])
-p(doc, "Strings de busca por eixo (adaptar a cada base; combinar com AND/OR):", bold=True)
+p(doc, "Descritores da submissão (confirmados no DeCS): Saneamento [D012499] · "
+       "Alocação de Recursos [D040841] · Gastos em Saúde [D005102]. As strings "
+       "de busca abaixo são mais amplas de propósito — servem para achar a "
+       "literatura, não para o campo de palavras-chave do formulário.", bold=True)
 grid_table(doc,
     ["Eixo temático", "Descritores / termos (DeCS · MeSH · livres)"],
     [
-     ["Equidade e alocação de recursos em saúde",
-      "\"Equidade em Saúde\"/\"Health Equity\"; \"Alocação de Recursos para a "
-      "Atenção à Saúde\"; \"Health Care Rationing\"; \"Resource Allocation\"; "
-      "\"needs-based funding\"; \"territorial justice\" AND health"],
-     ["Financiamento e gasto público em saúde no SUS",
-      "\"Financiamento da Assistência à Saúde\"; \"Gastos em Saúde\"/\"Health "
-      "Expenditures\"; \"Sistema Único de Saúde\" AND (financiamento OR "
-      "subfinanciamento OR \"per capita\")"],
+     ["Alocação de recursos e equidade em saúde",
+      "\"Alocação de Recursos\" [D040841]/\"Resource Allocation\"; \"Equidade "
+      "em Saúde\"/\"Health Equity\"; \"needs-based funding\"; \"territorial "
+      "justice\" AND health"],
+     ["Gastos em saúde e financiamento do SUS",
+      "\"Gastos em Saúde\" [D005102]/\"Health Expenditures\"; \"Financiamento "
+      "da Assistência à Saúde\"; \"Sistema Único de Saúde\" AND (financiamento "
+      "OR subfinanciamento OR \"per capita\")"],
      ["Saneamento e saúde / DRSAI",
-      "\"Saneamento Básico\"/\"Sanitation\"; \"doenças relacionadas ao saneamento "
-      "ambiental inadequado\"; \"waterborne diseases\"; \"Saneamento\" AND "
-      "(morbidade OR internação OR hospitalização)"],
+      "\"Saneamento\" [D012499]/\"Sanitation\"; \"doenças relacionadas ao "
+      "saneamento ambiental inadequado\"; \"waterborne diseases\"; \"Saneamento\" "
+      "AND (morbidade OR internação OR hospitalização)"],
      ["Vigilância e sistemas de informação em saúde",
       "\"Sistemas de Informação em Saúde\"/\"Health Information Systems\"; "
       "\"Vigilância em Saúde Pública\"; \"SINAN\"; \"record linkage\" AND health"],
@@ -506,7 +508,7 @@ for item in [
     "Resumo em parágrafo único, sem seções, com introdução, objetivos, metodologia, resultados e conclusões",
     "Resumo com no máximo 2.500 caracteres COM espaços (conferir com acentuação)",
     "Título com no máximo 50 palavras, só a primeira letra maiúscula",
-    "Exatamente 3 palavras-chave, todas do DeCS ou do MeSH (verificado no navegador oficial)",
+    "Palavras-chave: Saneamento [D012499]; Alocação de Recursos [D040841]; Gastos em Saúde [D005102] — confirmadas no DeCS",
     "No máximo 6 autores; 1º autor não é principal em outro trabalho; nome completo + e-mail + instituição de cada um",
     "Trabalho inédito (não apresentado em outro evento)",
     "Submissão feita pelo formulário on-line (não por e-mail)",

@@ -21,7 +21,9 @@ Recife-PE, 25 a 27 de novembro de 2026.
 - **Resumo**: parágrafo único, sem seções, **máximo 2.500 caracteres com espaços**,
   contendo introdução, objetivos, metodologia, resultados e conclusões.
 - **Título**: máximo 50 palavras, só a primeira letra maiúscula.
-- **Palavras-chave**: exatamente 3, dos vocabulários **DeCS ou MeSH**.
+- **Palavras-chave**: exatamente 3, dos vocabulários **DeCS ou MeSH**. Definidas
+  (DeCS): **Saneamento** [D012499]; **Alocação de Recursos** [D040841];
+  **Gastos em Saúde** [D005102].
 - **Autores**: até 6; o 1º autor só pode ser principal em um trabalho; submissão
   só pelo formulário on-line; trabalho **inédito**.
 - **Pôster**: **120 × 90 cm**, **logomarca do evento obrigatória**, design livre,
