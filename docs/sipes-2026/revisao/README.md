@@ -9,7 +9,7 @@ ABNT e candidatos a citação direta/indireta.
 
 | Etapa | Automático | Seu (intelectual) |
 |---|---|---|
-| Selecionar artigos | busca no CrossRef restrita a ISSN Qualis A/B | conferir pertinência, ajustar termos |
+| Selecionar artigos | busca no CrossRef restrita a ISSN Qualis A/B; `excluir:` remove os sem acesso aberto | conferir pertinência, ajustar termos |
 | Baixar PDFs | só o que está em **acesso aberto** (Unpaywall/SciELO) | obter os faltantes pelo Portal de Periódicos CAPES / biblioteca |
 | Extrair texto | PyMuPDF → `texto/*.txt` | conferir PDFs de imagem (precisam de OCR) |
 | Fichar | metadados, **referência ABNT NBR 6023:2018**, resumo original extraído, trechos candidatos | **resumo com suas palavras, citações diretas com página, paráfrases** |
@@ -36,8 +36,10 @@ python3 05_fichar_analitico.py  # funde fichas_analiticas.yml (síntese autoral)
 **`fichas_analiticas.yml`** guarda a síntese redigida a partir da leitura de cada
 PDF (resumo com suas palavras, citação direta com trecho literal, paráfrase,
 conceito, relação com o Farol-SS). O `05` a funde nos campos `N1` do
-`fichamento.ris`. 17 das 24 fichas já vêm preenchidas; as 7 sem PDF ficam como
-esqueleto até o arquivo ser obtido (ver `RESULTADO.md`).
+`fichamento.ris`. As 20 fichas vêm preenchidas — resumo autoral, conceito, relação com o
+Farol-SS, citação direta (trecho verbatim, página a conferir no PDF) e
+indireta. 6 artigos sem acesso aberto foram retirados do trabalho; 2 sobre
+metodologia de índice composto foram acrescentados.
 
 Falhou algo? Amplie as `buscas` em `consulta.yml` (mais termos/anos/`n`), baixe
 os PDFs faltantes manualmente para `pdfs/{chave}.pdf`, e rode 03 e 04 de novo.

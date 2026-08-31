@@ -1,2116 +1,4 @@
 {
- "paim_2011_brazilian": {
-  "doi": "10.1016/s0140-6736(11)60054-8",
-  "qualis": "A1",
-  "titulo": "The Brazilian health system: history, advances, and challenges",
-  "periodico": "The Lancet",
-  "item": {
-   "indexed": {
-    "date-parts": [
-     [
-      2026,
-      8,
-      27
-     ]
-    ],
-    "date-time": "2026-08-27T05:12:42Z",
-    "timestamp": 1787807562506,
-    "version": "build-2784847793"
-   },
-   "reference-count": 101,
-   "publisher": "Elsevier BV",
-   "issue": "9779",
-   "license": [
-    {
-     "start": {
-      "date-parts": [
-       [
-        2011,
-        5,
-        1
-       ]
-      ],
-      "date-time": "2011-05-01T00:00:00Z",
-      "timestamp": 1304208000000
-     },
-     "content-version": "tdm",
-     "delay-in-days": 0,
-     "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
-    }
-   ],
-   "content-domain": {
-    "domain": [],
-    "crossmark-restriction": false
-   },
-   "short-container-title": [
-    "The Lancet"
-   ],
-   "published-print": {
-    "date-parts": [
-     [
-      2011,
-      5
-     ]
-    ]
-   },
-   "DOI": "10.1016/s0140-6736(11)60054-8",
-   "type": "journal-article",
-   "created": {
-    "date-parts": [
-     [
-      2011,
-      5,
-      10
-     ]
-    ],
-    "date-time": "2011-05-10T21:11:48Z",
-    "timestamp": 1305061908000
-   },
-   "page": "1778-1797",
-   "source": "Crossref",
-   "is-referenced-by-count": 1597,
-   "title": [
-    "The Brazilian health system: history, advances, and challenges"
-   ],
-   "prefix": "10.1016",
-   "volume": "377",
-   "author": [
-    {
-     "given": "Jairnilson",
-     "family": "Paim",
-     "sequence": "first",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Claudia",
-     "family": "Travassos",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Celia",
-     "family": "Almeida",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Ligia",
-     "family": "Bahia",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "James",
-     "family": "Macinko",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    }
-   ],
-   "member": "78",
-   "reference": [
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib2",
-     "series-title": "Microdados PNAD",
-     "year": "1981"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib4",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1016/S0140-6736(11)60138-4",
-     "article-title": "Maternal and child health in Brazil: progress and challenges",
-     "author": "Victora",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib7",
-     "series-title": "Sistema de Informações Orçamentos de Saúde",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib8",
-     "series-title": "Diretoria de Pesquisas. Coordenação de Contas Nacionais. Contas Nacionais, número 29. Conta Satélite de Saúde. Brasil 2005–2007",
-     "year": "2007"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib9",
-     "series-title": "Sistema de Planejamento do SUS: uma construção coletiva",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib10",
-     "series-title": "Pobreza e crise econômica: o que há de novo no Brasil metropolitano. Nota Técnica",
-     "author": "Pochmann",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib11",
-     "series-title": "As causas sociais das iniquidades em saúde no Brasil",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib12",
-     "series-title": "Consumo residencial de energia e desenvolvimento: um estudo da realidade brasileira [dissertação]",
-     "author": "Pereira",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib13",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1016/S0140-6736(11)60135-9",
-     "article-title": "Chronic non-communicable diseases in Brazil: burden and current challenges",
-     "author": "Schmidt",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib15",
-     "series-title": "Pesquisa de Orçamentos Familiares 2008/2009",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib16",
-     "series-title": "Divulgados resultados do Vigitel 2008",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib17",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1016/S0140-6736(11)60053-6",
-     "article-title": "Violence and injuries in Brazil: the effect, progress made, and challenges ahead",
-     "author": "Reichenheim",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib19",
-     "series-title": "Anuário Estatístico do Brasil, 1983",
-     "year": "1983"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib22",
-     "series-title": "As redes de atenção à saúde",
-     "author": "Mendes",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib23",
-     "doi-asserted-by": "crossref",
-     "first-page": "641",
-     "DOI": "10.1590/S1413-81232002000400004",
-     "article-title": "Determinantes das desigualdades na auto-avaliação do estado de saúde no Brasil: análise dos dados da PNAD/1998",
-     "volume": "41",
-     "author": "Dachs",
-     "year": "2002",
-     "journal-title": "Ciênc Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib24",
-     "series-title": "Prevenir e curar: o controle social através dos serviços de saúde",
-     "author": "Singer",
-     "year": "1978"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib25",
-     "series-title": "Danação da norma: medicina social e constituição da psiquiatria no Brasil",
-     "author": "Machado",
-     "year": "1978"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib26",
-     "series-title": "Saúde e previdência: estudos de política social",
-     "author": "Braga",
-     "year": "1981"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib29",
-     "series-title": "Reviravolta na saúde: origem e articulação do Movimento Sanitário",
-     "author": "Escorel",
-     "year": "1998"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib33",
-     "series-title": "Federalismo no Brasil: descentralização e políticas sociais",
-     "first-page": "13",
-     "article-title": "Federalismo e políticas sociais",
-     "author": "Almeida",
-     "year": "1996"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib34",
-     "series-title": "Desenvolvimento de políticas de saúde nos anos 80: o caso brasileiro",
-     "author": "Draibe",
-     "year": "1990"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib35",
-     "series-title": "A assistência médica ao trabalhador rural: FUNRURAL, a história de uma política social [dissertação]",
-     "author": "Almeida",
-     "year": "1981"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib36",
-     "series-title": "Padrçes e mudanças das relações público-privado: os planos e seguros saúde no Brasil [tese]",
-     "author": "Bahia",
-     "year": "1999"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib37",
-     "doi-asserted-by": "crossref",
-     "first-page": "971",
-     "DOI": "10.1590/S0102-311X2002000400006",
-     "article-title": "Teoria y práctica de las reformas de los sistemas de salud: los casos de Brasil y Mexico",
-     "volume": "4",
-     "author": "Pego",
-     "year": "2002",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib38",
-     "series-title": "As reformas sanitárias nos anos 80: crise ou transição? [tese]",
-     "author": "Almeida",
-     "year": "1995"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib39",
-     "doi-asserted-by": "crossref",
-     "first-page": "77",
-     "DOI": "10.1590/S0103-73311991000100004",
-     "article-title": "Notas sobre as políticas de saúde no Brasil de “transição democrática” - anos 80",
-     "volume": "1",
-     "author": "Luz",
-     "year": "1991",
-     "journal-title": "Physis Rev Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib40",
-     "first-page": "16",
-     "article-title": "A Physis da Saúde Coletiva",
-     "volume": "1",
-     "author": "Birman",
-     "year": "1991",
-     "journal-title": "Physis Rev Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib41",
-     "first-page": "94",
-     "article-title": "O dilema reformista na reforma sanitária brasileira",
-     "volume": "4",
-     "author": "Teixeira",
-     "year": "1987",
-     "journal-title": "Rev Adm Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib42",
-     "first-page": "83",
-     "article-title": "Financiamento e contenção de custos nas políticas de saúde: tendências atuais e perspectivas futuras",
-     "volume": "4",
-     "author": "Médici",
-     "year": "1990",
-     "journal-title": "Planej Polít Públicas"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib43",
-     "series-title": "Descentralização das ações e serviços de saúde. A ousadia de cumprir e fazer cumprir a Lei",
-     "first-page": "67",
-     "year": "1993"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib44",
-     "series-title": "A era FHC, um balanço",
-     "author": "Lamounier",
-     "year": "2002"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib45",
-     "series-title": "Secretaria Executiva. Departamento de Apoio à Descentralização. Diretrizes operacionais dos Pactos pela Vida, em Defesa do SUS e de Gestão",
-     "year": "2006"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib46",
-     "doi-asserted-by": "crossref",
-     "first-page": "1611",
-     "DOI": "10.1590/S0102-311X2009000700019",
-     "article-title": "Fórum. O desafio SUS: 20 anos do Sistema Único de Saúde. Introdução",
-     "volume": "7",
-     "author": "Maio",
-     "year": "2009",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib47",
-     "series-title": "Gestión Local en salud: conceptos y esperiencias. Colección Libros de la Universidad",
-     "first-page": "65",
-     "article-title": "La implementación de la reforma en Brasil: la dinámica del Sistema Único de Salud y algunos resultados",
-     "author": "Almeida",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib48",
-     "doi-asserted-by": "crossref",
-     "first-page": "1626",
-     "DOI": "10.1590/S0102-311X2009000700022",
-     "article-title": "Fórum. Sistema Único de Saúde: espaços decisórios e a arena política de saúde",
-     "volume": "7",
-     "author": "Côrtes",
-     "year": "2009",
-     "journal-title": "Cad Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib49",
-     "doi-asserted-by": "crossref",
-     "first-page": "795",
-     "DOI": "10.1590/S1413-81232009000300015",
-     "article-title": "Conselhos Municipais de Saúde",
-     "volume": "3",
-     "author": "Moreira",
-     "year": "2009",
-     "journal-title": "Ciênc Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib50",
-     "series-title": "Políticas e sistemas de saúde no Brasil",
-     "first-page": "979",
-     "article-title": "Participação social",
-     "author": "Escorel",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib51",
-     "doi-asserted-by": "crossref",
-     "first-page": "186",
-     "DOI": "10.1093/heapol/czm004",
-     "article-title": "Intergovernmental health policy decisions in Brazil: cooperation strategies for political mediation",
-     "volume": "22",
-     "author": "Miranda",
-     "year": "2007",
-     "journal-title": "Health Policy Plan"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib52",
-     "first-page": "248",
-     "article-title": "Conferências de saúde e formulação de políticas em 16 municípios de Mato Grosso, 2003–2005",
-     "volume": "30",
-     "author": "Neto",
-     "year": "2006",
-     "journal-title": "Saúde Debate"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib53",
-     "series-title": "Sociedade civil e espaços públicos no Brasil",
-     "article-title": "Os conselhos gestores e a democratização das políticas públicas no Brasil",
-     "author": "Tatagiba",
-     "year": "2002"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib54",
-     "series-title": "Conselhos de saúde no Brasil: participação cidadã e controle social",
-     "first-page": "136",
-     "author": "Carvalho",
-     "year": "1995"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib55",
-     "doi-asserted-by": "crossref",
-     "first-page": "S47",
-     "DOI": "10.1590/S0102-311X2002000700006",
-     "article-title": "Capital social y consejos de salud en Brasil",
-     "volume": "18",
-     "author": "Labra",
-     "year": "2002",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib56",
-     "doi-asserted-by": "crossref",
-     "first-page": "15",
-     "DOI": "10.1590/S0103-73312004000100003",
-     "article-title": "Participação da comunidade em espaços públicos de saúde: uma análise das Conferências Nacionais de Saúde",
-     "volume": "14",
-     "author": "Guizardi",
-     "year": "2004",
-     "journal-title": "Physis Rev Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib57",
-     "series-title": "Agência Nacional de Saúde Suplementar. Caderno de Informação da Saúde Suplementar: beneficiários, operadoras e planos",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib58",
-     "series-title": "Agência Nacional de Saúde Suplementar. Caderno de Informação de Saúde Suplementar",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib59",
-     "series-title": "Um panorama da saúde no Brasil: acesso e utilização dos serviços, condições de saúde e fatores de risco e proteção à saúde, 2008",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib60",
-     "series-title": "O público e o privado na saúde",
-     "author": "Heimann",
-     "year": "2005"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib61",
-     "series-title": "Gestão pública e relação público privado na saúde",
-     "first-page": "152",
-     "article-title": "Relações entre o SUS e a saúde suplementar: problemas e alternativas para o futuro do sistema universal",
-     "author": "Noronha",
-     "year": "2011"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib62",
-     "series-title": "Fisco e equidade no Brasil",
-     "author": "Afonso",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib63",
-     "series-title": "A arrecadação e o destino dos recursos da CPMF. Nota Técnica 6/2007",
-     "author": "Hickmann",
-     "year": "2007"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib64",
-     "doi-asserted-by": "crossref",
-     "first-page": "841",
-     "DOI": "10.1590/S1413-81232009000300019",
-     "article-title": "O financiamento do SUS sob os “ventos” da financeirização",
-     "volume": "3",
-     "author": "Mendes",
-     "year": "2009",
-     "journal-title": "Ciênc Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib66",
-     "series-title": "Pesquisa de Orçamentos Familiares 2002/2003",
-     "year": "2005"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib67",
-     "unstructured": "Ministério da Saúde. Deparmento de Atenção Básica, 2010."
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib68",
-     "unstructured": "Ministério da Saúde. Secretaria de Atenção à Saúde. Departamento de Atenção Básica. “Prevenção clínica de doenças cardiovasculares, cerebrovasculares e renais”. Cad Atenção Básica 2006; 14."
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib69",
-     "doi-asserted-by": "crossref",
-     "first-page": "286",
-     "DOI": "10.1590/S0102-311X2010000200008",
-     "article-title": "Desafios à coordenação dos cuidados em saúde: estratégias de integração entre níveis assistenciais em grandes centros urbanos",
-     "volume": "2",
-     "author": "Almeida",
-     "year": "2010",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib70",
-     "doi-asserted-by": "crossref",
-     "first-page": "2070",
-     "DOI": "10.1016/j.socscimed.2007.06.028",
-     "article-title": "Going to scale with community-based primary care: an analysis of the family health program and infant mortality in Brazil, 1999–2004",
-     "volume": "65",
-     "author": "Macinko",
-     "year": "2007",
-     "journal-title": "Soc Sci Méd"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib71",
-     "doi-asserted-by": "crossref",
-     "first-page": "87",
-     "DOI": "10.2105/AJPH.2007.127480",
-     "article-title": "Impact of the Family Health Program on infant mortality in Brazilian municipalities",
-     "volume": "1",
-     "author": "Aquino",
-     "year": "2009",
-     "journal-title": "Am J Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib72",
-     "doi-asserted-by": "crossref",
-     "first-page": "534",
-     "DOI": "10.1542/peds.2009-3197",
-     "article-title": "Reducing childhood mortality from diarrhea and lower respiratory tract infections in Brazil",
-     "volume": "126",
-     "author": "Rasella",
-     "year": "2010",
-     "journal-title": "Pediatrics"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib73",
-     "doi-asserted-by": "crossref",
-     "first-page": "1127",
-     "DOI": "10.1377/hlthaff.28.4.1127",
-     "article-title": "The health effects of decentralizing primary care in Brazil",
-     "volume": "28",
-     "author": "Guanais",
-     "year": "2009",
-     "journal-title": "Health Aff"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib74",
-     "doi-asserted-by": "crossref",
-     "first-page": "380",
-     "DOI": "10.1186/1471-2458-10-380",
-     "article-title": "Impact of the Family Health Program on the quality of vital information and reduction of child unattended deaths in Brazil: an ecological longitudinal study",
-     "volume": "10",
-     "author": "Rasella",
-     "year": "2010",
-     "journal-title": "BMC Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib75",
-     "first-page": "1337",
-     "article-title": "Project ICSAP–Brazil. (2009). Ambulatory care sensitive conditions: elaboration of Brazilian list as tool for measuring health system performance",
-     "volume": "6",
-     "author": "Alfradaque",
-     "year": "2009",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib76",
-     "doi-asserted-by": "crossref",
-     "first-page": "114",
-     "DOI": "10.1097/JAC.0b013e31819942e51",
-     "article-title": "Primary care and avoidable hospitalizations: Evidence from Brazil",
-     "volume": "32",
-     "author": "Guanais",
-     "year": "2009",
-     "journal-title": "J Ambul Care Manage"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib77",
-     "first-page": "11",
-     "article-title": "O Trabalho em saúde: tendências e perspectivas na estratégia da Saúde da Família",
-     "volume": "45",
-     "author": "Girardi",
-     "year": "2010",
-     "journal-title": "Divulg Saúde Debate"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib78",
-     "unstructured": "Almeida C, Macinko J. Validação de uma metodologia de avaliação rápida das características organizacionais e do desempenho dos serviços de atenção básica do Sistema Único de Saúde (SUS) em nível local. Brasília-DF: Ministério da Saúde/Organização Pan-Americana da Saúde/Organização Mundial da Saúde; 2006: 215 (Série Técnica - Desenvolvimento de Sistemas e Serviços de Saúde)."
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib79",
-     "series-title": "Saúde no Brasil: algumas questçes sobre o Sistema Único de Saúde (SUS)",
-     "author": "Piola",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib80",
-     "series-title": "SUS: avanços e desafios",
-     "year": "2006"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib81",
-     "series-title": "Políticas e sistema de saúde no Brasil",
-     "first-page": "627",
-     "article-title": "Atenção ambulatorial especializada",
-     "author": "Solla",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib82",
-     "series-title": "Departamento de Atenção Básica (DAB)",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib83",
-     "first-page": "18",
-     "article-title": "A nova fronteira intersetorial ainda está por ser conquistada",
-     "volume": "97",
-     "author": "Delgado",
-     "year": "2010",
-     "journal-title": "Radis"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib84",
-     "series-title": "Saúde em destaque",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib85",
-     "series-title": "O que é o SUS",
-     "author": "Paim",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib86",
-     "series-title": "Organizadora. Políticas e Sistema de Saúde no Brasil",
-     "first-page": "1035",
-     "article-title": "Saúde dos povos indígenas e políticas públicas no Brasil",
-     "author": "Santos",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib89",
-     "doi-asserted-by": "crossref",
-     "first-page": "786",
-     "DOI": "10.1590/S0102-311X2010000400020",
-     "article-title": "Disparidades nas filas para transplantes de órgãos nos estados brasileiros",
-     "volume": "4",
-     "author": "Marinho",
-     "year": "2010",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib90",
-     "first-page": "65",
-     "article-title": "Portaria N° 3.252 de 22 de dezembro de 2009. Aprova as diretrizes para execução e financiamento das ações de Vigilância em Saúde pela União, Estados, Distrito Federal e Municípios e dá outras providências",
-     "volume": "245",
-     "year": "2009",
-     "journal-title": "Diário Oficial União"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib91",
-     "series-title": "Secretaria de Gestão Estratégica e Participativa. Departamento de Apoio á Gestão Participativa. Política Nacional de Saúde Integral da População Negra: uma política para o SUS",
-     "first-page": "56",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib92",
-     "series-title": "Política Nacional de Atenção ao Portador de Doença Renal",
-     "first-page": "221",
-     "year": "2004"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib93",
-     "series-title": "Política Nacional de Atenção Cardiovascular de Alta Complexidade",
-     "year": "2004"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib95",
-     "first-page": "164",
-     "article-title": "The Family Health Program and the construction of a new model for primary care in Brazil",
-     "volume": "21",
-     "author": "Escorel",
-     "year": "2007",
-     "journal-title": "Rev Panam Salud Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib96",
-     "doi-asserted-by": "crossref",
-     "first-page": "825",
-     "DOI": "10.1590/S1413-81232007000400002",
-     "article-title": "Tendências na assistência hospitalar",
-     "volume": "4",
-     "author": "Neto",
-     "year": "2007",
-     "journal-title": "Ciênc Saúde Coletiva"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib97",
-     "doi-asserted-by": "crossref",
-     "first-page": "S331",
-     "DOI": "10.1590/S0102-311X2004000800026",
-     "article-title": "Integralidade da atenção e integração de serviços de saúde: desafios para avaliar a implantação de um “sistema sem muros”",
-     "volume": "20",
-     "author": "Hartz",
-     "year": "2004",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib98",
-     "series-title": "Redes de atenção à saúde no SUS. O pacto pela saúde e redes regionalizadas de ações e serviços de saúde",
-     "author": "Silva",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib99",
-     "series-title": "Regionalização em saúde: o caso de uma microrregião no Ceará (1998–2002 e 2007–2009) [tese]",
-     "author": "Lopes",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib100",
-     "doi-asserted-by": "crossref",
-     "first-page": "S298",
-     "DOI": "10.1590/S0102-311X2004000800023",
-     "article-title": "Acesso à internação hospitalar nos municípios brasileiros em 2000: territórios do Sistema Único de Saúde",
-     "volume": "20",
-     "author": "de Oliveira",
-     "year": "2004",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib101",
-     "series-title": "Interesses estruturais na regulação da assistência médico-hospitalar do SUS [tese]",
-     "author": "Farias",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib103",
-     "series-title": "Anuário Estatístico do Brasil",
-     "year": "1970"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib104",
-     "series-title": "Desempenho hospitalar no Brasil: em busca da excelência. The World Bank",
-     "author": "La Forgia",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib109",
-     "series-title": "Composição público versus privado, gestão de unidades e recursos humanos no SUS",
-     "author": "Nogueira",
-     "year": "2007"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib110",
-     "unstructured": "Almeida M, Alencar G, Schoeps D. Sistema de Informações sobre nascidos Vivos – Sinasc: uma avaliação de sua trajetória. A experiência brasileira em sistemas de informação em saúde: produção e disseminação de informação sobre saúde no Brasil. Brasília-DF: Ministério da Saúde; 2009. (Série B. Textos Básicos de Saúde, 1)."
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib111",
-     "series-title": "Introdução. A experiência brasileira em sistemas de informação em saúde: falando sobre os sistemas de informação em saúde no Brasil",
-     "author": "Viacava",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib112",
-     "first-page": "174",
-     "article-title": "Inequalities in access to medical care by income in developed countries",
-     "volume": "17",
-     "author": "van Doorslaer",
-     "year": "2006",
-     "journal-title": "CMAJ"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib113",
-     "doi-asserted-by": "crossref",
-     "first-page": "217",
-     "DOI": "10.1186/1472-6963-10-217",
-     "article-title": "Socioeconomic inequalities in the use of outpatient services in Brazil according to health care need: evidence from the world health survey",
-     "volume": "10",
-     "author": "Szwarcwald",
-     "year": "2010",
-     "journal-title": "BMC Health Serv Res"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib114",
-     "series-title": "Políticas e sistema de saúde no Brasil",
-     "first-page": "665",
-     "article-title": "Atenção hospitalar: evolução histórica e tendências",
-     "author": "Neto",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib115",
-     "doi-asserted-by": "crossref",
-     "first-page": "279",
-     "DOI": "10.1093/intqhc/mzp022",
-     "article-title": "The assessment of adverse events in hospitals in Brazil",
-     "volume": "21",
-     "author": "Mendes",
-     "year": "2009",
-     "journal-title": "Int J Qual Health Care"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib116",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1016/S0140-6736(11)60202-X",
-     "article-title": "Successes and failures in the control of infectious diseases in Brazil: social and environmental context, policies, interventions, and research needs",
-     "author": "Barreto",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib117",
-     "doi-asserted-by": "crossref",
-     "first-page": "S360",
-     "DOI": "10.1590/S0102-311X2009001500003",
-     "article-title": "Adverse drug events in hospitals: a systematic review",
-     "volume": "25",
-     "author": "Cano",
-     "year": "2009",
-     "journal-title": "Cad Saúde Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib118",
-     "series-title": "Programa de controle da infecção hospitalar são deficientes em mais de 90% dos hospitais de São Paulo",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib27",
-     "series-title": "Saúde no Governo Vargas (1930–1945): dualidade institucional de um bem público",
-     "author": "Fonseca",
-     "year": "2007"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib28",
-     "series-title": "Medicina e sociedade: o médico e seu mercado de trabalho",
-     "author": "Donnangelo",
-     "year": "1975"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib30",
-     "series-title": "O dilema da reforma sanitária brasileira. In: Berlinguer G, Teixeira SM, Campos GWS. Reforma sanitária Itália e Brasil",
-     "author": "Teixeira",
-     "year": "1988"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib31",
-     "series-title": "Reforma Sanitária Brasileira: contribuição para a compreensão e crítica",
-     "author": "Paim",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(11)60054-8_bib32",
-     "first-page": "11",
-     "article-title": "Política de Saúde no Governo Lula: continuidades e mudanças",
-     "volume": "1",
-     "author": "Machado",
-     "year": "2010",
-     "journal-title": "Rev Política, Planej Gestão"
-    }
-   ],
-   "container-title": [
-    "The Lancet"
-   ],
-   "language": "en",
-   "link": [
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673611600548?httpAccept=text/xml",
-     "content-type": "text/xml",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    },
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673611600548?httpAccept=text/plain",
-     "content-type": "text/plain",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    }
-   ],
-   "deposited": {
-    "date-parts": [
-     [
-      2019,
-      6,
-      10
-     ]
-    ],
-    "date-time": "2019-06-10T13:54:58Z",
-    "timestamp": 1560174898000
-   },
-   "score": 54.80449,
-   "resource": {
-    "primary": {
-     "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0140673611600548"
-    }
-   },
-   "issued": {
-    "date-parts": [
-     [
-      2011,
-      5
-     ]
-    ]
-   },
-   "references-count": 101,
-   "journal-issue": {
-    "issue": "9779",
-    "published-print": {
-     "date-parts": [
-      [
-       2011,
-       5
-      ]
-     ]
-    }
-   },
-   "alternative-id": [
-    "S0140673611600548"
-   ],
-   "URL": "https://doi.org/10.1016/s0140-6736(11)60054-8",
-   "ISSN": [
-    "0140-6736"
-   ],
-   "issn-type": [
-    {
-     "value": "0140-6736",
-     "type": "print"
-    }
-   ],
-   "published": {
-    "date-parts": [
-     [
-      2011,
-      5
-     ]
-    ]
-   }
-  }
- },
- "castro_2019_brazil": {
-  "doi": "10.1016/s0140-6736(19)31243-7",
-  "qualis": "A1",
-  "titulo": "Brazil's unified health system: the first 30 years and prospects for the future",
-  "periodico": "The Lancet",
-  "item": {
-   "indexed": {
-    "date-parts": [
-     [
-      2026,
-      8,
-      22
-     ]
-    ],
-    "date-time": "2026-08-22T11:24:20Z",
-    "timestamp": 1787397860124,
-    "version": "build-2736575974"
-   },
-   "reference-count": 78,
-   "publisher": "Elsevier BV",
-   "issue": "10195",
-   "license": [
-    {
-     "start": {
-      "date-parts": [
-       [
-        2019,
-        7,
-        1
-       ]
-      ],
-      "date-time": "2019-07-01T00:00:00Z",
-      "timestamp": 1561939200000
-     },
-     "content-version": "tdm",
-     "delay-in-days": 0,
-     "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2019,
-        7,
-        1
-       ]
-      ],
-      "date-time": "2019-07-01T00:00:00Z",
-      "timestamp": 1561939200000
-     },
-     "content-version": "tdm",
-     "delay-in-days": 0,
-     "URL": "https://www.elsevier.com/legal/tdmrep-license"
-    }
-   ],
-   "content-domain": {
-    "domain": [
-     "clinicalkey.com",
-     "clinicalkey.com.au",
-     "clinicalkey.es",
-     "clinicalkey.fr",
-     "clinicalkey.jp",
-     "em-consulte.com",
-     "thelancet.com",
-     "elsevier.com",
-     "sciencedirect.com"
-    ],
-    "crossmark-restriction": true
-   },
-   "short-container-title": [
-    "The Lancet"
-   ],
-   "published-print": {
-    "date-parts": [
-     [
-      2019,
-      7
-     ]
-    ]
-   },
-   "DOI": "10.1016/s0140-6736(19)31243-7",
-   "type": "journal-article",
-   "created": {
-    "date-parts": [
-     [
-      2019,
-      7,
-      11
-     ]
-    ],
-    "date-time": "2019-07-11T18:40:59Z",
-    "timestamp": 1562870459000
-   },
-   "page": "345-356",
-   "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
-   "source": "Crossref",
-   "is-referenced-by-count": 774,
-   "title": [
-    "Brazil's unified health system: the first 30 years and prospects for the future"
-   ],
-   "prefix": "10.1016",
-   "volume": "394",
-   "author": [
-    {
-     "given": "Marcia C",
-     "family": "Castro",
-     "sequence": "first",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Adriano",
-     "family": "Massuda",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Gisele",
-     "family": "Almeida",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Naercio Aquino",
-     "family": "Menezes-Filho",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Monica Viegas",
-     "family": "Andrade",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Kenya Valéria Micaela",
-     "family": "de Souza Noronha",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Rudi",
-     "family": "Rocha",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "James",
-     "family": "Macinko",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Thomas",
-     "family": "Hone",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Renato",
-     "family": "Tasca",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Ligia",
-     "family": "Giovanella",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Ana Maria",
-     "family": "Malik",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Heitor",
-     "family": "Werneck",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Luiz Augusto",
-     "family": "Fachini",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Rifat",
-     "family": "Atun",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    }
-   ],
-   "member": "78",
-   "reference": [
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib4",
-     "doi-asserted-by": "crossref",
-     "first-page": "1",
-     "DOI": "10.1186/1475-9276-11-33",
-     "article-title": "Horizontal equity in health care utilization in Brazil, 1998–2008",
-     "volume": "11",
-     "author": "Macinko",
-     "year": "2012",
-     "journal-title": "Int J Equity Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib5",
-     "doi-asserted-by": "crossref",
-     "first-page": "150",
-     "DOI": "10.1097/JAC.0b013e3181994221",
-     "article-title": "The impact of primary healthcare on population health in low- and middle-income countries",
-     "volume": "32",
-     "author": "Macinko",
-     "year": "2009",
-     "journal-title": "J Ambul Care Manage"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib6",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1136/bmjgh-2018-000829",
-     "article-title": "The Brazilian health system at crossroads: progress, crisis and resilience",
-     "volume": "3",
-     "author": "Massuda",
-     "year": "2018",
-     "journal-title": "BMJ Global Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib7",
-     "doi-asserted-by": "crossref",
-     "first-page": "493",
-     "DOI": "10.1057/s41271-017-0083-y",
-     "article-title": "The right to health in Brazil: a constitutional guarantee threatened by fiscal austerity",
-     "volume": "38",
-     "author": "de Souza",
-     "year": "2017",
-     "journal-title": "J Public Health Policy"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib9",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1590/0102-311x00194316",
-     "article-title": "Impacts of the new fiscal regime on health and education",
-     "volume": "32",
-     "author": "Rossi",
-     "year": "2016",
-     "journal-title": "Cad Saude Publica"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib10",
-     "series-title": "Questão regional e urbanização no desenvolvimento econômico brasileiro pós 1930",
-     "author": "Cano",
-     "year": "1988"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib11",
-     "doi-asserted-by": "crossref",
-     "first-page": "2452",
-     "DOI": "10.1073/pnas.0510576103",
-     "article-title": "Malaria risk on the Amazon frontier",
-     "volume": "103",
-     "author": "Castro",
-     "year": "2006",
-     "journal-title": "Proc Natl Acad Sci USA"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib12",
-     "first-page": "5",
-     "article-title": "Demographic dynamics in Brazil: recent trends and perspectives",
-     "volume": "1",
-     "author": "Carvalho",
-     "year": "1997",
-     "journal-title": "Braz J Popul Stud"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib13",
-     "series-title": "Relações entre as alterações históricas na dinâmica demográfica brasileira e os impactos decorrentes do processo de envelhecimento da população",
-     "author": "Simões",
-     "year": "2016"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib14",
-     "doi-asserted-by": "crossref",
-     "first-page": "1877",
-     "DOI": "10.1016/S0140-6736(11)60202-X",
-     "article-title": "Successes and failures in the control of infectious diseases in Brazil: social and environmental context, policies, interventions, and research needs",
-     "volume": "377",
-     "author": "Barreto",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib15",
-     "doi-asserted-by": "crossref",
-     "first-page": "1949",
-     "DOI": "10.1016/S0140-6736(11)60135-9",
-     "article-title": "Chronic non-communicable diseases in Brazil: burden and current challenges",
-     "volume": "377",
-     "author": "Schmidt",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib20",
-     "doi-asserted-by": "crossref",
-     "first-page": "1778",
-     "DOI": "10.1016/S0140-6736(11)60054-8",
-     "article-title": "The Brazilian health system: history, advances, and challenges",
-     "volume": "377",
-     "author": "Paim",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib21",
-     "doi-asserted-by": "crossref",
-     "first-page": "149",
-     "DOI": "10.1186/s12939-016-0445-2",
-     "article-title": "Coverage and equity in reproductive and maternal health interventions in Brazil: impressive progress following the implementation of the unified health system",
-     "volume": "15",
-     "author": "França",
-     "year": "2016",
-     "journal-title": "Int J Equity Health"
-    },
-    {
-     "issue": "suppl 1",
-     "key": "10.1016/S0140-6736(19)31243-7_bib22",
-     "doi-asserted-by": "crossref",
-     "first-page": "S159",
-     "DOI": "10.1590/S0102-311X2008001300020",
-     "article-title": "Evaluation of the effectiveness of primary health care in south and northeast Brazil: methodological contributions",
-     "volume": "24",
-     "author": "Facchini",
-     "year": "2008",
-     "journal-title": "Cad Saude Publica"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib23",
-     "series-title": "Políticas e sistema de saúde no Brasil",
-     "author": "Giovanella",
-     "year": "2012"
-    },
-    {
-     "issue": "suppl 1",
-     "key": "10.1016/S0140-6736(19)31243-7_bib24",
-     "doi-asserted-by": "crossref",
-     "first-page": "S27",
-     "DOI": "10.1590/1806-9304201700s100003",
-     "article-title": "The regionalization process in Brazil: influence on policy, structure and organization dimensions",
-     "volume": "17",
-     "author": "Viana",
-     "year": "2017",
-     "journal-title": "Rev Bras Saude Mater Infant"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib25",
-     "doi-asserted-by": "crossref",
-     "first-page": "623",
-     "DOI": "10.1590/S1413-80502013000400005",
-     "article-title": "Desigualdade socioeconômica no acesso aos serviços de saúde no Brasil: um estudo comparativo entre as regiões brasileiras em 1998 e 2008",
-     "volume": "17",
-     "author": "Andrade",
-     "year": "2013",
-     "journal-title": "Econ Apl"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib26",
-     "doi-asserted-by": "crossref",
-     "first-page": "3795",
-     "DOI": "10.1590/S1413-81232011001000015",
-     "article-title": "Uma analise da utilização de serviços de saúde por sistema de financiamento: Brasil 1998–2008",
-     "volume": "16",
-     "author": "Porto",
-     "year": "2011",
-     "journal-title": "Cien Saude Colet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib27",
-     "series-title": "Diretoria de Desenvolvimento Setorial. Gerência-Executiva de Integração e Ressarcimento ao SUS",
-     "year": "2017"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib28",
-     "series-title": "Sistema de saúde no Brasil: organização e financiamento",
-     "first-page": "101",
-     "article-title": "O financiamento dos serviços de saúde no Brasil",
-     "author": "Piola",
-     "year": "2016"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib29",
-     "series-title": "A saúde no Brasil em 2030: prospecção estratégica do sistema de saúde brasileiro: estrutura do financiamento e do gasto setorial",
-     "first-page": "19",
-     "article-title": "Estruturas de financiamento e gasto do sistema público de saúde",
-     "author": "Piola",
-     "year": "2013"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib30",
-     "first-page": "79",
-     "article-title": "Incentivos governamentais ao setor privado de saúde no Brasil",
-     "volume": "26",
-     "author": "Médici",
-     "year": "1992",
-     "journal-title": "Revista de Administração Pública"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib31",
-     "series-title": "A dinâmica do setor saúde no Brasil: transformações e tendências nas décadas de 80 e 90",
-     "author": "Médici",
-     "year": "1997"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib32",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1371/journal.pone.0201723",
-     "article-title": "Transition to universal primary health care coverage in Brazil: analysis of uptake and expansion patterns of Brazil's family health strategy (1998–2012)",
-     "volume": "13",
-     "author": "Andrade",
-     "year": "2018",
-     "journal-title": "PLoS One"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib34",
-     "doi-asserted-by": "crossref",
-     "first-page": "368",
-     "DOI": "10.1093/heapol/czx189",
-     "article-title": "Brazil's family health strategy: factors associated with programme uptake and coverage expansion over 15 years (1998–2012)",
-     "volume": "33",
-     "author": "Andrade",
-     "year": "2018",
-     "journal-title": "Health Policy and Plan"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib35",
-     "doi-asserted-by": "crossref",
-     "first-page": "1903",
-     "DOI": "10.1590/1413-81232018236.05592018",
-     "article-title": "The family health strategy: expanding access and reducing hospitalizations due to ambulatory care sensitive conditions (ACSC)",
-     "volume": "23",
-     "author": "Pinto",
-     "year": "2018",
-     "journal-title": "Cien Saude Colet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib36",
-     "series-title": "Números da Saúde da Familia",
-     "year": "2015"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib37",
-     "year": "2006"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib38",
-     "doi-asserted-by": "crossref",
-     "first-page": "359",
-     "DOI": "10.1590/S0034-89102012005000011",
-     "article-title": "Redução das internações por condições sensíveis à atenção primária no Brasil entre 1998–2009",
-     "volume": "46",
-     "author": "Boing",
-     "year": "2012",
-     "journal-title": "Rev Saude Publica"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib39",
-     "doi-asserted-by": "crossref",
-     "first-page": "87",
-     "DOI": "10.2105/AJPH.2007.127480",
-     "article-title": "Impact of the family health program on infant mortality in Brazilian municipalities",
-     "volume": "99",
-     "author": "Aquino",
-     "year": "2009",
-     "journal-title": "Am J Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib40",
-     "doi-asserted-by": "crossref",
-     "first-page": "115",
-     "DOI": "10.1097/JAC.0b013e31819942e51",
-     "article-title": "Primary care and avoidable hospitalizations: evidence from Brazil",
-     "volume": "32",
-     "author": "Guanais",
-     "year": "2009",
-     "journal-title": "J Ambul Care Manage"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib41",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1136/bmj.g4014",
-     "article-title": "Impact of primary health care on mortality from heart and cerebrovascular diseases in Brazil: a nationwide analysis of longitudinal data",
-     "volume": "349",
-     "author": "Rasella",
-     "year": "2014",
-     "journal-title": "BMJ"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib42",
-     "doi-asserted-by": "crossref",
-     "first-page": "2675",
-     "DOI": "10.1590/1413-81232015219.16032016",
-     "article-title": "Impacto do programa mais médicos na redução da escassez de médicos em atenção primária à saúde",
-     "volume": "21",
-     "author": "Girardi",
-     "year": "2016",
-     "journal-title": "Cien Saude Colet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib43",
-     "doi-asserted-by": "crossref",
-     "first-page": "2697",
-     "DOI": "10.1590/1413-81232015219.16052016",
-     "article-title": "A provisão emergencial de médicos pelo Programa Mais Médicos e a qualidade da estrutura das unidades básicas de saúde",
-     "volume": "21",
-     "author": "Giovanella",
-     "year": "2016",
-     "journal-title": "Cien Saude Colet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib44",
-     "doi-asserted-by": "crossref",
-     "first-page": "103",
-     "DOI": "10.2471/BLT.16.178236",
-     "article-title": "Implementation research: towards universal health coverage with more doctors in Brazil",
-     "volume": "95",
-     "author": "Santos",
-     "year": "2017",
-     "journal-title": "Bull World Health Organ"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib45",
-     "series-title": "Programa Mais Médicos no Brasil. Panorama da Produção Científica",
-     "year": "2017"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib46",
-     "series-title": "Hospital performance in Brazil: the search for excellence",
-     "author": "La Forgia",
-     "year": "2008"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib47",
-     "doi-asserted-by": "crossref",
-     "first-page": "849",
-     "DOI": "10.1590/S1413-81232007000400007",
-     "article-title": "A clínica ampliada e compartilhada, a gestão democrática e redes de atenção como referenciais teórico-operacionais para a reforma do hospital",
-     "volume": "12",
-     "author": "Campos",
-     "year": "2007",
-     "journal-title": "Ciencia Saude Colet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib48",
-     "doi-asserted-by": "crossref",
-     "first-page": "825",
-     "DOI": "10.1590/S1413-81232007000400002",
-     "article-title": "Tendências na assistência hospitalar",
-     "volume": "12",
-     "author": "Vecina Neto",
-     "year": "2007",
-     "journal-title": "Cien Saude Colet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib49",
-     "series-title": "CNES—Cadastro Nacional dos Estabelecimentos de Saúde",
-     "year": "2018"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib50",
-     "doi-asserted-by": "crossref",
-     "first-page": "12",
-     "DOI": "10.1186/1752-4458-2-12",
-     "article-title": "The mental health system in Brazil: policies and future challenges",
-     "volume": "2",
-     "author": "Mateus",
-     "year": "2008",
-     "journal-title": "Int J Mental Health Syst"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib51",
-     "series-title": "Políticas e sistema de saúde no Brasil",
-     "first-page": "547",
-     "article-title": "Atenção ambulatorial especializada",
-     "author": "Solla",
-     "year": "2012"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib52",
-     "doi-asserted-by": "crossref",
-     "first-page": "941",
-     "DOI": "10.1590/1413-81232017223.18842016",
-     "article-title": "Specialized outpatient care in the unified health system: how to fill a void",
-     "volume": "22",
-     "author": "Tesser",
-     "year": "2017",
-     "journal-title": "Cien Saude Colet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib53",
-     "first-page": "480",
-     "article-title": "Generic drugs in Brazil: historical overview and legislation",
-     "volume": "28",
-     "author": "Araujo",
-     "year": "2010",
-     "journal-title": "Rev Panam Salud Publica"
-    },
-    {
-     "issue": "suppl 2",
-     "key": "10.1016/S0140-6736(19)31243-7_bib55",
-     "doi-asserted-by": "crossref",
-     "first-page": "6s",
-     "DOI": "10.1590/s1518-8787.2016050006161",
-     "article-title": "Access to medicines for chronic diseases in Brazil: a multidimensional approach",
-     "volume": "50",
-     "author": "Oliveira",
-     "year": "2016",
-     "journal-title": "Rev Saude Publica"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib56",
-     "series-title": "Prescription drug cost-sharing and health outcomes: evidence from a national copayment system in Brazil",
-     "author": "Américo",
-     "year": "2017"
-    },
-    {
-     "issue": "suppl 2",
-     "key": "10.1016/S0140-6736(19)31243-7_bib57",
-     "doi-asserted-by": "crossref",
-     "first-page": "15s",
-     "DOI": "10.1590/s1518-8787.2016050006172",
-     "article-title": "Catastrophic expenditure on medicines in Brazil",
-     "volume": "50",
-     "author": "Luiza",
-     "year": "2016",
-     "journal-title": "Rev Saude Publica"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib58",
-     "series-title": "Universal health coverage and litigation in Latin America",
-     "author": "Iunes",
-     "year": "2012"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib60",
-     "first-page": "33",
-     "article-title": "The right to health in the courts of Brazil: worsening health inequities?",
-     "volume": "11",
-     "author": "Ferraz",
-     "year": "2009",
-     "journal-title": "Health Hum Rights"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib61",
-     "first-page": "209",
-     "article-title": "The judicialization of health and the quest for state accountability: evidence from 1,262 lawsuits for access to medicines in southern Brazil",
-     "volume": "18",
-     "author": "Biehl",
-     "year": "2016",
-     "journal-title": "Health Hum Rights"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib62",
-     "first-page": "265",
-     "article-title": "Moving the debate forward in right to health litigation",
-     "volume": "18",
-     "author": "Ferraz",
-     "year": "2016",
-     "journal-title": "Health Hum Rights"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib65",
-     "series-title": "Toward universal health coverage and equity in Latin America and the Caribbean: evidence from selected countries",
-     "first-page": "81",
-     "article-title": "Progress toward universal health coverage in Latin America and the Caribbean: outcomes, utilization, and financial protection",
-     "author": "Dmytraczenko",
-     "year": "2015"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib66",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1371/journal.pmed.1001692",
-     "article-title": "Monitoring and evaluating progress towards universal health coverage in Brazil",
-     "volume": "11",
-     "author": "Barreto",
-     "year": "2014",
-     "journal-title": "PLoS Medicine"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib68",
-     "doi-asserted-by": "crossref",
-     "first-page": "467",
-     "DOI": "10.1001/jamainternmed.2014.7853",
-     "article-title": "Access to primary care in England",
-     "volume": "175",
-     "author": "Cowling",
-     "year": "2015",
-     "journal-title": "JAMA Intern Med"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib69",
-     "doi-asserted-by": "crossref",
-     "first-page": "861",
-     "DOI": "10.1001/jamainternmed.2014.20",
-     "article-title": "Primary care access for new patients on the eve of health care reform",
-     "volume": "174",
-     "author": "Rhodes",
-     "year": "2014",
-     "journal-title": "JAMA Intern Med"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib70",
-     "doi-asserted-by": "crossref",
-     "first-page": "149",
-     "DOI": "10.1377/hlthaff.2016.0966",
-     "article-title": "Large reductions in amenable mortality associated with Brazil's primary care expansion and strong health governance",
-     "volume": "36",
-     "author": "Hone",
-     "year": "2017",
-     "journal-title": "Health Aff (Millwood)"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib71",
-     "doi-asserted-by": "crossref",
-     "first-page": "1963",
-     "DOI": "10.2105/AJPH.2010.198887",
-     "article-title": "The influence of primary care and hospital supply on ambulatory care-sensitive hospitalizations among adults in Brazil, 1999–2007",
-     "volume": "101",
-     "author": "Macinko",
-     "year": "2011",
-     "journal-title": "Am J Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib72",
-     "doi-asserted-by": "crossref",
-     "first-page": "2149",
-     "DOI": "10.1377/hlthaff.2010.0251",
-     "article-title": "Major expansion of primary care in Brazil linked to decline in unnecessary hospitalization",
-     "volume": "29",
-     "author": "Macinko",
-     "year": "2010",
-     "journal-title": "Health Aff (Millwood)"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib73",
-     "doi-asserted-by": "crossref",
-     "first-page": "13",
-     "DOI": "10.1136/jech.2005.038323",
-     "article-title": "Evaluation of the impact of the family health program on infant mortality in Brazil, 1990–2002",
-     "volume": "60",
-     "author": "Macinko",
-     "year": "2006",
-     "journal-title": "J Epidemiol Community Health"
-    },
-    {
-     "issue": "suppl",
-     "key": "10.1016/S0140-6736(19)31243-7_bib74",
-     "doi-asserted-by": "crossref",
-     "first-page": "126",
-     "DOI": "10.1002/hec.1607",
-     "article-title": "Evaluating the impact of community-based health interventions: evidence from Brazil's family health program",
-     "volume": "19",
-     "author": "Rocha",
-     "year": "2010",
-     "journal-title": "Health Econ"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib75",
-     "doi-asserted-by": "crossref",
-     "first-page": "968",
-     "DOI": "10.1590/1809-4503201400040014",
-     "article-title": "Hospitalization due to conditions sensitive to primary care and expansion of the family health program in Brazil: an ecological study",
-     "volume": "17",
-     "author": "Ceccon",
-     "year": "2014",
-     "journal-title": "Rev Bras Epidemiol"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib76",
-     "doi-asserted-by": "crossref",
-     "first-page": "577",
-     "DOI": "10.1097/MLR.0b013e31820fc39f",
-     "article-title": "Trends in primary health care-sensitive conditions in Brazil: the role of the family health program (Project ICSAP-Brazil)",
-     "volume": "49",
-     "author": "Dourado",
-     "year": "2011",
-     "journal-title": "Med Care"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib77",
-     "doi-asserted-by": "crossref",
-     "first-page": "344",
-     "DOI": "10.1136/jech.57.5.344",
-     "article-title": "Infant mortality rate as an indicator of population health",
-     "volume": "57",
-     "author": "Reidpath",
-     "year": "2003",
-     "journal-title": "J Epidemiol Community Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib78",
-     "doi-asserted-by": "crossref",
-     "first-page": "58",
-     "DOI": "10.1377/hlthaff.27.1.58",
-     "article-title": "Measuring the health of nations: updating an earlier analysis",
-     "volume": "27",
-     "author": "Nolte",
-     "year": "2008",
-     "journal-title": "Health Affairs"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib79",
-     "first-page": "20",
-     "article-title": "Trends in mortality rate from cardiovascular disease in Brazil, 1980–2012",
-     "volume": "107",
-     "author": "Mansur",
-     "year": "2016",
-     "journal-title": "Arq Bras Cardiol"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib80",
-     "doi-asserted-by": "crossref",
-     "first-page": "1093",
-     "DOI": "10.1016/S0140-6736(00)02741-0",
-     "article-title": "Explaining trends in inequities: evidence from Brazilian child health studies",
-     "volume": "356",
-     "author": "Victora",
-     "year": "2000",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib81",
-     "first-page": "18",
-     "article-title": "Capacidade institucional dos municípios baianos",
-     "volume": "14",
-     "author": "Duarte",
-     "year": "2018",
-     "journal-title": "Revista Brasileira de Gestao e Desenvolvimento Regional"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib83",
-     "doi-asserted-by": "crossref",
-     "first-page": "1247",
-     "DOI": "10.1016/S0140-6736(08)60559-0",
-     "article-title": "Countdown to 2015 for maternal, newborn, and child survival: the 2008 report on tracking coverage of interventions",
-     "volume": "371",
-     "author": "Bryce",
-     "year": "2008",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib85",
-     "author": "Castro"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib86",
-     "article-title": "Brazil's child and maternal mortality have increased against background of public spending cuts",
-     "volume": "362",
-     "author": "Collucci",
-     "year": "2018",
-     "journal-title": "BMJ"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib87",
-     "first-page": "381",
-     "article-title": "Essai sur la mortalité biologique de l'homme",
-     "volume": "7",
-     "author": "Bourgeois-Pichat",
-     "year": "1952",
-     "journal-title": "Population"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib88",
-     "doi-asserted-by": "crossref",
-     "first-page": "842",
-     "DOI": "10.1093/heapol/czt066",
-     "article-title": "Do antenatal care interventions improve neonatal survival in India?",
-     "volume": "29",
-     "author": "Singh",
-     "year": "2014",
-     "journal-title": "Health Policy Plan"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib89",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1080/16549716.2017.1328796",
-     "article-title": "Effectiveness of antenatal care services in reducing neonatal mortality in Kenya: analysis of national survey data",
-     "volume": "10",
-     "author": "Arunda",
-     "year": "2017",
-     "journal-title": "Glob Health Action"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib90",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1371/journal.pmed.1002570",
-     "article-title": "Child morbidity and mortality associated with alternative policy responses to the economic crisis in Brazil: a nationwide microsimulation study",
-     "volume": "15",
-     "author": "Rasella",
-     "year": "2018",
-     "journal-title": "PLoS Med"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib92",
-     "article-title": "The end of Brazil's More Doctors programme?",
-     "volume": "363",
-     "author": "Santos",
-     "year": "2018",
-     "journal-title": "BMJ"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib94",
-     "first-page": "1",
-     "article-title": "Public health, HIV care and prevention, human rights and democracy at a crossroad in Brazil",
-     "volume": "22",
-     "author": "Montenegro",
-     "year": "2019",
-     "journal-title": "AIDS Behav"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib95",
-     "author": "Waiselfisz"
-    },
-    {
-     "key": "10.1016/S0140-6736(19)31243-7_bib98",
-     "doi-asserted-by": "crossref",
-     "first-page": "510",
-     "DOI": "10.1038/s41559-019-0855-9",
-     "article-title": "The systematic dismantling of Brazilian environmental laws risks losses on all fronts",
-     "volume": "3",
-     "author": "Abessa",
-     "year": "2019",
-     "journal-title": "Nat Ecol Evol"
-    }
-   ],
-   "container-title": [
-    "The Lancet"
-   ],
-   "language": "en",
-   "link": [
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673619312437?httpAccept=text/xml",
-     "content-type": "text/xml",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    },
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673619312437?httpAccept=text/plain",
-     "content-type": "text/plain",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    }
-   ],
-   "deposited": {
-    "date-parts": [
-     [
-      2025,
-      9,
-      26
-     ]
-    ],
-    "date-time": "2025-09-26T00:14:24Z",
-    "timestamp": 1758845664000
-   },
-   "score": 36.844215,
-   "resource": {
-    "primary": {
-     "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0140673619312437"
-    }
-   },
-   "issued": {
-    "date-parts": [
-     [
-      2019,
-      7
-     ]
-    ]
-   },
-   "references-count": 78,
-   "journal-issue": {
-    "issue": "10195",
-    "published-print": {
-     "date-parts": [
-      [
-       2019,
-       7
-      ]
-     ]
-    }
-   },
-   "alternative-id": [
-    "S0140673619312437"
-   ],
-   "URL": "https://doi.org/10.1016/s0140-6736(19)31243-7",
-   "ISSN": [
-    "0140-6736"
-   ],
-   "issn-type": [
-    {
-     "value": "0140-6736",
-     "type": "print"
-    }
-   ],
-   "published": {
-    "date-parts": [
-     [
-      2019,
-      7
-     ]
-    ]
-   },
-   "assertion": [
-    {
-     "value": "Elsevier",
-     "name": "publisher",
-     "label": "This article is maintained by"
-    },
-    {
-     "value": "Brazil's unified health system: the first 30 years and prospects for the future",
-     "name": "articletitle",
-     "label": "Article Title"
-    },
-    {
-     "value": "The Lancet",
-     "name": "journaltitle",
-     "label": "Journal Title"
-    },
-    {
-     "value": "https://doi.org/10.1016/S0140-6736(19)31243-7",
-     "name": "articlelink",
-     "label": "CrossRef DOI link to publisher maintained version"
-    },
-    {
-     "value": "simple-article",
-     "name": "content_type",
-     "label": "Content Type"
-    },
-    {
-     "value": "© 2019 Elsevier Ltd. All rights reserved.",
-     "name": "copyright",
-     "label": "Copyright"
-    }
-   ]
-  }
- },
  "massuda_2018_brazilian": {
   "doi": "10.1136/bmjgh-2018-000829",
   "qualis": "A1",
@@ -2746,2593 +634,6 @@
      ]
     ]
    }
-  }
- },
- "barreto_2007_effect": {
-  "doi": "10.1016/s0140-6736(07)61638-9",
-  "qualis": "A1",
-  "titulo": "Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies",
-  "periodico": "The Lancet",
-  "item": {
-   "indexed": {
-    "date-parts": [
-     [
-      2026,
-      8,
-      19
-     ]
-    ],
-    "date-time": "2026-08-19T20:22:20Z",
-    "timestamp": 1787170940809,
-    "version": "build-2736575974"
-   },
-   "reference-count": 27,
-   "publisher": "Elsevier BV",
-   "issue": "9599",
-   "license": [
-    {
-     "start": {
-      "date-parts": [
-       [
-        2007,
-        11,
-        1
-       ]
-      ],
-      "date-time": "2007-11-01T00:00:00Z",
-      "timestamp": 1193875200000
-     },
-     "content-version": "tdm",
-     "delay-in-days": 0,
-     "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2007,
-        11,
-        1
-       ]
-      ],
-      "date-time": "2007-11-01T00:00:00Z",
-      "timestamp": 1193875200000
-     },
-     "content-version": "tdm",
-     "delay-in-days": 0,
-     "URL": "https://www.elsevier.com/legal/tdmrep-license"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2007,
-        11,
-        1
-       ]
-      ],
-      "date-time": "2007-11-01T00:00:00Z",
-      "timestamp": 1193875200000
-     },
-     "content-version": "stm-asf",
-     "delay-in-days": 0,
-     "URL": "https://doi.org/10.15223/policy-017"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2007,
-        11,
-        1
-       ]
-      ],
-      "date-time": "2007-11-01T00:00:00Z",
-      "timestamp": 1193875200000
-     },
-     "content-version": "stm-asf",
-     "delay-in-days": 0,
-     "URL": "https://doi.org/10.15223/policy-037"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2007,
-        11,
-        1
-       ]
-      ],
-      "date-time": "2007-11-01T00:00:00Z",
-      "timestamp": 1193875200000
-     },
-     "content-version": "stm-asf",
-     "delay-in-days": 0,
-     "URL": "https://doi.org/10.15223/policy-012"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2007,
-        11,
-        1
-       ]
-      ],
-      "date-time": "2007-11-01T00:00:00Z",
-      "timestamp": 1193875200000
-     },
-     "content-version": "stm-asf",
-     "delay-in-days": 0,
-     "URL": "https://doi.org/10.15223/policy-029"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2007,
-        11,
-        1
-       ]
-      ],
-      "date-time": "2007-11-01T00:00:00Z",
-      "timestamp": 1193875200000
-     },
-     "content-version": "stm-asf",
-     "delay-in-days": 0,
-     "URL": "https://doi.org/10.15223/policy-004"
-    }
-   ],
-   "content-domain": {
-    "domain": [
-     "clinicalkey.com",
-     "clinicalkey.com.au",
-     "clinicalkey.es",
-     "clinicalkey.fr",
-     "clinicalkey.jp",
-     "em-consulte.com",
-     "thelancet.com",
-     "elsevier.com",
-     "sciencedirect.com"
-    ],
-    "crossmark-restriction": true
-   },
-   "short-container-title": [
-    "The Lancet"
-   ],
-   "published-print": {
-    "date-parts": [
-     [
-      2007,
-      11
-     ]
-    ]
-   },
-   "DOI": "10.1016/s0140-6736(07)61638-9",
-   "type": "journal-article",
-   "created": {
-    "date-parts": [
-     [
-      2007,
-      12,
-      1
-     ]
-    ],
-    "date-time": "2007-12-01T01:05:36Z",
-    "timestamp": 1196471136000
-   },
-   "page": "1622-1628",
-   "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
-   "source": "Crossref",
-   "is-referenced-by-count": 200,
-   "title": [
-    "Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies"
-   ],
-   "prefix": "10.1016",
-   "volume": "370",
-   "author": [
-    {
-     "given": "Mauricio L",
-     "family": "Barreto",
-     "sequence": "first",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Bernd",
-     "family": "Genser",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Agostino",
-     "family": "Strina",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Ana Marlucia O",
-     "family": "Assis",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Rita F",
-     "family": "Rego",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Carlos A",
-     "family": "Teles",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Matildes S",
-     "family": "Prado",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Sheila MA",
-     "family": "Matos",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Darci N",
-     "family": "Santos",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Lenaldo A",
-     "family": "dos Santos",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Sandy",
-     "family": "Cairncross",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Maria Gloria",
-     "family": "Teixeira",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    }
-   ],
-   "member": "78",
-   "reference": [
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib1",
-     "doi-asserted-by": "crossref",
-     "first-page": "42",
-     "DOI": "10.1016/S1473-3099(04)01253-8",
-     "article-title": "Water, sanitation, and hygiene interventions to reduce diarrhoea in less developed countries: a systematic review and meta-analysis",
-     "volume": "5",
-     "author": "Fewtrell",
-     "year": "2005",
-     "journal-title": "Lancet Infect Dis"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib2",
-     "series-title": "Disease control priorities in developing countries",
-     "first-page": "35",
-     "article-title": "Intervention cost-effectiveness: overview of main messages",
-     "author": "Laxminarayan",
-     "year": "2006"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib3",
-     "series-title": "Human Development Report 2006. Beyond scarcity: power, poverty and the global water crisis",
-     "year": "2006"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib4",
-     "first-page": "537",
-     "article-title": "Estimating the burden of disease from water, sanitation, and hygiene at a global level",
-     "volume": "110",
-     "author": "Pruss",
-     "year": "2002",
-     "journal-title": "Environ Health Perspect"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib5",
-     "series-title": "Disease Control Priorities in Developing Countries",
-     "first-page": "771",
-     "article-title": "Water supply, sanitation, and hygiene promotion",
-     "author": "Cairncross",
-     "year": "2006"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib6",
-     "doi-asserted-by": "crossref",
-     "first-page": "1032",
-     "DOI": "10.1093/aje/kwg075",
-     "article-title": "Childhood diarrhoea and observed hygiene behaviour in Salvador, Brazil",
-     "volume": "157",
-     "author": "Strina",
-     "year": "2003",
-     "journal-title": "Am J Epidemiol"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib7",
-     "first-page": "609",
-     "article-title": "Effects of improved water supply and sanitation on ascariasis, diarrhoea, dracunculiasis, hookworm infection, schistosomiasis and trachoma",
-     "volume": "69",
-     "author": "Esrey",
-     "year": "1991",
-     "journal-title": "Bull World Health Organ"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib8",
-     "doi-asserted-by": "crossref",
-     "first-page": "27",
-     "DOI": "10.1046/j.1365-3156.1996.d01-9.x",
-     "article-title": "The public and domestic domains in the transmission of disease",
-     "volume": "1",
-     "author": "Cairncross",
-     "year": "1996",
-     "journal-title": "Trop Med Int Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib9",
-     "doi-asserted-by": "crossref",
-     "first-page": "383",
-     "DOI": "10.1016/0277-9536(94)00341-P",
-     "article-title": "Potties, pits and pipes: explaining hygiene behaviour in Burkina Faso",
-     "volume": "41",
-     "author": "Curtis",
-     "year": "1995",
-     "journal-title": "Soc Sci Med"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib10",
-     "first-page": "197",
-     "article-title": "The global burden of diarrhoeal disease, as estimated from studies published between 1992 and 2000",
-     "volume": "81",
-     "author": "Kosek",
-     "year": "2003",
-     "journal-title": "Bull World Health Organ"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib11",
-     "series-title": "Water for life; making it happen",
-     "year": "2005"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib12",
-     "series-title": "Saneamento e Saúde nos Países em Desenvolvimento",
-     "first-page": "7",
-     "article-title": "Saneamento básico e saúde: fundamentos científicos para avaliação do impacto epidemiólogico do programa de saneamento ambiental da Bahia de Todos os Santos (Bahia Azul)",
-     "author": "Barreto",
-     "year": "1997"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib13",
-     "doi-asserted-by": "crossref",
-     "first-page": "1189",
-     "DOI": "10.1590/S0102-311X2002000500011",
-     "article-title": "Sentinel areas: a monitoring strategy in public health",
-     "volume": "18",
-     "author": "Teixeira",
-     "year": "2002",
-     "journal-title": "Cad Saude Publica"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib14",
-     "doi-asserted-by": "crossref",
-     "first-page": "582",
-     "DOI": "10.1093/oxfordjournals.aje.a008968",
-     "article-title": "Is prevalence of diarrhea a better predictor of subsequent mortality and weight gain than diarrhea incidence?",
-     "volume": "144",
-     "author": "Morris",
-     "year": "1996",
-     "journal-title": "Am J Epidemiol"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib15",
-     "doi-asserted-by": "crossref",
-     "first-page": "1057",
-     "DOI": "10.1093/ije/20.4.1057",
-     "article-title": "Methodological issues in diarrhoeal diseases epidemiology: definition of diarrhoeal episodes",
-     "volume": "20",
-     "author": "Baqui",
-     "year": "1991",
-     "journal-title": "Int J Epidemiol"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib16",
-     "doi-asserted-by": "crossref",
-     "first-page": "407",
-     "DOI": "10.1016/j.trstmh.2004.07.007",
-     "article-title": "Childhood diarrhoea symptoms, management and duration: observations from a longitudinal community study",
-     "volume": "99",
-     "author": "Strina",
-     "year": "2005",
-     "journal-title": "Trans R Soc Trop Med Hyg"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib17",
-     "doi-asserted-by": "crossref",
-     "first-page": "235",
-     "DOI": "10.1177/095624780101300117",
-     "article-title": "Evaluating sanitary quality and classifying urban sectors according to environmental conditions",
-     "volume": "13",
-     "author": "Milroy",
-     "year": "2001",
-     "journal-title": "Environ Urban"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib18",
-     "doi-asserted-by": "crossref",
-     "first-page": "103",
-     "DOI": "10.1080/10543409108835008",
-     "article-title": "An overview of statistical issues and methods of meta-analysis",
-     "volume": "1",
-     "author": "Schmid",
-     "year": "1991",
-     "journal-title": "J Biopharm Stat"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib19",
-     "doi-asserted-by": "crossref",
-     "first-page": "658",
-     "DOI": "10.1097/01.ede.0000239728.75215.86",
-     "article-title": "Risk factors for childhood diarrhea incidence - dynamic analysis of a longitudinal study",
-     "volume": "17",
-     "author": "Genser",
-     "year": "2006",
-     "journal-title": "Epidemiology"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib20",
-     "doi-asserted-by": "crossref",
-     "first-page": "923",
-     "DOI": "10.1016/j.socscimed.2004.06.051",
-     "article-title": "The prevalence of diarrheal disease among Brazilian children: trends and differentials from 1986 to 1996",
-     "volume": "60",
-     "author": "Sastry",
-     "year": "2005",
-     "journal-title": "Soc Sci Med"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib21",
-     "doi-asserted-by": "crossref",
-     "first-page": "357",
-     "DOI": "10.1093/ije/12.3.357",
-     "article-title": "Measuring the impact of water supply and sanitation investments on diarrhoeal diseases: problems of methodology",
-     "volume": "12",
-     "author": "Blum",
-     "year": "1983",
-     "journal-title": "Int J Epidemiol"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib22",
-     "doi-asserted-by": "crossref",
-     "first-page": "537",
-     "DOI": "10.1097/EDE.0b013e318093f3ce",
-     "article-title": "Estimating the longitudinal prevalence of diarrhea and other episodic diseases: continuous versus intermittent surveillance",
-     "volume": "18",
-     "author": "Schmidt",
-     "year": "2007",
-     "journal-title": "Epidemiology"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib23",
-     "series-title": "Evaluating health impact; water supply, sanitation and hygiene education",
-     "author": "Briscoe",
-     "year": "1986"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib25",
-     "doi-asserted-by": "crossref",
-     "first-page": "153",
-     "DOI": "10.1016/S0035-9203(03)90104-0",
-     "article-title": "Impact of drainage and sewerage on diarrhoea in poor urban areas in Salvador, Brazil",
-     "volume": "97",
-     "author": "Moraes",
-     "year": "2003",
-     "journal-title": "Trans R Soc Trop Med Hyg"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib26",
-     "series-title": "Avaliação do Programa de Saneamento Ambiental da Bahia de Todos os Santos",
-     "year": "2005"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib27",
-     "series-title": "Global Water Supply and Sanitation Assessment 2000 Report",
-     "year": "2000"
-    },
-    {
-     "key": "10.1016/S0140-6736(07)61638-9_bib24",
-     "doi-asserted-by": "crossref",
-     "first-page": "2019",
-     "DOI": "10.1016/S0277-9536(02)00183-1",
-     "article-title": "With the help of one's neighbors: externalities in the production of nutrition in Peru",
-     "volume": "56",
-     "author": "Alderman",
-     "year": "2003",
-     "journal-title": "Soc Sci Med"
-    }
-   ],
-   "container-title": [
-    "The Lancet"
-   ],
-   "language": "en",
-   "link": [
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673607616389?httpAccept=text/xml",
-     "content-type": "text/xml",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    },
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673607616389?httpAccept=text/plain",
-     "content-type": "text/plain",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    }
-   ],
-   "deposited": {
-    "date-parts": [
-     [
-      2025,
-      9,
-      25
-     ]
-    ],
-    "date-time": "2025-09-25T23:55:05Z",
-    "timestamp": 1758844505000
-   },
-   "score": 49.959663,
-   "resource": {
-    "primary": {
-     "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0140673607616389"
-    }
-   },
-   "issued": {
-    "date-parts": [
-     [
-      2007,
-      11
-     ]
-    ]
-   },
-   "references-count": 27,
-   "journal-issue": {
-    "issue": "9599",
-    "published-print": {
-     "date-parts": [
-      [
-       2007,
-       11
-      ]
-     ]
-    }
-   },
-   "alternative-id": [
-    "S0140673607616389"
-   ],
-   "URL": "https://doi.org/10.1016/s0140-6736(07)61638-9",
-   "relation": {
-    "has-review": [
-     {
-      "id-type": "doi",
-      "id": "10.3410/f.1163275.560455",
-      "asserted-by": "object"
-     }
-    ]
-   },
-   "ISSN": [
-    "0140-6736"
-   ],
-   "issn-type": [
-    {
-     "value": "0140-6736",
-     "type": "print"
-    }
-   ],
-   "published": {
-    "date-parts": [
-     [
-      2007,
-      11
-     ]
-    ]
-   },
-   "assertion": [
-    {
-     "value": "Elsevier",
-     "name": "publisher",
-     "label": "This article is maintained by"
-    },
-    {
-     "value": "Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies",
-     "name": "articletitle",
-     "label": "Article Title"
-    },
-    {
-     "value": "The Lancet",
-     "name": "journaltitle",
-     "label": "Journal Title"
-    },
-    {
-     "value": "https://doi.org/10.1016/S0140-6736(07)61638-9",
-     "name": "articlelink",
-     "label": "CrossRef DOI link to publisher maintained version"
-    },
-    {
-     "value": "https://doi.org/10.1016/S0140-6736(07)61664-X",
-     "name": "associatedlink",
-     "label": "CrossRef DOI link to the associated document"
-    },
-    {
-     "value": "https://doi.org/10.1016/S0140-6736(07)61665-1",
-     "name": "associatedlink",
-     "label": "CrossRef DOI link to the associated document"
-    },
-    {
-     "value": "https://doi.org/10.1016/S0140-6736(07)61668-7",
-     "name": "associatedlink",
-     "label": "CrossRef DOI link to the associated document"
-    },
-    {
-     "value": "article",
-     "name": "content_type",
-     "label": "Content Type"
-    },
-    {
-     "value": "Copyright © 2007 Elsevier Ltd.",
-     "name": "copyright",
-     "label": "Copyright"
-    }
-   ]
-  }
- },
- "rasella_2013_effect": {
-  "doi": "10.1016/s0140-6736(13)60715-1",
-  "qualis": "A1",
-  "titulo": "Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities",
-  "periodico": "The Lancet",
-  "item": {
-   "indexed": {
-    "date-parts": [
-     [
-      2026,
-      7,
-      26
-     ]
-    ],
-    "date-time": "2026-07-26T04:53:16Z",
-    "timestamp": 1785041596160,
-    "version": "3.55.0"
-   },
-   "reference-count": 27,
-   "publisher": "Elsevier BV",
-   "issue": "9886",
-   "content-domain": {
-    "domain": [
-     "thelancet.com",
-     "em-consulte.com",
-     "elsevier.com",
-     "sciencedirect.com"
-    ],
-    "crossmark-restriction": true
-   },
-   "short-container-title": [
-    "The Lancet"
-   ],
-   "published-print": {
-    "date-parts": [
-     [
-      2013,
-      7
-     ]
-    ]
-   },
-   "DOI": "10.1016/s0140-6736(13)60715-1",
-   "type": "journal-article",
-   "created": {
-    "date-parts": [
-     [
-      2013,
-      5,
-      15
-     ]
-    ],
-    "date-time": "2013-05-15T02:26:18Z",
-    "timestamp": 1368584778000
-   },
-   "page": "57-64",
-   "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
-   "source": "Crossref",
-   "is-referenced-by-count": 401,
-   "title": [
-    "Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities"
-   ],
-   "prefix": "10.1016",
-   "volume": "382",
-   "author": [
-    {
-     "given": "Davide",
-     "family": "Rasella",
-     "sequence": "first",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Rosana",
-     "family": "Aquino",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Carlos AT",
-     "family": "Santos",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Rômulo",
-     "family": "Paes-Sousa",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Mauricio L",
-     "family": "Barreto",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    }
-   ],
-   "member": "78",
-   "reference": [
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib1",
-     "series-title": "Conditional cash transfer. A World Bank policy research report",
-     "year": "2009"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib2",
-     "doi-asserted-by": "crossref",
-     "first-page": "513",
-     "DOI": "10.1111/j.1467-7679.2006.00345.x",
-     "article-title": "The experience of conditional cash transfers in Latin America and the Caribbean",
-     "volume": "24",
-     "author": "Handa",
-     "year": "2006",
-     "journal-title": "Development Policy Rev"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib3",
-     "author": "Lindert"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib8",
-     "series-title": "Guia pratico do programa da Saude da Familia",
-     "year": "2001"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib9",
-     "doi-asserted-by": "crossref",
-     "first-page": "1863",
-     "DOI": "10.1016/S0140-6736(11)60138-4",
-     "article-title": "Maternal and child health in Brazil: progress and challenges",
-     "volume": "377",
-     "author": "Victora",
-     "year": "2011",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib11",
-     "doi-asserted-by": "crossref",
-     "first-page": "87",
-     "DOI": "10.2105/AJPH.2007.127480",
-     "article-title": "Impact of the Family Health Program on infant mortality in Brazilian municipalities",
-     "volume": "99",
-     "author": "Aquino",
-     "year": "2009",
-     "journal-title": "Am J Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib12",
-     "doi-asserted-by": "crossref",
-     "first-page": "e534",
-     "DOI": "10.1542/peds.2009-3197",
-     "article-title": "Reducing childhood mortality from diarrhea and lower respiratory tract infections in Brazil",
-     "volume": "126",
-     "author": "Rasella",
-     "year": "2010",
-     "journal-title": "Pediatrics"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib13",
-     "doi-asserted-by": "crossref",
-     "first-page": "496",
-     "DOI": "10.2471/BLT.10.084202",
-     "article-title": "Effects of a conditional cash transfer programme on child nutrition in Brazil",
-     "volume": "89",
-     "author": "Paes-Sousa",
-     "year": "2011",
-     "journal-title": "Bull World Health Organ"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib14",
-     "series-title": "Programas de transferência de renda e redução da pobreza e das desigualdades sociais no Brasil",
-     "author": "Paes-Sousa",
-     "year": "2011"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib15",
-     "doi-asserted-by": "crossref",
-     "first-page": "380",
-     "DOI": "10.1186/1471-2458-10-380",
-     "article-title": "Impact of the Family Health Program on the quality of vital information and reduction of child unattended deaths in Brazil: an ecological longitudinal study",
-     "volume": "10",
-     "author": "Rasella",
-     "year": "2010",
-     "journal-title": "BMC Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib16",
-     "doi-asserted-by": "crossref",
-     "first-page": "1207",
-     "DOI": "10.1590/S0102-311X2007000500022",
-     "article-title": "Sociospatial inequalities in the adequacy of Ministry of Health data on births and deaths at the municipal level in Brazil, 2000–02",
-     "volume": "23",
-     "author": "Andrade",
-     "year": "2007",
-     "journal-title": "Cad Saúde Publica"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib19",
-     "series-title": "Negative binomial regression",
-     "author": "Hilbe",
-     "year": "2007"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib20",
-     "series-title": "Introductory Econometrics, a modern approach",
-     "author": "Wooldridge",
-     "year": "2005"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib21",
-     "series-title": "Handbook on impact evaluation: quantitative methods and practices",
-     "author": "Shahidur",
-     "year": "2010"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib22",
-     "doi-asserted-by": "crossref",
-     "first-page": "1963",
-     "DOI": "10.2105/AJPH.2010.198887",
-     "article-title": "The influence of primary care and hospital supply on ambulatory care-sensitive hospitalizations among adults in Brazil, 1999–2007",
-     "volume": "101",
-     "author": "Macinko",
-     "year": "2011",
-     "journal-title": "Am J Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib23",
-     "article-title": "The impact of conditional cash transfers on health outcomes and use of health services in low and middle income countries",
-     "volume": "4",
-     "author": "Lagarde",
-     "year": "2009",
-     "journal-title": "Cochrane Database Syst Rev"
-    },
-    {
-     "issue": "suppl",
-     "key": "10.1016/S0140-6736(13)60715-1_bib24",
-     "doi-asserted-by": "crossref",
-     "first-page": "S95",
-     "DOI": "10.1016/j.ypmed.2011.11.015",
-     "article-title": "Promoting healthy behaviours and improving health outcomes in low and middle income countries: a review of the impact of conditional cash transfer programmes",
-     "volume": "55",
-     "author": "Ranganathan",
-     "year": "2012",
-     "journal-title": "Prev Med"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib25",
-     "doi-asserted-by": "crossref",
-     "first-page": "6",
-     "DOI": "10.1080/19439341003646188",
-     "article-title": "Conditional cash transfers and health: unpacking the causal chain",
-     "volume": "2",
-     "author": "Gaarder",
-     "year": "2010",
-     "journal-title": "J Develop Effect"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib26",
-     "doi-asserted-by": "crossref",
-     "first-page": "74",
-     "DOI": "10.1016/j.jdeveco.2010.01.003",
-     "article-title": "A healthier start: The effect of conditional cash transfers on neonatal and infant mortality in rural Mexico",
-     "volume": "94",
-     "author": "Barham",
-     "year": "2011",
-     "journal-title": "J Development Econ"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib27",
-     "doi-asserted-by": "crossref",
-     "first-page": "1259",
-     "DOI": "10.1016/S0140-6736(12)61068-X",
-     "article-title": "The quest for universal health coverage: achieving social protection for all in Mexico",
-     "volume": "380",
-     "author": "Knaul",
-     "year": "2012",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib28",
-     "doi-asserted-by": "crossref",
-     "first-page": "693",
-     "DOI": "10.1016/S0277-9536(98)00385-2",
-     "article-title": "Income and health: what is the nature of the relationship?",
-     "volume": "48",
-     "author": "Ecob",
-     "year": "1999",
-     "journal-title": "Soc Sci Med"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib29",
-     "doi-asserted-by": "crossref",
-     "first-page": "243",
-     "DOI": "10.1016/S0140-6736(07)61690-0",
-     "article-title": "Maternal and child undernutrition: global and regional exposures and health consequences",
-     "volume": "371",
-     "author": "Black",
-     "year": "2008",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib30",
-     "doi-asserted-by": "crossref",
-     "first-page": "785",
-     "DOI": "10.1017/S136898001000279X",
-     "article-title": "Changes in food consumption among the Programa Bolsa Família participant families in Brazil",
-     "volume": "14",
-     "author": "De Bem Lignani",
-     "year": "2011",
-     "journal-title": "Public Health Nutr"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib31",
-     "doi-asserted-by": "crossref",
-     "first-page": "726",
-     "DOI": "10.2105/AJPH.94.5.726",
-     "article-title": "Child health: reaching the poor",
-     "volume": "94",
-     "author": "Wagstaff",
-     "year": "2004",
-     "journal-title": "Am J Public Health"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib32",
-     "doi-asserted-by": "crossref",
-     "first-page": "159",
-     "DOI": "10.1016/S0140-6736(03)13870-6",
-     "article-title": "Reducing child mortality: can public health deliver?",
-     "volume": "362",
-     "author": "Gwatkin",
-     "year": "2003",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib33",
-     "doi-asserted-by": "crossref",
-     "first-page": "65",
-     "DOI": "10.1016/S0140-6736(03)13811-1",
-     "article-title": "How many child deaths can we prevent this year?",
-     "volume": "362",
-     "author": "Jones",
-     "year": "2003",
-     "journal-title": "Lancet"
-    },
-    {
-     "key": "10.1016/S0140-6736(13)60715-1_bib34",
-     "doi-asserted-by": "crossref",
-     "first-page": "36",
-     "DOI": "10.1111/j.1365-3156.2011.02866.x",
-     "article-title": "Access to, use of and satisfaction with health services among adults enrolled in Brazil's Family Health Strategy: evidence from the 2008 National Household Survey",
-     "volume": "17",
-     "author": "Macinko",
-     "year": "2012",
-     "journal-title": "Trop Med Int Health"
-    }
-   ],
-   "container-title": [
-    "The Lancet"
-   ],
-   "language": "en",
-   "link": [
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673613607151?httpAccept=text/xml",
-     "content-type": "text/xml",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    },
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0140673613607151?httpAccept=text/plain",
-     "content-type": "text/plain",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    }
-   ],
-   "deposited": {
-    "date-parts": [
-     [
-      2018,
-      10,
-      16
-     ]
-    ],
-    "date-time": "2018-10-16T01:21:18Z",
-    "timestamp": 1539652878000
-   },
-   "score": 44.967842,
-   "resource": {
-    "primary": {
-     "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0140673613607151"
-    }
-   },
-   "issued": {
-    "date-parts": [
-     [
-      2013,
-      7
-     ]
-    ]
-   },
-   "references-count": 27,
-   "journal-issue": {
-    "issue": "9886",
-    "published-print": {
-     "date-parts": [
-      [
-       2013,
-       7
-      ]
-     ]
-    }
-   },
-   "alternative-id": [
-    "S0140673613607151"
-   ],
-   "URL": "https://doi.org/10.1016/s0140-6736(13)60715-1",
-   "ISSN": [
-    "0140-6736"
-   ],
-   "issn-type": [
-    {
-     "value": "0140-6736",
-     "type": "print"
-    }
-   ],
-   "published": {
-    "date-parts": [
-     [
-      2013,
-      7
-     ]
-    ]
-   },
-   "assertion": [
-    {
-     "value": "Elsevier",
-     "name": "publisher",
-     "label": "This article is maintained by"
-    },
-    {
-     "value": "Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities",
-     "name": "articletitle",
-     "label": "Article Title"
-    },
-    {
-     "value": "The Lancet",
-     "name": "journaltitle",
-     "label": "Journal Title"
-    },
-    {
-     "value": "https://doi.org/10.1016/S0140-6736(13)60715-1",
-     "name": "articlelink",
-     "label": "CrossRef DOI link to publisher maintained version"
-    },
-    {
-     "value": "https://doi.org/10.1016/S0140-6736(13)61035-1",
-     "name": "associatedlink",
-     "label": "CrossRef DOI link to the associated document"
-    },
-    {
-     "value": "article",
-     "name": "content_type",
-     "label": "Content Type"
-    },
-    {
-     "value": "Copyright © 2013 Elsevier Ltd. All rights reserved.",
-     "name": "copyright",
-     "label": "Copyright"
-    }
-   ]
-  }
- },
- "dixon_2006_financing": {
-  "doi": "10.1093/heapol/czl004",
-  "qualis": "A1",
-  "titulo": "Financing mental health services in low- and middle-income countries",
-  "periodico": "Health Policy and Planning",
-  "item": {
-   "indexed": {
-    "date-parts": [
-     [
-      2026,
-      1,
-      17
-     ]
-    ],
-    "date-time": "2026-01-17T18:10:39Z",
-    "timestamp": 1768673439989,
-    "version": "3.49.0"
-   },
-   "reference-count": 0,
-   "publisher": "Oxford University Press (OUP)",
-   "issue": "3",
-   "content-domain": {
-    "domain": [],
-    "crossmark-restriction": false
-   },
-   "short-container-title": [
-    "Health Policy and Planning"
-   ],
-   "DOI": "10.1093/heapol/czl004",
-   "type": "journal-article",
-   "created": {
-    "date-parts": [
-     [
-      2006,
-      3,
-      14
-     ]
-    ],
-    "date-time": "2006-03-14T01:24:23Z",
-    "timestamp": 1142299463000
-   },
-   "page": "171-182",
-   "source": "Crossref",
-   "is-referenced-by-count": 50,
-   "title": [
-    "Financing mental health services in low- and middle-income countries"
-   ],
-   "prefix": "10.1093",
-   "volume": "21",
-   "author": [
-    {
-     "given": "A.",
-     "family": "Dixon",
-     "sequence": "first",
-     "affiliation": [],
-     "role": [
-      {
-       "role": "author",
-       "vocabulary": "crossref"
-      }
-     ]
-    }
-   ],
-   "member": "286",
-   "published-online": {
-    "date-parts": [
-     [
-      2006,
-      2,
-      21
-     ]
-    ]
-   },
-   "container-title": [
-    "Health Policy and Planning"
-   ],
-   "language": "en",
-   "link": [
-    {
-     "URL": "http://academic.oup.com/heapol/article-pdf/21/3/171/1851714/czl004.pdf",
-     "content-type": "unspecified",
-     "content-version": "vor",
-     "intended-application": "similarity-checking"
-    }
-   ],
-   "deposited": {
-    "date-parts": [
-     [
-      2017,
-      8,
-      23
-     ]
-    ],
-    "date-time": "2017-08-23T10:15:02Z",
-    "timestamp": 1503483302000
-   },
-   "score": 52.513916,
-   "resource": {
-    "primary": {
-     "URL": "https://academic.oup.com/heapol/article-lookup/doi/10.1093/heapol/czl004"
-    }
-   },
-   "issued": {
-    "date-parts": [
-     [
-      2006,
-      2,
-      21
-     ]
-    ]
-   },
-   "references-count": 0,
-   "journal-issue": {
-    "issue": "3",
-    "published-online": {
-     "date-parts": [
-      [
-       2006,
-       2,
-       21
-      ]
-     ]
-    }
-   },
-   "URL": "https://doi.org/10.1093/heapol/czl004",
-   "ISSN": [
-    "0268-1080",
-    "1460-2237"
-   ],
-   "issn-type": [
-    {
-     "value": "0268-1080",
-     "type": "print"
-    },
-    {
-     "value": "1460-2237",
-     "type": "electronic"
-    }
-   ],
-   "published": {
-    "date-parts": [
-     [
-      2006,
-      2,
-      21
-     ]
-    ]
-   }
-  }
- },
- "matheus_2021_design": {
-  "doi": "10.1016/j.giq.2020.101550",
-  "qualis": "A1",
-  "titulo": "Design principles for creating digital transparency in government",
-  "periodico": "Government Information Quarterly",
-  "item": {
-   "indexed": {
-    "date-parts": [
-     [
-      2026,
-      8,
-      28
-     ]
-    ],
-    "date-time": "2026-08-28T06:04:06Z",
-    "timestamp": 1787897046167,
-    "version": "build-2784847793"
-   },
-   "reference-count": 92,
-   "publisher": "Elsevier BV",
-   "issue": "1",
-   "license": [
-    {
-     "start": {
-      "date-parts": [
-       [
-        2021,
-        1,
-        1
-       ]
-      ],
-      "date-time": "2021-01-01T00:00:00Z",
-      "timestamp": 1609459200000
-     },
-     "content-version": "tdm",
-     "delay-in-days": 0,
-     "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2021,
-        1,
-        1
-       ]
-      ],
-      "date-time": "2021-01-01T00:00:00Z",
-      "timestamp": 1609459200000
-     },
-     "content-version": "tdm",
-     "delay-in-days": 0,
-     "URL": "https://www.elsevier.com/legal/tdmrep-license"
-    },
-    {
-     "start": {
-      "date-parts": [
-       [
-        2020,
-        12,
-        2
-       ]
-      ],
-      "date-time": "2020-12-02T00:00:00Z",
-      "timestamp": 1606867200000
-     },
-     "content-version": "vor",
-     "delay-in-days": 0,
-     "URL": "http://creativecommons.org/licenses/by/4.0/"
-    }
-   ],
-   "funder": [
-    {
-     "name": "CAP4CITY",
-     "award": [
-      "598273-EPP-1-2018-1-AT-EPPKA2-CBHE-JP"
-     ],
-     "award-info": [
-      {
-       "award-number": [
-        "598273-EPP-1-2018-1-AT-EPPKA2-CBHE-JP"
-       ]
-      }
-     ]
-    }
-   ],
-   "content-domain": {
-    "domain": [
-     "elsevier.com",
-     "sciencedirect.com"
-    ],
-    "crossmark-restriction": true
-   },
-   "short-container-title": [
-    "Government Information Quarterly"
-   ],
-   "published-print": {
-    "date-parts": [
-     [
-      2021,
-      1
-     ]
-    ]
-   },
-   "DOI": "10.1016/j.giq.2020.101550",
-   "type": "journal-article",
-   "created": {
-    "date-parts": [
-     [
-      2020,
-      12,
-      10
-     ]
-    ],
-    "date-time": "2020-12-10T04:09:56Z",
-    "timestamp": 1607573396000
-   },
-   "page": "101550",
-   "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
-   "source": "Crossref",
-   "is-referenced-by-count": 118,
-   "title": [
-    "Design principles for creating digital transparency in government"
-   ],
-   "prefix": "10.1016",
-   "volume": "38",
-   "author": [
-    {
-     "given": "Ricardo",
-     "family": "Matheus",
-     "sequence": "first",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Marijn",
-     "family": "Janssen",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    },
-    {
-     "given": "Tomasz",
-     "family": "Janowski",
-     "sequence": "additional",
-     "affiliation": [],
-     "role": [
-      {
-       "vocabulary": "crossref",
-       "role": "author"
-      }
-     ]
-    }
-   ],
-   "member": "78",
-   "reference": [
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0005",
-     "doi-asserted-by": "crossref",
-     "first-page": "285",
-     "DOI": "10.1016/j.bushor.2017.01.002",
-     "article-title": "Addressing barriers to big data",
-     "volume": "60",
-     "author": "Alharthi",
-     "year": "2017",
-     "journal-title": "Business Horizons"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0010",
-     "series-title": "Determinants of big data adoption and success",
-     "author": "Al-Qirim",
-     "year": "2017"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0015",
-     "series-title": "Paper presented at the Big Data and Smart City (ICBDSC), 2016 3rd MEC International Conference on",
-     "article-title": "Leveraging on open data to solve city challenges: A case study of Windhoek municipality",
-     "author": "Amugongo",
-     "year": "2016"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0020",
-     "doi-asserted-by": "crossref",
-     "first-page": "1",
-     "DOI": "10.1111/1748-8583.12090",
-     "article-title": "HR and analytics: Why HR is set to fail the big data challenge",
-     "volume": "26",
-     "author": "Angrave",
-     "year": "2016",
-     "journal-title": "Human Resource Management Journal"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0025",
-     "doi-asserted-by": "crossref",
-     "first-page": "416",
-     "DOI": "10.1016/j.tre.2017.04.001",
-     "article-title": "Understanding big data analytics capabilities in supply chain management: Unravelling the issues, challenges and implications for practice",
-     "volume": "114",
-     "author": "Arunachalam",
-     "year": "2018",
-     "journal-title": "Transportation Research Part E: Logistics and Transportation Review"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0030",
-     "doi-asserted-by": "crossref",
-     "first-page": "1",
-     "DOI": "10.2202/1944-2866.1076",
-     "article-title": "The trouble with transparency: A critical review of openness in e-government",
-     "volume": "3",
-     "author": "Bannister",
-     "year": "2011",
-     "journal-title": "Policy & Internet"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0035",
-     "doi-asserted-by": "crossref",
-     "first-page": "45",
-     "DOI": "10.1016/j.inffus.2015.08.005",
-     "article-title": "Social big data: Recent achievements and new challenges",
-     "volume": "28",
-     "author": "Bello-Orgaz",
-     "year": "2016",
-     "journal-title": "Information Fusion"
-    },
-    {
-     "issue": "1,2",
-     "key": "10.1016/j.giq.2020.101550_bb0040",
-     "doi-asserted-by": "crossref",
-     "first-page": "5",
-     "DOI": "10.3233/IP-140328",
-     "article-title": "Big data, open government and e-government: Issues, policies and recommendations",
-     "volume": "19",
-     "author": "Bertot",
-     "year": "2014",
-     "journal-title": "Information Polity"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0045",
-     "doi-asserted-by": "crossref",
-     "first-page": "264",
-     "DOI": "10.1016/j.giq.2010.03.001",
-     "article-title": "Using ICTs to create a culture of transparency: E-government and social media as openness and anti-corruption tools for societies",
-     "volume": "27",
-     "author": "Bertot",
-     "year": "2010",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0050",
-     "series-title": "Paper presented at the Proceedings of the 12th Annual International Digital Government Research Conference: Digital Government Innovation in Challenging Times",
-     "article-title": "Managing the transformation to standard business reporting: principles and lessons learned from the Netherlands",
-     "author": "Bharosa",
-     "year": "2011"
-    },
-    {
-     "issue": "5",
-     "key": "10.1016/j.giq.2020.101550_bb0055",
-     "doi-asserted-by": "crossref",
-     "first-page": "977",
-     "DOI": "10.1177/0003122417725865",
-     "article-title": "Big data surveillance: The case of policing",
-     "volume": "82",
-     "author": "Brayne",
-     "year": "2017",
-     "journal-title": "American Sociological Review"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0060",
-     "first-page": "1023",
-     "article-title": "The racist algorithm",
-     "volume": "115",
-     "author": "Chander",
-     "year": "2016",
-     "journal-title": "Mich. L. Rev."
-    },
-    {
-     "issue": "9",
-     "key": "10.1016/j.giq.2020.101550_bb0065",
-     "first-page": "10",
-     "article-title": "Blockchain for the IoT: Privacy-preserving protection of sensor data",
-     "volume": "20",
-     "author": "Chanson",
-     "year": "2019",
-     "journal-title": "Journal of the Association for Information Systems"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0070",
-     "doi-asserted-by": "crossref",
-     "first-page": "239",
-     "DOI": "10.3389/fnhum.2014.00239",
-     "article-title": "Big data, open science and the brain: Lessons learned from genomics",
-     "volume": "8",
-     "author": "Choudhury",
-     "year": "2014",
-     "journal-title": "Frontiers in Human Neuroscience"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0075",
-     "doi-asserted-by": "crossref",
-     "first-page": "77",
-     "DOI": "10.1111/isj.12088",
-     "article-title": "Big data, big risks",
-     "volume": "26",
-     "author": "Clarke",
-     "year": "2016",
-     "journal-title": "Information Systems Journal"
-    },
-    {
-     "issue": "Supplement 1",
-     "key": "10.1016/j.giq.2020.101550_bb0080",
-     "doi-asserted-by": "crossref",
-     "first-page": "S10",
-     "DOI": "10.1016/j.giq.2014.01.003",
-     "article-title": "On the barriers for local government releasing open data",
-     "volume": "31",
-     "author": "Conradie",
-     "year": "2014",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0085",
-     "first-page": "1710",
-     "article-title": "Advertising, big data and the clearance of the public realm: marketers' new approaches to the content subsidy",
-     "volume": "8",
-     "author": "Couldry",
-     "year": "2014",
-     "journal-title": "International Journal of Communication"
-    },
-    {
-     "issue": "5",
-     "key": "10.1016/j.giq.2020.101550_bb0090",
-     "doi-asserted-by": "crossref",
-     "first-page": "601",
-     "DOI": "10.1016/j.clsr.2013.07.007",
-     "article-title": "Is “big data” creepy?",
-     "volume": "29",
-     "author": "Cumbley",
-     "year": "2013",
-     "journal-title": "Computer Law & Security Review"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0095",
-     "doi-asserted-by": "crossref",
-     "first-page": "377",
-     "DOI": "10.1016/j.giq.2010.07.001",
-     "article-title": "Stewardship and usefulness: Policy principles for information-based transparency",
-     "volume": "27",
-     "author": "Dawes",
-     "year": "2010",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0100",
-     "first-page": "1",
-     "article-title": "Algorithmic decision-making based on machine learning from big data: Can transparency restore accountability?",
-     "author": "De Laat",
-     "year": "2017",
-     "journal-title": "Philosophy & Technology"
-    },
-    {
-     "issue": "2",
-     "key": "10.1016/j.giq.2020.101550_bb0105",
-     "doi-asserted-by": "crossref",
-     "first-page": "197",
-     "DOI": "10.1007/s10796-016-9675-5",
-     "article-title": "Driving innovation through big open linked data (BOLD): Exploring antecedents using interpretive structural modelling",
-     "volume": "19",
-     "author": "Dwivedi",
-     "year": "2017",
-     "journal-title": "Information Systems Frontiers"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0110",
-     "doi-asserted-by": "crossref",
-     "first-page": "242",
-     "DOI": "10.1016/j.protcy.2014.10.089",
-     "article-title": "ERP and big data: The inept couple",
-     "volume": "16",
-     "author": "Elragal",
-     "year": "2014",
-     "journal-title": "Procedia Technology"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0115",
-     "doi-asserted-by": "crossref",
-     "first-page": "38",
-     "DOI": "10.1080/08900523.2014.863126",
-     "article-title": "Big data, big problems: Emerging issues in the ethics of data science and journalism",
-     "volume": "29",
-     "author": "Fairfield",
-     "year": "2014",
-     "journal-title": "Journal of Mass Media Ethics"
-    },
-    {
-     "issue": "2",
-     "key": "10.1016/j.giq.2020.101550_bb0120",
-     "doi-asserted-by": "crossref",
-     "first-page": "293",
-     "DOI": "10.1093/nsr/nwt032",
-     "article-title": "Challenges of big data analysis",
-     "volume": "1",
-     "author": "Fan",
-     "year": "2014",
-     "journal-title": "National Science Review"
-    },
-    {
-     "issue": "5",
-     "key": "10.1016/j.giq.2020.101550_bb0125",
-     "first-page": "380",
-     "article-title": "Big data with cloud computing: An insight on the computing environment, MapReduce, and programming frameworks",
-     "volume": "4",
-     "author": "Fernández",
-     "year": "2014",
-     "journal-title": "Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0130",
-     "series-title": "Conducting research literature reviews: From the internet to paper",
-     "author": "Fink",
-     "year": "2019"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0135",
-     "series-title": "Paper presented at the proceedings of the international conference for E-democracy and open government 2015 (CeDEM15)",
-     "article-title": "Concepts of Transparency: Open Data in UK Local Authorities",
-     "author": "Frank",
-     "year": "2015"
-    },
-    {
-     "issue": "2",
-     "key": "10.1016/j.giq.2020.101550_bb0140",
-     "doi-asserted-by": "crossref",
-     "first-page": "183",
-     "DOI": "10.1177/0032329213483107",
-     "article-title": "Infotopia: Unleashing the democratic power of transparency",
-     "volume": "41",
-     "author": "Fung",
-     "year": "2013",
-     "journal-title": "Politics and Society"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0145",
-     "series-title": "Full disclosure: The perils and promise of transparency",
-     "author": "Fung",
-     "year": "2007"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0150",
-     "series-title": "Big data and management",
-     "author": "George",
-     "year": "2014"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0155",
-     "doi-asserted-by": "crossref",
-     "first-page": "96",
-     "DOI": "10.1016/j.future.2015.07.019",
-     "article-title": "Modeling and Management of big Data: Challenges and opportunities",
-     "volume": "63",
-     "author": "Gil",
-     "year": "2016",
-     "journal-title": "Future Generation Computer Systems"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0160",
-     "series-title": "The daily shaping of state transparency: Standards, machine-readability and the configuration of open government data policies",
-     "author": "Goëta",
-     "year": "2016"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0165",
-     "series-title": "Paper presented at the 2016 Conference for E-Democracy and Open Government (CeDEM)",
-     "article-title": "The influence of the transparency agenda on open government data in Chile",
-     "author": "González-Zapata",
-     "year": "2016"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0170",
-     "doi-asserted-by": "crossref",
-     "first-page": "460",
-     "DOI": "10.1016/j.giq.2016.06.005",
-     "article-title": "Factors influencing social media use in local governments: The case of Italy and Spain",
-     "volume": "33",
-     "author": "Guillamón",
-     "year": "2016",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0175",
-     "doi-asserted-by": "crossref",
-     "first-page": "408",
-     "DOI": "10.1177/1464884915620205",
-     "article-title": "From computer-assisted to data-driven: Journalism and Big Data",
-     "volume": "18",
-     "author": "Hammond",
-     "year": "2017",
-     "journal-title": "Journalism"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0180",
-     "doi-asserted-by": "crossref",
-     "first-page": "30",
-     "DOI": "10.1016/j.clsr.2016.11.003",
-     "article-title": "Opening up government data for big data analysis and public benefit",
-     "volume": "33",
-     "author": "Hardy",
-     "year": "2017",
-     "journal-title": "Computer Law & Security Review"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0185",
-     "doi-asserted-by": "crossref",
-     "first-page": "513",
-     "DOI": "10.1016/j.giq.2014.08.002",
-     "article-title": "Transparency, participation, and accountability practices in open government: A comparative study",
-     "volume": "31",
-     "author": "Harrison",
-     "year": "2014",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0190",
-     "doi-asserted-by": "crossref",
-     "first-page": "652",
-     "DOI": "10.1109/ACCESS.2014.2332453",
-     "article-title": "Toward scalable systems for big data analytics: A technology tutorial",
-     "volume": "2",
-     "author": "Hu",
-     "year": "2014",
-     "journal-title": "IEEE access"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0195",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.1371/journal.pbio.1002333",
-     "article-title": "Reproducible research practices and transparency across the biomedical literature",
-     "volume": "14",
-     "author": "Iqbal",
-     "year": "2016",
-     "journal-title": "PLoS Biology"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0200",
-     "doi-asserted-by": "crossref",
-     "first-page": "446",
-     "DOI": "10.1016/j.giq.2011.01.004",
-     "article-title": "The influence of the PSI directive on open government data: An overview of recent developments",
-     "volume": "28",
-     "author": "Janssen",
-     "year": "2011",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0205",
-     "doi-asserted-by": "crossref",
-     "first-page": "258",
-     "DOI": "10.1080/10580530.2012.716740",
-     "article-title": "Benefits, adoption barriers and myths of open data and open government",
-     "volume": "29",
-     "author": "Janssen",
-     "year": "2012",
-     "journal-title": "Information Systems Management"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0210",
-     "doi-asserted-by": "crossref",
-     "first-page": "363",
-     "DOI": "10.1016/j.giq.2015.11.007",
-     "article-title": "Big and open linked data (BOLD) in government: A challenge to transparency and privacy?",
-     "volume": "32",
-     "author": "Janssen",
-     "year": "2015",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0215",
-     "doi-asserted-by": "crossref",
-     "unstructured": "Jin, X., Wah, B. W., Cheng, X., & Wang, Y. (2015). Significance and challenges of big data research. Big Data Research, 2(2), 59–64. doi:https://doi.org/10.1016/j.bdr.2015.01.006.",
-     "DOI": "10.1016/j.bdr.2015.01.006"
-    },
-    {
-     "issue": "6",
-     "key": "10.1016/j.giq.2020.101550_bb0220",
-     "doi-asserted-by": "crossref",
-     "first-page": "43",
-     "DOI": "10.1109/MITP.2013.61",
-     "article-title": "Big data and transformational government",
-     "volume": "15",
-     "author": "Joseph",
-     "year": "2013",
-     "journal-title": "IT Professional"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0225",
-     "doi-asserted-by": "crossref",
-     "first-page": "6",
-     "DOI": "10.1080/21681376.2014.983149",
-     "article-title": "Knowing and governing cities through urban indicators, city benchmarking and real-time dashboards",
-     "volume": "2",
-     "author": "Kitchin",
-     "year": "2015",
-     "journal-title": "Regional Studies, Regional Science"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0230",
-     "doi-asserted-by": "crossref",
-     "first-page": "65",
-     "DOI": "10.1146/annurev-polisci-032210-144356",
-     "article-title": "Does transparency improve governance?",
-     "volume": "17",
-     "author": "Kosack",
-     "year": "2014",
-     "journal-title": "Annual Review of Political Science"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0235",
-     "doi-asserted-by": "crossref",
-     "first-page": "24",
-     "DOI": "10.1016/j.landusepol.2017.10.019",
-     "article-title": "Big data dashboards as smart decision support tools for i-cities–an experiment on Stockholm",
-     "volume": "71",
-     "author": "Kourtit",
-     "year": "2018",
-     "journal-title": "Land Use Policy"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0240",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.2196/medinform.5359",
-     "article-title": "Challenges and opportunities of big data in health care: A systematic review",
-     "volume": "4",
-     "author": "Kruse",
-     "year": "2016",
-     "journal-title": "JMIR Medical Informatics"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0245",
-     "doi-asserted-by": "crossref",
-     "first-page": "293",
-     "DOI": "10.1016/j.bushor.2017.01.004",
-     "article-title": "Big data: Dimensions, evolution, impacts, and challenges",
-     "volume": "60",
-     "author": "Lee",
-     "year": "2017",
-     "journal-title": "Business Horizons"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0250",
-     "doi-asserted-by": "crossref",
-     "first-page": "323",
-     "DOI": "10.1016/j.giq.2015.05.006",
-     "article-title": "An analysis of open government portals: A perspective of transparency for accountability",
-     "volume": "32",
-     "author": "Lourenço",
-     "year": "2015",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0255",
-     "doi-asserted-by": "crossref",
-     "first-page": "4",
-     "DOI": "10.1016/j.giq.2013.09.001",
-     "article-title": "Open government, open data and digital government",
-     "volume": "31",
-     "author": "Luna-Reyes",
-     "year": "2014",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0260",
-     "series-title": "“Datafication”: Making sense of (big) data in a complex world",
-     "author": "Lycett",
-     "year": "2013"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0265",
-     "series-title": "Open and Big Data Management and Innovation",
-     "first-page": "236",
-     "article-title": "Transparency dimensions of big and open linked data",
-     "volume": "Vol. 9373",
-     "author": "Matheus",
-     "year": "2015"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0270",
-     "author": "Matheus"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0275",
-     "doi-asserted-by": "crossref",
-     "first-page": "503",
-     "DOI": "10.1080/15309576.2019.1691025",
-     "article-title": "A systematic literature study to unravel transparency enabled by open government data: The window theory",
-     "volume": "43",
-     "author": "Matheus",
-     "year": "2020",
-     "journal-title": "Public Performance & Management Review (PPMR)"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0280",
-     "doi-asserted-by": "crossref",
-     "first-page": "101284",
-     "DOI": "10.1016/j.giq.2018.01.006",
-     "article-title": "Data science empowering the public: Data-driven dashboards for transparent and accountable decision-making in smart cities",
-     "volume": "37",
-     "author": "Matheus",
-     "year": "2018",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "issue": "2",
-     "key": "10.1016/j.giq.2020.101550_bb0285",
-     "doi-asserted-by": "crossref",
-     "first-page": "303",
-     "DOI": "10.1007/s11948-015-9652-2",
-     "article-title": "The ethics of big data: Current and foreseeable issues in biomedical contexts",
-     "volume": "22",
-     "author": "Mittelstadt",
-     "year": "2016",
-     "journal-title": "Science and Engineering Ethics"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0290",
-     "doi-asserted-by": "crossref",
-     "first-page": "1",
-     "DOI": "10.1016/j.envsoft.2015.01.017",
-     "article-title": "Big data challenges in building the global earth observation system of systems",
-     "volume": "68",
-     "author": "Nativi",
-     "year": "2015",
-     "journal-title": "Environmental Modelling & Software"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0295",
-     "doi-asserted-by": "crossref",
-     "first-page": "53",
-     "DOI": "10.1016/j.giq.2015.12.003",
-     "article-title": "Online dissemination of information on sustainability in regional governments. Effects of technological factors",
-     "volume": "33",
-     "author": "Navarro-Galera",
-     "year": "2016",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0300",
-     "doi-asserted-by": "crossref",
-     "first-page": "108",
-     "DOI": "10.1016/j.giq.2013.07.006",
-     "article-title": "E-government and organisational transformation of government: Black box revisited?",
-     "volume": "31",
-     "author": "Nograšek",
-     "year": "2014",
-     "journal-title": "Government Information Quarterly"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0305",
-     "doi-asserted-by": "crossref",
-     "first-page": "156",
-     "DOI": "10.1108/JKM-08-2016-0357",
-     "article-title": "Facilitating knowledge management through filtered big data: SME competitiveness in an Agri-food sector",
-     "volume": "21",
-     "author": "O’Connor",
-     "year": "2017",
-     "journal-title": "Journal of Knowledge Management"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0310",
-     "article-title": "Big data technologies: A survey",
-     "author": "Oussous",
-     "year": "2017",
-     "journal-title": "Journal of King Saud University - Computer and Information Sciences."
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0315",
-     "doi-asserted-by": "crossref",
-     "first-page": "186091",
-     "DOI": "10.1109/ACCESS.2019.2961404",
-     "article-title": "Analysis of data management in blockchain-based systems: from architecture to governance",
-     "volume": "7",
-     "author": "Paik",
-     "year": "2019",
-     "journal-title": "IEEE Access"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0320",
-     "doi-asserted-by": "crossref",
-     "first-page": "7",
-     "DOI": "10.1177/0894439310392184",
-     "article-title": "E-government interoperability: Interaction of policy, management, and technology dimensions",
-     "volume": "30",
-     "author": "Pardo",
-     "year": "2012",
-     "journal-title": "Social Science Computer Review"
-    },
-    {
-     "issue": "7",
-     "key": "10.1016/j.giq.2020.101550_bb0325",
-     "doi-asserted-by": "crossref",
-     "first-page": "401",
-     "DOI": "10.1145/360881.360913",
-     "article-title": "Use of the concept of transparency in the design of hierarchically structured systems",
-     "volume": "18",
-     "author": "Parnas",
-     "year": "1975",
-     "journal-title": "Communications of the ACM"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0330",
-     "doi-asserted-by": "crossref",
-     "first-page": "45",
-     "DOI": "10.2753/MIS0742-1222240302",
-     "article-title": "A design science research methodology for information systems research",
-     "volume": "24",
-     "author": "Peffers",
-     "year": "2007",
-     "journal-title": "Journal of Management Information Systems"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0335",
-     "series-title": "The uncertain relationship between open data and accountability: A response to Yu and Robinson’s’ the new ambiguity of open government",
-     "author": "Peixoto",
-     "year": "2013"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0340",
-     "doi-asserted-by": "crossref",
-     "DOI": "10.5220/0006487803310342",
-     "article-title": "The challenge of using map-reduce to query open data",
-     "author": "Pelucchi",
-     "year": "2017"
-    },
-    {
-     "issue": "3",
-     "key": "10.1016/j.giq.2020.101550_bb0345",
-     "doi-asserted-by": "crossref",
-     "first-page": "32",
-     "DOI": "10.1109/MITP.2015.34",
-     "article-title": "Big data privacy in the internet of things era",
-     "volume": "17",
-     "author": "Perera",
-     "year": "2015",
-     "journal-title": "IT Professional"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0350",
-     "doi-asserted-by": "crossref",
-     "first-page": "314",
-     "DOI": "10.1016/j.ins.2014.01.015",
-     "article-title": "Data-intensive applications, challenges, techniques and technologies: A survey on big data",
-     "volume": "275",
-     "author": "Philip Chen",
-     "year": "2014",
-     "journal-title": "Information Sciences"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0355",
-     "article-title": "Determinants of business-to-government information sharing arrangements",
-     "volume": "15",
-     "author": "Praditya",
-     "year": "2017",
-     "journal-title": "Electronic Journal of e-Government"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0360",
-     "series-title": "Paper presented at the conference on e-business, e-services and e-society",
-     "article-title": "Exploring XBRL-Based Reporting System: A Conceptual Framework for System Adoption and Implementation",
-     "author": "Praditya",
-     "year": "2016"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0365",
-     "doi-asserted-by": "crossref",
-     "first-page": "71",
-     "DOI": "10.1080/10627260802153421",
-     "article-title": "Give the emperor a mirror: Toward developing a stakeholder measurement of organizational transparency",
-     "volume": "21",
-     "author": "Rawlins",
-     "year": "2008",
-     "journal-title": "Journal of Public Relations Research"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0370",
-     "doi-asserted-by": "crossref",
-     "first-page": "385",
-     "DOI": "10.2307/249787",
-     "article-title": "A principles-based enterprise architecture: Lessons from Texaco and star Enterprise",
-     "volume": "14",
-     "author": "Richardson",
-     "year": "1990",
-     "journal-title": "MIS Quarterly"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0375",
-     "doi-asserted-by": "crossref",
-     "first-page": "263",
-     "DOI": "10.1177/0952076716687355",
-     "article-title": "Big data and the measurement of public organizations’ performance and efficiency: The state-of-the-art",
-     "volume": "32",
-     "author": "Rogge",
-     "year": "2017",
-     "journal-title": "Public Policy and Administration"
-    },
-    {
-     "issue": "7",
-     "key": "10.1016/j.giq.2020.101550_bb0380",
-     "doi-asserted-by": "crossref",
-     "first-page": "1115",
-     "DOI": "10.1377/hlthaff.2014.0147",
-     "article-title": "Creating value in health care through big data: Opportunities and policy implications",
-     "volume": "33",
-     "author": "Roski",
-     "year": "2014",
-     "journal-title": "Health Affairs"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0385",
-     "first-page": "339",
-     "article-title": "Access barriers to big data",
-     "volume": "59",
-     "author": "Rubinfeld",
-     "year": "2017",
-     "journal-title": "Ariz. L. Rev."
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0390",
-     "series-title": "Challenges in heterogeneous web data analytics-case Finnish growth companies in social media",
-     "author": "Salonen",
-     "year": "2013"
-    },
-    {
-     "issue": "7/8",
-     "key": "10.1016/j.giq.2020.101550_bb0395",
-     "doi-asserted-by": "crossref",
-     "first-page": "420",
-     "DOI": "10.1108/ILS-05-2017-0034",
-     "article-title": "“Usage by stakeholders” as the objective of “transparency-by-design” in open government data: Case study of Sri Lanka’s open data initiative",
-     "volume": "118",
-     "author": "Saxena",
-     "year": "2017",
-     "journal-title": "Information and Learning Science"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0400",
-     "doi-asserted-by": "crossref",
-     "first-page": "120",
-     "DOI": "10.1111/jbl.12082",
-     "article-title": "Data science, predictive analytics, and big data in supply chain management: Current state and future potential",
-     "volume": "36",
-     "author": "Schoenherr",
-     "year": "2015",
-     "journal-title": "Journal of Business Logistics"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0405",
-     "doi-asserted-by": "crossref",
-     "first-page": "263",
-     "DOI": "10.1016/j.jbusres.2016.08.001",
-     "article-title": "Critical analysis of big data challenges and analytical methods",
-     "volume": "70",
-     "author": "Sivarajah",
-     "year": "2017",
-     "journal-title": "Journal of Business Research"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0410",
-     "doi-asserted-by": "crossref",
-     "first-page": "16",
-     "DOI": "10.4018/IJDSST.2017010102",
-     "article-title": "The full knowledge of big data in the integration of inter-organizational information: An approach focused on decision making",
-     "volume": "9",
-     "author": "Thiago",
-     "year": "2017",
-     "journal-title": "International Journal of Decision Support System Technology (IJDSST)"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0415",
-     "article-title": "The open group architecture framework (togaf)",
-     "volume": "1",
-     "author": "TOGAF",
-     "year": "2009",
-     "journal-title": "The Open Group"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0420",
-     "series-title": "Open Government Data",
-     "author": "Ubaldi",
-     "year": "2013"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0425",
-     "doi-asserted-by": "crossref",
-     "first-page": "34",
-     "DOI": "10.1109/JPROC.2015.2487976",
-     "article-title": "Learning to hash for indexing big data—A survey",
-     "volume": "104",
-     "author": "Wang",
-     "year": "2016",
-     "journal-title": "Proceedings of the IEEE"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0430",
-     "first-page": "45",
-     "article-title": "The magical concept of transparency",
-     "author": "Ward",
-     "year": "2014",
-     "journal-title": "Ethics for Digital Journalists: Emerging Best Practices"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0435",
-     "series-title": "Paper presented at the computer science and information systems (FedCSIS), 2013 federated conference on",
-     "article-title": "Implementation of the big data concept in organizations-possibilities, impediments and challenges",
-     "author": "Wielki",
-     "year": "2013"
-    },
-    {
-     "issue": "4",
-     "key": "10.1016/j.giq.2020.101550_bb0440",
-     "doi-asserted-by": "crossref",
-     "first-page": "561",
-     "DOI": "10.1111/j.1468-0491.2010.01498.x",
-     "article-title": "More open but not more trusted? The effect of the freedom of information act 2000 on the United Kingdom central government",
-     "volume": "23",
-     "author": "Worthy",
-     "year": "2010",
-     "journal-title": "Governance"
-    },
-    {
-     "issue": "1",
-     "key": "10.1016/j.giq.2020.101550_bb0445",
-     "doi-asserted-by": "crossref",
-     "first-page": "97",
-     "DOI": "10.1109/TKDE.2013.109",
-     "article-title": "Data mining with big data",
-     "volume": "26",
-     "author": "Wu",
-     "year": "2014",
-     "journal-title": "IEEE Transactions on Knowledge and Data Engineering"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0450",
-     "series-title": "Case study research: Design and methods",
-     "author": "Yin",
-     "year": "2013"
-    },
-    {
-     "issue": "2",
-     "key": "10.1016/j.giq.2020.101550_bb0455",
-     "doi-asserted-by": "crossref",
-     "first-page": "68",
-     "DOI": "10.1016/j.tips.2014.11.002",
-     "article-title": "Data collection as a barrier to personalized medicine",
-     "volume": "36",
-     "author": "Zakim",
-     "year": "2015",
-     "journal-title": "Trends in Pharmacological Sciences"
-    },
-    {
-     "key": "10.1016/j.giq.2020.101550_bb0460",
-     "article-title": "Big data: Challenges and opportunities",
-     "volume": "564",
-     "author": "Zicari",
-     "year": "2014",
-     "journal-title": "Big data computing"
-    }
-   ],
-   "container-title": [
-    "Government Information Quarterly"
-   ],
-   "language": "en",
-   "link": [
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0740624X20303294?httpAccept=text/xml",
-     "content-type": "text/xml",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    },
-    {
-     "URL": "https://api.elsevier.com/content/article/PII:S0740624X20303294?httpAccept=text/plain",
-     "content-type": "text/plain",
-     "content-version": "vor",
-     "intended-application": "text-mining"
-    }
-   ],
-   "deposited": {
-    "date-parts": [
-     [
-      2025,
-      10,
-      9
-     ]
-    ],
-    "date-time": "2025-10-09T20:01:51Z",
-    "timestamp": 1760040111000
-   },
-   "score": 41.753548,
-   "resource": {
-    "primary": {
-     "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0740624X20303294"
-    }
-   },
-   "issued": {
-    "date-parts": [
-     [
-      2021,
-      1
-     ]
-    ]
-   },
-   "references-count": 92,
-   "journal-issue": {
-    "issue": "1",
-    "published-print": {
-     "date-parts": [
-      [
-       2021,
-       1
-      ]
-     ]
-    }
-   },
-   "alternative-id": [
-    "S0740624X20303294"
-   ],
-   "URL": "https://doi.org/10.1016/j.giq.2020.101550",
-   "ISSN": [
-    "0740-624X"
-   ],
-   "issn-type": [
-    {
-     "value": "0740-624X",
-     "type": "print"
-    }
-   ],
-   "published": {
-    "date-parts": [
-     [
-      2021,
-      1
-     ]
-    ]
-   },
-   "assertion": [
-    {
-     "value": "Elsevier",
-     "name": "publisher",
-     "label": "This article is maintained by"
-    },
-    {
-     "value": "Design principles for creating digital transparency in government",
-     "name": "articletitle",
-     "label": "Article Title"
-    },
-    {
-     "value": "Government Information Quarterly",
-     "name": "journaltitle",
-     "label": "Journal Title"
-    },
-    {
-     "value": "https://doi.org/10.1016/j.giq.2020.101550",
-     "name": "articlelink",
-     "label": "CrossRef DOI link to publisher maintained version"
-    },
-    {
-     "value": "article",
-     "name": "content_type",
-     "label": "Content Type"
-    },
-    {
-     "value": "© 2020 The Author(s). Published by Elsevier Inc.",
-     "name": "copyright",
-     "label": "Copyright"
-    }
-   ],
-   "article-number": "101550"
   }
  },
  "barcellos_2005_lenda": {
@@ -13721,6 +9022,785 @@
      [
       2009,
       7
+     ]
+    ]
+   }
+  }
+ },
+ "luiz_2009_diferenciais": {
+  "doi": "10.1590/s0034-89102009000100015",
+  "qualis": "A1",
+  "titulo": "Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto",
+  "periodico": "Revista de Saúde Pública",
+  "item": {
+   "indexed": {
+    "date-parts": [
+     [
+      2023,
+      8,
+      30
+     ]
+    ],
+    "date-time": "2023-08-30T20:31:14Z",
+    "timestamp": 1693427474420
+   },
+   "reference-count": 10,
+   "publisher": "FapUNIFESP (SciELO)",
+   "issue": "1",
+   "content-domain": {
+    "domain": [],
+    "crossmark-restriction": false
+   },
+   "short-container-title": [
+    "Rev. Saúde Pública"
+   ],
+   "published-print": {
+    "date-parts": [
+     [
+      2009,
+      2
+     ]
+    ]
+   },
+   "abstract": "<jats:p>OBJETIVO: Descrever um índice para reconhecimento das desigualdades de condições de vida e saúde e sua relação com o planejamento em saúde. MÉTODOS: Foram selecionadas variáveis e indicadores que refletissem os processos demográficos, econômicos, ambientais e de educação, bem como oferta e produção de serviços de saúde. Esses indicadores foram utilizados no escalonamento adimensional dos indicadores e agrupamento dos 5.507 municípios brasileiros. As fontes de dados foram o censo de 2000 e os sistemas de informações do Ministério da Saúde. Para análise dos dados foram aplicados os testes z-score e cluster analysis. Com base nesses testes foram definidos quatro grupos de municípios segundo condições de vida. RESULTADOS: Existe uma polarização entre o grupo de melhores condições de vida e saúde (grupo 1) e o de piores condições (grupo 4). O grupo 1 é caracterizado pelos municípios de maior porte populacional e no grupo 4 estão principalmente os menores municípios. Quanto à macrorregião do País, os municípios do grupo 1 concentram-se no Sul e Sudeste e no grupo 4 estão os municípios do Nordeste. CONCLUSÕES: Por incorporar dimensões da realidade como habitação, meio ambiente e saúde, o índice de condições de vida e saúde permitiu identificar municípios mais vulneráveis, embasando a definição de prioridades, critérios para financiamento e repasse de recursos de forma mais eqüitativa.</jats:p>",
+   "DOI": "10.1590/s0034-89102009000100015",
+   "type": "journal-article",
+   "created": {
+    "date-parts": [
+     [
+      2009,
+      1,
+      21
+     ]
+    ],
+    "date-time": "2009-01-21T12:54:22Z",
+    "timestamp": 1232542462000
+   },
+   "page": "115-122",
+   "source": "Crossref",
+   "is-referenced-by-count": 8,
+   "title": [
+    "Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto"
+   ],
+   "prefix": "10.1590",
+   "volume": "43",
+   "author": [
+    {
+     "given": "Olinda do Carmo",
+     "family": "Luiz",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "Faculdade de Medicina do ABC,  Brasil; Universidade de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Luiza Sterman",
+     "family": "Heimann",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Roberta Cristina",
+     "family": "Boaretto",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Adriana Galvão",
+     "family": "Pacheco",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Umberto Catarino",
+     "family": "Pessoto",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Lauro Cesar",
+     "family": "Ibanhes",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Iracema Ester do Nascimento",
+     "family": "Castro",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Jorge",
+     "family": "Kayano",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Faculdade de Medicina do ABC,  Brasil; Instituto Polis,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Virginia",
+     "family": "Junqueira",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Jucilene Leite da",
+     "family": "Rocha",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Carlos Tato",
+     "family": "Cortizo",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Emílio",
+     "family": "Telesi Junior",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Secretaria de Estado da Saúde de São Paulo,  Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "member": "530",
+   "reference": [
+    {
+     "issue": "1",
+     "key": "ref1",
+     "doi-asserted-by": "crossref",
+     "first-page": "115",
+     "DOI": "10.1590/S1413-81232000000100010",
+     "article-title": "Examinando elementos que possam influenciar a formulação de políticas em estudos que utilizaram indicadores compostos: o chão contra o cifrão",
+     "volume": "5",
+     "author": "Akerman M",
+     "year": "2000",
+     "journal-title": "Cienc Saude Coletiva."
+    },
+    {
+     "key": "ref2",
+     "series-title": "Proyecto: sistemas nacionales de vigilancia de la situación de salud según condiciones de vida y del impacto de las acciones de salud y bienestar",
+     "author": "Castellanos PL",
+     "year": "1994"
+    },
+    {
+     "issue": "3-4",
+     "key": "ref3",
+     "doi-asserted-by": "crossref",
+     "first-page": "142",
+     "DOI": "10.1590/S0102-88392003000300015",
+     "article-title": "Pesquisa de condições de vida",
+     "volume": "17",
+     "author": "Costa OV",
+     "year": "2003",
+     "journal-title": "Sao Paulo Perspec."
+    },
+    {
+     "issue": "3-4",
+     "key": "ref4",
+     "doi-asserted-by": "crossref",
+     "first-page": "17",
+     "DOI": "10.1590/S0102-88392003000300003",
+     "article-title": "Produção e disponibilização de estatísticas: uma abordagem institucional",
+     "volume": "17",
+     "author": "Ferreira SP",
+     "year": "2003",
+     "journal-title": "Sao Paulo Perspec."
+    },
+    {
+     "issue": "2",
+     "key": "ref5",
+     "first-page": "69",
+     "article-title": "Direitos e eqüidade: princípios éticos para a saúde",
+     "volume": "30",
+     "author": "Luiz OC",
+     "year": "2005",
+     "journal-title": "Arq Med ABC."
+    },
+    {
+     "issue": "1",
+     "key": "ref6",
+     "doi-asserted-by": "crossref",
+     "first-page": "7",
+     "DOI": "10.1590/S1413-81232000000100002",
+     "article-title": "Qualidade de vida e saúde: um debate necessário",
+     "volume": "5",
+     "author": "Minayo MCS",
+     "year": "2000",
+     "journal-title": "Cienc Saude Coletiva."
+    },
+    {
+     "key": "ref7",
+     "series-title": "International Definition and Measurements of Standards and Levels of Living",
+     "year": "1954"
+    },
+    {
+     "key": "ref8",
+     "series-title": "Saúde nos aglomerados urbanos: uma visão integrada",
+     "first-page": "183",
+     "volume-title": "Gestão da Atenção Básica nas cidades",
+     "author": "Paim JS",
+     "year": "2003"
+    },
+    {
+     "key": "ref9",
+     "series-title": "Atlas da Exclusão Social no Brasil",
+     "author": "Pochmann M",
+     "year": "2003",
+     "edition": "2"
+    },
+    {
+     "issue": "2",
+     "key": "ref10",
+     "doi-asserted-by": "crossref",
+     "first-page": "187",
+     "DOI": "10.1590/S0034-89101999000200011",
+     "article-title": "Desigualdades na mortalidade, espaço e estratos sociais",
+     "volume": "33",
+     "author": "Silva LMV",
+     "year": "1999",
+     "journal-title": "Rev Saude Publica."
+    }
+   ],
+   "container-title": [
+    "Revista de Saúde Pública"
+   ],
+   "original-title": [],
+   "link": [
+    {
+     "URL": "http://www.scielo.br/pdf/rsp/v43n1/6921.pdf",
+     "content-type": "unspecified",
+     "content-version": "vor",
+     "intended-application": "similarity-checking"
+    }
+   ],
+   "deposited": {
+    "date-parts": [
+     [
+      2017,
+      5,
+      26
+     ]
+    ],
+    "date-time": "2017-05-26T12:59:54Z",
+    "timestamp": 1495803594000
+   },
+   "score": 1,
+   "resource": {
+    "primary": {
+     "URL": "http://www.scielo.br/scielo.php?script=sci_arttext&pid=S0034-89102009000100015&lng=pt&tlng=pt"
+    }
+   },
+   "subtitle": [],
+   "short-title": [],
+   "issued": {
+    "date-parts": [
+     [
+      2009,
+      2
+     ]
+    ]
+   },
+   "references-count": 10,
+   "journal-issue": {
+    "issue": "1",
+    "published-print": {
+     "date-parts": [
+      [
+       2009,
+       2
+      ]
+     ]
+    }
+   },
+   "alternative-id": [
+    "S0034-89102009000100015"
+   ],
+   "URL": "https://doi.org/10.1590/s0034-89102009000100015",
+   "relation": {},
+   "ISSN": [
+    "0034-8910"
+   ],
+   "issn-type": [
+    {
+     "value": "0034-8910",
+     "type": "electronic"
+    }
+   ],
+   "subject": [],
+   "published": {
+    "date-parts": [
+     [
+      2009,
+      2
+     ]
+    ]
+   }
+  }
+ },
+ "mendes_2011_discutindo": {
+  "doi": "10.1590/s0104-12902011000300013",
+  "qualis": "A2",
+  "titulo": "Discutindo uma Metodologia para a Alocação Equitativa de Recursos Federais para o Sistema Único de Saúde",
+  "periodico": "Saúde e Sociedade",
+  "item": {
+   "indexed": {
+    "date-parts": [
+     [
+      2025,
+      10,
+      3
+     ]
+    ],
+    "date-time": "2025-10-03T17:49:58Z",
+    "timestamp": 1759513798275
+   },
+   "reference-count": 24,
+   "publisher": "FapUNIFESP (SciELO)",
+   "issue": "3",
+   "content-domain": {
+    "domain": [],
+    "crossmark-restriction": false
+   },
+   "short-container-title": [
+    "Saude soc."
+   ],
+   "published-print": {
+    "date-parts": [
+     [
+      2011,
+      9
+     ]
+    ]
+   },
+   "abstract": "<jats:p>Este artigo trata da aplicação de uma metodologia de alocação equitativa dos recursos federais do SUS para os Estados e municípios brasileiros, tanto para procedimentos da Atenção Básica como para Média e Alta Complexidade. Poucas ações na área de financiamento da saúde foram desenvolvidas até o momento no Brasil para atender às exigências legais da universalidade e da equidade. Via de regra prevalece o comportamento histórico da alocação de recursos pautada na produção e não nas necessidades. A metodologia proposta segue a abordagem de Porto e colaboradores (2001), usando a técnica de análise de componentes principais, com alguns ajustes e alterações na definição da escala de referência, especialmente para procedimentos de média e alta complexidade. Com base nesta metodologia, o trabalho apresenta a distribuição proposta para os recursos federais do SUS, efetuados em 2005, comparando, inclusive com o realizado, para os dois níveis de procedimentos previstos. No caso da Atenção Básica, a metodologia proposta abrange todos os municípios brasileiros, consolidados em nível estadual. Já para recursos destinados à Média e Alta Complexidade, ela foi desenvolvida apenas para a esfera estadual.</jats:p>",
+   "DOI": "10.1590/s0104-12902011000300013",
+   "type": "journal-article",
+   "created": {
+    "date-parts": [
+     [
+      2011,
+      10,
+      6
+     ]
+    ],
+    "date-time": "2011-10-06T21:54:37Z",
+    "timestamp": 1317938077000
+   },
+   "page": "673-690",
+   "source": "Crossref",
+   "is-referenced-by-count": 19,
+   "title": [
+    "Discutindo uma Metodologia para a Alocação Equitativa de Recursos Federais para o Sistema Único de Saúde"
+   ],
+   "prefix": "10.1590",
+   "volume": "20",
+   "author": [
+    {
+     "given": "Áquilas",
+     "family": "Mendes",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "USP; PUC-SP, Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Marcel Guedes",
+     "family": "Leite",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "PUC-SP, Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Rosa Maria",
+     "family": "Marques",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "PUC-SP, Brasil"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "member": "530",
+   "reference": [
+    {
+     "key": "ref1",
+     "series-title": "As reformas sanitárias nos anos 80: crise ou transição",
+     "author": "ALMEIDA C. M.",
+     "year": "1995"
+    },
+    {
+     "key": "ref2",
+     "series-title": "Metodologia de alocação eqüitativa de recursos: uma proposta para Minas Gerais",
+     "author": "ANDRADE M. V.",
+     "year": "2004"
+    },
+    {
+     "key": "ref3",
+     "series-title": "Constituição da República Federativa do Brasil, de 5 de outubro de 1988"
+    },
+    {
+     "key": "ref4",
+     "series-title": "Emenda Constitucional n. 29, de 13 de setembro de 2000: Altera os artigos 34, 35, 156, 160, 167 e 198 da Constituição Federal e acrescenta artigo ao Ato das Disposições Constitucionais Transitórias, para assegurar os recursos mínimos para o financiamento das ações e serviços públicos de saúde"
+    },
+    {
+     "key": "ref5",
+     "series-title": "Lei n. 8.080, de 19 de setembro de 1990: Dispõe sobre as condições para a promoção, proteção e recuperação da saúde, a organização e o funcionamento dos serviços correspondentes e dá outras providências"
+    },
+    {
+     "key": "ref6",
+     "series-title": "Lei n. 8.142, de 28 de dezembro de 1990a: Dispõe sobre a participação da comunidade na gestão do Sistema Único de Saúde (SUS) e sobre as transferências intergovernamentais de recursos financeiros na área da saúde e dá outras providências"
+    },
+    {
+     "key": "ref7",
+     "article-title": "Portaria n. 2.023, de 6 de novembro de 1996: Dispõe sobre a NOB 01/96 - Norma Operacional Básica do SUS",
+     "year": "1996",
+     "journal-title": "Diário Oficial da União"
+    },
+    {
+     "issue": "25",
+     "key": "ref8",
+     "first-page": "30",
+     "article-title": "\"Comentários a respeito do artigo: Financiamento e equidade em saúde - por um novo contrato social\"",
+     "volume": "11",
+     "author": "CASTRO J. A.",
+     "year": "2009",
+     "journal-title": "SER Social"
+    },
+    {
+     "key": "ref9",
+     "author": "CARMONA G.",
+     "year": "1992"
+    },
+    {
+     "key": "ref10",
+     "series-title": "A fórmula for distributing NHS Revenues based on small area use of hospital beds",
+     "author": "CARR-HILL R.",
+     "year": "1994"
+    },
+    {
+     "key": "ref11",
+     "series-title": "On measuring and planing: The quality of life",
+     "author": "DREWNOWSKI J.",
+     "year": "1974"
+    },
+    {
+     "issue": "25",
+     "key": "ref12",
+     "first-page": "35",
+     "article-title": "\"Notas sobre financiamento e equidade em saúde - por um novo contrato social\"",
+     "volume": "11",
+     "author": "FRANÇA J. R. M.",
+     "year": "2009",
+     "journal-title": "SER Social"
+    },
+    {
+     "key": "ref13",
+     "series-title": "Distribuição Equitativa da Despesa em Cuidados de Saúde Primários",
+     "author": "GIRALDES M. R.",
+     "year": "1987"
+    },
+    {
+     "key": "ref14",
+     "series-title": "Censo Demográfico 2000"
+    },
+    {
+     "key": "ref15",
+     "series-title": "Applied multivariate statistical analysis",
+     "author": "JOHNSON R. A.",
+     "year": "2007",
+     "edition": "6"
+    },
+    {
+     "issue": "65",
+     "key": "ref16",
+     "article-title": "Os (des) caminhos do financiamento do SUS",
+     "volume": "27",
+     "author": "MARQUES R.",
+     "year": "2003",
+     "journal-title": "Saúde em Debate: revista do Centro Brasileiro de Estudos de saúde"
+    },
+    {
+     "key": "ref17",
+     "doi-asserted-by": "crossref",
+     "first-page": "403",
+     "DOI": "10.1590/S1413-81232003000200007",
+     "article-title": "Atenção Básica e Programa de Saúde da Família (PSF): novos rumos para a política de saúde e seu financiamento?",
+     "volume": "8",
+     "author": "MARQUES R.",
+     "year": "2003",
+     "journal-title": "Ciência & Saúde Coletiva",
+     "ISSN": "http://id.crossref.org/issn/1413-8123",
+     "issn-type": "print"
+    },
+    {
+     "key": "ref18",
+     "series-title": "\"Financiamento, gasto e gestão do Sistema Único de Saúde (SUS): a gestão descentralizada semiplena e plena do sistema municipal no Estado de São Paulo (1995-2001)\"",
+     "author": "MENDES Á.",
+     "year": "2005"
+    },
+    {
+     "key": "ref19",
+     "series-title": "Datasus: Informações"
+    },
+    {
+     "key": "ref20",
+     "series-title": "Metodologia de alocação eqüitativa de recursos: 1º Relatório de pesquisa",
+     "author": "PORTO S.",
+     "year": "2001"
+    },
+    {
+     "issue": "65",
+     "key": "ref21",
+     "article-title": "Alocação eqüitativa de recursos financeiros: uma alternativa para o caso brasileiro",
+     "volume": "27",
+     "author": "PORTO S.",
+     "year": "2003",
+     "journal-title": "Saúde em Debate revista do Centro Brasileiro de Estudos de saúde"
+    },
+    {
+     "key": "ref22",
+     "article-title": "Projeto Alocação Geográfica de Recursos",
+     "author": "PORTO S.",
+     "year": "2005",
+     "journal-title": "Relatório Final para o Ministério da Saúde"
+    },
+    {
+     "issue": "25",
+     "key": "ref23",
+     "doi-asserted-by": "crossref",
+     "first-page": "16",
+     "DOI": "10.26512/ser_social.v11i25.12724",
+     "article-title": "\"Financiamento e equidade em saúde - por um novo contrato social\"",
+     "volume": "11",
+     "author": "TEIXEIRA S. F.",
+     "year": "2009",
+     "journal-title": "SER Social"
+    },
+    {
+     "issue": "25",
+     "key": "ref24",
+     "doi-asserted-by": "crossref",
+     "first-page": "217",
+     "DOI": "10.1590/S0102-311X2009001400004",
+     "article-title": "\"Eqüidade em saúde: uma análise crítica de conceitos\"",
+     "author": "VIEIRA DA SILVA L. M.",
+     "year": "2009",
+     "journal-title": "Cadernos de Saúde Pública",
+     "ISSN": "http://id.crossref.org/issn/0102-311X",
+     "issn-type": "print"
+    }
+   ],
+   "container-title": [
+    "Saúde e Sociedade"
+   ],
+   "original-title": [],
+   "link": [
+    {
+     "URL": "http://www.scielo.br/pdf/sausoc/v20n3/13.pdf",
+     "content-type": "unspecified",
+     "content-version": "vor",
+     "intended-application": "similarity-checking"
+    }
+   ],
+   "deposited": {
+    "date-parts": [
+     [
+      2019,
+      6,
+      17
+     ]
+    ],
+    "date-time": "2019-06-17T04:32:30Z",
+    "timestamp": 1560745950000
+   },
+   "score": 1,
+   "resource": {
+    "primary": {
+     "URL": "http://www.scielo.br/scielo.php?script=sci_arttext&pid=S0104-12902011000300013&lng=pt&tlng=pt"
+    }
+   },
+   "subtitle": [],
+   "short-title": [],
+   "issued": {
+    "date-parts": [
+     [
+      2011,
+      9
+     ]
+    ]
+   },
+   "references-count": 24,
+   "journal-issue": {
+    "issue": "3",
+    "published-print": {
+     "date-parts": [
+      [
+       2011,
+       9
+      ]
+     ]
+    }
+   },
+   "alternative-id": [
+    "S0104-12902011000300013"
+   ],
+   "URL": "https://doi.org/10.1590/s0104-12902011000300013",
+   "relation": {},
+   "ISSN": [
+    "0104-1290"
+   ],
+   "issn-type": [
+    {
+     "value": "0104-1290",
+     "type": "electronic"
+    }
+   ],
+   "subject": [],
+   "published": {
+    "date-parts": [
+     [
+      2011,
+      9
      ]
     ]
    }

@@ -1,50 +1,45 @@
-# Resultado da coleta (execução de 30/08/2026)
-
-Rodado o workflow (`01` → `04`). Resumo:
+# Resultado da revisão (versão final — 30/08/2026)
 
 | | |
 |---|---|
-| Artigos selecionados (Qualis A1/A2) | **24** — `referencias.ris`, `referencias.csv` |
-| PDFs de acesso aberto baixados | **18** (SciELO/CC-BY + BMJ Global Health + Epidemiol. Serv. Saúde via SciELO-IEC) — `pdfs/` |
-| Texto completo extraído | **18** — `texto/` |
-| Fichas analíticas redigidas | **24 de 24** — 18 a partir do texto integral, 6 a partir do resumo publicado (PubMed/Semantic Scholar) — `fichamento.ris` / `fichamento.md` |
+| Artigos no trabalho | **20**, todos de periódicos **Qualis A1/A2** (Saúde Coletiva / Interdisciplinar) |
+| PDFs de acesso aberto | **20/20** — SciELO/CC-BY, BMJ Global Health e Epidemiologia e Serviços de Saúde (SciELO-IEC) |
+| Texto completo extraído | **20/20** — `texto/*.txt` (com marcador `[[página N]]`) |
+| Fichas analíticas | **20/20** — `fichamento.ris` / `fichamento.md` |
 
-## 5 artigos sem PDF — ficha redigida a partir do resumo publicado; obter o texto integral na CAPES para as citações diretas
+## Como chegou a 20
 
-Boccolini (Epidemiol. Serv. Saúde) foi obtido do SciELO-IEC e já tem ficha
-completa. Os cinco abaixo (Elsevier/Lancet, Oxford, Elsevier/GIQ) têm ficha
-**parcial**, redigida a partir do resumo publicado — o resumo autoral, o
-conceito, a relação com o Farol-SS e a citação indireta já estão prontos; falta
-o **trecho literal e a página** da citação direta, que exigem o texto integral.
-Baixe cada PDF logado no **Portal de Periódicos CAPES**
-(`periodicos.capes.gov.br`, via instituição ou CAFe), salve em
-`pdfs/<chave>.pdf`, acrescente a citação direta em `fichas_analiticas.yml`
-(removendo `tipo: parcial`) e rode `03` e `05` de novo.
+- Retirados **6 artigos sem versão de acesso aberto** (a pedido): as duas séries
+  do *Lancet* sobre o SUS (Paim et al., 2011; Castro et al., 2019), Barreto et
+  al. (2007) e Rasella et al. (2013) no *Lancet*, Dixon et al. (2006) na
+  *Health Policy and Planning* e Matheus et al. (2021) na *Government
+  Information Quarterly*.
+- Acrescentados **2 artigos sobre metodologia de índice composto e alocação
+  equitativa**, para embasar a discussão da fórmula do IEAS e das escolhas
+  estatísticas no pôster:
+  - LUIZ, O. C. et al. Diferenciais intermunicipais de condições de vida e
+    saúde: construção de um indicador composto. **Rev. Saúde Pública**, v. 43,
+    n. 1, 2009. (escore-z + análise de conglomerados)
+  - MENDES, Á.; LEITE, M. G.; MARQUES, R. M. Discutindo uma metodologia para a
+    alocação equitativa de recursos federais para o SUS. **Saúde e Sociedade**,
+    v. 20, n. 3, 2011. (análise de componentes principais; alocação por
+    produção vs. por necessidade)
 
-| chave | referência | DOI |
-|---|---|---|
-| `paim_2011_brazilian` | PAIM, J. et al. The Brazilian health system: history, advances, and challenges. The Lancet, v. 377, n. 9779, 2011. | 10.1016/S0140-6736(11)60054-8 |
-| `castro_2019_brazil` | CASTRO, M. C. et al. Brazil's unified health system: the first 30 years and prospects for the future. The Lancet, v. 394, n. 10195, 2019. | 10.1016/S0140-6736(19)31243-7 |
-| `barreto_2007_effect` | BARRETO, M. L. et al. Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil. The Lancet, v. 370, n. 9599, 2007. | 10.1016/S0140-6736(07)61638-9 |
-| `rasella_2013_effect` | RASELLA, D. et al. Effect of a conditional cash transfer programme on childhood mortality. The Lancet, v. 382, n. 9886, 2013. | 10.1016/S0140-6736(13)60715-1 |
-| `dixon_2006_financing` | DIXON, A. et al. Financing mental health services in low- and middle-income countries. Health Policy and Planning, v. 21, n. 3, 2006. | 10.1093/heapol/czl004 |
-| `matheus_2021_design` | MATHEUS, R.; JANSSEN, M.; JANOWSKI, T. Design principles for creating digital transparency in government. Government Information Quarterly, v. 38, n. 1, 2021. | 10.1016/j.giq.2020.101550 |
+## Verificação de plágio
 
-> `barreto_2007` e `rasella_2013` são referências de peso (efeito de saneamento
-> e de transferência de renda sobre desfechos infantis) — vale o esforço de
-> obtê-las.
+- **Pôster**: nenhuma sequência de 8 palavras da argumentação coincide,
+  literalmente, com qualquer um dos 20 PDFs (`_check_plagio.py`).
+- **Fichamento**: os `resumo` são paráfrases próprias — as poucas coincidências
+  de 8 palavras que restam são termos técnicos e nomes próprios inevitáveis
+  ("equipes de saúde da família", "recursos de média e alta complexidade",
+  "acesso à água e ao esgotamento sanitário"). As `citacao_direta` são trechos
+  **verbatim** conferidos contra o texto-fonte (20/20); a **página exata** ainda
+  deve ser conferida no PDF (o intervalo do artigo está em cada ficha).
 
-## Artigos que talvez você queira substituir (pouco aderentes)
+## O que falta a você
 
-Ao revisar `referencias.csv`, avalie trocar por termos de busca melhores em
-`consulta.yml` (e rodar `01` de novo):
-
-- `cotrim-junior_2020_crescimento` (leitos de UTI na pandemia) — só se for usar o argumento de desigualdade regional de oferta.
-- `pinheiro_2020_analise` / `batista_2019_registro` — entram pelo método (análise espacial; qualidade de SIS), não pelo tema; mantenha 1 de cada no máximo.
-
-## Próximo passo
-
-Ler os 17 PDFs em `texto/` (ou os próprios arquivos em `pdfs/`) e preencher os
-campos `[PREENCHER APÓS LER O PDF]` de `fichamento.ris`/`fichamento.md` — o
-resumo com **suas palavras**, as citações diretas com a **página real** e as
-paráfrases. Só então montar a introdução e a discussão do pôster.
+1. Conferir a **página** de cada citação direta abrindo o PDF em `pdfs/`.
+2. Preencher autores, filiação e e-mail no `banner-final-sipes-2026.docx`.
+3. Gerar o **QR** do painel e inserir a **Figura 2** definitiva (mapa do farol
+   de 2024, exportado da página *Farol*).
+4. Ampliar o banner para **90 × 120 cm** e exportar em PDF a 300 dpi.

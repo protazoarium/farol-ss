@@ -1,62 +1,4 @@
 TY  - JOUR
-AU  - Paim, Jairnilson
-AU  - Travassos, Claudia
-AU  - Almeida, Celia
-AU  - Bahia, Ligia
-AU  - Macinko, James
-TI  - The Brazilian health system: history, advances, and challenges
-JO  - The Lancet
-JF  - The Lancet
-PY  - 2011
-VL  - 377
-IS  - 9779
-SP  - 1778
-EP  - 1797
-SN  - 0140-6736
-DO  - 10.1016/s0140-6736(11)60054-8
-UR  - https://doi.org/10.1016/s0140-6736(11)60054-8
-KW  - revisão SIPES 2026
-KW  - Qualis A1
-N1  - chave: paim_2011_brazilian
-N1  - origem: semente:Paim The Brazilian health system history
-N1  - Qualis (2017-2020): A1
-N1  - referência ABNT: PAIM, J. et al. The Brazilian health system: history, advances, and challenges. <b>The Lancet</b>, v. 377, n. 9779, p. 1778-1797, 2011. DOI: https://doi.org/10.1016/s0140-6736(11)60054-8. Acesso em: [DATA].
-ER  - 
-TY  - JOUR
-AU  - Castro, Marcia C
-AU  - Massuda, Adriano
-AU  - Almeida, Gisele
-AU  - Menezes-Filho, Naercio Aquino
-AU  - Andrade, Monica Viegas
-AU  - de Souza Noronha, Kenya Valéria Micaela
-AU  - Rocha, Rudi
-AU  - Macinko, James
-AU  - Hone, Thomas
-AU  - Tasca, Renato
-AU  - Giovanella, Ligia
-AU  - Malik, Ana Maria
-AU  - Werneck, Heitor
-AU  - Fachini, Luiz Augusto
-AU  - Atun, Rifat
-TI  - Brazil's unified health system: the first 30 years and prospects for the future
-JO  - The Lancet
-JF  - The Lancet
-PY  - 2019
-VL  - 394
-IS  - 10195
-SP  - 345
-EP  - 356
-SN  - 0140-6736
-DO  - 10.1016/s0140-6736(19)31243-7
-UR  - https://doi.org/10.1016/s0140-6736(19)31243-7
-KW  - revisão SIPES 2026
-KW  - Qualis A1
-N1  - chave: castro_2019_brazil
-N1  - origem: semente:Castro Brazil unified health system firs
-N1  - Qualis (2017-2020): A1
-N1  - referência ABNT: CASTRO, M. C. et al. Brazil's unified health system: the first 30 years and prospects for the future. <b>The Lancet</b>, v. 394, n. 10195, p. 345-356, 2019. DOI: https://doi.org/10.1016/s0140-6736(19)31243-7. Acesso em: [DATA].
-ER  - 
-TY  - JOUR
 AU  - Massuda, Adriano
 AU  - Hone, Thomas
 AU  - Leles, Fernando Antonio Gomes
@@ -76,106 +18,8 @@ AB  - The Unified Health System (Sistema Único de Saúde (SUS)) has enabled sub
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: massuda_2018_brazilian
-N1  - origem: semente:Massuda The Brazilian health system at c
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: MASSUDA, A. et al. The Brazilian health system at crossroads: progress, crisis and resilience. <b>BMJ Global Health</b>, v. 3, n. 4, p. e000829, 2018. DOI: https://doi.org/10.1136/bmjgh-2018-000829. Acesso em: [DATA].
-ER  - 
-TY  - JOUR
-AU  - Barreto, Mauricio L
-AU  - Genser, Bernd
-AU  - Strina, Agostino
-AU  - Assis, Ana Marlucia O
-AU  - Rego, Rita F
-AU  - Teles, Carlos A
-AU  - Prado, Matildes S
-AU  - Matos, Sheila MA
-AU  - Santos, Darci N
-AU  - dos Santos, Lenaldo A
-AU  - Cairncross, Sandy
-AU  - Teixeira, Maria Gloria
-TI  - Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies
-JO  - The Lancet
-JF  - The Lancet
-PY  - 2007
-VL  - 370
-IS  - 9599
-SP  - 1622
-EP  - 1628
-SN  - 0140-6736
-DO  - 10.1016/s0140-6736(07)61638-9
-UR  - https://doi.org/10.1016/s0140-6736(07)61638-9
-KW  - revisão SIPES 2026
-KW  - Qualis A1
-N1  - chave: barreto_2007_effect
-N1  - origem: semente:Barreto Effect of city-wide sanitation p
-N1  - Qualis (2017-2020): A1
-N1  - referência ABNT: BARRETO, M. L. et al. Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies. <b>The Lancet</b>, v. 370, n. 9599, p. 1622-1628, 2007. DOI: https://doi.org/10.1016/s0140-6736(07)61638-9. Acesso em: [DATA].
-ER  - 
-TY  - JOUR
-AU  - Rasella, Davide
-AU  - Aquino, Rosana
-AU  - Santos, Carlos AT
-AU  - Paes-Sousa, Rômulo
-AU  - Barreto, Mauricio L
-TI  - Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities
-JO  - The Lancet
-JF  - The Lancet
-PY  - 2013
-VL  - 382
-IS  - 9886
-SP  - 57
-EP  - 64
-SN  - 0140-6736
-DO  - 10.1016/s0140-6736(13)60715-1
-UR  - https://doi.org/10.1016/s0140-6736(13)60715-1
-KW  - revisão SIPES 2026
-KW  - Qualis A1
-N1  - chave: rasella_2013_effect
-N1  - origem: semente:Rasella impact conditional cash transfer
-N1  - Qualis (2017-2020): A1
-N1  - referência ABNT: RASELLA, D. et al. Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities. <b>The Lancet</b>, v. 382, n. 9886, p. 57-64, 2013. DOI: https://doi.org/10.1016/s0140-6736(13)60715-1. Acesso em: [DATA].
-ER  - 
-TY  - JOUR
-AU  - Dixon, A.
-TI  - Financing mental health services in low- and middle-income countries
-JO  - Health Policy and Planning
-JF  - Health Policy and Planning
-PY  - 2006
-VL  - 21
-IS  - 3
-SP  - 171
-EP  - 182
-SN  - 0268-1080
-SN  - 1460-2237
-DO  - 10.1093/heapol/czl004
-UR  - https://doi.org/10.1093/heapol/czl004
-KW  - revisão SIPES 2026
-KW  - Qualis A1
-N1  - chave: dixon_2006_financing
-N1  - origem: semente:Ataguba characterizing measuring health 
-N1  - Qualis (2017-2020): A1
-N1  - referência ABNT: DIXON, A. Financing mental health services in low- and middle-income countries. <b>Health Policy and Planning</b>, v. 21, n. 3, p. 171-182, 2006. DOI: https://doi.org/10.1093/heapol/czl004. Acesso em: [DATA].
-ER  - 
-TY  - JOUR
-AU  - Matheus, Ricardo
-AU  - Janssen, Marijn
-AU  - Janowski, Tomasz
-TI  - Design principles for creating digital transparency in government
-JO  - Government Information Quarterly
-JF  - Government Information Quarterly
-PY  - 2021
-VL  - 38
-IS  - 1
-SP  - 101550
-SN  - 0740-624X
-DO  - 10.1016/j.giq.2020.101550
-UR  - https://doi.org/10.1016/j.giq.2020.101550
-KW  - revisão SIPES 2026
-KW  - Qualis A1
-N1  - chave: matheus_2021_design
-N1  - origem: semente:Matheus Janssen design principles data i
-N1  - Qualis (2017-2020): A1
-N1  - referência ABNT: MATHEUS, R.; JANSSEN, M.; JANOWSKI, T. Design principles for creating digital transparency in government. <b>Government Information Quarterly</b>, v. 38, n. 1, p. 101550, 2021. DOI: https://doi.org/10.1016/j.giq.2020.101550. Acesso em: [DATA].
 ER  - 
 TY  - JOUR
 AU  - Barcellos, Christovam
@@ -193,7 +37,6 @@ UR  - https://doi.org/10.1590/s0102-311x2005000400001
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: barcellos_2005_lenda
-N1  - origem: semente:Barcellos lenda urbana internações falta
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: BARCELLOS, C. A lenda urbana sobre internações devidas à falta de saneamento. <b>Cadernos de Saúde Pública</b>, v. 21, n. 4, p. 996-997, 2005. DOI: https://doi.org/10.1590/s0102-311x2005000400001. Acesso em: [DATA].
 ER  - 
@@ -216,7 +59,6 @@ AB  - Este estudo teve como objetivo revisar a literatura acerca dos métodos ap
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: correia_2014_metodos
-N1  - origem: semente:Correia métodos avaliar completitude dad
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: CORREIA, L. O. d. S.; PADILHA, B. M.; VASCONCELOS, S. M. L. Métodos para avaliar a completitude dos dados dos sistemas de informação em saúde do Brasil: uma revisão sistemática. <b>Ciência & Saúde Coletiva</b>, v. 19, n. 11, p. 4467-4478, 2014. DOI: https://doi.org/10.1590/1413-812320141911.02822013. Acesso em: [DATA].
 ER  - 
@@ -239,7 +81,6 @@ AB  - Resumo O artigo analisa as compras de medicamentos para hepatite C, feitas
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: chaves_2017_compras
-N1  - origem: semente:Chaves compras públicas medicamentos jud
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: CHAVES, G. C.; OSORIO-DE-CASTRO, C. G. S.; OLIVEIRA, M. A. Compras públicas de medicamentos para hepatite C no Brasil no período de 2005 a 2015. <b>Ciência & Saúde Coletiva</b>, v. 22, n. 8, p. 2527-2538, 2017. DOI: https://doi.org/10.1590/1413-81232017228.05602017. Acesso em: [DATA].
 ER  - 
@@ -261,7 +102,6 @@ AB  - Resumo O presente trabalho apresenta como problema de pesquisa a discussã
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: carvalho_2021_desigualdades
-N1  - origem: tema:equidade e alocação de recursos no SUS
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: CARVALHO, G. d. P. Desigualdades regionais e o papel dos recursos federais no SUS: fatores políticos condicionam a alocação de recursos?. <b>Ciência & Saúde Coletiva</b>, v. 26, n. suppl 2, p. 3409-3421, 2021. DOI: https://doi.org/10.1590/1413-81232021269.2.31192019. Acesso em: [DATA].
 ER  - 
@@ -283,7 +123,6 @@ AB  - Resumo Este artigo objetiva identificar novas fontes de receitas para a al
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: funcia_2019_subfinanciamen
-N1  - origem: tema:equidade e alocação de recursos no SUS
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: FUNCIA, F. R. Subfinanciamento e orçamento federal do SUS: referências preliminares para a alocação adicional de recursos. <b>Ciência & Saúde Coletiva</b>, v. 24, n. 12, p. 4405-4415, 2019. DOI: https://doi.org/10.1590/1413-812320182412.25892019. Acesso em: [DATA].
 ER  - 
@@ -303,7 +142,6 @@ UR  - https://doi.org/10.1590/s1413-81232005000200003
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: cohn_2005_equidade
-N1  - origem: tema:equidade e alocação de recursos no SUS
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: COHN, A. Eqüidade, saúde e critérios para alocação de recursos. <b>Ciência & Saúde Coletiva</b>, v. 10, n. 2, p. 287-288, 2005. DOI: https://doi.org/10.1590/s1413-81232005000200003. Acesso em: [DATA].
 ER  - 
@@ -327,7 +165,6 @@ AB  - Resumo Diante do cenário nacional da falta de recursos no Sistema Único 
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: santos-neto_2017_analise
-N1  - origem: tema:financiamento e gasto público em saúde
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: SANTOS NETO, J. A. d. et al. Análise do financiamento e gasto do Sistema Único de Saúde dos municípios da região de saúde Rota dos Bandeirantes do estado de São Paulo, Brasil. <b>Ciência & Saúde Coletiva</b>, v. 22, n. 4, p. 1269-1280, 2017. DOI: https://doi.org/10.1590/1413-81232017224.28452016. Acesso em: [DATA].
 ER  - 
@@ -351,7 +188,6 @@ AB  - Resumo Os serviços de saúde, cujo acesso é um direito de todos e dever 
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: rodrigues_2021_eficiencia
-N1  - origem: tema:financiamento e gasto público em saúde
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: RODRIGUES, A. d. C.; GONTIJO, T. S.; GONÇALVES, C. A. Eficiência do gasto público em atenção primária em saúde nos municípios do Rio de Janeiro, Brasil: escores robustos e seus determinantes. <b>Ciência & Saúde Coletiva</b>, v. 26, n. suppl 2, p. 3567-3579, 2021. DOI: https://doi.org/10.1590/1413-81232021269.2.04342020. Acesso em: [DATA].
 ER  - 
@@ -371,7 +207,6 @@ UR  - https://doi.org/10.1590/s0103-73312020300317
 KW  - revisão SIPES 2026
 KW  - Qualis A2
 N1  - chave: cotrim-junior_2020_crescimento
-N1  - origem: tema:iniquidades territoriais em saúde
 N1  - Qualis (2017-2020): A2
 N1  - referência ABNT: COTRIM JUNIOR, D. F.; CABRAL, L. M. d. S. Crescimento dos leitos de UTI no país durante a pandemia de Covid-19: desigualdades entre o público x privado e iniquidades regionais. <b>Physis: Revista de Saúde Coletiva</b>, v. 30, n. 3, 2020. DOI: https://doi.org/10.1590/s0103-73312020300317. Acesso em: [DATA].
 ER  - 
@@ -396,7 +231,6 @@ AB  - Resumo Este artigo busca discutir a evolução das desigualdades em saúde
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: viacava_2019_desigualdades
-N1  - origem: tema:iniquidades territoriais em saúde
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: VIACAVA, F. et al. Desigualdades regionais e sociais em saúde segundo inquéritos domiciliares (Brasil, 1998-2013). <b>Ciência & Saúde Coletiva</b>, v. 24, n. 7, p. 2745-2760, 2019. DOI: https://doi.org/10.1590/1413-81232018247.15812017. Acesso em: [DATA].
 ER  - 
@@ -417,7 +251,6 @@ UR  - https://doi.org/10.5123/s1679-49742011000100003
 KW  - revisão SIPES 2026
 KW  - Qualis A2
 N1  - chave: boccolini_2011_relacao
-N1  - origem: tema:saneamento e saúde / DRSAI
 N1  - Qualis (2017-2020): A2
 N1  - referência ABNT: BOCCOLINI, C. S.; BOCCOLINI, P. d. M. M. Relação entre aleitamento materno e internações por doenças diarreicas nas crianças com menos de um ano de vida nas Capitais Brasileiras e Distrito Federal, 2008. <b>Epidemiologia e Serviços de Saúde</b>, v. 20, n. 1, p. 19-26, 2011. DOI: https://doi.org/10.5123/s1679-49742011000100003. Acesso em: [DATA].
 ER  - 
@@ -437,7 +270,6 @@ AB  - Resumo: O presente estudo teve como objetivo avaliar a associação entre 
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: paiva_2018_associacao
-N1  - origem: tema:saneamento e saúde / DRSAI
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: PAIVA, R. F. d. P. d. S.; SOUZA, M. F. d. P. d. Associação entre condições socioeconômicas, sanitárias e de atenção básica e a morbidade hospitalar por doenças de veiculação hídrica no Brasil. <b>Cadernos de Saúde Pública</b>, v. 34, n. 1, 2018. DOI: https://doi.org/10.1590/0102-311x00017316. Acesso em: [DATA].
 ER  - 
@@ -464,7 +296,6 @@ AB  - Resumo A morbimortalidade por doenças diarreicas infecciosas ainda repres
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: duarte_2019_variabilidade
-N1  - origem: tema:saneamento e saúde / DRSAI
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: DUARTE, J. L. et al. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira. <b>Ciência & Saúde Coletiva</b>, v. 24, n. 8, p. 2959-2970, 2019. DOI: https://doi.org/10.1590/1413-81232018248.21232017. Acesso em: [DATA].
 ER  - 
@@ -486,7 +317,6 @@ AB  - Resumo O conceito de promoção da saúde, baseado nos determinantes socia
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: neves-silva_2016_direito
-N1  - origem: tema:saneamento e morbidade infantil
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: NEVES-SILVA, P.; HELLER, L. O direito humano à água e ao esgotamento sanitário como instrumento para promoção da saúde de populações vulneráveis. <b>Ciência & Saúde Coletiva</b>, v. 21, n. 6, p. 1861-1870, 2016. DOI: https://doi.org/10.1590/1413-81232015216.03422016. Acesso em: [DATA].
 ER  - 
@@ -508,7 +338,6 @@ AB  - Resumo: Os direitos humanos à água e ao esgotamento sanitário (DHAES) a
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: neves-silva_2018_gente
-N1  - origem: tema:saneamento e morbidade infantil
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: NEVES-SILVA, P.; MARTINS, G. I.; HELLER, L. “A gente tem acesso de favores, né?”. A percepção de pessoas em situação de rua sobre os direitos humanos à água e ao esgotamento sanitário. <b>Cadernos de Saúde Pública</b>, v. 34, n. 3, 2018. DOI: https://doi.org/10.1590/0102-311x00024017. Acesso em: [DATA].
 ER  - 
@@ -533,7 +362,6 @@ AB  - No Brasil, o monitoramento da qualidade dos dados dos Sistemas de Informa�
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: lima_2009_revisao
-N1  - origem: tema:sistemas de informação em saúde - qualidade do dado
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: LIMA, C. R. d. A. et al. Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde. <b>Cadernos de Saúde Pública</b>, v. 25, n. 10, p. 2095-2109, 2009. DOI: https://doi.org/10.1590/s0102-311x2009001000002. Acesso em: [DATA].
 ER  - 
@@ -556,7 +384,59 @@ AB  - O objetivo foi analisar a qualidade dos Sistemas de Informações Sobre Na
 KW  - revisão SIPES 2026
 KW  - Qualis A1
 N1  - chave: silva_2009_linkage
-N1  - origem: tema:sistemas de informação em saúde - qualidade do dado
 N1  - Qualis (2017-2020): A1
 N1  - referência ABNT: SILVA, C. F. d.; LEITE, Á. J. M.; ALMEIDA, N. M. G. S. d. Linkage entre bancos de dados de nascidos vivos e óbitos infantis em município do Nordeste do Brasil: qualidade dos sistemas de informação. <b>Cadernos de Saúde Pública</b>, v. 25, n. 7, p. 1552-1558, 2009. DOI: https://doi.org/10.1590/s0102-311x2009000700013. Acesso em: [DATA].
+ER  - 
+TY  - JOUR
+AU  - Luiz, Olinda do Carmo
+AU  - Heimann, Luiza Sterman
+AU  - Boaretto, Roberta Cristina
+AU  - Pacheco, Adriana Galvão
+AU  - Pessoto, Umberto Catarino
+AU  - Ibanhes, Lauro Cesar
+AU  - Castro, Iracema Ester do Nascimento
+AU  - Kayano, Jorge
+AU  - Junqueira, Virginia
+AU  - Rocha, Jucilene Leite da
+AU  - Cortizo, Carlos Tato
+AU  - Telesi Junior, Emílio
+TI  - Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto
+JO  - Revista de Saúde Pública
+JF  - Revista de Saúde Pública
+PY  - 2009
+VL  - 43
+IS  - 1
+SP  - 115
+EP  - 122
+SN  - 0034-8910
+DO  - 10.1590/s0034-89102009000100015
+UR  - https://doi.org/10.1590/s0034-89102009000100015
+AB  - OBJETIVO: Descrever um índice para reconhecimento das desigualdades de condições de vida e saúde e sua relação com o planejamento em saúde. MÉTODOS: Foram selecionadas variáveis e indicadores que refletissem os processos demográficos, econômicos, ambientais e de educação, bem como oferta e produção de serviços de saúde. Esses indicadores foram utilizados no escalonamento adimensional dos indicadores e agrupamento dos 5.507 municípios brasileiros. As fontes de dados foram o censo de 2000 e os sistemas de informações do Ministério da Saúde. Para análise dos dados foram aplicados os testes z-score e cluster analysis. Com base nesses testes foram definidos quatro grupos de municípios segundo condições de vida. RESULTADOS: Existe uma polarização entre o grupo de melhores condições de vida e saúde (grupo 1) e o de piores condições (grupo 4). O grupo 1 é caracterizado pelos municípios de maior porte populacional e no grupo 4 estão principalmente os menores municípios. Quanto à macrorregião do País, os municípios do grupo 1 concentram-se no Sul e Sudeste e no grupo 4 estão os municípios do Nordeste. CONCLUSÕES: Por incorporar dimensões da realidade como habitação, meio ambiente e saúde, o índice de condições de vida e saúde permitiu identificar municípios mais vulneráveis, embasando a definição de prioridades, critérios para financiamento e repasse de recursos de forma mais eqüitativa.
+KW  - revisão SIPES 2026
+KW  - Qualis A1
+N1  - chave: luiz_2009_diferenciais
+N1  - Qualis (2017-2020): A1
+N1  - referência ABNT: LUIZ, O. d. C. et al. Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto. <b>Revista de Saúde Pública</b>, v. 43, n. 1, p. 115-122, 2009. DOI: https://doi.org/10.1590/s0034-89102009000100015. Acesso em: [DATA].
+ER  - 
+TY  - JOUR
+AU  - Mendes, Áquilas
+AU  - Leite, Marcel Guedes
+AU  - Marques, Rosa Maria
+TI  - Discutindo uma Metodologia para a Alocação Equitativa de Recursos Federais para o Sistema Único de Saúde
+JO  - Saúde e Sociedade
+JF  - Saúde e Sociedade
+PY  - 2011
+VL  - 20
+IS  - 3
+SP  - 673
+EP  - 690
+SN  - 0104-1290
+DO  - 10.1590/s0104-12902011000300013
+UR  - https://doi.org/10.1590/s0104-12902011000300013
+AB  - Este artigo trata da aplicação de uma metodologia de alocação equitativa dos recursos federais do SUS para os Estados e municípios brasileiros, tanto para procedimentos da Atenção Básica como para Média e Alta Complexidade. Poucas ações na área de financiamento da saúde foram desenvolvidas até o momento no Brasil para atender às exigências legais da universalidade e da equidade. Via de regra prevalece o comportamento histórico da alocação de recursos pautada na produção e não nas necessidades. A metodologia proposta segue a abordagem de Porto e colaboradores (2001), usando a técnica de análise de componentes principais, com alguns ajustes e alterações na definição da escala de referência, especialmente para procedimentos de média e alta complexidade. Com base nesta metodologia, o trabalho apresenta a distribuição proposta para os recursos federais do SUS, efetuados em 2005, comparando, inclusive com o realizado, para os dois níveis de procedimentos previstos. No caso da Atenção Básica, a metodologia proposta abrange todos os municípios brasileiros, consolidados em nível estadual. Já para recursos destinados à Média e Alta Complexidade, ela foi desenvolvida apenas para a esfera estadual.
+KW  - revisão SIPES 2026
+KW  - Qualis A2
+N1  - chave: mendes_2011_discutindo
+N1  - Qualis (2017-2020): A2
+N1  - referência ABNT: MENDES, Á.; LEITE, M. G.; MARQUES, R. M. Discutindo uma Metodologia para a Alocação Equitativa de Recursos Federais para o Sistema Único de Saúde. <b>Saúde e Sociedade</b>, v. 20, n. 3, p. 673-690, 2011. DOI: https://doi.org/10.1590/s0104-12902011000300013. Acesso em: [DATA].
 ER  - 

@@ -24,7 +24,7 @@ HERE = Path(__file__).parent
 CFG = yaml.safe_load((HERE / "consulta.yml").read_text(encoding="utf-8"))
 EMAIL = CFG["email"]
 ALVO = 20
-LIMITE = 24  # teto — sobra para os que não tiverem PDF de acesso aberto
+LIMITE = 22  # teto — sobra para os que não tiverem PDF de acesso aberto
 
 issn_qualis: dict[str, str] = {}
 issn_all: list[str] = []
@@ -41,6 +41,7 @@ def qualis_de(item) -> str | None:
     return None
 
 
+EXCLUIR = set(CFG.get('excluir') or [])
 selec: dict[str, dict] = {}
 _titulos: set[str] = set()
 _dois: set[str] = set()
@@ -70,7 +71,7 @@ def considerar(item, origem) -> bool:
     if nt in _titulos or db in _dois:
         return False  # duplicata (inclui versão bilíngue PT/EN)
     k = cave_key(item)
-    if k in selec:
+    if k in selec or k in EXCLUIR:
         return False
     selec[k] = {"item": item, "qualis": q, "origem": origem}
     _titulos.add(nt)

@@ -2,52 +2,10 @@
 
 > Referências: **ABNT NBR 6023:2018**. Chamada no texto: **autor-data NBR 10520:2023** (direta ≤ 3 linhas entre aspas com página; > 3 linhas em recuo de 4 cm, fonte menor, sem aspas).
 
-> `resumo` = redação própria a partir do texto completo do PDF. `citação direta` = trecho literal — **confira a página exata no PDF** (o intervalo do artigo está indicado). 24 de 24 fichas analíticas preenchidas; as demais aguardam o PDF (ver RESULTADO.md).
+> `resumo` = redação própria a partir do texto completo do PDF. `citação direta` = trecho literal — **confira a página exata no PDF** (o intervalo do artigo está indicado). 20 de 20 fichas analíticas preenchidas; as demais aguardam o PDF (ver RESULTADO.md).
 
 
-## 01. The Brazilian health system: history, advances, and challenges
-
-**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
-
-**Referência (NBR 6023):** PAIM, J. et al. The Brazilian health system: history, advances, and challenges. The Lancet, v. 377, n. 9779, p. 1778-1797, 2011. DOI: https://doi.org/10.1016/s0140-6736(11)60054-8. Acesso em: [DATA].
-
-**Chamada (NBR 10520):** (PAIM et al., 2011) · no texto: Paim et al. (2011)
-
-**Resumo (redação própria):** Relatório da série do Lancet sobre a saúde no Brasil que examina o desenvolvimento histórico e os componentes do sistema de saúde brasileiro, com foco no processo de reforma dos 40 anos anteriores e na criação do SUS. Os autores destacam que a reforma foi conduzida pela sociedade civil, que o SUS ampliou o acesso num contexto de privatização crescente e que muito resta a fazer para a cobertura universal — sobretudo reestruturar o financiamento e redefinir os papéis dos setores público e privado, num país de desigualdades regionais e sociais amplas.
-
-**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); página no texto integral (Lancet 377(9779):1778–1797)):
-
-> "Brazil is a country of continental dimensions with widespread regional and social inequalities" (PAIM et al., 2011, p. [conferir]).
-
-**Citação indireta:** o SUS ampliou o acesso à saúde num contexto de privatização, mas a cobertura universal ainda depende de reestruturar o financiamento (PAIM et al., 2011).
-
-**Conceito:** reforma sanitária conduzida pela sociedade civil; desigualdades regionais e sociais amplas  
-**Relação com o Farol-SS:** INTRODUÇÃO: âncora histórica — as desigualdades regionais e sociais que o Farol-SS mede são um traço estrutural do sistema, não uma conjuntura.  
-**Onde entra:** Introdução
-
-
-## 02. Brazil's unified health system: the first 30 years and prospects for the future
-
-**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
-
-**Referência (NBR 6023):** CASTRO, M. C. et al. Brazil's unified health system: the first 30 years and prospects for the future. The Lancet, v. 394, n. 10195, p. 345-356, 2019. DOI: https://doi.org/10.1016/s0140-6736(19)31243-7. Acesso em: [DATA].
-
-**Chamada (NBR 10520):** (CASTRO et al., 2019) · no texto: Castro et al. (2019)
-
-**Resumo (redação própria):** Balanço dos 30 anos do SUS publicado no Lancet. Reconhece os ganhos em acesso e desfechos, mas identifica como problemas persistentes o subfinanciamento, a fragmentação da governança e a alocação de recursos desigual entre regiões e grupos sociais, agravados pela política de austeridade fiscal. Aponta a necessidade de fortalecer a atenção primária, a coordenação federativa e o financiamento público.
-
-**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (texto integral pendente (Lancet 394(10195):345–356)):
-
-> "[trecho literal e página a obter no texto integral — Portal CAPES]" (CASTRO et al., 2019, p. [conferir]).
-
-**Citação indireta:** após três décadas, o SUS ainda convive com subfinanciamento e alocação regionalmente desigual de recursos, tensões que a austeridade acentua (CASTRO et al., 2019).
-
-**Conceito:** trajetória do SUS; subfinanciamento e desigualdade regional de alocação como problemas persistentes  
-**Relação com o Farol-SS:** INTRODUÇÃO: reforça, em fonte de alto impacto e recente, a premissa do trabalho — a alocação regionalmente desigual segue sendo um problema aberto.  
-**Onde entra:** Introdução
-
-
-## 03. The Brazilian health system at crossroads: progress, crisis and resilience
+## 01. The Brazilian health system at crossroads: progress, crisis and resilience
 
 **Qualis A1** · BMJ Global Health · ficha completa
 
@@ -68,91 +26,7 @@
 **Onde entra:** Introdução
 
 
-## 04. Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies
-
-**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
-
-**Referência (NBR 6023):** BARRETO, M. L. et al. Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies. The Lancet, v. 370, n. 9599, p. 1622-1628, 2007. DOI: https://doi.org/10.1016/s0140-6736(07)61638-9. Acesso em: [DATA].
-
-**Chamada (NBR 10520):** (BARRETO et al., 2007) · no texto: Barreto et al. (2007)
-
-**Resumo (redação própria):** Avaliação epidemiológica do efeito de um programa de saneamento de escala urbana em Salvador (Bahia), iniciado em 1997 para ampliar a cobertura de esgotamento de 26% para 80% dos domicílios, sobre a diarreia em crianças menores de três anos. O desenho combina dois estudos de coorte — um antes (1997–98) e um depois (2003–04) da intervenção — em 24 áreas-sentinela escolhidas para representar as condições ambientais da cidade, com visitas domiciliares duas vezes por semana para registro diário de diarreia. O efeito foi estimado por modelo hierárquico.
-
-**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); Lancet 370(9599):1622–1628):
-
-> "A city-wide sanitation intervention was started in Salvador, Brazil, in 1997 to improve sewerage coverage from 26% of households to 80%" (BARRETO et al., 2007, p. [conferir]).
-
-**Citação indireta:** a expansão da cobertura de esgotamento sanitário em escala urbana produziu redução mensurável da diarreia infantil em Salvador (BARRETO et al., 2007).
-
-**Conceito:** efeito populacional (city-wide) do saneamento sobre a diarreia infantil; avaliação por coortes antes-depois  
-**Relação com o Farol-SS:** INTRODUÇÃO: evidência forte (Lancet) de que investir em esgotamento reduz carga de doença — o tipo de decisão que o Farol-SS ajuda a priorizar territorialmente.  
-**Onde entra:** Introdução
-
-
-## 05. Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities
-
-**Qualis A1** · The Lancet · ficha parcial (do resumo publicado)
-
-**Referência (NBR 6023):** RASELLA, D. et al. Effect of a conditional cash transfer programme on childhood mortality: a nationwide analysis of Brazilian municipalities. The Lancet, v. 382, n. 9886, p. 57-64, 2013. DOI: https://doi.org/10.1016/s0140-6736(13)60715-1. Acesso em: [DATA].
-
-**Chamada (NBR 10520):** (RASELLA et al., 2013) · no texto: Rasella et al. (2013)
-
-**Resumo (redação própria):** Análise nacional do efeito do Programa Bolsa Família sobre a mortalidade de menores de cinco anos nos municípios brasileiros, 2004–2009, com desenho ecológico misto e 2.853 municípios com estatísticas vitais de qualidade adequada. A cobertura do programa foi classificada em faixas (baixa, intermediária, alta, consolidada) e os modelos de painel com efeitos fixos (binomial negativo) foram ajustados por determinantes sociais e econômicos. O estudo associa maior cobertura do programa a menor mortalidade infantil, sobretudo por causas ligadas à pobreza — desnutrição, diarreia e infecções respiratórias.
-
-**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); Lancet 382(9886):57–64):
-
-> "We aimed to assess the effect of the BFP on deaths of children younger than 5 years (under-5), overall and resulting from specific causes associated with poverty: malnutrition, diarrhoea, and lower respiratory infections" (RASELLA et al., 2013, p. [conferir]).
-
-**Citação indireta:** transferências de renda condicionadas reduzem a mortalidade infantil por causas ligadas à pobreza, o que liga a camada de vulnerabilidade social à carga de doença evitável (RASELLA et al., 2013).
-
-**Conceito:** efeito de transferência de renda sobre mortalidade infantil por causas de pobreza; vulnerabilidade social  
-**Relação com o Farol-SS:** INTRODUÇÃO e METODOLOGIA: justifica incluir a vulnerabilidade social (extrema pobreza, CadÚnico) no eixo Necessidade — ela condiciona a carga de doença tanto quanto o saneamento.  
-**Onde entra:** Introdução
-
-
-## 06. Financing mental health services in low- and middle-income countries
-
-**Qualis A1** · Health Policy and Planning · ficha parcial (do resumo publicado)
-
-**Referência (NBR 6023):** DIXON, A. Financing mental health services in low- and middle-income countries. Health Policy and Planning, v. 21, n. 3, p. 171-182, 2006. DOI: https://doi.org/10.1093/heapol/czl004. Acesso em: [DATA].
-
-**Chamada (NBR 10520):** (DIXON, 2006) · no texto: Dixon (2006)
-
-**Resumo (redação própria):** Revisão, com estudos de caso de países, sobre como os arranjos de financiamento afetam o uso eficiente e equitativo dos serviços de saúde mental em países de baixa e média renda. Compara pagamento direto do bolso, seguro privado, seguro social e financiamento por impostos. Conclui que cobrar do paciente leva a uso abaixo do socialmente eficiente, porque os benefícios passam a se distribuir conforme a capacidade de pagar, gerando acesso iníquo; o seguro social tende a oferecer mais proteção.
-
-**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo (PubMed); Health Policy Plan. 21(3):171–182):
-
-> "charging patients for mental health services results in levels of use which are below socially efficient levels as the benefits of the services are distributed according to ability to pay, resulting in inequitable access to care" (DIXON, 2006, p. [conferir]).
-
-**Citação indireta:** o desenho do financiamento — quem paga e como — determina se o uso dos serviços fica abaixo do nível socialmente eficiente e se o acesso é iníquo (DIXON, 2006).
-
-**Conceito:** financiamento e uso socialmente eficiente; equidade no acesso conforme capacidade de pagar  
-**Relação com o Farol-SS:** INTRODUÇÃO/DISCUSSÃO: dá base conceitual internacional à ideia de 'efetividade da alocação' — não basta gastar, importa como o gasto se distribui frente à necessidade.  
-**Onde entra:** Introdução
-
-
-## 07. Design principles for creating digital transparency in government
-
-**Qualis A1** · Government Information Quarterly · ficha parcial (do resumo publicado)
-
-**Referência (NBR 6023):** MATHEUS, R.; JANSSEN, M.; JANOWSKI, T. Design principles for creating digital transparency in government. Government Information Quarterly, v. 38, n. 1, p. 101550, 2021. DOI: https://doi.org/10.1016/j.giq.2020.101550. Acesso em: [DATA].
-
-**Chamada (NBR 10520):** (MATHEUS; JANSSEN; JANOWSKI, 2021) · no texto: Matheus; Janssen e Janowski (2021)
-
-**Resumo (redação própria):** Artigo que propõe princípios de projeto para criar transparência digital no governo. Os autores identificam barreiras à transparência digital, definem 16 princípios para superá-las e os avaliam em três estudos de caso de países diferentes. Alguns princípios aplicam-se a projetos, outros a sistemas e outros a organizações inteiras; a tese central é que, antes de construir soluções digitais, o governo precisa estabelecer fundações tecnológicas e institucionais e organizar-se para a transparência.
-
-**Citação direta — do resumo publicado, CONFIRMAR no texto integral** (resumo via Semantic Scholar; texto integral pendente (GIQ 38(1), 101550)):
-
-> "[trecho literal e página a obter no texto integral — Portal CAPES]" (MATHEUS; JANSSEN; JANOWSKI, 2021, p. [conferir]).
-
-**Citação indireta:** a transparência digital não decorre da mera publicação de dados, mas de fundações tecnológicas e institucionais e de princípios de projeto deliberados (MATHEUS; JANSSEN; JANOWSKI, 2021).
-
-**Conceito:** princípios de projeto para transparência digital; fundações tecnológicas e institucionais  
-**Relação com o Farol-SS:** METODOLOGIA e CONCLUSÃO: enquadra o Farol-SS como uma dessas soluções — API aberta, proveniência rastreável e explicabilidade dos alertas são escolhas de projeto para transparência, não subprodutos.  
-**Onde entra:** Conclusão
-
-
-## 08. A lenda urbana sobre internações devidas à falta de saneamento
+## 02. A lenda urbana sobre internações devidas à falta de saneamento
 
 **Qualis A1** · Cadernos de Saúde Pública · ficha completa
 
@@ -173,7 +47,7 @@
 **Onde entra:** Metodologia
 
 
-## 09. Métodos para avaliar a completitude dos dados dos sistemas de informação em saúde do Brasil: uma revisão sistemática
+## 03. Métodos para avaliar a completitude dos dados dos sistemas de informação em saúde do Brasil: uma revisão sistemática
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -181,11 +55,11 @@
 
 **Chamada (NBR 10520):** (CORREIA; PADILHA; VASCONCELOS, 2014) · no texto: Correia; Padilha e Vasconcelos (2014)
 
-**Resumo (redação própria):** Revisão sistemática dos métodos usados para avaliar a completitude dos dados dos sistemas de informação em saúde brasileiros (Medline, SciELO, Lilacs). Dos 19 estudos incluídos, os sistemas de racionalidade epidemiológica são os mais avaliados (90,5%); a produção é escassa (cerca de um estudo por ano); o escore de Romero e Cunha é o mais frequente. Os autores concluem que a heterogeneidade de métodos impede comparação entre estudos e defendem padronização.
+**Resumo (redação própria):** Revisão sistemática (Medline, SciELO e Lilacs) sobre como a literatura brasileira mede a completude — proporção de campos preenchidos — nos sistemas de informação em saúde. Foram analisados 19 estudos; predominam os que avaliam sistemas de lógica epidemiológica (90,5%), a produção é rala (cerca de um por ano) e a métrica mais recorrente é o escore de Romero e Cunha. Os autores concluem que a falta de um método comum impede comparar resultados entre estudos e recomendam padronização.
 
-**Citação direta** (Introdução / Resumo, p. 4467–4468 (C&SC 19(11))):
+**Citação direta** (Introdução, p. 4468 (C&SC 19(11)) — definição de completitude):
 
-> "essa dimensão é também denominada de completitude e pode ser entendida como 'o grau em que os registros de um sistema de informação possuem valores não nulos'" — e "A heterogeneidade de métodos carece de padronização" (CORREIA; PADILHA; VASCONCELOS, 2014, p. [conferir]).
+> "o grau em que os registros de um sistema de informação possuem valores não nulos" (CORREIA; PADILHA; VASCONCELOS, 2014, p. [conferir]).
 
 **Citação indireta:** a completitude — proporção de registros com valores não nulos — é uma dimensão central da qualidade dos sistemas de informação em saúde e ainda carece de método padronizado no Brasil (CORREIA; PADILHA; VASCONCELOS, 2014).
 
@@ -194,7 +68,7 @@
 **Onde entra:** Metodologia
 
 
-## 10. Compras públicas de medicamentos para hepatite C no Brasil no período de 2005 a 2015
+## 04. Compras públicas de medicamentos para hepatite C no Brasil no período de 2005 a 2015
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -215,7 +89,7 @@
 **Onde entra:** Metodologia
 
 
-## 11. Desigualdades regionais e o papel dos recursos federais no SUS: fatores políticos condicionam a alocação de recursos?
+## 05. Desigualdades regionais e o papel dos recursos federais no SUS: fatores políticos condicionam a alocação de recursos?
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -223,7 +97,7 @@
 
 **Chamada (NBR 10520):** (CARVALHO, 2021) · no texto: Carvalho (2021)
 
-**Resumo (redação própria):** Estudo de métodos mistos (dados quantitativos 2003–2017 e QCA fuzzy-set em casos atípicos) sobre os fatores políticos que condicionam a alocação de recursos federais do SUS às unidades da federação. A análise quantitativa indica redução das desigualdades regionais na alocação de recursos de média e alta complexidade para Norte e Nordeste; a qualitativa mostra que fatores políticos — e não apenas técnicos — condicionam essa distribuição, com destaque para o direcionamento atípico de recursos ao reduto político de quem ocupa o Ministério da Saúde.
+**Resumo (redação própria):** Estudo de métodos mistos (dados quantitativos 2003–2017 e QCA fuzzy-set em casos atípicos) sobre os fatores políticos que condicionam a alocação de recursos federais do SUS às unidades da federação. No plano quantitativo, a desigualdade entre regiões caiu para os repasses de média e alta complexidade destinados ao Norte e ao Nordeste; a qualitativa mostra que fatores políticos — e não apenas técnicos — condicionam essa distribuição, com destaque para o direcionamento atípico de recursos ao reduto político de quem ocupa o Ministério da Saúde.
 
 **Citação direta** (Introdução, p. 3411 (Ciência & Saúde Coletiva, 26(Supl.))):
 
@@ -236,7 +110,7 @@
 **Onde entra:** Introdução
 
 
-## 12. Subfinanciamento e orçamento federal do SUS: referências preliminares para a alocação adicional de recursos
+## 06. Subfinanciamento e orçamento federal do SUS: referências preliminares para a alocação adicional de recursos
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -246,9 +120,9 @@
 
 **Resumo (redação própria):** Pesquisa documental que identifica novas fontes de receita para alocação adicional de recursos ao SUS, no contexto do subfinanciamento e dos efeitos negativos da Emenda Constitucional 95/2016 — que retira recursos do teto de gastos e, corrigida só pelo IPCA até 2036, reduz o gasto federal em saúde em termos per capita à medida que a população cresce. As fontes potenciais somam de R$ 92 a R$ 100 bilhões, contra R$ 30,5 bilhões estimados para os usos prioritários (atenção primária e valorização de trabalhadores).
 
-**Citação direta** (Discussion and Results, p. 4406–4407 (C&SC 24(12))):
+**Citação direta** (Discussion and Results, p. 4406 (C&SC 24(12))):
 
-> "the second [EC 95/2016] withdraws budgetary resources as of 2018 ... updated according to the annual IPCA/IBGE variation until 2036, even if there is revenue growth – which will reduce these expenses in per capita terms as a result of population growth during the same period" (FUNCIA, 2019, p. [conferir]).
+> "both updated according to the annual IPCA (Broad Consumer Price Index)/IBGE variation until 2036, even if there is revenue growth" (FUNCIA, 2019, p. [conferir]).
 
 **Citação indireta:** a regra do teto de gastos, corrigida apenas pelo IPCA, comprime o gasto federal em saúde por habitante ao longo do tempo, agravando o subfinanciamento do SUS (FUNCIA, 2019).
 
@@ -257,7 +131,7 @@
 **Onde entra:** Introdução
 
 
-## 13. Eqüidade, saúde e critérios para alocação de recursos
+## 07. Eqüidade, saúde e critérios para alocação de recursos
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -278,7 +152,7 @@
 **Onde entra:** Introdução
 
 
-## 14. Análise do financiamento e gasto do Sistema Único de Saúde dos municípios da região de saúde Rota dos Bandeirantes do estado de São Paulo, Brasil
+## 08. Análise do financiamento e gasto do Sistema Único de Saúde dos municípios da região de saúde Rota dos Bandeirantes do estado de São Paulo, Brasil
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -299,7 +173,7 @@
 **Onde entra:** Metodologia
 
 
-## 15. Eficiência do gasto público em atenção primária em saúde nos municípios do Rio de Janeiro, Brasil: escores robustos e seus determinantes
+## 09. Eficiência do gasto público em atenção primária em saúde nos municípios do Rio de Janeiro, Brasil: escores robustos e seus determinantes
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -320,7 +194,7 @@
 **Onde entra:** Resultados/Discussão
 
 
-## 16. Crescimento dos leitos de UTI no país durante a pandemia de Covid-19: desigualdades entre o público x privado e iniquidades regionais
+## 10. Crescimento dos leitos de UTI no país durante a pandemia de Covid-19: desigualdades entre o público x privado e iniquidades regionais
 
 **Qualis A2** · Physis: Revista de Saúde Coletiva · ficha completa
 
@@ -341,7 +215,7 @@
 **Onde entra:** Resultados/Discussão
 
 
-## 17. Desigualdades regionais e sociais em saúde segundo inquéritos domiciliares (Brasil, 1998-2013)
+## 11. Desigualdades regionais e sociais em saúde segundo inquéritos domiciliares (Brasil, 1998-2013)
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -362,7 +236,7 @@
 **Onde entra:** Conclusão
 
 
-## 18. Relação entre aleitamento materno e internações por doenças diarreicas nas crianças com menos de um ano de vida nas Capitais Brasileiras e Distrito Federal, 2008
+## 12. Relação entre aleitamento materno e internações por doenças diarreicas nas crianças com menos de um ano de vida nas Capitais Brasileiras e Distrito Federal, 2008
 
 **Qualis A2** · Epidemiologia e Serviços de Saúde · ficha completa
 
@@ -370,7 +244,7 @@
 
 **Chamada (NBR 10520):** (BOCCOLINI; BOCCOLINI, 2011) · no texto: Boccolini e Boccolini (2011)
 
-**Resumo (redação própria):** Estudo epidemiológico ecológico que avalia a relação entre aleitamento materno e internações por doenças diarreicas em crianças com menos de um ano de vida nas capitais brasileiras e no Distrito Federal, em 2008, com modelo binomial negativo ajustado por rede de abastecimento de água, esgoto e alfabetização (proxy de pobreza). Tanto o aleitamento materno exclusivo (razão de taxas 0,76; IC95% 0,61–0,94) quanto o aleitamento entre nove e doze meses incompletos (razão de taxas 0,72; IC95% 0,52–0,99) associam-se a menores taxas de internação por diarreia.
+**Resumo (redação própria):** Investigação ecológica, nas 27 unidades federativas (capitais e Distrito Federal, ano de 2008), do papel do aleitamento materno sobre a hospitalização infantil por diarreia antes do primeiro ano de idade. O modelo binomial negativo foi ajustado por acesso a rede de água, a esgoto e por alfabetização (usada como aproximação da pobreza). Onde a amamentação era mais frequente — tanto a exclusiva quanto a mantida perto de um ano —, as taxas de internação por diarreia eram menores (razões de taxa de 0,76 e 0,72; intervalos de 95% de 0,61–0,94 e 0,52–0,99). O achado situa a diarreia como desfecho de múltiplas causas, sanitárias e não sanitárias.
 
 **Citação direta** (Resumo, p. 19–28 (Epidemiol. Serv. Saúde 20(1))):
 
@@ -383,7 +257,7 @@
 **Onde entra:** Metodologia
 
 
-## 19. Associação entre condições socioeconômicas, sanitárias e de atenção básica e a morbidade hospitalar por doenças de veiculação hídrica no Brasil
+## 13. Associação entre condições socioeconômicas, sanitárias e de atenção básica e a morbidade hospitalar por doenças de veiculação hídrica no Brasil
 
 **Qualis A1** · Cadernos de Saúde Pública · ficha completa
 
@@ -391,7 +265,7 @@
 
 **Chamada (NBR 10520):** (PAIVA; SOUZA, 2018) · no texto: Paiva e Souza (2018)
 
-**Resumo (redação própria):** Estudo ecológico que relaciona condições socioeconômicas, de saneamento e de cobertura por equipes de saúde da família às internações por doenças de veiculação hídrica no Brasil, com dados da PNAD e do DATASUS (2013; série 1998–2014 para as equipes). Coleta de esgoto por rede geral, baixa escolaridade e cobertura por equipes têm efeito estatisticamente significativo (p < 0,05). Pela análise de risco atribuível, 57.574 internações (16,3% do total das doenças selecionadas) poderiam ter sido evitadas com esgotamento sanitário adequado, poupando R$ 20.372.559,90 em tratamento e 172.722 dias de internação.
+**Resumo (redação própria):** Estudo ecológico que relaciona condições socioeconômicas, de saneamento e à presença de equipes de saúde da família e a hospitalização por doenças de veiculação hídrica no país, com dados da PNAD e do DATASUS (2013; série 1998–2014 para as equipes). Coleta de esgoto por rede geral, baixa escolaridade e cobertura por equipes têm efeito estatisticamente significativo (p < 0,05). Pela análise de risco atribuível, 57.574 internações (16,3% do total das doenças selecionadas) poderiam ter sido evitadas com esgotamento sanitário adequado, poupando R$ 20.372.559,90 em tratamento e 172.722 dias de internação.
 
 **Citação direta** (Resumo, p. e00017316 (Cad. Saúde Pública 34(4))):
 
@@ -404,7 +278,7 @@
 **Onde entra:** Introdução
 
 
-## 20. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira
+## 14. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -425,7 +299,7 @@
 **Onde entra:** Resultados/Discussão
 
 
-## 21. O direito humano à água e ao esgotamento sanitário como instrumento para promoção da saúde de populações vulneráveis
+## 15. O direito humano à água e ao esgotamento sanitário como instrumento para promoção da saúde de populações vulneráveis
 
 **Qualis A1** · Ciência & Saúde Coletiva · ficha completa
 
@@ -446,7 +320,7 @@
 **Onde entra:** Introdução
 
 
-## 22. “A gente tem acesso de favores, né?”. A percepção de pessoas em situação de rua sobre os direitos humanos à água e ao esgotamento sanitário
+## 16. “A gente tem acesso de favores, né?”. A percepção de pessoas em situação de rua sobre os direitos humanos à água e ao esgotamento sanitário
 
 **Qualis A1** · Cadernos de Saúde Pública · ficha completa
 
@@ -458,7 +332,7 @@
 
 **Citação direta** (Resumo / Conclusão, p. e00024017 (Cad. Saúde Pública 34(3))):
 
-> "esse grupo sofre violações dos DHAES e ... estas estão associadas com a violação de outros direitos, como o direito à cidade, à moradia e à saúde" (NEVES-SILVA; MARTINS; HELLER, 2018, p. [conferir]).
+> "esse grupo sofre violações dos DHAES e que estas estão associadas com a violação de outros direitos, como o direito à cidade, à moradia e à saúde" (NEVES-SILVA; MARTINS; HELLER, 2018, p. [conferir]).
 
 **Citação indireta:** a privação de saneamento se soma a outras privações e à exclusão social, concentrando-se nos grupos mais vulneráveis (NEVES-SILVA; MARTINS; HELLER, 2018).
 
@@ -467,7 +341,7 @@
 **Onde entra:** Introdução
 
 
-## 23. Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde
+## 17. Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde
 
 **Qualis A1** · Cadernos de Saúde Pública · ficha completa
 
@@ -475,7 +349,7 @@
 
 **Chamada (NBR 10520):** (LIMA et al., 2009) · no texto: Lima et al. (2009)
 
-**Resumo (redação própria):** Revisão das iniciativas brasileiras de avaliação da qualidade dos dados dos sistemas de informação em saúde (375 estudos identificados, 78 incluídos). Quatro dimensões concentram cerca de 90% das análises: confiabilidade, validade, cobertura e completitude. Metade dos estudos limita-se a dados do Rio de Janeiro e de São Paulo. Os autores apontam a ausência de um plano sistemático de avaliação e defendem uma política nacional de gerenciamento dos dados.
+**Resumo (redação própria):** Levantamento das avaliações brasileiras da qualidade dos dados dos sistemas nacionais de informação em saúde (375 estudos localizados, 78 analisados). Confiabilidade, validade, cobertura e completude concentram cerca de 90% das análises; metade dos trabalhos restringe-se a Rio de Janeiro e São Paulo. Os autores registram a ausência de um plano regular de avaliação e defendem uma política nacional de gestão desses dados.
 
 **Citação direta** (Resumo, p. 2095 (Cad. Saúde Pública 25(10))):
 
@@ -488,7 +362,7 @@
 **Onde entra:** Metodologia
 
 
-## 24. Linkage entre bancos de dados de nascidos vivos e óbitos infantis em município do Nordeste do Brasil: qualidade dos sistemas de informação
+## 18. Linkage entre bancos de dados de nascidos vivos e óbitos infantis em município do Nordeste do Brasil: qualidade dos sistemas de informação
 
 **Qualis A1** · Cadernos de Saúde Pública · ficha completa
 
@@ -506,4 +380,46 @@
 
 **Conceito:** record linkage; cruzamento de bases como método de qualidade e de reúso de dados  
 **Relação com o Farol-SS:** METODOLOGIA: é o análogo, na literatura, do que o Farol-SS faz ao unir oito bases federais num grão único de município × ano — o cruzamento gera informação nova e revela ausências.  
+**Onde entra:** Metodologia
+
+
+## 19. Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto
+
+**Qualis A1** · Revista de Saúde Pública · ficha completa
+
+**Referência (NBR 6023):** LUIZ, O. d. C. et al. Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto. Revista de Saúde Pública, v. 43, n. 1, p. 115-122, 2009. DOI: https://doi.org/10.1590/s0034-89102009000100015. Acesso em: [DATA].
+
+**Chamada (NBR 10520):** (LUIZ et al., 2009) · no texto: Luiz et al. (2009)
+
+**Resumo (redação própria):** Descreve a construção do Índice de Condições de Vida e Saúde (ICVS) para os 5.507 municípios brasileiros, a partir de variáveis demográficas, econômicas, ambientais, de educação e de oferta e produção de serviços de saúde (Censo 2000 e sistemas de informação do Ministério da Saúde). Os indicadores foram submetidos a escalonamento adimensional, padronização por escore-z e análise de conglomerados, que separou os 5.507 municípios em quatro estratos de condição de vida. O índice segue lógica semelhante à do IDH, mas busca especificidade para a saúde, e parte de um referencial teórico estruturado — a seleção de indicadores não é arbitrária.
+
+**Citação direta** (Resumo/Métodos, p. 115–122 (Rev. Saúde Pública 43(1))):
+
+> "Para análise dos dados foram aplicados os testes z-score e cluster analysis. Com base nesses testes foram definidos quatro grupos de municípios segundo condições de vida" (LUIZ et al., 2009, p. [conferir]).
+
+**Citação indireta:** índices sintéticos de condições de vida e saúde para municípios brasileiros já foram construídos com padronização por escore-z e agrupamento, a partir de um conjunto de indicadores selecionado por referencial teórico (LUIZ et al., 2009).
+
+**Conceito:** índice sintético / composto; escalonamento adimensional; padronização por escore-z; seleção não arbitrária de indicadores  
+**Relação com o Farol-SS:** METODOLOGIA: é o antecedente metodológico direto do IEAS — mesma finalidade (identificar municípios prioritários para alocação equitativa), mesma estrutura (vários indicadores → um índice). O Farol-SS difere na normalização: usa ranque percentil ∈ [0,1] em vez de escore-z, o que dispensa a suposição de normalidade e limita o efeito de valores extremos de um município pequeno sobre a escala dos demais.  
+**Onde entra:** Metodologia
+
+
+## 20. Discutindo uma Metodologia para a Alocação Equitativa de Recursos Federais para o Sistema Único de Saúde
+
+**Qualis A2** · Saúde e Sociedade · ficha completa
+
+**Referência (NBR 6023):** MENDES, Á.; LEITE, M. G.; MARQUES, R. M. Discutindo uma Metodologia para a Alocação Equitativa de Recursos Federais para o Sistema Único de Saúde. Saúde e Sociedade, v. 20, n. 3, p. 673-690, 2011. DOI: https://doi.org/10.1590/s0104-12902011000300013. Acesso em: [DATA].
+
+**Chamada (NBR 10520):** (MENDES; LEITE; MARQUES, 2011) · no texto: Mendes; Leite e Marques (2011)
+
+**Resumo (redação própria):** Aplica um método para distribuir de forma equânime a estados e municípios os recursos federais do SUS para atenção básica e média e alta complexidade, seguindo a abordagem de Porto e colaboradores (2001) e usando análise de componentes principais para compor um índice de necessidades. O ponto de partida é o diagnóstico de que a alocação de recursos no Brasil segue, em regra, o comportamento histórico pautado na produção de serviços, e não nas necessidades de saúde da população, apesar das exigências legais de universalidade e equidade.
+
+**Citação direta** (Resumo, p. 673–690 (Saúde e Sociedade 20(3))):
+
+> "Via de regra prevalece o comportamento histórico da alocação de recursos pautada na produção e não nas necessidades" (MENDES; LEITE; MARQUES, 2011, p. [conferir]).
+
+**Citação indireta:** a alocação de recursos em saúde no Brasil tende a reproduzir a série histórica de produção de serviços, em vez de responder às necessidades da população, contrariando o princípio da equidade (MENDES; LEITE; MARQUES, 2011).
+
+**Conceito:** alocação por produção vs. por necessidade; índice de necessidades por análise de componentes principais  
+**Relação com o Farol-SS:** INTRODUÇÃO e METODOLOGIA: fixa o problema que o IEAS ataca (alocação por produção, não por necessidade) e o contraste metodológico — enquanto essa linha usa análise de componentes principais, o Farol-SS opta por uma média ponderada explícita de ranques, com pesos em arquivo de configuração versionado, priorizando transparência e reprodutibilidade sobre parcimônia estatística, por ser instrumento de controle social.  
 **Onde entra:** Metodologia

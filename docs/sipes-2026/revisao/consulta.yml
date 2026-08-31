@@ -62,3 +62,15 @@ sementes:
   - "Barcellos lenda urbana internações falta de saneamento Cadernos Saúde Pública"
   - "Correia métodos avaliar completitude dados sistemas de informação em saúde Brasil"
   - "Chaves compras públicas medicamentos judicialização Brasil"
+  - "diferenciais intermunicipais condições de vida e saúde construção de um indicador composto"
+  - "discutindo uma metodologia para a alocação equitativa de recursos federais setor saúde"
+
+# Chaves a NÃO incluir (sem texto integral de acesso aberto — retiradas do
+# trabalho a pedido; o script 01 as ignora).
+excluir:
+  - paim_2011_brazilian
+  - castro_2019_brazil
+  - barreto_2007_effect
+  - rasella_2013_effect
+  - dixon_2006_financing
+  - matheus_2021_design

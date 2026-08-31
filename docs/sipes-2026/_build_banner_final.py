@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera docs/sipes-2026/banner-v1-sipes-2026.docx — 1ª VERSÃO do pôster, com o
+"""Gera docs/sipes-2026/banner-final-sipes-2026.docx — versão final do pôster, com o
 texto argumentativo, as citações da revisão aplicadas em sequência (NBR
 10520:2023), gráficos, tabela de resultados e as referências (NBR 6023:2018).
 
@@ -28,11 +28,11 @@ HERE = Path(__file__).parent
 A = HERE / "assets"
 RIS = HERE / "revisao" / "referencias.ris"
 DAT = json.loads((HERE / "revisao" / "_farol_dados.json").read_text(encoding="utf-8"))
-OUT = HERE / "banner-v1-sipes-2026.docx"
+OUT = HERE / "banner-final-sipes-2026.docx"
 
-CITADOS = ["barcellos_2005", "barreto_2007", "carvalho_2021", "chaves_2017",
-           "cohn_2005", "correia_2014", "duarte_2019", "funcia_2019", "lima_2009",
-           "massuda_2018", "neves-silva_2016", "paiva_2018", "rasella_2013",
+CITADOS = ["barcellos_2005", "carvalho_2021", "chaves_2017", "cohn_2005",
+           "correia_2014", "duarte_2019", "funcia_2019", "lima_2009", "luiz_2009",
+           "massuda_2018", "mendes_2011", "neves-silva_2016", "paiva_2018",
            "rodrigues_2021", "santos-neto_2017", "silva_2009", "viacava_2019"]
 
 
@@ -124,7 +124,7 @@ s.top_margin = s.bottom_margin = Cm(1.1)
 doc.styles["Normal"].font.name = "Calibri"
 doc.styles["Normal"].font.size = Pt(9.3)
 
-para(doc, [("1ª versão do pôster · escala 1:3 (final 90 × 120 cm, retrato, "
+para(doc, [("Versão final do pôster · escala 1:3 (final 90 × 120 cm, retrato, "
             "300 dpi) · citações em ", {"size": 7.3, "color": GREY, "italic": True}),
            ("azul", {"size": 7.3, "color": CIT, "italic": True, "bold": True}),
            (" = da revisão (NBR 10520:2023) · logo do V SIPES obrigatória",
@@ -174,23 +174,21 @@ just(L,
        "distribuem de forma equivalente no território brasileiro; a alocação no "
        "SUS é descrita como subótima e como origem de disparidades regionais de "
        "acesso e de desfechos "), c("(MASSUDA et al., 2018)"),
-     T(". Os critérios legais de partilha de recursos, pensados para reduzir a "
-       "desigualdade regional, ainda não foram efetivamente implementados "),
+     T(". Apesar das exigências legais de universalidade e equidade, essa "
+       "alocação segue, em regra, o comportamento histórico pautado na produção "
+       "de serviços, e não nas necessidades da população "),
+     c("(MENDES et al., 2011)"),
+     T("; os critérios legais de partilha, pensados para reduzir a desigualdade "
+       "regional, ainda não foram efetivamente implementados "),
      c("(CARVALHO, 2021)"),
-     T(", e o teto de gastos comprime o recurso disponível por habitante ao "
-       "longo do tempo "), c("(FUNCIA, 2019)"),
-     T(". Nesse quadro, o déficit de saneamento tem efeito mensurável: cerca de "
+     T(", e o teto de gastos comprime o recurso por habitante ao longo do tempo "),
+     c("(FUNCIA, 2019)"),
+     T(". O déficit de saneamento, por sua vez, tem efeito mensurável: cerca de "
        "16% das internações por doenças de veiculação hídrica no país seriam "
-       "evitáveis com esgotamento adequado, poupando milhões em tratamento e "
-       "centenas de milhares de dias de internação "), c("(PAIVA; SOUZA, 2018)"),
+       "evitáveis com esgotamento adequado "), c("(PAIVA; SOUZA, 2018)"),
      T(" — ainda que a magnitude atribuível ao saneamento seja menor do que o "
        "senso comum sugere e exija rigor na definição do indicador "),
      c("(BARCELLOS, 2005)"),
-     T(". A relação inversa é robusta: um programa de saneamento de escala "
-       "urbana em Salvador reduziu a diarreia infantil "), c("(BARRETO et al., 2007)"),
-     T(", e transferências de renda condicionadas reduziram a mortalidade de "
-       "menores de cinco anos por causas ligadas à pobreza "),
-     c("(RASELLA et al., 2013)"),
      T(". Os portais de transparência informam quanto se gasta, mas não "
        "permitem avaliar se o gasto acompanha a necessidade de cada município."))
 
@@ -206,28 +204,52 @@ just(L,
      T("Estudo ecológico de base documental, com dados secundários de acesso "
        "aberto. Um pipeline reprodutível (camadas bronze–silver–gold; DuckDB "
        "sobre arquivos Parquet; proveniência com SHA-256) integrou oito fontes "
-       "federais num grão único de município × ano (grade 185 × 5) — o mesmo "
+       "federais num grão único de município × ano (grade 185 × 5) — mesmo "
        "princípio de reúso e cruzamento de bases que revela lacunas invisíveis "
        "a uma fonte isolada "), c("(SILVA; LEITE; ALMEIDA, 2009)"), T("."))
 just(L,
-     T("Como a completitude dos sistemas de informação em saúde brasileiros é "
-       "heterogênea e sem método padronizado "),
-     c("(CORREIA; PADILHA; VASCONCELOS, 2014; LIMA et al., 2009)"),
-     T(", adotou-se a regra do cinza: o índice não é publicado quando a fração "
-       "de componentes presentes fica abaixo de 60% (Necessidade) ou 50% "
-       "(Alocação). A despesa própria per capita vem do SIOPS — fonte já usada "
-       "para mostrar que o gasto em saúde varia em ordem de grandeza entre "
-       "municípios vizinhos "), c("(SANTOS NETO et al., 2017)"),
-     T("; o preço unitário de insumos vem do PNCP, base de um detector de "
-       "sobrepreço inspirado na análise de compras públicas "),
-     c("(CHAVES; OSORIO-DE-CASTRO; OLIVEIRA, 2017)"), T("."))
+     ("Fórmula. ", {"bold": True, "size": 9.3}),
+     T("O IEAS compara dois eixos. Cada eixo é a média ponderada de seus "
+       "subíndices, com pesos fixados em arquivo de configuração versionado — "
+       "Necessidade: epidemiológico 0,40; saneamento 0,35; vulnerabilidade "
+       "0,25; Alocação: repasse federal 0,35; execução própria 0,40; "
+       "contratação de insumos 0,25, em R$/hab deflacionados pelo IPCA. Cada "
+       "média é convertida em ranque percentil ∈ [0, 1] entre os 185 "
+       "municípios: N_m é a posição relativa da necessidade e A_m a da "
+       "alocação. O índice é gap_m = A_m − N_m ∈ [−1, 1] (gap ≤ −0,33 = "
+       "necessidade não atendida), e ieas_m = 1 − |gap_m|, usado apenas para "
+       "ordenar."))
 just(L,
-     T("O IEAS combina dois eixos — Necessidade (epidemiológico 0,40; "
-       "saneamento 0,35; vulnerabilidade 0,25) e Alocação (repasse federal "
-       "0,35; execução própria 0,40; contratação de insumos 0,25, em R$/hab "
-       "deflacionados) —, cada um convertido em ranque percentil no estado. "
-       "gap = ranque(A) − ranque(N) colore um semáforo de quatro cores; quatro "
-       "detectores geram alertas explicáveis em linguagem natural."))
+     ("Escolhas estatísticas. ", {"bold": True, "size": 9.3}),
+     T("Índices sintéticos de condições de vida para municípios brasileiros "
+       "costumam padronizar por escore-z e agrupar por análise de conglomerados "),
+     c("(LUIZ et al., 2009)"),
+     T(", ou compor um índice de necessidades por análise de componentes "
+       "principais "), c("(MENDES et al., 2011)"),
+     T(". O Farol-SS usa o ranque percentil: limitado a [0, 1] e independente "
+       "de distribuição, não pressupõe normalidade e impede que um valor "
+       "extremo de um município pequeno distorça a escala dos demais; e uma "
+       "média ponderada explícita, que troca parcimônia estatística por "
+       "transparência e reprodutibilidade. Componente ausente numa linha tem o "
+       "peso redistribuído entre os presentes; abaixo de 60% (Necessidade) ou "
+       "50% (Alocação) de componentes presentes o índice não é publicado — a "
+       "completitude dos sistemas de informação em saúde é heterogênea e sem "
+       "método padronizado "),
+     c("(CORREIA; PADILHA; VASCONCELOS, 2014; LIMA et al., 2009)"), T("."))
+just(L,
+     ("Detectores. ", {"bold": True, "size": 9.3}),
+     T("Quatro rotinas geram alertas explicáveis: (i) todo farol vermelho; "
+       "(ii) resíduo de uma regressão anual necessidade→alocação padronizado "
+       "por 1,4826·MAD (desvio absoluto mediano), resistente aos próprios "
+       "outliers que se quer detectar; (iii) preço unitário de insumo acima de "
+       "Q3 + 1,5·IQR da mesma categoria, unidade e dose no estado (cerca de "
+       "Tukey); (iv) incidência de agravo no percentil 75+ do estado sem "
+       "contratação do insumo correspondente. O SIOPS fornece a despesa própria "
+       "per capita — que varia em ordem de grandeza entre municípios vizinhos "),
+     c("(SANTOS NETO et al., 2017)"),
+     T(" —; o PNCP fornece o preço unitário, num campo em que o poder de compra "
+       "do Estado é decisivo "),
+     c("(CHAVES; OSORIO-DE-CASTRO; OLIVEIRA, 2017)"), T("."))
 fig(L, "diagrama-ieas.png", "Figura 1 – Construção do IEAS. Fonte: os autores (2026).",
     largura=11.6)
 

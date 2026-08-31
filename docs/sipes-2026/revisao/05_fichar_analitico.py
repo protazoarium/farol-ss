@@ -117,7 +117,7 @@ for n, (k, meta) in enumerate(SEL.items(), 1):
 
 (HERE / "fichamento.ris").write_text("\n".join(ris_out), encoding="utf-8")
 (HERE / "fichamento.md").write_text("\n".join(md), encoding="utf-8")
-print(f"-> fichamento.ris e fichamento.md  ({len(ANA)}/{len(SEL)} fichas completas)")
+print(f"-> fichamento.ris e fichamento.md  ({sum(1 for k in SEL if k in ANA)}/{len(SEL)} fichas preenchidas)")
 pend = [k for k in SEL if k not in ANA]
 if pend:
     print("pendentes (adicionar a fichas_analiticas.yml após ler o PDF):")
