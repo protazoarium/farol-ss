@@ -1,0 +1,4 @@
+# PDFs e texto extraído: regeneráveis com 02 e 03; não versionar (peso + direitos)
+pdfs/
+texto/
+__pycache__/
