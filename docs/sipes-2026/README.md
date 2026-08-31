@@ -9,12 +9,12 @@ Recife-PE, 25 a 27 de novembro de 2026.
 | Arquivo | O que é |
 |---|---|
 | `projeto-sipes-2026.docx` | **Projeto para construção do trabalho**: identificação, protocolo de revisão de literatura (bases, strings de busca, critérios, modelo de fichamento, bibliografia inicial), síntese da metodologia e dos resultados do Farol-SS, **rascunho do resumo** (parágrafo único, ~2.325 caracteres — limite 2.500), estrutura do pôster, cronograma alinhado às rodadas do evento, divisão de tarefas, checklist e riscos. Documento de planejamento da equipe, não o texto final. |
-| `esboco-banner-sipes-2026.docx` | **Esboço do trabalho em formato de banner** — conteúdo do Farol-SS já redigido em rascunho, com a estrutura de pôster técnico-científico da **ABNT NBR 15437:2006** (seções numeradas 1–5), marcas `(AUTOR, ANO)` nos pontos de citação da revisão, legendas de figura e referências no padrão **NBR 6023:2018** (puxadas de `revisao/referencias.ris`). |
-| `banner-sipes-2026-modelo.docx` | Modelo de pôster "em branco" (mesma diagramação, sem o texto de rascunho) — para começar do zero se preferir. Escala 1:3; final **90 × 120 cm, retrato**. Logo do V SIPES no cabeçalho (obrigatória). |
-| `revisao/` | **Workflow reprodutível da revisão de literatura** — ver `revisao/README.md` e `revisao/RESULTADO.md`. Já executado: 24 artigos Qualis A/B (`referencias.ris`), 17 PDFs de acesso aberto baixados e o **fichamento em RIS** (`revisao/fichamento.ris`) com resumo, referência ABNT e modelos de citação direta/indireta. |
-| `assets/sipes-logo.png` | Logomarca do evento (baixada de `sipes.com.br/files/logo.png` em 30/08/2026). |
-| `assets/diagrama-ieas.png` | Diagrama de construção do IEAS, gerado do painel — Figura 1 do pôster. |
-| `_build_*.py` | Scripts que regeram os `.docx` (requerem `python-docx`). |
+| **`banner-v1-sipes-2026.docx`** | **1ª versão do pôster** — texto argumentativo com as **citações da revisão aplicadas em sequência** (NBR 10520:2023), **5 figuras** (diagrama do IEAS + 4 gráficos gerados de `data/gold/ieas.parquet`), **Tabela 1** de resultados e **15 referências** (NBR 6023:2018). Escala 1:3; ao ampliar para 90 × 120 cm cabe numa única superfície. |
+| `esboco-banner-sipes-2026.docx` | Versão anterior do esboço, com marcas `(AUTOR, ANO)` genéricas — mantida como alternativa mais "aberta". |
+| `banner-sipes-2026-modelo.docx` | Modelo de pôster "em branco" (só a diagramação). Escala 1:3; final **90 × 120 cm, retrato**. Logo do V SIPES obrigatória. |
+| `revisao/` | **Workflow reprodutível da revisão** — ver `revisao/README.md` e `revisao/RESULTADO.md`. 24 artigos Qualis A/B (`referencias.ris`); 17 PDFs de acesso aberto; **fichamento em RIS** (`revisao/fichamento.ris`) — **17 das 24 fichas com resumo autoral, conceito, relação com o Farol-SS e citação direta/indireta já redigidos** (script `05` + `fichas_analiticas.yml`); as 7 restantes aguardam o PDF. |
+| `assets/sipes-logo.png` · `assets/diagrama-ieas.png` · `assets/fig1-4_*.png` | Logo do evento, diagrama do IEAS e os 4 gráficos do pôster (regeráveis com `_graficos.py`). |
+| `_build_*.py` · `_graficos.py` | Scripts que regeram os `.docx` e os gráficos (requerem `python-docx`, `matplotlib`). |
 
 ## Normas do evento (fonte: <https://sipes.com.br/trabalhos>, consultado em 30/08/2026 — reconferir)
 

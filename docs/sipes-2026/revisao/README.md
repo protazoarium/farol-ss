@@ -29,8 +29,15 @@ pip install pymupdf requests pyyaml        # se preciso
 python3 01_montar_ris.py        # -> referencias.ris, referencias.csv, selecao.json
 python3 02_baixar_pdfs.py       # -> pdfs/*.pdf, pdfs/_faltantes.txt
 python3 03_extrair_texto.py     # -> texto/*.txt
-python3 04_gerar_fichamento.py  # -> fichamento.ris, fichamento.md
+python3 04_gerar_fichamento.py  # -> esqueleto do fichamento
+python3 05_fichar_analitico.py  # funde fichas_analiticas.yml (síntese autoral) no fichamento
 ```
+
+**`fichas_analiticas.yml`** guarda a síntese redigida a partir da leitura de cada
+PDF (resumo com suas palavras, citação direta com trecho literal, paráfrase,
+conceito, relação com o Farol-SS). O `05` a funde nos campos `N1` do
+`fichamento.ris`. 17 das 24 fichas já vêm preenchidas; as 7 sem PDF ficam como
+esqueleto até o arquivo ser obtido (ver `RESULTADO.md`).
 
 Falhou algo? Amplie as `buscas` em `consulta.yml` (mais termos/anos/`n`), baixe
 os PDFs faltantes manualmente para `pdfs/{chave}.pdf`, e rode 03 e 04 de novo.

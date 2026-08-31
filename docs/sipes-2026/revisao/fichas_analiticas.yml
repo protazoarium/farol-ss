@@ -1,0 +1,425 @@
+# Fichamento analítico — síntese redigida a partir do texto completo dos PDFs
+# em texto/. Cada "resumo" é redação própria (não é o resumo do artigo).
+# As "citacao_direta" são trechos LITERAIS extraídos do texto — CONFERIR a
+# página exata no PDF antes de usar (o intervalo de páginas do artigo está
+# indicado). As "citacao_indireta" são paráfrases próprias.
+# NBR 6023:2018 (referências) · NBR 10520:2023 (chamada autor-data).
+
+massuda_2018_brazilian:
+  resumo: >
+    Análise do sistema de saúde brasileiro entre 2000 e 2017, combinando revisão
+    de literatura, análise de políticas e dados secundários oficiais. Os autores
+    mostram que, apesar do avanço rumo à cobertura universal entre 2003 e 2014,
+    persistem no SUS problemas estruturais de governança, baixo financiamento
+    público e alocação de recursos subótima, que se traduzem em amplas
+    disparidades regionais de acesso e de desfechos — desfavoráveis sobretudo
+    para as regiões e os grupos socioeconômicos mais pobres. As medidas de
+    austeridade (Emenda Constitucional 95/2016) tendem a agravar esse quadro e
+    testam a resiliência do sistema.
+  citacao_direta: >
+    "structural problems persist in SUS, including gaps in organisation and
+    governance, low public funding and suboptimal resource allocation.
+    Consequently, large regional disparities exist in access to healthcare
+    services and health outcomes, with poorer regions and lower socioeconomic
+    population groups disadvantaged the most"
+  citacao_direta_local: "resumo (Abstract), p. e000829"
+  citacao_indireta: >
+    a alocação de recursos no SUS ainda é descrita como subótima e como uma das
+    origens das disparidades regionais de acesso e de desfechos em saúde
+  conceito: "alocação de recursos subótima (suboptimal resource allocation) como problema estrutural do SUS"
+  relacao_farol: >
+    sustenta a INTRODUÇÃO: dá respaldo internacional (BMJ GH) à premissa de que
+    gasto e necessidade não estão alinhados no território brasileiro.
+  onde: Introdução
+
+carvalho_2021_desigualdades:
+  resumo: >
+    Estudo de métodos mistos (dados quantitativos 2003–2017 e QCA fuzzy-set em
+    casos atípicos) sobre os fatores políticos que condicionam a alocação de
+    recursos federais do SUS às unidades da federação. A análise quantitativa
+    indica redução das desigualdades regionais na alocação de recursos de média
+    e alta complexidade para Norte e Nordeste; a qualitativa mostra que fatores
+    políticos — e não apenas técnicos — condicionam essa distribuição, com
+    destaque para o direcionamento atípico de recursos ao reduto político de
+    quem ocupa o Ministério da Saúde.
+  citacao_direta: >
+    "os critérios de distribuição de recursos previstos nos marcos legais do
+    SUS, que contribuiriam para diminuição das desigualdades regionais e maior
+    transparência, ainda não foram efetivamente implementados"
+  citacao_direta_local: "Introdução, p. 3411 (Ciência & Saúde Coletiva, 26(Supl.))"
+  citacao_indireta: >
+    os critérios legais de partilha de recursos do SUS, pensados para reduzir
+    desigualdade regional, seguem sem implementação efetiva, deixando espaço
+    para fatores políticos na alocação
+  conceito: "critérios técnicos vs. políticos na alocação; iniquidade territorial de recursos"
+  relacao_farol: >
+    INTRODUÇÃO e DISCUSSÃO: o Farol-SS torna visível o desalinhamento que os
+    critérios legais deveriam corrigir; a persistência de fatores políticos
+    reforça a necessidade de um instrumento público de monitoramento.
+  onde: Introdução
+
+funcia_2019_subfinanciamen:
+  resumo: >
+    Pesquisa documental que identifica novas fontes de receita para alocação
+    adicional de recursos ao SUS, no contexto do subfinanciamento e dos efeitos
+    negativos da Emenda Constitucional 95/2016 — que retira recursos do teto de
+    gastos e, corrigida só pelo IPCA até 2036, reduz o gasto federal em saúde em
+    termos per capita à medida que a população cresce. As fontes potenciais
+    somam de R$ 92 a R$ 100 bilhões, contra R$ 30,5 bilhões estimados para os
+    usos prioritários (atenção primária e valorização de trabalhadores).
+  citacao_direta: >
+    "the second [EC 95/2016] withdraws budgetary resources as of 2018 ... updated
+    according to the annual IPCA/IBGE variation until 2036, even if there is
+    revenue growth – which will reduce these expenses in per capita terms as a
+    result of population growth during the same period"
+  citacao_direta_local: "Discussion and Results, p. 4406–4407 (C&SC 24(12))"
+  citacao_indireta: >
+    a regra do teto de gastos, corrigida apenas pelo IPCA, comprime o gasto
+    federal em saúde por habitante ao longo do tempo, agravando o
+    subfinanciamento do SUS
+  conceito: "subfinanciamento do SUS; efeito per capita do teto de gastos (EC 95/2016)"
+  relacao_farol: >
+    INTRODUÇÃO: contextualiza por que a eficiência e o direcionamento do pouco
+    recurso disponível importam — o Farol-SS ajuda a priorizar onde ele falta
+    mais.
+  onde: Introdução
+
+rodrigues_2021_eficiencia:
+  resumo: >
+    Avaliação da eficiência do gasto público em atenção básica nos 70 municípios
+    do Rio de Janeiro em 2015, com jackstrap (para outliers), análise envoltória
+    de dados (DEA) e regressão tobit. 63,9% dos municípios aplicaram os recursos
+    de forma eficiente; em média, os resultados poderiam ter sido 6% maiores
+    para o mesmo gasto. Não há evidência de que municípios mais ricos, mais
+    desenvolvidos ou mais populosos sejam mais eficientes.
+  citacao_direta: >
+    "os recursos públicos são escassos e há uma crescente demanda por parte da
+    população" — e "não foram encontradas evidências de que municípios mais
+    ricos, socialmente desenvolvidos e/ou populosos tenham sido mais (ou menos)
+    eficientes"
+  citacao_direta_local: "Resumo, p. 3999–4000 (C&SC 26(9))"
+  citacao_indireta: >
+    a eficiência do gasto municipal em atenção básica não acompanha a riqueza
+    ou o porte do município, o que desloca a discussão do quanto se gasta para
+    como e onde se gasta
+  conceito: "eficiência do gasto (DEA); dissociação entre eficiência e riqueza municipal"
+  relacao_farol: >
+    DISCUSSÃO/CONCLUSÃO: o Farol-SS não mede eficiência, mas mede alinhamento —
+    e o achado de que eficiência não segue riqueza reforça o valor de olhar
+    necessidade × alocação, não só valores absolutos.
+  onde: Resultados/Discussão
+
+santos-neto_2017_analise:
+  resumo: >
+    Análise do financiamento e do gasto do SUS em sete municípios da região de
+    saúde Rota dos Bandeirantes (SP), de 2009 a 2012, com indicadores do SIOPS.
+    A renda per capita disponível de Barueri é quase dez vezes a de Carapicuíba,
+    e o gasto per capita em saúde de Barueri é mais que o dobro da média
+    regional e quase cinco vezes o de Carapicuíba. A União responde por 95,4%
+    das transferências aos municípios; a média regional de receita própria
+    aplicada em saúde é 27,3%.
+  citacao_direta: >
+    "the per capita income available for the city of Barueri is almost tenfold
+    that of the city of Carapicuíba, and ... Barueri's health expenditure per
+    capita is more than double that of the regional average and almost fivefold
+    that of Carapicuíba"
+  citacao_direta_local: "Abstract, p. 1269 (C&SC 22(4))"
+  citacao_indireta: >
+    mesmo dentro de uma única região de saúde, o gasto per capita em saúde
+    varia em ordem de grandeza entre municípios vizinhos, acompanhando a
+    desigualdade de arrecadação
+  conceito: "desigualdade intrarregional de gasto per capita medida pelo SIOPS"
+  relacao_farol: >
+    METODOLOGIA e RESULTADOS: valida o uso do SIOPS (mesma fonte da camada L2 do
+    Farol-SS) para comparar gasto próprio per capita entre municípios; mostra
+    que a desigualdade existe até em escala micro.
+  onde: Metodologia
+
+paiva_2018_associacao:
+  resumo: >
+    Estudo ecológico que relaciona condições socioeconômicas, de saneamento e de
+    cobertura por equipes de saúde da família às internações por doenças de
+    veiculação hídrica no Brasil, com dados da PNAD e do DATASUS (2013; série
+    1998–2014 para as equipes). Coleta de esgoto por rede geral, baixa
+    escolaridade e cobertura por equipes têm efeito estatisticamente
+    significativo (p < 0,05). Pela análise de risco atribuível, 57.574
+    internações (16,3% do total das doenças selecionadas) poderiam ter sido
+    evitadas com esgotamento sanitário adequado, poupando R$ 20.372.559,90 em
+    tratamento e 172.722 dias de internação.
+  citacao_direta: >
+    "estimou-se que no Brasil, tomando-se como base os dados de 2013, 57.574
+    (16,3%) das internações por doenças selecionadas poderiam ter sido evitadas,
+    caso as condições de esgotamento sanitário fossem adequadas. Seriam ainda
+    evitados os gastos com o tratamento delas, calculado em R$ 20.372.559,90 e
+    os dias perdidos com as internações, 172.722"
+  citacao_direta_local: "Resumo, p. e00017316 (Cad. Saúde Pública 34(4))"
+  citacao_indireta: >
+    parte expressiva das internações por doenças de veiculação hídrica no
+    Brasil é evitável por investimento em esgotamento sanitário, com economia
+    direta para o SUS
+  conceito: "internações evitáveis por saneamento; risco atribuível; DRSAI"
+  relacao_farol: >
+    INTRODUÇÃO e RESULTADOS: é o elo quantitativo entre déficit de saneamento
+    (subíndice do eixo Necessidade) e carga hospitalar evitável — exatamente o
+    que o Farol-SS busca cruzar com o gasto.
+  onde: Introdução
+
+barcellos_2005_lenda:
+  resumo: >
+    Comentário curto que desmonta a afirmação recorrente de que "68% das
+    internações hospitalares no Brasil devem-se à falta de saneamento". A partir
+    dos dados do SIH para 2004, mostra que parto e puerpério respondem por 23%
+    das internações e que as doenças infecciosas e parasitárias são a quarta
+    causa (8,4%); restringindo às doenças classicamente de veiculação hídrica, a
+    proporção cai para 4,8%. O texto alerta contra o uso acrítico de indicadores
+    agregados de "doenças relacionadas ao saneamento".
+  citacao_direta: >
+    "Se consideradas as doenças classicamente classificadas como de veiculação
+    hídrica, essa proporção diminui para 4,8%"
+  citacao_direta_local: "p. 996–997 (Cad. Saúde Pública 21(4))"
+  citacao_indireta: >
+    a magnitude das internações atribuíveis à falta de saneamento é muito menor
+    do que a citada no senso comum, o que exige rigor na definição do indicador
+  conceito: "uso crítico do indicador DRSAI; risco de superestimação"
+  relacao_farol: >
+    METODOLOGIA e LIMITAÇÕES: justifica a escolha do Farol-SS de restringir o
+    componente hospitalar a uma lista curada de CID (grupo de veiculação
+    hídrica) e de tratá-lo como um subcomponente, não como o índice inteiro.
+  onde: Metodologia
+
+duarte_2019_variabilidade:
+  resumo: >
+    Estudo de série temporal (2000–2013) sobre a relação entre variabilidade
+    climática e internações por doenças diarreicas infecciosas no município de
+    Rio Branco (AC), com modelos de Poisson e binomial negativa. Há associação
+    positiva entre internações e o nível do rio Acre (RR 1,07; IC95% 1,04–1,10);
+    as taxas de internação caíram 14% no período (RR 0,86); o grupo mais
+    vulnerável é o de menores de 1 ano. Persistem desigualdades no acesso a água
+    e esgoto apesar do avanço de cobertura.
+  citacao_direta: >
+    "there is a positive association between hospitalization due to infectious
+    diarrheal diseases and the level of the Acre river (RR: 1.07; CI 95%: 1.04
+    to 1.1); these hospitalization rates fell 14% between 2000 and 2013"
+  citacao_direta_local: "Abstract, p. 2959 (C&SC 24(8))"
+  citacao_indireta: >
+    a carga de internações por diarreia responde a fatores ambientais e
+    climáticos e concentra-se nos mais pobres e nas crianças, mesmo com a
+    expansão de cobertura de saneamento
+  conceito: "determinação ambiental/climática das internações por diarreia; vulnerabilidade infantil"
+  relacao_farol: >
+    RESULTADOS/DISCUSSÃO: contextualiza o achado do Farol-SS de que os alertas
+    de desabastecimento se concentram em anos de surto; a carga é sensível a
+    fatores fora do controle do gestor.
+  onde: Resultados/Discussão
+
+correia_2014_metodos:
+  resumo: >
+    Revisão sistemática dos métodos usados para avaliar a completitude dos dados
+    dos sistemas de informação em saúde brasileiros (Medline, SciELO, Lilacs).
+    Dos 19 estudos incluídos, os sistemas de racionalidade epidemiológica são os
+    mais avaliados (90,5%); a produção é escassa (cerca de um estudo por ano); o
+    escore de Romero e Cunha é o mais frequente. Os autores concluem que a
+    heterogeneidade de métodos impede comparação entre estudos e defendem
+    padronização.
+  citacao_direta: >
+    "essa dimensão é também denominada de completitude e pode ser entendida como
+    'o grau em que os registros de um sistema de informação possuem valores não
+    nulos'" — e "A heterogeneidade de métodos carece de padronização"
+  citacao_direta_local: "Introdução / Resumo, p. 4467–4468 (C&SC 19(11))"
+  citacao_indireta: >
+    a completitude — proporção de registros com valores não nulos — é uma
+    dimensão central da qualidade dos sistemas de informação em saúde e ainda
+    carece de método padronizado no Brasil
+  conceito: "completitude / completeza dos dados de SIS; valores não nulos"
+  relacao_farol: >
+    METODOLOGIA e LIMITAÇÕES: fundamenta a "regra do cinza" do Farol-SS — não
+    publicar o índice quando a fração de componentes presentes (não nulos) fica
+    abaixo do limiar — e o registro de proveniência por fonte.
+  onde: Metodologia
+
+lima_2009_revisao:
+  resumo: >
+    Revisão das iniciativas brasileiras de avaliação da qualidade dos dados dos
+    sistemas de informação em saúde (375 estudos identificados, 78 incluídos).
+    Quatro dimensões concentram cerca de 90% das análises: confiabilidade,
+    validade, cobertura e completitude. Metade dos estudos limita-se a dados do
+    Rio de Janeiro e de São Paulo. Os autores apontam a ausência de um plano
+    sistemático de avaliação e defendem uma política nacional de gerenciamento
+    dos dados.
+  citacao_direta: >
+    "A importância de informações de qualidade indica a necessidade de que se
+    institua no Brasil uma política de gerenciamento dos dados dos sistemas de
+    informação em saúde"
+  citacao_direta_local: "Resumo, p. 2095 (Cad. Saúde Pública 25(10))"
+  citacao_indireta: >
+    a avaliação da qualidade dos dados dos sistemas de informação em saúde no
+    Brasil é irregular e concentrada no Sudeste, sem plano sistemático
+  conceito: "dimensões de qualidade do dado (confiabilidade, validade, cobertura, completitude); política de gestão de dados"
+  relacao_farol: >
+    METODOLOGIA: reforça a decisão do Farol-SS de tornar a proveniência (URL,
+    SHA-256, contagem de linhas, data) parte obrigatória do pipeline e de expor
+    a maturidade de cada fonte (ex.: adesão ao PNCP por ano).
+  onde: Metodologia
+
+silva_2009_linkage:
+  resumo: >
+    Avaliação da qualidade do SINASC e do SIM em Maracanaú (CE), 2000–2003, por
+    relacionamento de registros (linkage) entre bancos de nascidos vivos e
+    óbitos infantis. Em 43,6% dos óbitos não foi possível o emparelhamento por
+    inexistência de declaração de nascido vivo; as investigações de óbito
+    infantil funcionaram como fonte complementar. O estudo mostra que o linkage
+    revela falhas e melhora a confiabilidade dos registros.
+  citacao_direta: >
+    "Para 92 DO (43,6% de 211 óbitos) não foi possível o emparelhamento por não
+    existir DNV"
+  citacao_direta_local: "Resumo, p. 1552 (Cad. Saúde Pública 25(7))"
+  citacao_indireta: >
+    o cruzamento de bases distintas expõe lacunas de registro que uma base
+    isolada esconde, e é um caminho de baixo custo para melhorar a qualidade do
+    dado
+  conceito: "record linkage; cruzamento de bases como método de qualidade e de reúso de dados"
+  relacao_farol: >
+    METODOLOGIA: é o análogo, na literatura, do que o Farol-SS faz ao unir oito
+    bases federais num grão único de município × ano — o cruzamento gera
+    informação nova e revela ausências.
+  onde: Metodologia
+
+viacava_2019_desigualdades:
+  resumo: >
+    Análise de tendências das desigualdades em saúde e no acesso a serviços
+    entre as regiões do Brasil, com inquéritos domiciliares de 1998 a 2013 e a
+    razão entre extremos de escolaridade. Persistem desigualdades no acesso
+    apesar da melhora geral; internação hospitalar foi sempre maior entre
+    pessoas com até 3 anos de estudo. Os autores defendem a continuidade dos
+    inquéritos para monitorar desigualdades por região e grupo social.
+  citacao_direta: >
+    "The findings show the need to ensure the continuity of household surveys to
+    monitor inequalities in access to health care services by region and social
+    group"
+  citacao_direta_local: "Abstract (C&SC 24(7))"
+  citacao_indireta: >
+    o monitoramento contínuo das desigualdades em saúde por região e grupo
+    social é uma necessidade reconhecida — e depende de fontes de dados
+    sustentadas
+  conceito: "monitoramento de desigualdades por região e grupo social"
+  relacao_farol: >
+    CONCLUSÃO: o Farol-SS é um instrumento reprodutível de monitoramento
+    territorial que responde a essa necessidade usando dados já existentes, sem
+    novo inquérito.
+  onde: Conclusão
+
+cohn_2005_equidade:
+  resumo: >
+    Contribuição a debate sobre equidade e critérios de alocação de recursos em
+    saúde. Recupera, a partir de Tobar (2003), três dimensões da equidade no
+    financiamento: a dotação de recursos, o acesso a serviços e os resultados.
+    Alerta para o risco de que a busca de equidade se reduza a fórmulas de
+    rateio sem enfrentar as desigualdades de resultado.
+  citacao_direta: >
+    "ressaltam a eqüidade no financiamento da saúde, e valendo-se de Tobar
+    (2003) destacam as dimensões da dotação de recursos, do acesso a serviços e
+    dos resultados"
+  citacao_direta_local: "p. 287–288 (C&SC 10(2))"
+  citacao_indireta: >
+    a equidade no financiamento da saúde tem três planos — quanto se destina,
+    quanto se acessa e que resultados se obtêm —, e não se resolve só no
+    primeiro
+  conceito: "equidade no financiamento: dotação, acesso e resultados (Tobar, 2003)"
+  relacao_farol: >
+    INTRODUÇÃO/METODOLOGIA: o IEAS opera no plano da dotação × necessidade; a
+    ficha ajuda a enquadrar o índice como um passo, não a resposta completa de
+    equidade.
+  onde: Introdução
+
+chaves_2017_compras:
+  resumo: >
+    Análise das compras públicas federais de medicamentos para hepatite C entre
+    2005 e 2015, com dados do SIASG e preços unitários estimados pela compra de
+    maior volume de cada ano. O gasto multiplicou-se 159,5 vezes de 2005 para
+    2006 (centralização), cresceu 730% em 2007 (peginterferonas) e 230% em 2015
+    (R$ 945 milhões, novo antiviral de ação direta). Os autores concluem que
+    garantir acesso universal depende de fortalecer o poder de barganha do
+    Ministério frente a medicamentos de fonte única.
+  citacao_direta: >
+    "Ensuring universal access to treatment for hepatitis C will depend on the
+    implementation of strategies that strengthen the MoH's bargaining power in
+    price reduction negotiations with the manufacturers of monopoly medicines"
+  citacao_direta_local: "Abstract, p. 2527 (C&SC 22(8))"
+  citacao_indireta: >
+    o preço de aquisição de insumos de saúde é volátil e sensível a assimetrias
+    de mercado, o que torna o preço unitário um objeto legítimo de vigilância
+  conceito: "preço unitário de aquisição; poder de compra do Estado; medicamentos de fonte única"
+  relacao_farol: >
+    METODOLOGIA: fundamenta o detector 3 do Farol-SS (suspeita de sobrepreço),
+    que compara o preço unitário de um item ao da mesma categoria/unidade/dose
+    no estado.
+  onde: Metodologia
+
+cotrim-junior_2020_crescimento:
+  resumo: >
+    Estudo sobre o crescimento dos leitos de UTI no Brasil durante a pandemia de
+    Covid-19, contrastando setor público e privado e regiões. Cerca de 77,6% da
+    população depende exclusivamente do SUS, mas 78,2% do crescimento nacional
+    de leitos intensivos até abril de 2020 ocorreu no setor privado. Os autores
+    argumentam que as diferenças regionais de oferta são, na verdade, um
+    argumento a favor da regulação pública unificada de leitos.
+  citacao_direta: >
+    "as diferenças regionais na oferta de leitos, antes de ser um argumento
+    contra a unificação dos leitos, é, em verdade, um argumento a favor"
+  citacao_direta_local: "Conclusões, p. 8 de 11 (Physis 30(3), e300317)"
+  citacao_indireta: >
+    a desigualdade regional de oferta de serviços de saúde reforça — em vez de
+    enfraquecer — a necessidade de coordenação e de instrumentos de alocação de
+    base territorial
+  conceito: "iniquidade regional de oferta; regulação pública; público × privado"
+  relacao_farol: >
+    DISCUSSÃO: apoio geral ao argumento de que enxergar a desigualdade
+    territorial é condição para corrigi-la (uso opcional, tema tangencial).
+  onde: Resultados/Discussão
+
+neves-silva_2016_direito:
+  resumo: >
+    Ensaio que articula o conceito de promoção da saúde com o marco dos direitos
+    humanos, em especial o Direito Humano à Água e ao Esgotamento Sanitário
+    (reconhecido pela ONU em 2010). Argumenta que políticas de acesso à água e
+    ao esgotamento sanitário sem discriminação, com participação social,
+    transparência e responsabilização, podem produzir mudanças estruturais nos
+    determinantes sociais da saúde de grupos vulneráveis.
+  citacao_direta: >
+    "public policies that are designed to improve access to water and sanitation
+    without discrimination, thereby encouraging social participation,
+    transparency and accountability ... can provide structural changes in the
+    social determinants of the health-disease-care process of vulnerable groups"
+  citacao_direta_local: "Conclusion, p. 1861–1869 (C&SC 21(6))"
+  citacao_indireta: >
+    o acesso à água e ao esgotamento sanitário é um direito humano cuja
+    efetivação exige transparência, participação e responsabilização — os
+    mesmos princípios de um instrumento de controle social
+  conceito: "Direito Humano à Água e ao Esgotamento Sanitário; determinantes sociais; princípios de DH (transparência, participação, accountability)"
+  relacao_farol: >
+    INTRODUÇÃO e CONCLUSÃO: enquadra o Farol-SS como ferramenta de transparência
+    e controle social sobre um direito (saneamento) que condiciona a saúde.
+  onde: Introdução
+
+neves-silva_2018_gente:
+  resumo: >
+    Avaliação das condições e da percepção de pessoas em situação de rua de Belo
+    Horizonte (1.827 pessoas em 2013) sobre o acesso à água e ao esgotamento
+    sanitário e sobre seus direitos nessa área. O acesso é precário e os
+    princípios dos direitos humanos são reiteradamente violados; essas violações
+    associam-se à de outros direitos (cidade, moradia, saúde) e aprofundam a
+    exclusão. O estudo defende estimular a participação social desse grupo nas
+    decisões sobre gestão da água e do esgotamento sanitário.
+  citacao_direta: >
+    "esse grupo sofre violações dos DHAES e ... estas estão associadas com a
+    violação de outros direitos, como o direito à cidade, à moradia e à saúde"
+  citacao_direta_local: "Resumo / Conclusão, p. e00024017 (Cad. Saúde Pública 34(3))"
+  citacao_indireta: >
+    a privação de saneamento se soma a outras privações e à exclusão social,
+    concentrando-se nos grupos mais vulneráveis
+  conceito: "violação em cadeia de direitos; vulnerabilidade social e saneamento"
+  relacao_farol: >
+    INTRODUÇÃO: dá rosto à dimensão de vulnerabilidade social do eixo
+    Necessidade — o Farol-SS usa a extrema pobreza do CadÚnico como proxy dessa
+    privação acumulada.
+  onde: Introdução
