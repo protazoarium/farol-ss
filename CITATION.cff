@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Se usar este software ou os dados derivados, cite-o como abaixo."
+title: "Farol-SS: índice de alinhamento entre necessidade sanitária e alocação de recursos em saúde nos municípios de Pernambuco"
+type: software
+authors:
+  - family-names: "PREENCHER"
+    given-names: "PREENCHER"
+    # affiliation: "PREENCHER"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/protazoarium/farol-ss"
+url: "https://farol-ss.streamlit.app"
+keywords: [alocação de recursos, gastos em saúde, saneamento, dados abertos, Pernambuco]
+version: "artigo-v1"
+date-released: "2026-11-21"

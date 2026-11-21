@@ -6,7 +6,7 @@ lang: pt-BR
 
 **Title:** Alignment between health needs and health resource allocation in Pernambuco's municipalities, 2020–2024: a composite index built from open data
 
-**Autoria:** [nome do autor] — [afiliação] — [e-mail] — [ORCID]
+**Autoria:** [nome completo] — [afiliação] — [e-mail de correspondência] — [ORCID] **[preencher]**
 
 **Descritores (DeCS):** Alocação de Recursos; Gastos em Saúde; Saneamento.
 **Keywords (MeSH):** Resource Allocation; Health Expenditures; Sanitation.
@@ -35,19 +35,19 @@ lang: pt-BR
 
 O Sistema Único de Saúde (SUS) avançou em cobertura nas últimas décadas, mas convive com financiamento público insuficiente e com uma forma de distribuir recursos que os próprios analistas consideram subótima, o que se reflete em acesso e desfechos piores nas regiões e grupos mais pobres (MASSUDA et al., 2018). O teto de gastos, ao corrigir o orçamento federal apenas pela inflação, tende a reduzir o gasto por habitante com o crescimento da população (FUNCIA, 2019). A legislação complementar determina que o rateio dos recursos da União observe as necessidades de saúde da população em suas dimensões epidemiológica, demográfica, socioeconômica e espacial (BRASIL, 2012); a prática, porém, tem seguido o histórico de produção de serviços (MENDES; LEITE; MARQUES, 2011) e admite a influência de fatores políticos (CARVALHO, 2021).
 
-O desnível resultante é persistente. O aumento real expressivo do gasto público entre 2000 e 2010 deixou praticamente inalterada a desigualdade regional de gasto per capita (PIOLA; FRANÇA; NUNES, 2016); entre municípios de uma mesma região de saúde, o gasto por habitante pode diferir por múltiplos (SANTOS NETO et al., 2017); e o menor gasto acompanha tipologias inferiores de infraestrutura da atenção básica nos municípios brasileiros (AUTORIA A CONFERIR, 2021). Os inquéritos domiciliares confirmam que as desigualdades regionais e sociais de acesso persistem (VIACAVA et al., 2019).
+O desnível resultante é persistente. O aumento real expressivo do gasto público entre 2000 e 2010 deixou praticamente inalterada a desigualdade regional de gasto per capita (PIOLA; FRANÇA; NUNES, 2016); entre municípios de uma mesma região de saúde, o gasto por habitante pode diferir por múltiplos (SANTOS NETO et al., 2017); e o menor gasto acompanha tipologias inferiores de infraestrutura da atenção básica nos municípios brasileiros (KASHIWAKURA et al., 2021). Os inquéritos domiciliares confirmam que as desigualdades regionais e sociais de acesso persistem (VIACAVA et al., 2019).
 
 A necessidade que a alocação deveria acompanhar é multidimensional. Esgotamento sanitário inadequado, baixa escolaridade e menor cobertura de atenção básica associam-se à internação por doenças de veiculação hídrica (PAIVA; SOUZA, 2018); o acesso à água e ao esgotamento é um direito cuja efetivação exige transparência e responsabilização (NEVES-SILVA; HELLER, 2016), e as privações se acumulam nos grupos mais vulneráveis (NEVES-SILVA; MARTINS; HELLER, 2018). Ao mesmo tempo, indicadores hospitalares exigem cautela: sua fração atribuível ao saneamento é menor do que o senso comum supõe (BARCELLOS, 2005) e a internação por diarreia é multicausal (BOCCOLINI; BOCCOLINI, 2011).
 
-Existem metodologias de rateio por necessidade, mas voltadas às unidades da federação (MENDES; LEITE; CARNUT, 2020), e uma revisão recente nota que poucos estudos tomam a alocação equitativa como objeto central (CARNUT; MENDES; LEITE, 2020). Não se identificou, na literatura reunida para este estudo, instrumento municipal, aberto e verificável que cruze necessidade e alocação, embora as fontes existam. Elas, contudo, têm qualidade desigual: a avaliação da qualidade dos sistemas de informação é irregular (LIMA et al., 2009), a completitude carece de método padronizado (CORREIA; PADILHA; VASCONCELOS, 2014) e as compras no Portal Nacional de Contratações Públicas (PNCP) ainda apresentam lacunas de preenchimento (TRANSPARÊNCIA BRASIL, [ano] **[A CONFERIR]**).
+Existem metodologias de rateio por necessidade, mas voltadas às unidades da federação (MENDES; LEITE; CARNUT, 2020), e uma revisão recente nota que poucos estudos tomam a alocação equitativa como objeto central (CARNUT; MENDES; LEITE, 2020). Não se identificou, na literatura reunida para este estudo, instrumento municipal, aberto e verificável que cruze necessidade e alocação, embora as fontes existam. Elas, contudo, têm qualidade desigual: a avaliação da qualidade dos sistemas de informação é irregular (LIMA et al., 2009), a completitude carece de método padronizado (CORREIA; PADILHA; VASCONCELOS, 2014) e as compras no Portal Nacional de Contratações Públicas (PNCP) ainda apresentam lacunas de preenchimento (TRANSPARÊNCIA BRASIL, 2024).
 
-Este estudo propõe e avalia um índice composto de alinhamento entre necessidade e alocação para os 185 municípios de Pernambuco, entre 2020 e 2024, construído exclusivamente com dados abertos e acompanhado de análise de sensibilidade. Seguem-se as recomendações para índices compostos de agregar com base em um marco teórico explícito e de testar a robustez às escolhas de normalização, ponderação e agregação (NARDO et al., 2008; GRECO et al., 2019 **[A CONFERIR]**). O objetivo é desenvolver e avaliar o índice, descrever o alinhamento entre necessidade e alocação no tempo e no território e documentar em que medida suas conclusões dependem das escolhas metodológicas e da qualidade das fontes.
+Este estudo propõe e avalia um índice composto de alinhamento entre necessidade e alocação para os 185 municípios de Pernambuco, entre 2020 e 2024, construído exclusivamente com dados abertos e acompanhado de análise de sensibilidade. Seguem-se as recomendações para índices compostos de agregar com base em um marco teórico explícito e de testar a robustez às escolhas de normalização, ponderação e agregação (NARDO et al., 2008; GRECO et al., 2019). O objetivo é desenvolver e avaliar o índice, descrever o alinhamento entre necessidade e alocação no tempo e no território e documentar em que medida suas conclusões dependem das escolhas metodológicas e da qualidade das fontes.
 
 # 2 Métodos
 
 ## 2.1 Desenho e recorte
 
-Estudo ecológico de série temporal curta, com unidade de análise município × ano: 185 municípios de Pernambuco, incluindo o Distrito Estadual de Fernando de Noronha, de 2020 a 2024 (925 observações). Todos os dados são públicos e agregados por município; não há informação individual. O relato segue o STROBE (VON ELM et al., 2007 **[A CONFERIR]**) com a extensão RECORD para dados coletados rotineiramente. Pela natureza dos dados, o estudo dispensa apreciação por comitê de ética em pesquisa (Resolução CNS nº 510/2016, art. 1º, parágrafo único **[A CONFERIR o texto vigente]**).
+Estudo ecológico de série temporal curta, com unidade de análise município × ano: 185 municípios de Pernambuco, incluindo o Distrito Estadual de Fernando de Noronha, de 2020 a 2024 (925 observações). Todos os dados são públicos e agregados por município; não há informação individual. O relato segue o STROBE (VON ELM et al., 2007) com a extensão RECORD para dados coletados rotineiramente. Pela natureza dos dados, o estudo dispensa apreciação por comitê de ética em pesquisa (Resolução CNS nº 510/2016, art. 1º, parágrafo único, incisos II, III e V: pesquisa com informações de acesso público, de domínio público e com bancos de dados agregados, sem possibilidade de identificação individual).
 
 ## 2.2 Fontes e variáveis
 
@@ -87,6 +87,8 @@ A agregação é a média ponderada que renormaliza os pesos pelos componentes p
 
 O contraste é o **gap** = A − N ∈ [−1, 1]. Gap negativo indica alocação em posição inferior à da necessidade. O semáforo usa limiares fixados por julgamento: vermelho (gap ≤ −0,33), amarelo (−0,33 a −0,10), verde (−0,10 a +0,10, alinhamento), verde também entre +0,10 e +0,33 e azul (gap ≥ +0,33, alocação superior à necessidade). O verde é o alvo, não o topo de uma escala. O indicador de alinhamento 1 − |gap| serve apenas para ordenar, nunca para colorir. O semáforo sinaliza desalinhamento relativo entre dois ordenamentos; não mede eficiência, qualidade do gasto nem irregularidade de gestão.
 
+![**Figura 1 — Construção do índice.** Das fontes abertas aos dois eixos, ao gap (A − N) e ao semáforo. Os números são os pesos de `conf/ieas.yml` (os do eixo A, já renormalizados para L1 e L2); o ranque percentil é calculado separadamente em cada ano. *Figure 1 — Index construction: from open sources to the two axes, the gap and the traffic light; rank normalization is computed within each year.*](figuras/fig1_diagrama.png)
+
 ## 2.7 Análise de sensibilidade e validação
 
 Cada variante é uma nova execução do mesmo código do índice, e a concordância é medida pelo percentual de município-anos que mantêm a cor do caso-base (o cinza conta como uma cor) e pelo Spearman do gap com o do caso-base. As variantes foram: (a) normalização — ranque empilhado e escore-z por ano, mapeado por Φ para [0, 1]; (b) pesos — iguais, ±20% em cada peso e 1.000 sorteios de uma distribuição de Dirichlet(1,…,1) para os pesos dos dois eixos; (c) limiares — ±0,05 e ±0,15 (internos) e ±0,25 e ±0,40 (externos); (d) composição do eixo A — com L3 e sem L1; (e) composição do eixo N — remoção de cada subíndice; e (f) agregação do eixo N pelo primeiro componente principal dos três subíndices padronizados, calculado por ano.
@@ -95,7 +97,7 @@ Para a validade, examinou-se a associação (Spearman) entre o gap em *t* e (i) 
 
 ## 2.8 Disponibilidade de dados e código
 
-Código, parâmetros (`conf/ieas.yml`), dados derivados e API aberta estão em github.com/protazoarium/farol-ss; o painel público está em farol-ss.streamlit.app. Todos os números deste artigo são regeneráveis pelo comando `farol sensibilidade` sobre a versão `[commit/tag]` **[preencher]**, com depósito arquivado em `[DOI Zenodo]` **[preencher]**.
+Código, parâmetros (`conf/ieas.yml`), dados derivados e API aberta estão em github.com/protazoarium/farol-ss; o painel público está em farol-ss.streamlit.app. Todos os números deste artigo são regeneráveis pelo comando `farol sensibilidade` sobre a versão marcada com a etiqueta `artigo-v1` do repositório; as figuras são geradas por `scripts/gerar-figuras-artigo.py`. O depósito arquivado com DOI será indicado na versão final: `[DOI Zenodo]` **[preencher após o depósito]**.
 
 # 3 Resultados
 
@@ -133,11 +135,17 @@ O gap foi persistente: o Spearman entre anos consecutivos variou de 0,75 a 0,86,
 | Sertão | 41 | 21,0 | 24,4 | 45,9 | 8,8 | 0,58 | 0,51 |
 | São Francisco | 15 | 9,3 | 12,0 | 40,0 | 38,7 | 0,46 | 0,65 |
 
-A Região Metropolitana do Recife concentrou a maior proporção de vermelhos e amarelos (58,5% somados) e a menor posição média de alocação (0,36); o São Francisco pernambucano concentrou a maior proporção de azuis (38,7%) e a maior posição média de alocação (0,65). O mapa por município no ano mais recente está disponível no painel público (Figura 2 **[gerar para a versão final]**).
+A Região Metropolitana do Recife concentrou a maior proporção de vermelhos e amarelos (58,5% somados) e a menor posição média de alocação (0,36); o São Francisco pernambucano concentrou a maior proporção de azuis (38,7%) e a maior posição média de alocação (0,65). ![**Figura 2 — Semáforo por município, 2020–2024.** Vermelho: alocação aquém da necessidade (gap ≤ −0,33); verde: alinhamento; azul: alocação além da necessidade (gap ≥ +0,33). Fernando de Noronha, sem índice, não aparece. *Figure 2 — Municipal traffic light, 2020–2024.*](figuras/fig2_mapa.png)
+
+O mapa por município no ano mais recente está disponível no painel público (Figura 2).
+
+![**Figura 3 — Necessidade × alocação, 2024.** Cada ponto é um município (n = 184); a diagonal tracejada marca o alinhamento perfeito (gap = 0). Triângulos: municípios com menos de 10 mil habitantes. As cores seguem o semáforo. *Figure 3 — Need × allocation ranks, 2024; dashed line: perfect alignment; triangles: municipalities under 10,000 inhabitants.*](figuras/fig3_dispersao.png)
 
 ## 3.4 Robustez
 
 A Tabela 4 resume a concordância das variantes com o caso-base. Mudanças de ±20% em um peso isolado alteraram a cor de 5,1% a 7,5% dos município-anos, e pesos iguais, de 11,6%. A mudança dos limiares internos para ±0,05 ou ±0,15 alterou 5,6% e 5,2%, e a dos externos para ±0,25 ou ±0,40, 12,9% e 8,6%. O gap em si foi muito estável a essas variações (Spearman ≥ 0,99). Nos 1.000 sorteios de pesos de Dirichlet, a mediana de município-anos que mantiveram a cor foi de 59,2% (percentis 5–95: 42,7%–78,3%) e o Spearman mediano do gap com o do caso-base foi de 0,80 (0,46–0,95): o ordenamento é razoavelmente estável, mas a cor é sensível quando os pesos variam amplamente, inclusive com componentes de peso próximo de zero.
+
+![**Figura 4 — Sensibilidade.** Percentual de município-anos que mudam de cor frente ao caso-base em cada variante (valores da Tabela 4; a barra de Dirichlet mostra 100 − a mediana de concordância dos 1.000 sorteios). *Figure 4 — Sensitivity: share of municipality-years changing color under each variant.*](figuras/fig4_sensibilidade.png)
 
 **Tabela 4 — Concordância das variantes com o caso-base (n = 925 município-anos).**
 
@@ -199,9 +207,9 @@ Um índice aberto e reprodutível mostrou que, em Pernambuco, a posição dos mu
 
 # Notas de revisão (remover antes de submeter)
 
-1. **Tabelas e figuras em falta.** As Figuras 1–4 do esboço ainda precisam ser produzidas: Figura 1 (diagrama; há uma versão em `docs/sipes-2026/assets/diagrama-ieas.png`), Figura 2 (mapa), Figura 3 (dispersão N × A, municípios pequenos em outro marcador) e Figura 4 (sensibilidade, a partir de `resultados/variantes.csv`). O ambiente não tem biblioteca de gráficos instalada.
-2. **Referências [A CONFERIR].** N05 (autoria e DOI), N06 (relatório da Transparência Brasil), N02 (título), N04 (paginação), GRECO et al. (2019) e VON ELM et al. (2007) vieram marcadas como sugeridas ou não conferidas no fichamento; confirmar antes de submeter. Trocar "AUTORIA A CONFERIR, 2021" pelo sobrenome correto.
-3. **Resolução CNS 510/2016** — confirmar o texto vigente do art. 1º, parágrafo único.
+1. **Figuras.** As Figuras 1–4 estão no texto e em `docs/artigo-revista/figuras/` (PNG 300 dpi e SVG), geradas por `scripts/gerar-figuras-artigo.py`. Os periódicos costumam pedir os arquivos separados; use os da pasta. Conferir as legendas na língua exigida.
+2. **Referências.** N02, N04, N05 (Kashiwakura et al.), N06 (Transparência Brasil, dez. 2024), Greco et al. e STROBE foram conferidos nas páginas dos editores em nov/2026. As páginas de Kashiwakura et al. (3397-3408) vêm do endereço do artigo no SciELO; a de Piola et al. (411-422), do SciELO e do repositório da UnB (uma base indexa 411-421).
+3. **Resolução CNS 510/2016.** Texto do art. 1º, parágrafo único, conferido no portal do Ministério da Saúde (incisos II, III e V). A dispensa não elimina a análise ética (art. 25): confirme com o CEP da instituição se o periódico exigir declaração.
 4. **Contagem de município-anos com os três componentes.** O esboço cita 156 em 2024 (eixo A completo) e a Tabela 1 cita 157 município-anos com L3 em 2024; a diferença é Fernando de Noronha, que tem L3 mas não L2. Padronizar no texto final.
 5. **Afirmação sobre P3.** A explicação para os pequenos municípios na Discussão é hipótese, não resultado.
 6. **Mapas e mesorregiões.** A Tabela 3 agrupa município-anos 2020–2024 (n = 920); conferir se o periódico prefere o ano mais recente.

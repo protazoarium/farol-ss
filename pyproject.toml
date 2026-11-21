@@ -26,6 +26,9 @@ api = ["fastapi>=0.115", "uvicorn>=0.30"]
 # Ingestão do SINAN via PySUS (pesado; só quem roda `farol ingest` precisa).
 sus = ["pysus>=0.15"]
 dev = ["pytest>=8.3", "ruff>=0.6", "farol-ss[pipeline,api,sus]"]
+figuras = [
+    "matplotlib>=3.9",
+]
 
 [project.scripts]
 farol = "farol_ss.cli:app"

@@ -196,7 +196,7 @@ def validacao_desfecho(base: pd.DataFrame) -> pd.DataFrame:
     # parcial simples: o gap em t correlaciona com a variação, controlando o nível (ranque de N)
     r = []
     for nome, y in (("Variação da taxa de internações (t+1 − t)", "delta"), ("Taxa de internações em t+1", "taxa_t1")):
-        r.append({"desfecho": nome, "n_pares": int(len(ok)), "spearman_com_gap": round(float(_sp(ok["gap"], ok[y])), 3)})
+        r.append({"desfecho": nome, "n_pares": len(ok), "spearman_com_gap": round(float(_sp(ok["gap"], ok[y])), 3)})
     return pd.DataFrame(r)
 
 
@@ -212,7 +212,7 @@ def comparacao_pca(df: pd.DataFrame) -> dict:
     pc_rank = pd.Series(np.nan, index=sub.index)
     var_expl = []
     cols = ["sub_epidemiologico", "sub_saneamento", "sub_vulnerabilidade"]
-    for ano, idx in sub.groupby("ano").groups.items():
+    for idx in sub.groupby("ano").groups.values():
         x = sub.loc[idx, cols].dropna()
         z = ((x - x.mean()) / x.std(ddof=0)).to_numpy()
         _, s, vt = np.linalg.svd(z, full_matrices=False)

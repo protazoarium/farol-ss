@@ -1,0 +1,9 @@
+{
+  "title": "Farol-SS: índice de alinhamento entre necessidade sanitária e alocação de recursos em saúde nos municípios de Pernambuco (código, parâmetros e dados derivados)",
+  "upload_type": "software",
+  "description": "Código, parâmetros (conf/ieas.yml), dados derivados (gold) e resultados da análise de sensibilidade que sustentam o artigo sobre o IEAS/Farol-SS, 185 municípios de Pernambuco, 2020–2024. Todos os números do manuscrito são regeneráveis pelos comandos farol ieas e farol sensibilidade.",
+  "creators": [{"name": "PREENCHER, Sobrenome; Nome"}],
+  "keywords": ["alocação de recursos", "gastos em saúde", "saneamento", "dados abertos", "Pernambuco"],
+  "language": "por",
+  "access_right": "open"
+}
