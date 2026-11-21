@@ -23,10 +23,9 @@ SINAN (epidemiologia), Censo 2022 do IBGE (saneamento), CadÚnico/SAGI
 municipal, L2), Portal da Transparência (repasse federal, L1 — proxy) e IBGE
 (população, IPCA, malha). O eixo **Necessidade fica completo em 3 de 3
 subíndices** para todos os 185 municípios; o eixo **Alocação** tem L1 completo
-(185/185 × 5 anos) e L2/L3 para quase todos. O **IEAS é calculado para 921 dos
-925 município-anos** (os 185 municípios em 2024; os 4 cinza restantes são o
-Distrito Estadual de Fernando de Noronha, sem execução própria no SIOPS nem
-contratações municipais no PNCP). Onde falta a camada L3 do PNCP no ano, a
+(185/185 × 5 anos) e L2 para quase todos; L3 (PNCP) fica fora da composição
+(ver §9.2). O **IEAS é calculado para 920 dos 925 município-anos** (os 5 cinza
+são o Distrito Estadual de Fernando de Noronha, sem execução própria no SIOPS). Onde falta a camada L3 do PNCP no ano, a
 Alocação pode cair abaixo do limiar e o farol fica cinza: a *regra do cinza*
 recusa-se a publicar um número derivado de dado majoritariamente ausente.
 
@@ -277,10 +276,10 @@ derivado de dado majoritariamente ausente.
 Hoje a **Necessidade está completa (3 de 3 subíndices) para todos os 185
 municípios** — o subíndice de saneamento entrou via Censo 2022. Com o **L1
 completo (185/185 × 5 anos)**, a **Alocação** também alcança a cobertura mínima
-em quase toda a grade: o IEAS é calculado para **921 dos 925 município-anos**
-(os 185 municípios em 2024). Os 4 cinza restantes são o Distrito Estadual de
-Fernando de Noronha (2020–2023), que não tem execução própria no SIOPS nem
-contratações municipais no PNCP — só L1, abaixo do limiar de 50% do eixo. A
+em quase toda a grade: o IEAS é calculado para **920 dos 925 município-anos**.
+Os 5 cinza são o Distrito Estadual de Fernando de Noronha (2020–2024), que não
+tem execução própria no SIOPS — só L1, abaixo do piso de dois componentes do
+eixo. A
 coluna `l3_maturidade_pncp_uf` ainda registra que a adesão à Lei 14.133 sobe de
 6 municípios em 2021 para 157 em 2024, então um L3 igual a zero em 2020–2021
 deve ser lido como possível lacuna de cobertura, não ausência real de compra.
@@ -512,46 +511,60 @@ serializados como `null` JSON válido — coberto por teste (`tests/test_api.py`
 
 | Métrica | Valor |
 |---|---|
-| Município-anos com IEAS calculado | **921 de 925** |
-| Farol (todos os anos) | 383 verde · 202 vermelho · 176 azul · 160 amarelo · 4 cinza |
-| Farol em 2024 | 104 verde · 60 azul · 19 amarelo · 2 vermelho · 0 cinza |
+| Município-anos com IEAS calculado | **920 de 925** |
+| Farol (todos os anos) | 391 verde · 196 amarelo · 172 vermelho · 161 azul · 5 cinza |
+| Farol em 2024 | 86 verde · 37 amarelo · 32 vermelho · 29 azul · 1 cinza |
 | Cobertura do eixo Necessidade | **1,00 para todos** — epidemiológico (SINAN+SIH) + saneamento + vulnerabilidade |
-| Cobertura do eixo Alocação | 1,00 (L1+L2+L3) em 338 · 0,67 (L1+L2 ou L1+L3) em 583 · 0,33 (só L1) em 4 |
+| Cobertura do eixo Alocação | 1,00 (L1+L2) em 920 · 0,50 (só L1) em 5 |
 
-Distribuição do farol por ano (só município-anos com IEAS calculado; os 4 cinza
-são Fernando de Noronha em 2020–2023):
+> **Revisão metodológica (nov/2026).** Duas correções mudaram a leitura
+> temporal do farol. (1) O rank percentil passou a ser calculado **dentro de
+> cada ano**; antes, os 925 município-anos eram ranqueados juntos, e o gap
+> passava a medir a mudança de *nível* entre anos (a mediana de L1 mais que
+> dobra de 2022 para 2023), o que produzia a "virada" de vermelho para azul de
+> 2023 — um artefato. (2) L3 (PNCP) saiu da composição do eixo A, porque sua
+> cobertura cresce no período (município-anos com L1+L2+L3: 0 em 2020, 8, 102,
+> 72 e 156 em 2024); L1 e L2 passam a pesar 0,47 e 0,53 (renormalização de
+> 0,35/0,40). A versão anterior mostrava 2020–2022 concentrando vermelhos e
+> 2023–2024 azuis; isso **não** deve mais ser citado.
+
+Distribuição do farol por ano (só município-anos com IEAS calculado; o cinza é
+Fernando de Noronha):
 
 | Ano | 🔴 verm. | 🟠 amar. | 🟢 verde | 🔵 azul | cinza |
 |---|---|---|---|---|---|
-| 2020 | 45 | 45 | 79 | 15 | 1 |
-| 2021 | 56 | 48 | 71 | 9 | 1 |
-| 2022 | 99 | 42 | 37 | 6 | 1 |
-| 2023 | 0 | 6 | 92 | 86 | 1 |
-| 2024 | 2 | 19 | 104 | 60 | 0 |
+| 2020 | 35 | 43 | 73 | 33 | 1 |
+| 2021 | 36 | 42 | 72 | 34 | 1 |
+| 2022 | 35 | 38 | 78 | 33 | 1 |
+| 2023 | 34 | 36 | 82 | 32 | 1 |
+| 2024 | 32 | 37 | 86 | 29 | 1 |
 
-A leitura muda de ano para ano: 2020–2022 concentram os **vermelhos** (necessidade
-no topo do estado, alocação no fundo), enquanto 2023–2024 pendem para verde e azul.
-Parte dessa virada é real — repasse e execução crescem em termos deflacionados — e
-parte reflete o **peso de L1 (0,35)**: as transferências sociais são um número
-grande e relativamente uniforme, que empurra para cima o eixo Alocação dos
-municípios mais pobres. Como L1 é um *proxy* (§10), essa sensibilidade é uma
-ressalva de leitura, não um resultado sobre repasse setorial de saúde. As
-coberturas censitárias de saneamento em PE são baixas (água 64%, esgoto 48%,
-lixo 74% na mediana), o que mantém o subíndice de Necessidade alto em quase todo
-o estado.
+Com o rank por ano, o gap médio é nulo por construção em cada ano e a
+distribuição das cores é estável: **o farol compara municípios entre si no mesmo
+ano; ele não diz se a alocação do estado, como um todo, melhorou ou piorou.** A
+associação entre os ranques de Necessidade e de Alocação é fraca (Spearman de
+0,17 a 0,38 conforme o ano). L1 segue sendo um *proxy* (§10): transferência
+social, não repasse setorial de saúde, e correlacionada com a extrema pobreza
+que também compõe a Necessidade. As coberturas censitárias de saneamento em PE
+são baixas (água 64%, esgoto 48%, lixo 74% na mediana), o que mantém o
+subíndice de Necessidade alto em quase todo o estado. A análise de
+sensibilidade (pesos, limiares, normalização, composição do eixo A) está em
+`docs/artigo-revista/resultados/`, gerada por `farol sensibilidade`.
 
 ### 9.3 Alertas
 
-**777 alertas** no total, dos quatro detectores:
+**743 alertas** no total, dos quatro detectores:
 
 - **570 de suspeita de desabastecimento** — 152 municípios, concentrados nos
   anos de surto de arbovirose (2022 e 2024). A consulta cruza incidência com o
   **objeto e os itens** das contratações. (Não depende de L1; inalterado.)
-- **202 de desalinhamento estrutural** — os faróis vermelhos (106 municípios;
-  47 de severidade alta, 155 moderada), concentrados em 2020–2022.
-- **4 de alocação abaixo do esperado** (detector 2) — todos em 2024, o único ano
-  com massa suficiente de município-anos com o eixo Alocação inteiro (L1+L2+L3)
-  para um ajuste robusto. Ainda conservador por construção.
+- **172 de desalinhamento estrutural** — os faróis vermelhos (67 municípios;
+  36 de severidade alta, 136 moderada), distribuídos de forma estável pelos
+  cinco anos (32 a 36 por ano).
+- **0 de alocação abaixo do esperado** (detector 2) — com o rank por ano, as
+  posições ficam limitadas a [0, 1] e o corte (resíduo robusto ≤ −2 desvios e
+  ≥ 8 pontos abaixo do previsto) deixou de ser alcançável. O detector segue
+  ativo e conservador, mas não sinaliza nada no recorte atual.
 - **1 de suspeita de sobrepreço** — após separar a comparação por (categoria,
   unidade, dose), sobra um item de amoxicilina em comprimido a 4,2× a mediana
   de PE (Petrolina, 2023).

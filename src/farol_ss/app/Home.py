@@ -10,7 +10,7 @@ from __future__ import annotations
 import streamlit as st
 
 from farol_ss.app import conteudo, dados, tema
-from farol_ss.config import ieas_conf
+from farol_ss.config import ieas_conf, pesos_alocacao_efetivos
 
 st.set_page_config(
     page_title=f"{tema.MARCA}",
@@ -20,6 +20,7 @@ st.set_page_config(
 )
 tema.aplicar_estilo()
 conf = ieas_conf()
+pa_ef = pesos_alocacao_efetivos()
 
 tema.cabecalho(
     f"🚦 {tema.MARCA}",
@@ -58,17 +59,19 @@ with col_b:
     st.subheader("Os dois eixos do IEAS")
     st.markdown(
         f"""
-Cada eixo é convertido num **rank percentil dentro de Pernambuco** (posição
-relativa, não valor absoluto):
+Cada eixo é convertido num **rank percentil dentro de Pernambuco e do mesmo
+ano** (posição relativa frente aos outros 184 municípios naquele ano, não valor
+absoluto):
 
 - **N — Necessidade**: carga epidemiológica (SINAN + internações SIH,
   {conf['necessidade']['pesos']['epidemiologico']:.0%}) + déficit de saneamento
   (Censo 2022, {conf['necessidade']['pesos']['saneamento']:.0%}) + vulnerabilidade
   social (CadÚnico, {conf['necessidade']['pesos']['vulnerabilidade']:.0%}).
-- **A — Alocação**: R$/hab deflacionado para 2024 — repasse federal L1
-  ({conf['alocacao']['pesos']['l1_repasse_federal']:.0%}) + execução própria L2
-  ({conf['alocacao']['pesos']['l2_execucao_propria']:.0%}) + contratação de
-  insumos L3 ({conf['alocacao']['pesos']['l3_contratacao_insumos']:.0%}).
+- **A — Alocação**: R$/hab deflacionado para 2024 — transferências federais L1
+  ({pa_ef['l1_repasse_federal']:.0%}) + execução própria L2
+  ({pa_ef['l2_execucao_propria']:.0%}). A contratação de insumos L3 (PNCP) não
+  entra na composição: sua cobertura cresce ao longo dos anos e distorceria a
+  comparação; ela alimenta os alertas e a análise de sensibilidade.
 
 A fórmula completa, com cada subíndice e cada detector, está na página
 **Metodologia**.
@@ -80,7 +83,7 @@ st.markdown(conteudo.COMO_LER)
 
 # ── Diagrama ─────────────────────────────────────────────────────────
 st.markdown("### Como o índice é construído")
-tema.diagrama_indice(conf["necessidade"]["pesos"], conf["alocacao"]["pesos"])
+tema.diagrama_indice(conf["necessidade"]["pesos"], pa_ef)
 
 # ── Semáforo ──────────────────────────────────────────────────────────
 st.markdown("### O semáforo")

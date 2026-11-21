@@ -198,32 +198,14 @@ def ieas() -> None:
     cinza: a regra do cinza, não um bug.
     """
     from farol_ss.index import anomalies
-    from farol_ss.index.ieas import calcular_ieas, montar_sub_epidemiologico
-    from farol_ss.index.normalize import rank_percentil
+    from farol_ss.index.ieas import calcular_ieas, montar_subindices
     from farol_ss.io import duck
 
     df = duck.read_gold("fato_municipio_ano")
 
-    # Subíndice epidemiológico: arboviroses + veiculação hídrica (SINAN) +
-    # internações por doença relacionada a saneamento (SIH, grupo RD), com os
-    # pesos de conf/ieas.yml aplicados por componente. Ver
-    # `index/ieas.montar_sub_epidemiologico`.
-    df["sub_epidemiologico"] = montar_sub_epidemiologico(df)
-
-    # Subíndice de vulnerabilidade: rank percentil da taxa de famílias em
-    # extrema pobreza (CadÚnico), calculada no gold. Mesma forma do epi.
-    if "extrema_pobreza_por_mil_hab" in df.columns:
-        df["sub_vulnerabilidade"] = rank_percentil(df["extrema_pobreza_por_mil_hab"])
-    else:
-        df["sub_vulnerabilidade"] = np.nan
-
-    # Subíndice de saneamento: rank percentil do déficit ponderado
-    # (água/esgoto/lixo) do Censo 2022, já calculado no gold. Déficit maior =
-    # necessidade maior, então o rank é direto.
-    if "sub_saneamento_bruto" in df.columns:
-        df["sub_saneamento"] = rank_percentil(df["sub_saneamento_bruto"])
-    else:
-        df["sub_saneamento"] = np.nan
+    # Subíndices (epidemiológico, saneamento, vulnerabilidade), cada um com
+    # rank percentil DENTRO DO ANO. Ver `index/ieas.montar_subindices`.
+    df = montar_subindices(df)
 
     for col in (
         "l1_per_capita",
@@ -256,6 +238,27 @@ def ieas() -> None:
         console.print(f"  ✓ {len(alertas)} alertas: {por_tipo}")
 
     console.print("[green]✓ IEAS concluído[/green]")
+
+
+@app.command()
+def sensibilidade() -> None:
+    """Análise de sensibilidade e validação do IEAS (insumo do artigo).
+
+    Grava um CSV por análise em `docs/artigo-revista/resultados/` — normalização,
+    pesos (±20 %, iguais, 1.000 sorteios de Dirichlet), limiares, composição do
+    eixo A, remoção de subíndices, PCA, desfecho posterior, municípios pequenos
+    e efeito da cobertura do PNCP. Todo número do manuscrito vem desses arquivos.
+    """
+    from farol_ss.index import sensibilidade as sens
+    from farol_ss.io import duck
+
+    df = duck.read_gold("fato_municipio_ano")
+    destino = config.ROOT / "docs" / "artigo-revista" / "resultados"
+    destino.mkdir(parents=True, exist_ok=True)
+    for nome, tabela in sens.rodar(df).items():
+        tabela.to_csv(destino / f"{nome}.csv", index=False)
+        console.print(f"  ✓ {nome}.csv ({len(tabela)} linhas)")
+    console.print("[green]✓ Sensibilidade concluída[/green]")
 
 
 if __name__ == "__main__":

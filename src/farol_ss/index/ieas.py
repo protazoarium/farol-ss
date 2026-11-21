@@ -12,6 +12,20 @@ cuja fração de componentes presentes cai abaixo do limiar em
 `conf/ieas.yml` (`cobertura_minima`) vira NaN inteiro para aquele
 município-ano, e a cor final é "cinza" — nunca um número calculado sobre
 dado majoritariamente ausente.
+
+**Normalização por ano.** Quando o DataFrame traz a coluna `ano`, todo ranque é
+calculado *dentro de cada ano* (os 185 municípios de um mesmo ano), e não sobre
+os 925 município-anos empilhados. Ranquear a tabela empilhada faz o gap medir
+mudanças de nível entre anos (p. ex. a mediana de L1 mais que dobra de 2022 para
+2023), e não o alinhamento entre municípios. Consequência declarada: o gap
+médio é nulo por construção em cada ano — o semáforo é uma medida *relativa
+dentro do ano* e não diz se a alocação do estado melhorou ou piorou.
+
+**Eixo A.** Por padrão, o índice usa os componentes listados em
+`conf/ieas.yml::alocacao.componentes_no_indice` (L1 e L2). L3 (PNCP) fica fora
+da composição principal porque sua cobertura cresce no período (0 município-ano
+completo em 2020; 156 em 2024) e faria o mesmo município mudar de ranque só
+porque o PNCP passou a cobri-lo; entra como análise de sensibilidade.
 """
 
 from __future__ import annotations
@@ -20,13 +34,20 @@ import numpy as np
 import pandas as pd
 
 from farol_ss.config import ieas_conf
-from farol_ss.index.normalize import media_ponderada, rank_percentil
+from farol_ss.index.normalize import media_ponderada, normalizar
 
 _ARBOVIROSES = ("taxa_deng", "taxa_chik", "taxa_zika")
 _VEICULACAO_HIDRICA = ("taxa_lept", "taxa_hepa", "taxa_esqu")
 
 
-def montar_sub_epidemiologico(df: pd.DataFrame) -> pd.Series:
+def _grupos(df: pd.DataFrame, por_ano: bool) -> pd.Series | None:
+    """Série de agrupamento (o ano) ou None quando não há `ano` ou por_ano=False."""
+    return df["ano"] if (por_ano and "ano" in df.columns) else None
+
+
+def montar_sub_epidemiologico(
+    df: pd.DataFrame, *, por_ano: bool = True, metodo: str = "ranque"
+) -> pd.Series:
     """Subíndice epidemiológico do eixo Necessidade, em [0, 1].
 
     Três componentes, cada um um rank percentil dentro de PE, combinados com os
@@ -44,19 +65,43 @@ def montar_sub_epidemiologico(df: pd.DataFrame) -> pd.Series:
     """
     pesos = ieas_conf()["necessidade"]["epidemiologico"]["pesos"]
     comp = pd.DataFrame(index=df.index)
+    g = _grupos(df, por_ano)
+
+    def rk(x: pd.Series) -> pd.Series:
+        return normalizar(x, g, metodo)
 
     arbo = [c for c in _ARBOVIROSES if c in df.columns]
-    comp["arboviroses"] = rank_percentil(df[arbo].sum(axis=1)) if arbo else np.nan
+    comp["arboviroses"] = rk(df[arbo].sum(axis=1)) if arbo else np.nan
 
     hidr = [c for c in _VEICULACAO_HIDRICA if c in df.columns]
-    comp["veiculacao_hidrica"] = rank_percentil(df[hidr].sum(axis=1)) if hidr else np.nan
+    comp["veiculacao_hidrica"] = rk(df[hidr].sum(axis=1)) if hidr else np.nan
 
     if "taxa_internacoes_drsai" in df.columns:
-        comp["internacoes_saneamento"] = rank_percentil(df["taxa_internacoes_drsai"])
+        comp["internacoes_saneamento"] = rk(df["taxa_internacoes_drsai"])
     else:
         comp["internacoes_saneamento"] = np.nan
 
     return media_ponderada(comp, {k: pesos[k] for k in comp.columns if k in pesos})
+
+
+def montar_subindices(
+    df: pd.DataFrame, *, por_ano: bool = True, metodo: str = "ranque"
+) -> pd.DataFrame:
+    """Acrescenta `sub_epidemiologico`, `sub_vulnerabilidade` e `sub_saneamento`.
+
+    Cada subíndice é normalizado dentro do ano (`por_ano=True`). Fica aqui, e
+    não no CLI, para que a análise de sensibilidade use exatamente o mesmo
+    código do índice publicado.
+    """
+    out = df.copy()
+    g = _grupos(out, por_ano)
+    out["sub_epidemiologico"] = montar_sub_epidemiologico(out, por_ano=por_ano, metodo=metodo)
+    for destino, origem in (
+        ("sub_vulnerabilidade", "extrema_pobreza_por_mil_hab"),
+        ("sub_saneamento", "sub_saneamento_bruto"),
+    ):
+        out[destino] = normalizar(out[origem], g, metodo) if origem in out.columns else np.nan
+    return out
 
 
 def _cobertura_por_eixo(df: pd.DataFrame, colunas: list[str]) -> pd.Series:
@@ -64,17 +109,24 @@ def _cobertura_por_eixo(df: pd.DataFrame, colunas: list[str]) -> pd.Series:
     return df[colunas].notna().mean(axis=1)
 
 
-def calcular_necessidade(df: pd.DataFrame) -> pd.DataFrame:
+def calcular_necessidade(
+    df: pd.DataFrame,
+    *,
+    por_ano: bool = True,
+    metodo: str = "ranque",
+    pesos: dict[str, float] | None = None,
+) -> pd.DataFrame:
     """Eixo N: epidemiológico + saneamento + vulnerabilidade → rank percentil.
 
     Espera colunas normalizadas em [0,1] por subíndice: `sub_epidemiologico`,
-    `sub_saneamento`, `sub_vulnerabilidade` (cada uma já calculada por quem
-    chama, a partir dos indicadores brutos — ver `montar_subindices_exemplo`
-    para a forma esperada). Este módulo não sabe de onde vêm os indicadores
-    brutos; só combina o que já foi normalizado, o que o mantém testável com
+    `sub_saneamento`, `sub_vulnerabilidade` (ver `montar_subindices`). Este
+    módulo só combina o que já foi normalizado, o que o mantém testável com
     fixtures sintéticas sem depender do pipeline de ingestão inteiro.
+
+    `pesos` (chaves `epidemiologico`/`saneamento`/`vulnerabilidade`) substitui
+    os de `conf/ieas.yml` — usado apenas na análise de sensibilidade.
     """
-    conf = ieas_conf()["necessidade"]
+    p = pesos or ieas_conf()["necessidade"]["pesos"]
     subcols = ["sub_epidemiologico", "sub_saneamento", "sub_vulnerabilidade"]
 
     cobertura = _cobertura_por_eixo(df, subcols)
@@ -83,52 +135,67 @@ def calcular_necessidade(df: pd.DataFrame) -> pd.DataFrame:
     necessidade_bruta = media_ponderada(
         df,
         {
-            "sub_epidemiologico": conf["pesos"]["epidemiologico"],
-            "sub_saneamento": conf["pesos"]["saneamento"],
-            "sub_vulnerabilidade": conf["pesos"]["vulnerabilidade"],
+            "sub_epidemiologico": p["epidemiologico"],
+            "sub_saneamento": p["saneamento"],
+            "sub_vulnerabilidade": p["vulnerabilidade"],
         },
     )
     necessidade_bruta[cobertura < minimo] = np.nan
 
     out = df.copy()
     out["necessidade_bruta"] = necessidade_bruta
-    out["necessidade_rank"] = rank_percentil(necessidade_bruta)
+    out["necessidade_rank"] = normalizar(necessidade_bruta, _grupos(df, por_ano), metodo)
     out["necessidade_cobertura"] = cobertura
     return out
 
 
-def calcular_alocacao(df: pd.DataFrame) -> pd.DataFrame:
-    """Eixo A: L1 + L2 + L3 per capita deflacionado → rank percentil.
+_COLUNA_ALOCACAO = {
+    "l1_repasse_federal": "l1_per_capita",
+    "l2_execucao_propria": "l2_per_capita",
+    "l3_contratacao_insumos": "l3_per_capita",
+}
 
-    Espera `l1_per_capita`, `l2_per_capita`, `l3_per_capita` já deflacionados
-    para o ano-base (ver conf/ieas.yml `recorte.ano_base_deflacao`).
+
+def calcular_alocacao(
+    df: pd.DataFrame,
+    *,
+    por_ano: bool = True,
+    metodo: str = "ranque",
+    pesos: dict[str, float] | None = None,
+    componentes: list[str] | None = None,
+) -> pd.DataFrame:
+    """Eixo A: componentes per capita deflacionados → rank percentil.
+
+    Espera `l1_per_capita`, `l2_per_capita` e `l3_per_capita` já deflacionados
+    para o ano-base (ver conf/ieas.yml `recorte.ano_base_deflacao`). Só entram
+    no índice os `componentes` (padrão: `alocacao.componentes_no_indice`); a
+    cobertura do eixo é medida sobre esses mesmos componentes, e os pesos são
+    renormalizados entre eles.
     """
     conf = ieas_conf()["alocacao"]
-    subcols = ["l1_per_capita", "l2_per_capita", "l3_per_capita"]
+    p = pesos or conf["pesos"]
+    usados = componentes or conf.get("componentes_no_indice") or list(_COLUNA_ALOCACAO)
+    subcols = [_COLUNA_ALOCACAO[c] for c in usados]
 
     cobertura = _cobertura_por_eixo(df, subcols)
     minimo = ieas_conf()["cobertura_minima"]["alocacao"]
 
-    alocacao_bruta = media_ponderada(
-        df,
-        {
-            "l1_per_capita": conf["pesos"]["l1_repasse_federal"],
-            "l2_per_capita": conf["pesos"]["l2_execucao_propria"],
-            "l3_per_capita": conf["pesos"]["l3_contratacao_insumos"],
-        },
-    )
+    alocacao_bruta = media_ponderada(df, {_COLUNA_ALOCACAO[c]: p[c] for c in usados})
     alocacao_bruta[cobertura < minimo] = np.nan
+    # Piso absoluto de componentes (nunca mais que o número de componentes em uso).
+    piso = min(ieas_conf()["cobertura_minima"].get("alocacao_min_componentes", 1), len(subcols))
+    alocacao_bruta[df[subcols].notna().sum(axis=1) < piso] = np.nan
 
     out = df.copy()
     out["alocacao_bruta"] = alocacao_bruta
-    out["alocacao_rank"] = rank_percentil(alocacao_bruta)
+    out["alocacao_rank"] = normalizar(alocacao_bruta, _grupos(df, por_ano), metodo)
     out["alocacao_cobertura"] = cobertura
     return out
 
 
-def classificar_farol(gap: pd.Series) -> pd.Series:
+def classificar_farol(gap: pd.Series, limiares: dict[str, float] | None = None) -> pd.Series:
     """Aplica os limiares do semáforo. NaN em `gap` vira 'cinza'."""
-    conf = ieas_conf()["farol"]
+    conf = limiares or ieas_conf()["farol"]
     cond = [
         gap.isna(),
         gap <= conf["vermelho_ate"],
@@ -145,12 +212,27 @@ def classificar_farol(gap: pd.Series) -> pd.Series:
     return pd.Series(np.select(cond, escolhas, default="verde"), index=gap.index)
 
 
-def calcular_ieas(df: pd.DataFrame) -> pd.DataFrame:
-    """Pipeline completo: necessidade + alocação → gap, ieas, farol."""
-    out = calcular_necessidade(df)
-    out = calcular_alocacao(out)
+def calcular_ieas(
+    df: pd.DataFrame,
+    *,
+    por_ano: bool = True,
+    metodo: str = "ranque",
+    pesos_n: dict[str, float] | None = None,
+    pesos_a: dict[str, float] | None = None,
+    componentes_a: list[str] | None = None,
+    limiares: dict[str, float] | None = None,
+) -> pd.DataFrame:
+    """Pipeline completo: necessidade + alocação → gap, ieas, farol.
+
+    Os argumentos nomeados existem para a análise de sensibilidade; sem eles o
+    resultado é o índice publicado (parâmetros de `conf/ieas.yml`).
+    """
+    out = calcular_necessidade(df, por_ano=por_ano, metodo=metodo, pesos=pesos_n)
+    out = calcular_alocacao(
+        out, por_ano=por_ano, metodo=metodo, pesos=pesos_a, componentes=componentes_a
+    )
 
     out["gap"] = out["alocacao_rank"] - out["necessidade_rank"]
     out["ieas"] = 1 - out["gap"].abs()
-    out["farol"] = classificar_farol(out["gap"])
+    out["farol"] = classificar_farol(out["gap"], limiares)
     return out

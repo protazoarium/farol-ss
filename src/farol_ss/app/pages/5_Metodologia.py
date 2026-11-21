@@ -12,7 +12,7 @@ import pandas as pd
 import streamlit as st
 
 from farol_ss.app import conteudo, dados, tema
-from farol_ss.config import ieas_conf
+from farol_ss.config import ieas_conf, pesos_alocacao_efetivos
 
 st.set_page_config(page_title="Metodologia · Farol-SS", page_icon="📐", layout="wide")
 tema.aplicar_estilo()
@@ -20,7 +20,7 @@ conf = ieas_conf()
 pn = conf["necessidade"]["pesos"]
 pe = conf["necessidade"]["epidemiologico"]["pesos"]
 ps = conf["necessidade"]["saneamento"]["pesos"]
-pa = conf["alocacao"]["pesos"]
+pa = pesos_alocacao_efetivos()
 farol = conf["farol"]
 cm = conf["cobertura_minima"]
 ano_base = conf["recorte"]["ano_base_deflacao"]
@@ -129,11 +129,14 @@ for fx in conteudo.formulas_do_bloco("necessidade"):
 # ── 6. Eixo Alocação ─────────────────────────────────────────────────
 st.header("Eixo A — Alocação")
 st.markdown(
-    f"Média ponderada de três camadas de gasto per capita, deflacionadas para "
-    f"**{ano_base}** pelo IPCA. Pesos: L1 repasse federal "
+    f"Média ponderada de duas camadas de gasto per capita, deflacionadas para "
+    f"**{ano_base}** pelo IPCA. Pesos: L1 transferências federais "
     f"**{_pct(pa['l1_repasse_federal'])}**, L2 execução própria "
-    f"**{_pct(pa['l2_execucao_propria'])}**, L3 contratação de insumos "
-    f"**{_pct(pa['l3_contratacao_insumos'])}**."
+    f"**{_pct(pa['l2_execucao_propria'])}**. A terceira camada, L3 (contratação "
+    f"de insumos), **não entra na composição**: a cobertura do PNCP cresce ano a "
+    f"ano (nenhum município tinha as três camadas em 2020; 157 tinham em 2024) e, "
+    f"com L3 dentro, o mesmo município mudaria de posição só porque o PNCP passou "
+    f"a cobri-lo. L3 segue alimentando os alertas e a análise de sensibilidade."
 )
 st.table(
     pd.DataFrame(
@@ -147,7 +150,7 @@ st.table(
             "Peso no eixo A": [
                 _pct(pa["l1_repasse_federal"]),
                 _pct(pa["l2_execucao_propria"]),
-                _pct(pa["l3_contratacao_insumos"]),
+                "fora do índice (alertas e sensibilidade)",
             ],
         }
     )
@@ -173,10 +176,10 @@ IEAS calculado** — o `gap` vira NaN e o município fica cinza. Limiares:
 Necessidade **{_pct(cm['necessidade'])}**, Alocação **{_pct(cm['alocacao'])}**.
 
 O eixo Necessidade está completo (3/3) para os 185 municípios em todos os anos.
-Com o L1 (Portal da Transparência) coletado para os 185, o eixo Alocação também
-alcança a cobertura mínima para **921 dos 925 município-anos** — o cinza que
-resta é o Distrito Estadual de Fernando de Noronha, que não tem execução própria
-no SIOPS nem contratações municipais no PNCP. A coluna `l3_maturidade_pncp_uf`
+Como L1 (Portal da Transparência) e L2 (SIOPS) cobrem quase todos os municípios,
+o eixo Alocação alcança a cobertura mínima — os dois componentes presentes — em
+**920 dos 925 município-anos**: o cinza que resta são os cinco anos do Distrito
+Estadual de Fernando de Noronha, que não tem execução própria no SIOPS. A coluna `l3_maturidade_pncp_uf`
 do gold ainda registra, por ano, a fração de municípios presentes no PNCP: a
 adesão à Lei 14.133 cresce de 2021 a 2024, e onde ela é baixa um L3 igual a zero
 deve ser lido com cautela.

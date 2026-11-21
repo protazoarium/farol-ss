@@ -18,8 +18,8 @@ Monitor territorial de efetividade de gastos em saúde e vulnerabilidade sanitá
 | Ingestão — Portal da Transparência (L1) | ✅ | transferências sociais (proxy — Bolsa Família/Novo BF + BPC), 185/185 × 5 anos; `/transferencias` fundo a fundo dá 403 permanente com a chave gratuita |
 | Camada silver | ✅ | um Parquet por domínio, grão `(cod_ibge, ano)` |
 | Camada gold (fato município×ano) | ✅ | 925 linhas; grão único; L1/L2/L3 deflacionados p/ 2024 |
-| IEAS (`index/ieas.py`) | ✅ | Necessidade completa (3/3) p/ os 185; 921/925 município-anos com cor (2024: 185/185) |
-| Detectores de anomalia | ✅ (4 de 4) | desalinhamento + desabastecimento + sobrepreço + resíduo de regressão — 777 alertas |
+| IEAS (`index/ieas.py`) | ✅ | Necessidade completa (3/3) p/ os 185; 920/925 município-anos com cor (5 cinza: Fernando de Noronha); ranque por ano; eixo A = L1 + L2 |
+| Detectores de anomalia | ✅ (4 de 4) | desalinhamento + desabastecimento + sobrepreço + resíduo de regressão — 743 alertas |
 | Painel Streamlit | ✅ | Home + 6 páginas (Farol/mapa, Município, Alertas, Fontes, Metodologia, API) — sistema de design institucional, diagrama do índice, Metodologia com todas as fórmulas em `st.latex` |
 | API FastAPI | ✅ | `/municipios`, `/ieas`, `/alertas`, `/fontes` — JSON/CSV, sem auth |
 | Testes | ✅ | 75 passando (`uv run pytest -q`) |

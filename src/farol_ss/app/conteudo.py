@@ -45,8 +45,8 @@ PARA_QUEM = """
 
 COMO_LER = """
 O IEAS compara **dois eixos**, cada um convertido em **rank percentil ∈ [0, 1]
-entre os 185 municípios** — o valor absoluto (R$, taxa por 100 mil habitantes)
-não entra na conta final, só a **posição relativa** dentro do estado. Isso torna
+entre os 185 municípios, dentro do mesmo ano** — o valor absoluto (R$, taxa por 100 mil habitantes)
+não entra na conta final, só a **posição relativa** dentro do estado naquele ano (por isso o gap médio é nulo em cada ano: o farol compara municípios entre si, não diz se o estado, como um todo, passou a alocar mais ou menos). Isso torna
 o índice robusto à inflação, à mudança de escala das fontes e a *outliers*
 (um município pequeno com um hospital regional não distorce a escala dos demais).
 
@@ -57,7 +57,7 @@ o índice robusto à inflação, à mudança de escala das fontes e a *outliers*
   mesmo `|gap|`, mas significados opostos.
 
 **Regra do cinza:** um eixo cuja fração de componentes presentes cai abaixo do
-limiar (`conf/ieas.yml`: Necessidade 60%, Alocação 50%) **não tem IEAS
+limiar (`conf/ieas.yml`: Necessidade 60%; Alocação 50% e ao menos 2 componentes) **não tem IEAS
 calculado** — o município aparece cinza. O sistema nunca publica um número
 derivado de dado majoritariamente ausente.
 """
@@ -404,7 +404,7 @@ FORMULAS: list[Formula] = [
         "Rank percentil",
         r"\text{rank}(x_m) \;=\; \frac{\#\{k : x_k \le x_m\}}{\#\{k : x_k \text{ não é NaN}\}} \;\in\; [0,1]",
         "A métrica comum dos dois eixos: converte qualquer indicador na posição "
-        "relativa do município dentro de Pernambuco. Robusto a outliers e a "
+        "relativa do município dentro de Pernambuco, calculada separadamente em cada ano. Robusto a outliers e a "
         "mudança de escala — não assume distribuição normal, ao contrário do "
         "z-score. Série constante devolve 0,5 para todos; NaN permanece NaN.",
         bloco="comuns",
@@ -486,10 +486,11 @@ FORMULAS: list[Formula] = [
         "eixo_alocacao",
         "Eixo Alocação",
         r"A_m = \text{rank}\big(\bar{v}^{\,A}_m\big),\quad"
-        r"\bar{v}^{\,A}_m = w_{L1}\,L1_m + w_{L2}\,L2_m + w_{L3}\,L3_m",
-        "Média ponderada das três camadas per capita (re-normalizada por "
-        "ausência), seguida de rank percentil. Se menos de 50% das camadas estão "
-        "presentes, A vira NaN.",
+        r"\bar{v}^{\,A}_m = w_{L1}\,L1_m + w_{L2}\,L2_m",
+        "Média ponderada de L1 e L2 per capita (pesos 0,35 e 0,40 re-normalizados "
+        "para 0,47 e 0,53), seguida de rank percentil dentro do ano. L3 fica fora "
+        "da composição porque a cobertura do PNCP cresce no período. Exige os dois "
+        "componentes: se falta um, A vira NaN.",
         bloco="alocacao",
         dependencias=["media_ponderada", "rank_percentil", "per_capita"],
     ),

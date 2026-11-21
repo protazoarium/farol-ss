@@ -372,7 +372,7 @@ def detectar_residuo_alocacao(df_ieas: pd.DataFrame) -> pd.DataFrame:
     (`conf/ieas.yml`) — alocação sistematicamente aquém, dado o padrão do
     estado.
 
-    Só roda sobre município-anos com o eixo de Alocação inteiro (L1+L2+L3);
+    Só roda sobre município-anos com o eixo de Alocação inteiro (todos os componentes do índice, hoje L1+L2);
     onde falta camada, o rank de alocação é NaN e a linha fica de fora.
     """
     schema_vazio = pd.DataFrame(

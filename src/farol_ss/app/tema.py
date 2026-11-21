@@ -312,7 +312,7 @@ def _svg_diagrama(pesos_n: dict[str, float], pesos_a: dict[str, float]) -> str:
     pe, ps, pv = p(pesos_n["epidemiologico"]), p(pesos_n["saneamento"]), p(pesos_n["vulnerabilidade"])
     l1 = p(pesos_a["l1_repasse_federal"])
     l2 = p(pesos_a["l2_execucao_propria"])
-    l3 = p(pesos_a["l3_contratacao_insumos"])
+    l3 = "fora do índice"
 
     def chip(x, y, w, titulo, sub, cor, h=48):
         return (
@@ -367,7 +367,7 @@ font-family="-apple-system, Segoe UI, Roboto, sans-serif">
 
   {chip(370, 262, 290, "L1 · repasse federal", f"peso {l1} · transferências sociais", "#00695c")}
   {chip(370, 320, 290, "L2 · execução própria", f"peso {l2} · R$/hab próprios (SIOPS)", "#00695c")}
-  {chip(370, 378, 290, "L3 · contratação de insumos", f"peso {l3} · R$/hab (PNCP + Compras)", "#00695c")}
+  {chip(370, 378, 290, "L3 · contratação de insumos", f"{l3} · alertas (PNCP + Compras)", "#00695c")}
 
   <text x="185" y="452" text-anchor="middle" class="rot">regra do cinza: cobertura ≥ 60%</text>
   <text x="515" y="452" text-anchor="middle" class="rot">regra do cinza: cobertura ≥ 50%</text>

@@ -29,6 +29,18 @@ def ieas_conf() -> dict:
     return yaml.safe_load((CONF / "ieas.yml").read_text(encoding="utf-8"))
 
 
+def pesos_alocacao_efetivos() -> dict[str, float]:
+    """Pesos do eixo A restritos aos componentes que entram no índice, renormalizados.
+
+    Com L3 fora da composição principal (`alocacao.componentes_no_indice`), L1 e
+    L2 passam de 0,35/0,40 a 0,47/0,53. Componentes fora do índice têm peso 0.
+    """
+    a = ieas_conf()["alocacao"]
+    usados = a.get("componentes_no_indice") or list(a["pesos"])
+    soma = sum(a["pesos"][k] for k in usados)
+    return {k: (a["pesos"][k] / soma if k in usados else 0.0) for k in a["pesos"]}
+
+
 @functools.cache
 def sources() -> dict:
     return yaml.safe_load((CONF / "sources.yml").read_text(encoding="utf-8"))

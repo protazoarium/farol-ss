@@ -60,6 +60,17 @@ alocacao:
     l2_execucao_propria: 0.40    # SIOPS
     l3_contratacao_insumos: 0.25 # PNCP (municipal) + Compras.gov.br (federal)
 
+  # Componentes que entram no índice publicado. L3 fica de fora da composição
+  # principal: a cobertura do PNCP cresce no período (município-anos com os
+  # três componentes: 0 em 2020, 8, 102, 72 e 156 em 2024), e com L3 dentro o
+  # mesmo município mudaria de ranque só porque o PNCP passou a cobri-lo. L3
+  # segue no gold, alimenta o detector de desabastecimento e entra na análise
+  # de sensibilidade (`farol sensibilidade`). Pesos renormalizados entre os
+  # componentes presentes (L1 0,35 → 0,47; L2 0,40 → 0,53).
+  componentes_no_indice:
+    - l1_repasse_federal
+    - l2_execucao_propria
+
 # Limiares do semáforo, sobre gap = rank(A) - rank(N), em [-1, 1]
 farol:
   vermelho_ate: -0.33
@@ -72,6 +83,11 @@ cobertura_minima:
   # fração dos indicadores de cada eixo que precisa estar presente
   necessidade: 0.60
   alocacao: 0.50
+  # Piso absoluto de componentes presentes no eixo A, além da fração acima: com
+  # L3 fora da composição (2 componentes), 50% sozinho aceitaria um único
+  # componente. Exigir 2 mantém a regra original ("dois de três") para quem
+  # tem L1+L2, e mantém cinza os municípios sem L2 (ex.: Fernando de Noronha).
+  alocacao_min_componentes: 2
 
 alertas:
   residuo_z_minimo: 2.0          # detector 2: regressão robusta

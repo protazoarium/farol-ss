@@ -107,3 +107,43 @@ def test_ieas_e_gap_tem_relacao_esperada():
     validos = out.dropna(subset=["ieas", "gap"])
     assert (validos["ieas"] == (1 - validos["gap"].abs())).all()
     assert (validos["ieas"] >= 0).all() and (validos["ieas"] <= 1).all()
+
+
+def _dois_anos():
+    """Dois anos com os mesmos municípios; em 2023 toda a alocação é 10x maior."""
+    a = _municipios(n=20)
+    a["ano"] = 2022
+    b = a.copy()
+    b["ano"] = 2023
+    for c in ("l1_per_capita", "l2_per_capita", "l3_per_capita"):
+        b[c] = b[c] * 10 + 100
+    return pd.concat([a, b], ignore_index=True)
+
+
+def test_ranque_por_ano_nao_confunde_nivel_entre_anos():
+    df = _dois_anos()
+    por_ano = calcular_ieas(df)
+    empilhado = calcular_ieas(df, por_ano=False)
+
+    # Empilhado: todo 2023 fica acima de todo 2022 no eixo A (artefato de nível).
+    assert empilhado.loc[df.ano == 2023, "alocacao_rank"].min() > empilhado.loc[
+        df.ano == 2022, "alocacao_rank"
+    ].max()
+    # Por ano: a mesma configuração relativa dá o mesmo ranque nos dois anos.
+    r22 = por_ano.loc[df.ano == 2022, "alocacao_rank"].to_numpy()
+    r23 = por_ano.loc[df.ano == 2023, "alocacao_rank"].to_numpy()
+    assert np.allclose(r22, r23)
+    # E o gap médio é ~0 em cada ano (propriedade por construção).
+    assert abs(por_ano.groupby("ano")["gap"].mean()).max() < 0.15
+
+
+def test_l3_fora_da_composicao_principal():
+    df = _municipios(n=20)
+    df.loc[0, "l3_per_capita"] = np.nan
+    out = calcular_ieas(df)
+    # Sem L3 no índice, a ausência de L3 não reduz a cobertura do eixo A.
+    assert out.loc[0, "alocacao_cobertura"] == 1.0
+    com_l3 = calcular_ieas(
+        df, componentes_a=["l1_repasse_federal", "l2_execucao_propria", "l3_contratacao_insumos"]
+    )
+    assert abs(com_l3.loc[0, "alocacao_cobertura"] - 2 / 3) < 1e-9

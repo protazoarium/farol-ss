@@ -1,9 +1,8 @@
 """Página Farol — mapa coroplético dos 185 municípios de PE.
 
 O IEAS ganha cor quando os dois eixos alcançam a cobertura mínima de
-`conf/ieas.yml`. Com o L1 (Transparência) completo, os dois eixos têm cobertura
-para 921 dos 925 município-anos; o cinza que resta é o Distrito Estadual de
-Fernando de Noronha (sem SIOPS nem PNCP municipais). O seletor de camada abre
+`conf/ieas.yml`. Os dois eixos têm cobertura para 920 dos 925 município-anos; o
+cinza que resta é o Distrito Estadual de Fernando de Noronha (sem SIOPS). O seletor de camada abre
 cada subíndice isolado — carga epidemiológica, saneamento, vulnerabilidade, cada
 camada de alocação — além do Farol combinado.
 """

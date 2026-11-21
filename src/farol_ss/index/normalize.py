@@ -31,6 +31,39 @@ def rank_percentil(serie: pd.Series) -> pd.Series:
     return serie.rank(pct=True, na_option="keep")
 
 
+def normalizar(serie: pd.Series, grupos: pd.Series | None = None, metodo: str = "ranque") -> pd.Series:
+    """Normaliza `serie` para [0, 1], opcionalmente dentro de cada grupo (ano).
+
+    - `metodo="ranque"` (padrão do IEAS): rank percentil.
+    - `metodo="z"`: escore-z mapeado por Φ (CDF normal) para [0, 1], de modo que
+      os mesmos limiares do semáforo continuem interpretáveis. Usado só na
+      análise de sensibilidade (ver `index/sensibilidade.py`).
+
+    Com `grupos` (ex.: a coluna `ano`), cada grupo é normalizado
+    separadamente: o resultado mede a posição do município frente aos demais
+    **do mesmo ano**, e não frente aos 925 município-anos empilhados.
+    """
+    if metodo == "ranque":
+        f = rank_percentil
+    elif metodo == "z":
+        f = _z_phi
+    else:
+        raise ValueError(f"método de normalização desconhecido: {metodo!r}")
+    if grupos is None:
+        return f(serie)
+    return serie.groupby(grupos, group_keys=False).transform(f)
+
+
+def _z_phi(serie: pd.Series) -> pd.Series:
+    from math import erf, sqrt
+
+    sd = serie.std(ddof=0)
+    if serie.notna().sum() == 0 or not sd or np.isnan(sd):
+        return rank_percentil(serie)
+    z = (serie - serie.mean()) / sd
+    return z.map(lambda v: 0.5 * (1 + erf(v / sqrt(2))) if pd.notna(v) else np.nan)
+
+
 def media_ponderada(df: pd.DataFrame, pesos: dict[str, float]) -> pd.Series:
     """Média ponderada tolerante a NaN: re-normaliza os pesos pelos
     componentes presentes em cada linha, em vez de propagar NaN quando falta
