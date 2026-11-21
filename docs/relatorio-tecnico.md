@@ -25,8 +25,7 @@ municipal, L2), Portal da Transparência (repasse federal, L1 — proxy) e IBGE
 subíndices** para todos os 185 municípios; o eixo **Alocação** tem L1 completo
 (185/185 × 5 anos) e L2 para quase todos; L3 (PNCP) fica fora da composição
 (ver §9.2). O **IEAS é calculado para 920 dos 925 município-anos** (os 5 cinza
-são o Distrito Estadual de Fernando de Noronha, sem execução própria no SIOPS). Onde falta a camada L3 do PNCP no ano, a
-Alocação pode cair abaixo do limiar e o farol fica cinza: a *regra do cinza*
+são o Distrito Estadual de Fernando de Noronha, sem execução própria no SIOPS). Onde falta um dos dois componentes do eixo Alocação (L1, L2), o farol fica cinza: a *regra do cinza*
 recusa-se a publicar um número derivado de dado majoritariamente ausente.
 
 Os quatro detectores de anomalia do plano estão ativos, incluindo o de
