@@ -97,7 +97,7 @@ Para a validade, examinou-se a associação (Spearman) entre o gap em *t* e (i) 
 
 ## 2.8 Disponibilidade de dados e código
 
-Código, parâmetros (`conf/ieas.yml`), dados derivados e API aberta estão em github.com/protazoarium/farol-ss; o painel público está em farol-ss.streamlit.app. Todos os números deste artigo são regeneráveis pelo comando `farol sensibilidade` sobre a versão marcada com a etiqueta `artigo-v1` do repositório; as figuras são geradas por `scripts/gerar-figuras-artigo.py`. O depósito arquivado com DOI será indicado na versão final: `[DOI Zenodo]` **[preencher após o depósito]**.
+Código, parâmetros (`conf/ieas.yml`), dados derivados e API aberta estão em github.com/protazoarium/farol-ss; o painel público está em farol-ss.streamlit.app. Todos os números deste artigo são regeneráveis pelo comando `farol sensibilidade` sobre a versão marcada com a etiqueta `artigo-v2` do repositório; as figuras são geradas por `scripts/gerar-figuras-artigo.py`. O depósito arquivado com DOI será indicado na versão final: `[DOI Zenodo]` **[preencher após o depósito]**.
 
 # 3 Resultados
 
