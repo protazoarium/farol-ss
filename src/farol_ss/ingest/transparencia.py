@@ -7,7 +7,7 @@ geolocalizadas por `codigoIbge` — dinheiro federal que chega à população do
 território. É uma L1 *parcial* e é assim documentada.
 
 Programas usados (a rede de proteção estrutural, competência de **junho** de
-cada ano):
+cada ano; **julho em 2022**, ver `_MES_POR_ANO`):
 
 - Bolsa Família / Auxílio Brasil / Novo Bolsa Família — o mesmo programa sob
   três nomes conforme o ano (`_PROGRAMA_BF`).
@@ -32,6 +32,18 @@ from farol_ss.io import municipios as M
 
 _BASE = "https://api.portaldatransparencia.gov.br/api-de-dados"
 _MES = "06"  # competência mensal: junho (sem 13º, sem efeitos de fim de ano)
+# Exceção: 2022 usa JULHO. No endpoint do Auxílio Brasil do Portal, o valor por família é de
+# ~R$ 160–230 de jan a jun/2022 e de ~R$ 415–435 a partir de jul/2022 (sem mudança no nº de
+# famílias); o MDS informou R$ 402 de média em jun/2022. Junho de 2022 cai antes da quebra de
+# série e subestima o valor pago (PE: R$ 284 mi em junho; R$ 570 mi em julho). Ver
+# `scripts/l1_checagem_2022.py` e docs/artigo-revista/06-status-pendencias-tecnicas.md.
+_MES_POR_ANO = {2022: "07"}
+
+
+def _mes(ano: int) -> str:
+    return _MES_POR_ANO.get(ano, _MES)
+
+
 # A chave gratuita permite ~90 req/min (6h–24h), MAS volume alto sustentado faz
 # a API BLOQUEAR a chave (redireciona 302 para /bloqueio-acesso) por algumas
 # horas. Pausa conservadora (~40 req/min) para não disparar o bloqueio; a
@@ -84,7 +96,7 @@ def _soma_programa(f: Fetcher, endpoint: str, cod_ibge: str, ano: int) -> float:
     pagina = 1
     while pagina <= 10:
         r = _get_com_limite(
-            f, f"{_BASE}/{endpoint}", mesAno=f"{ano}{_MES}", codigoIbge=cod_ibge, pagina=pagina
+            f, f"{_BASE}/{endpoint}", mesAno=f"{ano}{_mes(ano)}", codigoIbge=cod_ibge, pagina=pagina
         )
         r.raise_for_status()
         dados = r.json() if r.content and r.text.strip() else []
@@ -109,6 +121,7 @@ def _l1_municipio_ano(f: Fetcher, cod_ibge: str, ano: int) -> dict:
     return {
         "cod_ibge": cod_ibge,
         "ano": ano,
+        "l1_competencia": f"{ano}{_mes(ano)}",
         "l1_bolsa_familia_mes": bolsa,
         "l1_bpc_mes": bpc,
         "l1_transf_sociais_mes": bolsa + bpc,
@@ -164,7 +177,7 @@ def ingerir_transparencia(limite: int | None = None) -> pd.DataFrame:
             observacao=(
                 "L1 PARCIAL: transferências sociais federais por município "
                 "(Bolsa Família/Auxílio Brasil/Novo Bolsa Família + BPC), competência "
-                "junho. /transferencias fundo a fundo segue bloqueado (HTTP 403)."
+                "junho (julho em 2022, por quebra de série do Portal). /transferencias fundo a fundo segue bloqueado (HTTP 403)."
             ),
             extra={
                 "municipios": out["cod_ibge"].nunique(),

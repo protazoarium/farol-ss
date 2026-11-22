@@ -22,7 +22,7 @@ limitações): **`docs/relatorio-tecnico.md`**.
 | Silver | um Parquet por domínio, grão `(cod_ibge, ano)` |
 | Gold | `fato_municipio_ano.parquet` — 925 linhas, grão único, L1/L2/L3 deflacionados p/ 2024; colunas de confiança `l3_maturidade_pncp_uf` e `saneamento_ano_referencia` |
 | IEAS | Necessidade completa (3/3) para os 185; **920/925 município-anos com cor** (os 5 cinza são Fernando de Noronha, sem SIOPS). Ranque **por ano**; eixo A = L1 + L2 (L3/PNCP fora da composição — ver `docs/artigo-revista/`) |
-| Detectores | **os 4 ativos** — 765 alertas (570 desabast., 172 desalinh., 22 resíduo-regressão, 1 sobrepreço) |
+| Detectores | **os 4 ativos** — 763 alertas (570 desabast., 171 desalinh., 21 resíduo-regressão, 1 sobrepreço) |
 | Detector 3 | agora separa preços por (categoria, unidade, **dose/concentração**) — `_dose_norm` |
 | Detector 4 | agora cruza incidência com **objeto E itens** das contratações, não só o objeto |
 | Painel Streamlit | sistema de design institucional (`app/tema.py` + `app/conteudo.py`): cabeçalho, cartões, notas, molduras de fórmula, diagrama SVG do índice e CSS compartilhados. Home + 6 páginas. A **Metodologia** apresenta todas as fontes (variável bruta → transformação) e todas as fórmulas em `st.latex` (KaTeX), com os parâmetros lidos de `conf/ieas.yml`. URL de publicação: `https://farol-ss.streamlit.app` |

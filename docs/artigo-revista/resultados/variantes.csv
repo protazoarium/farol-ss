@@ -1,23 +1,23 @@
 grupo,variante,mantem_cor_pct,muda_cor_pct,spearman_gap,n_cinza
-Normalização,Ranque empilhado (925 município-anos),45.4,54.6,0.686,5
-Normalização,Escore-z (via CDF normal) por ano,80.1,19.9,0.963,5
-Pesos,Pesos iguais nos eixos,88.4,11.6,0.986,5
-Pesos,Eixo N: peso epidemiologico +20%,93.7,6.3,0.995,5
-Pesos,Eixo N: peso epidemiologico −20%,94.1,5.9,0.995,5
-Pesos,Eixo N: peso saneamento +20%,94.4,5.6,0.997,5
-Pesos,Eixo N: peso saneamento −20%,92.5,7.5,0.994,5
-Pesos,Eixo N: peso vulnerabilidade +20%,94.7,5.3,0.997,5
-Pesos,Eixo N: peso vulnerabilidade −20%,93.2,6.8,0.996,5
-Pesos,Eixo A: peso l1_repasse_federal +20%,94.6,5.4,0.996,5
-Pesos,Eixo A: peso l1_repasse_federal −20%,93.8,6.2,0.994,5
-Pesos,Eixo A: peso l2_execucao_propria +20%,94.9,5.1,0.996,5
-Pesos,Eixo A: peso l2_execucao_propria −20%,93.4,6.6,0.994,5
-Limiares,Interno ±0.05 / externo ±0.33,94.4,5.6,1.0,5
-Limiares,Interno ±0.15 / externo ±0.33,94.8,5.2,1.0,5
+Normalização,Ranque empilhado (925 município-anos),45.8,54.2,0.669,5
+Normalização,Escore-z (via CDF normal) por ano,80.6,19.4,0.963,5
+Pesos,Pesos iguais nos eixos,88.1,11.9,0.987,5
+Pesos,Eixo N: peso epidemiologico +20%,93.8,6.2,0.995,5
+Pesos,Eixo N: peso epidemiologico −20%,93.7,6.3,0.995,5
+Pesos,Eixo N: peso saneamento +20%,94.2,5.8,0.997,5
+Pesos,Eixo N: peso saneamento −20%,92.9,7.1,0.994,5
+Pesos,Eixo N: peso vulnerabilidade +20%,94.6,5.4,0.997,5
+Pesos,Eixo N: peso vulnerabilidade −20%,92.9,7.1,0.996,5
+Pesos,Eixo A: peso l1_repasse_federal +20%,94.5,5.5,0.996,5
+Pesos,Eixo A: peso l1_repasse_federal −20%,93.9,6.1,0.994,5
+Pesos,Eixo A: peso l2_execucao_propria +20%,95.1,4.9,0.996,5
+Pesos,Eixo A: peso l2_execucao_propria −20%,93.0,7.0,0.994,5
+Limiares,Interno ±0.05 / externo ±0.33,94.6,5.4,1.0,5
+Limiares,Interno ±0.15 / externo ±0.33,94.6,5.4,1.0,5
 Limiares,Interno ±0.10 / externo ±0.25,87.1,12.9,1.0,5
-Limiares,Interno ±0.10 / externo ±0.40,91.4,8.6,1.0,5
-Eixo A,Com L3 (PNCP) — composição de 3 componentes,77.2,22.8,0.908,4
-Eixo A,Sem L1 (só L2),50.7,49.3,0.65,5
-Eixo N,Sem o subíndice epidemiologico,71.5,28.5,0.912,5
-Eixo N,Sem o subíndice saneamento,51.7,48.3,0.704,5
-Eixo N,Sem o subíndice vulnerabilidade,70.1,29.9,0.929,5
+Limiares,Interno ±0.10 / externo ±0.40,90.7,9.3,1.0,5
+Eixo A,Com L3 (PNCP) — composição de 3 componentes,76.6,23.4,0.9,4
+Eixo A,Sem L1 (só L2),50.2,49.8,0.64,5
+Eixo N,Sem o subíndice epidemiologico,71.5,28.5,0.911,5
+Eixo N,Sem o subíndice saneamento,51.4,48.6,0.699,5
+Eixo N,Sem o subíndice vulnerabilidade,69.7,30.3,0.93,5

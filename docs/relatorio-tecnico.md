@@ -31,7 +31,7 @@ recusa-se a publicar um número derivado de dado majoritariamente ausente.
 Os quatro detectores de anomalia do plano estão ativos, incluindo o de
 **resíduo de regressão** (alocação sistematicamente abaixo do que a necessidade
 prevê, controlando pelo padrão do estado), recalibrado sobre o valor bruto per
-capita em escala logarítmica (§7.2): 22 alertas (§9.3).
+capita em escala logarítmica (§7.2): 21 alertas (§9.3).
 
 Palavras-chave: dados abertos, saúde pública, contratações públicas, PNCP,
 SINAN, índice territorial, arquitetura *lakehouse*, DuckDB.
@@ -196,8 +196,7 @@ painel Streamlit  ·  API FastAPI  (leem só o gold, nunca recalculam)
    recebe **0 casos** (dado real), não `NULL`.
 3. **Alocação** — L2 (SIOPS), L3 (PNCP) e L1 (Transparência, proxy) →
    `l2_per_capita`, `l3_per_capita`, `l1_per_capita`, todos **deflacionados
-   para 2024** pela média anual do IPCA (o L1 é o valor mensal de junho
-   anualizado × 12).
+   para 2024** pela média anual do IPCA (o L1 é o valor mensal de junho — julho em 2022 — anualizado × 12).
 4. **Vulnerabilidade** (CadÚnico) → `extrema_pobreza_por_mil_hab` = famílias em
    extrema pobreza / população × 1000.
 5. **Saneamento** (Censo 2022) → `sub_saneamento_bruto` = déficit ponderado de
@@ -513,7 +512,7 @@ serializados como `null` JSON válido — coberto por teste (`tests/test_api.py`
 | Métrica | Valor |
 |---|---|
 | Município-anos com IEAS calculado | **920 de 925** |
-| Farol (todos os anos) | 391 verde · 196 amarelo · 172 vermelho · 161 azul · 5 cinza |
+| Farol (todos os anos) | 389 verde · 197 amarelo · 171 vermelho · 163 azul · 5 cinza |
 | Farol em 2024 | 86 verde · 37 amarelo · 32 vermelho · 29 azul · 1 cinza |
 | Cobertura do eixo Necessidade | **1,00 para todos** — epidemiológico (SINAN+SIH) + saneamento + vulnerabilidade |
 | Cobertura do eixo Alocação | 1,00 (L1+L2) em 920 · 0,50 (só L1) em 5 |
@@ -536,7 +535,7 @@ Fernando de Noronha):
 |---|---|---|---|---|---|
 | 2020 | 35 | 43 | 73 | 33 | 1 |
 | 2021 | 36 | 42 | 72 | 34 | 1 |
-| 2022 | 35 | 38 | 78 | 33 | 1 |
+| 2022 | 34 | 39 | 76 | 35 | 1 |
 | 2023 | 34 | 36 | 82 | 32 | 1 |
 | 2024 | 32 | 37 | 86 | 29 | 1 |
 
@@ -544,7 +543,7 @@ Com o rank por ano, o gap médio é nulo por construção em cada ano e a
 distribuição das cores é estável: **o farol compara municípios entre si no mesmo
 ano; ele não diz se a alocação do estado, como um todo, melhorou ou piorou.** A
 associação entre os ranques de Necessidade e de Alocação é fraca (Spearman de
-0,17 a 0,38 conforme o ano). L1 segue sendo um *proxy* (§10): transferência
+0,17 a 0,37 conforme o ano). L1 segue sendo um *proxy* (§10): transferência
 social, não repasse setorial de saúde, e correlacionada com a extrema pobreza
 que também compõe a Necessidade. As coberturas censitárias de saneamento em PE
 são baixas (água 64%, esgoto 48%, lixo 74% na mediana), o que mantém o
@@ -554,17 +553,17 @@ sensibilidade (pesos, limiares, normalização, composição do eixo A) está em
 
 ### 9.3 Alertas
 
-**765 alertas** no total, dos quatro detectores:
+**763 alertas** no total, dos quatro detectores:
 
 - **570 de suspeita de desabastecimento** — 152 municípios, concentrados nos
   anos de surto de arbovirose (2022 e 2024). A consulta cruza incidência com o
   **objeto e os itens** das contratações. (Não depende de L1; inalterado.)
-- **172 de desalinhamento estrutural** — os faróis vermelhos (67 municípios;
-  36 de severidade alta, 136 moderada), distribuídos de forma estável pelos
+- **171 de desalinhamento estrutural** — os faróis vermelhos (67 municípios;
+  37 de severidade alta, 134 moderada), distribuídos de forma estável pelos
   cinco anos (32 a 36 por ano).
-- **22 de alocação abaixo do esperado** (detector 2, recalibrado sobre o R$ per
-  capita em log) — 10 municípios, todos de severidade moderada, 3 a 6 por ano
-  (2020: 4; 2021: 4; 2022: 6; 2023: 3; 2024: 5); 9 dos 22 na Região Metropolitana
+- **21 de alocação abaixo do esperado** (detector 2, recalibrado sobre o R$ per
+  capita em log) — 10 municípios, todos de severidade moderada, 3 a 5 por ano
+  (2020: 4; 2021: 4; 2022: 5; 2023: 3; 2024: 5); 9 dos 21 na Região Metropolitana
   do Recife. São alocações de 20% a 40% abaixo do que a necessidade prevê para o
   ano; sinalizam prioridade de verificação, não irregularidade.
 - **1 de suspeita de sobrepreço** — após separar a comparação por (categoria,
@@ -592,24 +591,25 @@ o município no período."*
    gratuita — testadas as variantes `/transferencias` e
    `/transferencias/por-municipio`, é limitação permanente do nível de acesso.
    Usa-se, no lugar, a soma das transferências sociais federais por município
-   (Bolsa Família/Novo Bolsa Família + BPC, competência junho) como
+   (Bolsa Família/Novo Bolsa Família + BPC, competência junho; julho em 2022) como
    aproximação da presença de recurso federal no território. A **cobertura é
    completa** (185/185 × 5 anos) — a chave é bloqueada por volume, mas
    `farol ingest-l1` retoma de onde parou (pausa de 1,5 s/chamada) e a coleta
    foi concluída. A limitação que resta é de **natureza**: transferência
    social não é repasse setorial de saúde, e seu peso (0,35) torna o eixo
    Alocação sensível a ela (§9.2).
-   **Quebra de série em 2022 (verificada na fonte).** No endpoint do Auxílio
-   Brasil do próprio Portal, o valor por família é de R$ 160 a R$ 230 em junho de
-   2022 e de R$ 415 a R$ 435 em julho (sem mudança no nº de famílias), enquanto o
-   Ministério da Cidadania informou R$ 402 de média em junho de 2022: a
-   competência de junho de 2022 cai antes da quebra e subestima o valor pago
-   (PE: R$ 284 mi em junho; R$ 570 mi em julho, 1,34 milhão de famílias). Com
-   julho, o aumento até junho de 2023 é de 1,9 vez, e não 3,8. Trocar junho por
-   julho só em 2022 muda a cor de 15,1% dos município-anos de 2022 (Spearman do
-   gap 0,95). A série principal segue em junho; o efeito está em
-   `docs/artigo-revista/resultados/l1_2022_sensibilidade.csv`
-   (`scripts/l1_checagem_2022.py`).
+   **Quebra de série em 2022 (verificada na fonte) e competência adotada.** No
+   endpoint do Auxílio Brasil do próprio Portal, o valor por família é de R$ 160 a
+   R$ 230 em junho de 2022 e de R$ 415 a R$ 435 em julho (sem mudança no nº de
+   famílias), enquanto o Ministério da Cidadania informou R$ 402 de média em junho
+   de 2022: junho cai antes da quebra e subestima o valor pago (PE: R$ 284 mi em
+   junho; R$ 570 mi em julho, 1,34 milhão de famílias). Por isso **2022 usa a
+   competência de julho** (`_MES_POR_ANO` em `ingest/transparencia.py`; os demais
+   anos seguem em junho). Com julho, o aumento até junho de 2023 é de 1,9 vez, e
+   não 3,8. Voltar a junho em 2022 mudaria a cor de 15,7% dos município-anos de
+   2022 (Spearman do gap 0,95); ver
+   `docs/artigo-revista/resultados/l1_2022_sensibilidade.csv` e
+   `scripts/l1_checagem_2022.py`.
 2. **Saneamento é um retrato de 2022.** O Censo não é anual; o mesmo déficit é
    aplicado aos 5 anos do recorte (coluna `saneamento_ano_referencia = 2022`
    no gold e na API). O SNIS, que era anual, foi encerrado em 2023 e não tem

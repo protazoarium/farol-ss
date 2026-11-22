@@ -759,7 +759,7 @@
         <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
         <tbody>
           <tr><td>Município-anos com IEAS calculado</td><td><strong>920 de 925</strong></td></tr>
-          <tr><td>Farol (todos os anos)</td><td><span class="chip"><span class="dot d-e"></span>391</span> &nbsp; <span class="chip"><span class="dot d-v"></span>172</span> &nbsp; <span class="chip"><span class="dot d-z"></span>161</span> &nbsp; <span class="chip"><span class="dot d-a"></span>196</span> &nbsp; <span class="chip"><span class="dot d-c"></span>5</span></td></tr>
+          <tr><td>Farol (todos os anos)</td><td><span class="chip"><span class="dot d-e"></span>389</span> &nbsp; <span class="chip"><span class="dot d-v"></span>171</span> &nbsp; <span class="chip"><span class="dot d-z"></span>163</span> &nbsp; <span class="chip"><span class="dot d-a"></span>197</span> &nbsp; <span class="chip"><span class="dot d-c"></span>5</span></td></tr>
           <tr><td>Farol em 2024</td><td>86 verde · 29 azul · 37 amarelo · 32 vermelho · 1 cinza</td></tr>
           <tr><td>Cobertura da Necessidade</td><td class="mono">1,00 para todos — epi (SINAN+SIH) + saneamento + vulnerabilidade</td></tr>
           <tr><td>Cobertura da Alocação</td><td class="mono">1,00 (L1+L2) em 920 · 0,50 (só L1) em 5</td></tr>
@@ -770,7 +770,7 @@
         <tbody>
           <tr><td>2020</td><td class="num">35</td><td class="num">43</td><td class="num">73</td><td class="num">33</td><td class="num">1</td></tr>
           <tr><td>2021</td><td class="num">36</td><td class="num">42</td><td class="num">72</td><td class="num">34</td><td class="num">1</td></tr>
-          <tr><td>2022</td><td class="num">35</td><td class="num">38</td><td class="num">78</td><td class="num">33</td><td class="num">1</td></tr>
+          <tr><td>2022</td><td class="num">34</td><td class="num">39</td><td class="num">76</td><td class="num">35</td><td class="num">1</td></tr>
           <tr><td>2023</td><td class="num">34</td><td class="num">36</td><td class="num">82</td><td class="num">32</td><td class="num">1</td></tr>
           <tr><td>2024</td><td class="num">32</td><td class="num">37</td><td class="num">86</td><td class="num">29</td><td class="num">1</td></tr>
         </tbody>
@@ -778,7 +778,7 @@
       <p><strong>Revisão metodológica.</strong> O rank percentil passou a ser calculado <strong>dentro de cada ano</strong> (antes, os 925 município-anos eram ranqueados juntos, e o gap passava a medir a mudança de nível entre anos — a “virada” para azul em 2023 era o salto de L1), e L3 (PNCP) saiu da composição do eixo Alocação por ter cobertura crescente (município-anos com L1+L2+L3: 0, 8, 102, 72 e 156 de 2020 a 2024); L1 e L2 pesam 0,47 e 0,53. Com o rank por ano, o gap médio é nulo por construção e o farol compara municípios entre si no mesmo ano: ele não diz se a alocação do estado, como um todo, melhorou ou piorou. A associação entre os ranques de Necessidade e Alocação é fraca (Spearman de 0,17 a 0,37). L1 segue sendo um <em>proxy</em> (§11). A análise de sensibilidade está em <code>docs/artigo-revista/resultados/</code> (comando <code>farol sensibilidade</code>).</p>
 
       <h3><span class="num">10.3</span>Alertas</h3>
-      <p><strong>765 alertas</strong>, dos quatro detectores: 570 de <strong>suspeita de desabastecimento</strong> (152 municípios, inalterado — não depende de L1), 172 de <strong>desalinhamento estrutural</strong> (67 municípios; 36 alta, 136 moderada), 22 de <strong>alocação abaixo do esperado</strong> (detector 2, recalibrado sobre o R$ per capita em log; 10 municípios, todos de severidade moderada) e 1 de <strong>suspeita de sobrepreço</strong> (amoxicilina em comprimido a 4,2× a mediana de PE — Petrolina, 2023 — após separar a comparação por categoria+unidade+dose).</p>
+      <p><strong>763 alertas</strong>, dos quatro detectores: 570 de <strong>suspeita de desabastecimento</strong> (152 municípios, inalterado — não depende de L1), 171 de <strong>desalinhamento estrutural</strong> (67 municípios; 37 alta, 134 moderada), 21 de <strong>alocação abaixo do esperado</strong> (detector 2, recalibrado sobre o R$ per capita em log; 10 municípios, todos de severidade moderada) e 1 de <strong>suspeita de sobrepreço</strong> (amoxicilina em comprimido a 4,2× a mediana de PE — Petrolina, 2023 — após separar a comparação por categoria+unidade+dose).</p>
       <div class="tw"><table>
         <thead><tr><th>Desabastecimento por ano</th><th class="num">2021</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th></tr></thead>
         <tbody><tr><td>alertas</td><td class="num">20</td><td class="num">199</td><td class="num">115</td><td class="num">236</td></tr></tbody>
@@ -789,7 +789,7 @@
     <section id="limitacoes">
       <h2><span class="num">§11</span>Limitações e ameaças à validade</h2>
       <ol class="body-list">
-        <li><strong>L1 é um proxy.</strong> O endpoint <code>/transferencias</code> (repasse fundo a fundo ao ente) responde <strong>HTTP 403</strong> mesmo com a chave gratuita — limitação permanente do nível de acesso. Usa-se, no lugar, a soma das transferências sociais federais por município (Bolsa Família/Novo BF + BPC); a cobertura é completa (185/185 × 5 anos). A limitação que resta é de natureza — transferência social não é repasse setorial de saúde — e o peso de L1 (0,35) torna o eixo Alocação sensível a ela.</li>
+        <li><strong>L1 é um proxy.</strong> O endpoint <code>/transferencias</code> (repasse fundo a fundo ao ente) responde <strong>HTTP 403</strong> mesmo com a chave gratuita — limitação permanente do nível de acesso. Usa-se, no lugar, a soma das transferências sociais federais por município (Bolsa Família/Novo BF + BPC); a cobertura é completa (185/185 × 5 anos). A limitação que resta é de natureza — transferência social não é repasse setorial de saúde — e o peso de L1 (0,35) torna o eixo Alocação sensível a ela. <strong>Quebra de série em 2022 (verificada na fonte):</strong> no endpoint do Auxílio Brasil do Portal, o valor por família é de R$ 160 a R$ 230 em junho de 2022 e de R$ 415 a R$ 435 em julho (sem mudança no nº de famílias), enquanto o Ministério da Cidadania informou R$ 402 de média em junho de 2022; junho cai antes da quebra e subestima o valor pago (PE: R$ 284 mi em junho; R$ 570 mi em julho). Por isso <strong>2022 usa a competência de julho</strong> (os demais anos, junho): o aumento até 2023 é de 1,9 vez, e não 3,8. Voltar a junho mudaria a cor de 15,7% dos município-anos de 2022.</li>
         <li><strong>Saneamento é um retrato de 2022.</strong> O Censo não é anual (<code>saneamento_ano_referencia = 2022</code>); o SNIS, que era anual, foi encerrado sem substituto municipal.</li>
         <li><strong>Cobertura desigual do PNCP no tempo.</strong> A adesão à Lei 14.133 cresce ano a ano e o snapshot tem modalidade-anos parciais (PNCP instável). <code>l3_maturidade_pncp_uf</code> é o indicador de confiança; a re-ingestão resiliente é trabalho futuro.</li>
         <li><strong>L3 federal (Compras.gov.br) cobre 2021+</strong> e só a esfera federal em municípios de PE (poucas UASGs). Complemento pequeno, somado ao L3 municipal.</li>

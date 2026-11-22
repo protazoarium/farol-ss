@@ -829,8 +829,8 @@
   },
   "transparencia": {
     "arquivo": "data/silver/transparencia.parquet",
-    "bytes": 81532,
-    "coletado_em": "2026-08-30T15:06:13+00:00",
+    "bytes": 132407,
+    "coletado_em": "2026-11-22T03:48:12+00:00",
     "erro": null,
     "extra": {
       "anos": [
@@ -844,8 +844,8 @@
     },
     "fonte": "transparencia",
     "linhas": 925,
-    "observacao": "L1 PARCIAL: transferências sociais federais por município (Bolsa Família/Auxílio Brasil/Novo Bolsa Família + BPC), competência junho. /transferencias fundo a fundo segue bloqueado (HTTP 403).",
-    "sha256": "7c3187525a4c5c59056568be7878468cd6235293b55a141f406dcf7e9978fd2a",
+    "observacao": "L1 PARCIAL: transferências sociais federais por município (Bolsa Família/Auxílio Brasil/Novo Bolsa Família + BPC), competência junho (julho em 2022, por quebra de série do Portal). /transferencias fundo a fundo segue bloqueado (HTTP 403).",
+    "sha256": "252de58f59205b344a886cb942e07327c26318ee3479ecb94712b1e31d9477b1",
     "status": "ok",
     "url": "https://api.portaldatransparencia.gov.br/api-de-dados/{programa}-por-municipio"
   }

@@ -297,7 +297,7 @@ FONTES: list[Fonte] = [
         papel=(
             "**Proxy** do dinheiro federal que chega ao território: soma das "
             "transferências sociais por município (Bolsa Família / Novo Bolsa Família "
-            "+ BPC, competência de junho anualizada)."
+            "+ BPC, competência de junho anualizada; julho em 2022, por quebra de série do Portal)."
         ),
         cobertura="185/185 municípios × 5 anos (coleta completa).",
         limitacao=(
@@ -476,8 +476,8 @@ FORMULAS: list[Formula] = [
         r"L1_m = \dfrac{\text{transf. sociais}_m \times 12 \times \text{deflator}}{\text{população}_m}, \quad "
         r"L2_m = \text{ind. SIOPS}_m \times \text{deflator}, \quad "
         r"L3_m = \dfrac{\sum \text{contratos}_m \times \text{deflator}}{\text{população}_m}",
-        "L1 é a transferência social de junho anualizada (proxy do repasse "
-        "federal). L2 já vem per capita do SIOPS, só é deflacionado. L3 soma "
+        "L1 é a transferência social de junho anualizada (julho em 2022, por quebra de "
+        "série do Portal; proxy do repasse federal). L2 já vem per capita do SIOPS, só é deflacionado. L3 soma "
         "PNCP municipal + Compras.gov.br federal. Todos em reais de 2024.",
         bloco="alocacao",
         dependencias=["deflator"],
