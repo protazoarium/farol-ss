@@ -236,7 +236,8 @@ for fx in conteudo.formulas_do_bloco("detectores"):
 par_alertas = conf["alertas"]
 st.caption(
     f"Parâmetros: fator de IQR do sobrepreço **{par_alertas['preco_iqr_fator']}**, "
-    f"limiar de resíduo robusto **{par_alertas['residuo_z_minimo']}** desvios, "
+    f"limiar de resíduo robusto **{par_alertas['residuo_z_minimo']}** desvios e queda mínima de "
+    f"**{_pct(par_alertas['residuo_queda_minima'])}** sobre o previsto, "
     f"percentil de incidência do desabastecimento "
     f"**{_pct(par_alertas['desabastecimento']['incidencia_percentil_minimo'])}**."
 )

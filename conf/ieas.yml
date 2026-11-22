@@ -90,7 +90,8 @@ cobertura_minima:
   alocacao_min_componentes: 2
 
 alertas:
-  residuo_z_minimo: 2.0          # detector 2: regressão robusta
+  residuo_z_minimo: 2.0          # detector 2: regressão robusta (log do R$ per capita)
+  residuo_queda_minima: 0.20     # detector 2: e ao menos 20% abaixo do valor previsto
   preco_iqr_fator: 1.5           # detector 3: sobrepreço
   desabastecimento:
     incidencia_percentil_minimo: 0.75  # detector 4: surto sustentado

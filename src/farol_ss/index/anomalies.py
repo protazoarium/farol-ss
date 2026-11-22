@@ -2,9 +2,9 @@
 
 1. Desalinhamento estrutural — o farol vermelho: corte fixo no `gap`.
 2. Alocação abaixo do esperado — resíduo de um ajuste robusto
-   necessidade→alocação, por ano. Controla pela relação do estado inteiro, ao
-   contrário do detector 1. Só roda onde o eixo de Alocação está completo
-   (L1+L2+L3).
+   log(R$ per capita) ~ necessidade, por ano. Controla pela relação do estado
+   inteiro, ao contrário do detector 1. Só roda onde o eixo de Alocação está
+   completo (L1+L2).
 3. Suspeita de sobrepreço — preço unitário de um item acima de Q3 + fator·IQR
    da mesma categoria, unidade de medida E dose/concentração em PE. Usa
    `silver/pncp_itens.parquet`
@@ -360,32 +360,46 @@ def detectar_sobrepreco(itens: pd.DataFrame | None) -> pd.DataFrame:
     return pd.DataFrame(achados) if achados else schema_vazio
 
 
+def _br(valor: float, casas: int = 0) -> str:
+    """Número no formato brasileiro: milhar com ponto, decimal com vírgula."""
+    return f"{valor:,.{casas}f}".replace(",", "§").replace(".", ",").replace("§", ".")
+
+
 def detectar_residuo_alocacao(df_ieas: pd.DataFrame) -> pd.DataFrame:
-    """Detector 2: alocação muito abaixo do que a necessidade prevê.
+    """Detector 2: alocação (R$ per capita) muito abaixo do que a necessidade prevê.
 
-    Ao contrário do detector 1 (que é o farol vermelho, um corte fixo no
-    `gap`), este controla pela **relação necessidade→alocação do estado**:
-    ajusta, por ano, uma reta `alocacao_rank ~ necessidade_rank` e mede o
-    resíduo de cada município. A escala do resíduo é robusta (1,4826·MAD), não
-    o desvio-padrão, para que os próprios *outliers* não inflem o corte.
-    Sinaliza quem tem resíduo padronizado ≤ −`alertas.residuo_z_minimo`
-    (`conf/ieas.yml`) — alocação sistematicamente aquém, dado o padrão do
-    estado.
+    Ao contrário do detector 1 (farol vermelho, corte fixo no `gap` entre ranques),
+    este trabalha no **valor bruto** do eixo Alocação (`alocacao_bruta`, R$ per
+    capita deflacionado) e controla pela relação necessidade→alocação do estado:
+    ajusta, por ano, `log(alocacao_bruta) ~ necessidade_rank` e mede o resíduo de
+    cada município. Usar o valor bruto (em log) e não o ranque é o que dá ao
+    detector escala para detectar *magnitude*: com os dois eixos em ranque
+    percentil por ano, o resíduo fica limitado a [−1, 1] e o corte de 2 desvios
+    nunca é atingido (foi o que ocorreu na versão anterior, que ficou sem
+    nenhum alerta). A escala do resíduo é robusta (1,4826·MAD), para que os
+    próprios *outliers* não inflem o corte.
 
-    Só roda sobre município-anos com o eixo de Alocação inteiro (todos os componentes do índice, hoje L1+L2);
-    onde falta camada, o rank de alocação é NaN e a linha fica de fora.
+    Sinaliza quem tem resíduo padronizado ≤ −`alertas.residuo_z_minimo` **e** valor
+    ao menos `alertas.residuo_queda_minima` (fração) abaixo do previsto — exige
+    desvio estatístico e prático, para que ruído normal não vire alerta.
+
+    Só roda sobre município-anos com o eixo de Alocação inteiro (todos os
+    componentes do índice, hoje L1+L2) e valor bruto positivo.
     """
     schema_vazio = pd.DataFrame(
         columns=["cod_ibge", "ano", "tipo", "severidade", "residuo_z", "explicacao"]
     )
-    cols = {"necessidade_rank", "alocacao_rank", "alocacao_cobertura"}
+    cols = {"necessidade_rank", "alocacao_bruta", "alocacao_cobertura"}
     if not cols.issubset(df_ieas.columns):
         return schema_vazio
 
-    z_min = ieas_conf()["alertas"]["residuo_z_minimo"]
+    conf = ieas_conf()["alertas"]
+    z_min = conf["residuo_z_minimo"]
+    queda_min = conf["residuo_queda_minima"]
     base = df_ieas[
         df_ieas["necessidade_rank"].notna()
-        & df_ieas["alocacao_rank"].notna()
+        & df_ieas["alocacao_bruta"].notna()
+        & (df_ieas["alocacao_bruta"] > 0)
         & (df_ieas["alocacao_cobertura"] >= 0.99)  # eixo A completo
     ].copy()
 
@@ -394,17 +408,16 @@ def detectar_residuo_alocacao(df_ieas: pd.DataFrame) -> pd.DataFrame:
         if len(grupo) < 15:  # amostra pequena demais para um ajuste
             continue
         x = grupo["necessidade_rank"].to_numpy()
-        y = grupo["alocacao_rank"].to_numpy()
+        y = np.log(grupo["alocacao_bruta"].to_numpy())
         coef = np.polyfit(x, y, 1)
         residuo = y - np.polyval(coef, x)
         escala = 1.4826 * np.median(np.abs(residuo - np.median(residuo)))
         if escala <= 0:
             continue
         z = (residuo - np.median(residuo)) / escala
-        for (_, linha), zi, ri in zip(grupo.iterrows(), z, residuo):
-            # exige desvio estatístico E prático (≥ 8 pontos percentuais abaixo
-            # do previsto) — assim ruído gaussiano normal não vira alerta.
-            if zi <= -z_min and ri <= -0.08:
+        for (_, linha), zi, ri in zip(grupo.iterrows(), z, residuo, strict=True):
+            if zi <= -z_min and ri <= np.log(1 - queda_min):
+                previsto = float(np.exp(np.polyval(coef, linha["necessidade_rank"])))
                 achados.append(
                     {
                         "cod_ibge": linha["cod_ibge"],
@@ -413,12 +426,12 @@ def detectar_residuo_alocacao(df_ieas: pd.DataFrame) -> pd.DataFrame:
                         "severidade": "alta" if zi <= -3 else "moderada",
                         "residuo_z": round(float(zi), 2),
                         "explicacao": (
-                            f"Alocação no percentil {linha['alocacao_rank']:.0%}, "
-                            f"mas o padrão necessidade→alocação de PE em {int(ano)} "
-                            f"previa ~{np.polyval(coef, linha['necessidade_rank']):.0%} "
-                            f"para uma necessidade no percentil "
-                            f"{linha['necessidade_rank']:.0%} — resíduo de {zi:.1f} "
-                            "desvios robustos abaixo do esperado."
+                            f"Alocação de R$ {_br(linha['alocacao_bruta'])} per capita "
+                            f"(deflacionado), {1 - linha['alocacao_bruta'] / previsto:.0%} abaixo "
+                            f"dos R$ {_br(previsto)} que o padrão necessidade→alocação de PE "
+                            f"em {int(ano)} previa para uma necessidade no percentil "
+                            f"{linha['necessidade_rank']:.0%} — resíduo de {_br(abs(zi), 1)} desvios "
+                            "robustos abaixo do esperado."
                         ),
                     }
                 )

@@ -521,12 +521,13 @@ FORMULAS: list[Formula] = [
     Formula(
         "d2",
         "Detector 2 — alocação abaixo do esperado",
-        r"\hat{A}(N) = \beta_0 + \beta_1 N \;\;(\text{ajuste por ano}) \qquad "
-        r"z_m = \frac{r_m - \tilde{r}}{1{,}4826\,\text{MAD}(r)}, \quad r_m = A_m - \hat{A}(N_m)",
-        "Ajusta, por ano, uma reta necessidade→alocação para todo o estado e mede "
-        "o resíduo de cada município com escala robusta (MAD, não desvio-padrão). "
-        "Alerta quando z ≤ −2 **e** o resíduo é ≥ 8 pontos percentuais abaixo do "
-        "previsto. Só roda onde o eixo Alocação está completo (L1+L2+L3).",
+        r"\ln \hat{A}(N) = \beta_0 + \beta_1 N \;\;(\text{ajuste por ano}) \qquad "
+        r"z_m = \frac{r_m - \tilde{r}}{1{,}4826\,\text{MAD}(r)}, \quad r_m = \ln A_m - \ln \hat{A}(N_m)",
+        "Ajusta, por ano, uma reta entre a necessidade (ranque) e o **logaritmo do "
+        "R$ per capita** do eixo Alocação e mede o resíduo de cada município com "
+        "escala robusta (MAD, não desvio-padrão). Alerta quando z ≤ −2 **e** o valor "
+        "está ao menos 20% abaixo do previsto. Usa o valor bruto, e não o ranque, "
+        "para enxergar magnitude. Só roda onde o eixo Alocação está completo (L1+L2).",
         bloco="detectores",
         dependencias=["gap_ieas"],
     ),
@@ -567,9 +568,9 @@ _D1 = (
 )
 _D2 = (
     "Controla pela relação necessidade→alocação do estado inteiro: ajusta, por "
-    "ano, uma reta e mede o resíduo de cada município com escala robusta (MAD). "
-    "Sinaliza quem está sistematicamente aquém do previsto. Só roda onde o eixo "
-    "de Alocação está completo (L1+L2+L3)."
+    "ano, uma reta entre a necessidade e o log do R$ per capita e mede o resíduo de "
+    "cada município com escala robusta (MAD). Sinaliza quem está ao menos 20% "
+    "abaixo do previsto. Só roda onde o eixo de Alocação está completo (L1+L2)."
 )
 _D3 = (
     "Preço unitário de um item acima de Q3 + 1,5·IQR da distribuição da mesma "

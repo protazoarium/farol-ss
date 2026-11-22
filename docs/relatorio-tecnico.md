@@ -30,8 +30,8 @@ recusa-se a publicar um número derivado de dado majoritariamente ausente.
 
 Os quatro detectores de anomalia do plano estão ativos, incluindo o de
 **resíduo de regressão** (alocação sistematicamente abaixo do que a necessidade
-prevê, controlando pelo padrão do estado), que, com o ranque por ano, deixou de
-sinalizar casos (ver §9.3).
+prevê, controlando pelo padrão do estado), recalibrado sobre o valor bruto per
+capita em escala logarítmica (§7.2): 22 alertas (§9.3).
 
 Palavras-chave: dados abertos, saúde pública, contratações públicas, PNCP,
 SINAN, índice territorial, arquitetura *lakehouse*, DuckDB.
@@ -377,13 +377,15 @@ necessidade não atendida. É um corte fixo (`gap ≤ −0,33`).
 ### 7.2 Detector 2 — alocação abaixo do esperado
 
 Ao contrário do detector 1, **controla pela relação necessidade→alocação do
-estado inteiro**: ajusta, por ano, uma reta `alocacao_rank ~ necessidade_rank`
-e mede o resíduo de cada município, com escala robusta (1,4826·MAD, para que os
-próprios *outliers* não inflem o corte). Sinaliza quem tem resíduo padronizado
-≤ −2 **e** pelo menos 8 pontos percentuais abaixo do previsto — alocação
-sistematicamente aquém, dado o padrão do estado. Só roda sobre município-anos
-com o eixo de Alocação inteiro (L1+L2), hoje 920 município-anos; com o ranque por
-ano as posições ficam em [0, 1] e o corte não é mais alcançado (0 alertas).
+estado inteiro**: ajusta, por ano, uma reta `log(alocacao_bruta) ~ necessidade_rank` (R$ per capita
+deflacionado, em log) e mede o resíduo de cada município, com escala robusta
+(1,4826·MAD, para que os próprios *outliers* não inflem o corte). Sinaliza quem
+tem resíduo padronizado ≤ −2 **e** valor pelo menos 20% abaixo do previsto —
+alocação sistematicamente aquém, dado o padrão do estado. Usa o valor bruto e
+não o ranque porque, com os dois eixos em ranque percentil por ano, o resíduo
+fica limitado a [−1, 1] e o corte de 2 desvios deixa de ser alcançável (a versão
+sobre ranques ficou sem nenhum alerta). Só roda sobre município-anos
+com o eixo de Alocação inteiro (L1+L2), hoje 920 município-anos.
 
 ### 7.3 Detector 3 — suspeita de sobrepreço
 
@@ -552,7 +554,7 @@ sensibilidade (pesos, limiares, normalização, composição do eixo A) está em
 
 ### 9.3 Alertas
 
-**743 alertas** no total, dos quatro detectores:
+**765 alertas** no total, dos quatro detectores:
 
 - **570 de suspeita de desabastecimento** — 152 municípios, concentrados nos
   anos de surto de arbovirose (2022 e 2024). A consulta cruza incidência com o
@@ -560,10 +562,11 @@ sensibilidade (pesos, limiares, normalização, composição do eixo A) está em
 - **172 de desalinhamento estrutural** — os faróis vermelhos (67 municípios;
   36 de severidade alta, 136 moderada), distribuídos de forma estável pelos
   cinco anos (32 a 36 por ano).
-- **0 de alocação abaixo do esperado** (detector 2) — com o rank por ano, as
-  posições ficam limitadas a [0, 1] e o corte (resíduo robusto ≤ −2 desvios e
-  ≥ 8 pontos abaixo do previsto) deixou de ser alcançável. O detector segue
-  ativo e conservador, mas não sinaliza nada no recorte atual.
+- **22 de alocação abaixo do esperado** (detector 2, recalibrado sobre o R$ per
+  capita em log) — 10 municípios, todos de severidade moderada, 3 a 6 por ano
+  (2020: 4; 2021: 4; 2022: 6; 2023: 3; 2024: 5); 9 dos 22 na Região Metropolitana
+  do Recife. São alocações de 20% a 40% abaixo do que a necessidade prevê para o
+  ano; sinalizam prioridade de verificação, não irregularidade.
 - **1 de suspeita de sobrepreço** — após separar a comparação por (categoria,
   unidade, dose), sobra um item de amoxicilina em comprimido a 4,2× a mediana
   de PE (Petrolina, 2023).
