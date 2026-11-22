@@ -1,0 +1,15 @@
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\itshape}{}{0pt}{}
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+\titlespacing*{\subsection}{0pt}{8pt}{3pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\usepackage{etoolbox}
+\usepackage{needspace}
+\usepackage{xurl}
+\AtBeginEnvironment{longtable}{\small}
+\renewcommand{\arraystretch}{1.05}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\AtBeginDocument{\hypersetup{pdftitle={},pdfauthor={},pdfcreator={},pdfproducer={}}}
