@@ -462,7 +462,7 @@
   <header class="masthead">
     <p class="kicker">Relatório Técnico · v1.4</p>
     <h1>Farol da Saúde &amp; Saneamento</h1>
-    <p class="standfirst">Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco — pipeline de dados abertos, painel e API. Com o L1 completo, o IEAS é calculado para 921 dos 925 município-anos; as oito fontes e os quatro detectores do plano estão ativos.</p>
+    <p class="standfirst">Índice de Efetividade da Alocação Sanitária (IEAS) para os 185 municípios de Pernambuco — pipeline de dados abertos, painel e API. O IEAS é calculado para 920 dos 925 município-anos, com ranque por ano e eixo Alocação = L1 + L2; as oito fontes e os quatro detectores do plano estão ativos.</p>
     <div class="meta">
       <span><b>Data</b> &nbsp;30 ago 2026</span>
       <span><b>Recorte</b> &nbsp;PE · 2020–2024</span>
@@ -497,7 +497,7 @@
     <section id="resumo">
       <h2><span class="num">§1</span>Resumo</h2>
       <p class="lead">O Farol-SS cruza <strong>execução financeira em saúde</strong> com <strong>carga epidemiológica</strong>, <strong>déficit sanitário</strong> e <strong>vulnerabilidade social</strong> nos 185 municípios de Pernambuco, produzindo o <strong>IEAS</strong> — um índice de <em>alinhamento territorial</em> entre o quanto um município precisa e o quanto recebe/gasta.</p>
-      <p>Esta versão entrega o <strong>pipeline de dados completo e reprodutível</strong>, um <strong>painel web institucional</strong> (Home + seis páginas) e uma <strong>API aberta</strong> em JSON/CSV. Oito fontes federais alimentam o índice: SINAN e <strong>SIH</strong> (epidemiologia), Censo 2022 do IBGE (saneamento), CadÚnico/SAGI (vulnerabilidade), PNCP e <strong>Compras.gov.br</strong> (L3 municipal + federal), SIOPS (L2), Portal da Transparência (L1 — proxy) e IBGE (população, IPCA, malha).</p><p>O eixo <strong>Necessidade fica completo em 3 de 3 subíndices</strong> para todos os 185 municípios; com o <strong>L1 completo (185/185 × 5 anos)</strong>, a <strong>Alocação</strong> também alcança a cobertura mínima em quase toda a grade. O <span class="hl">IEAS é calculado para 921 dos 925 município-anos</span> (os 185 municípios em 2024; os 4 cinza restantes são Fernando de Noronha, sem SIOPS/PNCP municipais). Os <strong>quatro detectores de anomalia</strong> do plano estão ativos; o de sobrepreço separa preços por dose e o de desabastecimento olha a descrição dos itens.</p>
+      <p>Esta versão entrega o <strong>pipeline de dados completo e reprodutível</strong>, um <strong>painel web institucional</strong> (Home + seis páginas) e uma <strong>API aberta</strong> em JSON/CSV. Oito fontes federais alimentam o índice: SINAN e <strong>SIH</strong> (epidemiologia), Censo 2022 do IBGE (saneamento), CadÚnico/SAGI (vulnerabilidade), PNCP e <strong>Compras.gov.br</strong> (L3 municipal + federal), SIOPS (L2), Portal da Transparência (L1 — proxy) e IBGE (população, IPCA, malha).</p><p>O eixo <strong>Necessidade fica completo em 3 de 3 subíndices</strong> para todos os 185 municípios; com o <strong>L1 completo (185/185 × 5 anos)</strong>, a <strong>Alocação</strong> também alcança a cobertura mínima em quase toda a grade. O <span class="hl">IEAS é calculado para 920 dos 925 município-anos</span> (os 5 cinza restantes são Fernando de Noronha, sem SIOPS). Os <strong>quatro detectores de anomalia</strong> do plano estão ativos; o de sobrepreço separa preços por dose e o de desabastecimento olha a descrição dos itens.</p>
       <p class="mono" style="font-size:0.8rem;color:var(--ink-3)">Palavras-chave: dados abertos · saúde pública · contratações públicas · PNCP · SINAN · SIH · índice territorial · arquitetura lakehouse · DuckDB</p>
     </section>
 
@@ -603,9 +603,9 @@
       <div class="tw"><table>
         <thead><tr><th>Camada</th><th class="num">Peso</th><th>Fonte</th><th>Estado</th></tr></thead>
         <tbody>
-          <tr><td>L1 — repasse federal (proxy)</td><td class="num">0,35</td><td>Portal da Transparência</td><td class="st st-ok">185/185</td></tr>
-          <tr><td>L2 — execução própria municipal</td><td class="num">0,40</td><td>SIOPS</td><td class="st st-ok">✓ 184/185</td></tr>
-          <tr><td>L3 — contratação de insumos</td><td class="num">0,25</td><td>PNCP (municipal) + Compras.gov.br (federal)</td><td class="st st-ok">✓</td></tr>
+          <tr><td>L1 — repasse federal (proxy)</td><td class="num">0,47</td><td>Portal da Transparência</td><td class="st st-ok">185/185</td></tr>
+          <tr><td>L2 — execução própria municipal</td><td class="num">0,53</td><td>SIOPS</td><td class="st st-ok">✓ 184/185</td></tr>
+          <tr><td>L3 — contratação de insumos</td><td class="num">fora</td><td>PNCP (municipal) + Compras.gov.br (federal)</td><td class="st st-ok">alertas</td></tr>
         </tbody>
       </table></div>
 
@@ -624,7 +624,7 @@
       <h3><span class="num">5.3</span>A regra do cinza</h3>
       <div class="callout">
         <span class="tag">Por que ainda há cinza</span>
-        <p>Um eixo cuja <strong>fração de componentes presentes</strong> cai abaixo do limiar (Necessidade 60%, Alocação 50%) <strong>não tem IEAS calculado</strong> — o <code>gap</code> vira <code>NaN</code> e o farol fica <span class="chip"><span class="dot d-c"></span>cinza</span>. A <strong>Necessidade está completa (3/3) para todos os 185 municípios</strong>; com o L1 completo, a Alocação também alcança a cobertura mínima em quase toda a grade. O índice é calculado para <strong>921 dos 925 município-anos</strong>. Os 4 cinza restantes são o Distrito Estadual de Fernando de Noronha (2020–2023), sem execução própria no SIOPS nem contratações municipais no PNCP.</p>
+        <p>Um eixo cuja <strong>fração de componentes presentes</strong> cai abaixo do limiar (Necessidade 60%, Alocação 50% e ao menos 2 componentes) <strong>não tem IEAS calculado</strong> — o <code>gap</code> vira <code>NaN</code> e o farol fica <span class="chip"><span class="dot d-c"></span>cinza</span>. A <strong>Necessidade está completa (3/3) para todos os 185 municípios</strong>; com o L1 completo, a Alocação também alcança a cobertura mínima em quase toda a grade. O índice é calculado para <strong>920 dos 925 município-anos</strong>. Os 5 cinza restantes são o Distrito Estadual de Fernando de Noronha (2020–2024), sem execução própria no SIOPS.</p>
       </div>
     </section>
 
@@ -671,7 +671,7 @@
       <p>Deriva direto do <code>gap</code>: todo farol vermelho é, por definição, um alerta de necessidade não atendida. É um corte fixo (<code>gap ≤ −0,33</code>).</p>
 
       <h3><span class="num">8.2</span>Detector 2 — alocação abaixo do esperado</h3>
-      <p>Ao contrário do detector 1, <strong>controla pela relação necessidade→alocação do estado inteiro</strong>: ajusta, por ano, uma reta <code>alocacao_rank ~ necessidade_rank</code> e mede o resíduo de cada município com escala robusta (1,4826·MAD). Sinaliza quem tem resíduo padronizado ≤ −2 <strong>e</strong> ao menos 8 pontos percentuais abaixo do previsto. Só roda sobre município-anos com o eixo de Alocação inteiro (L1+L2+L3) — hoje 77, e cresce com a coleta de L1.</p>
+      <p>Ao contrário do detector 1, <strong>controla pela relação necessidade→alocação do estado inteiro</strong>: ajusta, por ano, uma reta <code>alocacao_rank ~ necessidade_rank</code> e mede o resíduo de cada município com escala robusta (1,4826·MAD). Sinaliza quem tem resíduo padronizado ≤ −2 <strong>e</strong> ao menos 8 pontos percentuais abaixo do previsto. Só roda sobre município-anos com o eixo de Alocação inteiro (L1+L2). Com o ranque por ano, as posições ficam limitadas a [0, 1] e o corte deixou de ser alcançável: hoje não sinaliza nenhum caso.</p>
 
       <h3><span class="num">8.3</span>Detector 3 — suspeita de sobrepreço</h3>
       <p>Preço unitário de um item acima de <strong>Q3 + fator·IQR</strong> da distribuição da <strong>mesma categoria, mesma unidade de medida e mesma dose/concentração</strong> em PE. O agrupamento tem duas camadas: <strong>fina</strong> — (categoria, unidade, dose): <code>_dose_norm</code> extrai <code>500mg</code>, <code>50mg/ml</code>, <code>0,9%</code> da descrição, então "amoxicilina cápsula 500 mg" só entra na mesma distribuição de outras iguais, nunca da de 250 mg nem da suspensão; <strong>grossa</strong> — (categoria, unidade): recebe o que não tem dose parseável. A categoria vem da coluna <code>palavras_chave</code> de <code>seeds/catmat_saude.csv</code> — não de classificação CATMAT estruturada: o PNCP não a expõe no item (<code>itemCategoriaNome</code> = "Não se aplica" em 100% dos itens).</p>
@@ -729,8 +729,8 @@
         <div><div class="v">22.597</div><div class="k">internações DRSAI · SIH · 2020–24</div></div>
         <div><div class="v">6.150</div><div class="k">contratos municipais · PNCP</div></div>
         <div><div class="v">858</div><div class="k">contratações federais de saúde · Compras.gov.br</div></div>
-        <div><div class="v">921</div><div class="k">município-anos com IEAS (de 925)</div></div>
-        <div><div class="v">75</div><div class="k">testes automatizados</div></div>
+        <div><div class="v">920</div><div class="k">município-anos com IEAS (de 925)</div></div>
+        <div><div class="v">77</div><div class="k">testes automatizados</div></div>
       </div>
       <div class="tw"><table>
         <thead><tr><th>SINAN — casos por agravo (por residência)</th><th class="num">2020–2024</th></tr></thead>
@@ -758,27 +758,27 @@
       <div class="tw"><table>
         <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
         <tbody>
-          <tr><td>Município-anos com IEAS calculado</td><td><strong>921 de 925</strong></td></tr>
-          <tr><td>Farol (todos os anos)</td><td><span class="chip"><span class="dot d-e"></span>383</span> &nbsp; <span class="chip"><span class="dot d-v"></span>202</span> &nbsp; <span class="chip"><span class="dot d-z"></span>176</span> &nbsp; <span class="chip"><span class="dot d-a"></span>160</span> &nbsp; <span class="chip"><span class="dot d-c"></span>4</span></td></tr>
-          <tr><td>Farol em 2024</td><td>104 verde · 60 azul · 19 amarelo · 2 vermelho · 0 cinza</td></tr>
+          <tr><td>Município-anos com IEAS calculado</td><td><strong>920 de 925</strong></td></tr>
+          <tr><td>Farol (todos os anos)</td><td><span class="chip"><span class="dot d-e"></span>391</span> &nbsp; <span class="chip"><span class="dot d-v"></span>172</span> &nbsp; <span class="chip"><span class="dot d-z"></span>161</span> &nbsp; <span class="chip"><span class="dot d-a"></span>196</span> &nbsp; <span class="chip"><span class="dot d-c"></span>5</span></td></tr>
+          <tr><td>Farol em 2024</td><td>86 verde · 29 azul · 37 amarelo · 32 vermelho · 1 cinza</td></tr>
           <tr><td>Cobertura da Necessidade</td><td class="mono">1,00 para todos — epi (SINAN+SIH) + saneamento + vulnerabilidade</td></tr>
-          <tr><td>Cobertura da Alocação</td><td class="mono">1,00 (L1+L2+L3) em 338 · 0,67 em 583 · 0,33 (só L1) em 4</td></tr>
+          <tr><td>Cobertura da Alocação</td><td class="mono">1,00 (L1+L2) em 920 · 0,50 (só L1) em 5</td></tr>
         </tbody>
       </table></div>
       <div class="tw"><table>
         <thead><tr><th>Farol por ano (só município-anos calculados)</th><th class="num">🔴</th><th class="num">🟠</th><th class="num">🟢</th><th class="num">🔵</th><th class="num">cinza</th></tr></thead>
         <tbody>
-          <tr><td>2020</td><td class="num">45</td><td class="num">45</td><td class="num">79</td><td class="num">15</td><td class="num">1</td></tr>
-          <tr><td>2021</td><td class="num">56</td><td class="num">48</td><td class="num">71</td><td class="num">9</td><td class="num">1</td></tr>
-          <tr><td>2022</td><td class="num">99</td><td class="num">42</td><td class="num">37</td><td class="num">6</td><td class="num">1</td></tr>
-          <tr><td>2023</td><td class="num">0</td><td class="num">6</td><td class="num">92</td><td class="num">86</td><td class="num">1</td></tr>
-          <tr><td>2024</td><td class="num">2</td><td class="num">19</td><td class="num">104</td><td class="num">60</td><td class="num">0</td></tr>
+          <tr><td>2020</td><td class="num">35</td><td class="num">43</td><td class="num">73</td><td class="num">33</td><td class="num">1</td></tr>
+          <tr><td>2021</td><td class="num">36</td><td class="num">42</td><td class="num">72</td><td class="num">34</td><td class="num">1</td></tr>
+          <tr><td>2022</td><td class="num">35</td><td class="num">38</td><td class="num">78</td><td class="num">33</td><td class="num">1</td></tr>
+          <tr><td>2023</td><td class="num">34</td><td class="num">36</td><td class="num">82</td><td class="num">32</td><td class="num">1</td></tr>
+          <tr><td>2024</td><td class="num">32</td><td class="num">37</td><td class="num">86</td><td class="num">29</td><td class="num">1</td></tr>
         </tbody>
       </table></div>
-      <p>A leitura muda de ano para ano: 2020–2022 concentram os <strong>vermelhos</strong> (necessidade no topo do estado, alocação no fundo), enquanto 2023–2024 pendem para verde e azul. Parte da virada é real (repasse e execução crescem em termos deflacionados) e parte reflete o <strong>peso de L1 (0,35)</strong>: as transferências sociais são um número grande e relativamente uniforme que empurra para cima o eixo Alocação dos municípios mais pobres. Como L1 é um <em>proxy</em> (§11), essa sensibilidade é uma ressalva de leitura. As coberturas censitárias de saneamento em PE são baixas (água 64%, esgoto 48%, lixo 74% na mediana), o que mantém a Necessidade alta em quase todo o estado.</p>
+      <p><strong>Revisão metodológica.</strong> O rank percentil passou a ser calculado <strong>dentro de cada ano</strong> (antes, os 925 município-anos eram ranqueados juntos, e o gap passava a medir a mudança de nível entre anos — a “virada” para azul em 2023 era o salto de L1), e L3 (PNCP) saiu da composição do eixo Alocação por ter cobertura crescente (município-anos com L1+L2+L3: 0, 8, 102, 72 e 156 de 2020 a 2024); L1 e L2 pesam 0,47 e 0,53. Com o rank por ano, o gap médio é nulo por construção e o farol compara municípios entre si no mesmo ano: ele não diz se a alocação do estado, como um todo, melhorou ou piorou. A associação entre os ranques de Necessidade e Alocação é fraca (Spearman de 0,17 a 0,37). L1 segue sendo um <em>proxy</em> (§11). A análise de sensibilidade está em <code>docs/artigo-revista/resultados/</code> (comando <code>farol sensibilidade</code>).</p>
 
       <h3><span class="num">10.3</span>Alertas</h3>
-      <p><strong>777 alertas</strong>, dos quatro detectores: 570 de <strong>suspeita de desabastecimento</strong> (152 municípios, inalterado — não depende de L1), 202 de <strong>desalinhamento estrutural</strong> (106 municípios; 47 alta, 155 moderada), 4 de <strong>alocação abaixo do esperado</strong> (detector 2, todos em 2024 — o único ano com massa suficiente de eixo A inteiro para o ajuste robusto) e 1 de <strong>suspeita de sobrepreço</strong> (amoxicilina em comprimido a 4,2× a mediana de PE — Petrolina, 2023 — após separar a comparação por categoria+unidade+dose).</p>
+      <p><strong>743 alertas</strong>, dos quatro detectores: 570 de <strong>suspeita de desabastecimento</strong> (152 municípios, inalterado — não depende de L1), 172 de <strong>desalinhamento estrutural</strong> (67 municípios; 36 alta, 136 moderada), 0 de <strong>alocação abaixo do esperado</strong> (detector 2, que deixou de sinalizar casos com o ranque por ano) e 1 de <strong>suspeita de sobrepreço</strong> (amoxicilina em comprimido a 4,2× a mediana de PE — Petrolina, 2023 — após separar a comparação por categoria+unidade+dose).</p>
       <div class="tw"><table>
         <thead><tr><th>Desabastecimento por ano</th><th class="num">2021</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th></tr></thead>
         <tbody><tr><td>alertas</td><td class="num">20</td><td class="num">199</td><td class="num">115</td><td class="num">236</td></tr></tbody>

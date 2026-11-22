@@ -62,7 +62,7 @@ O subíndice epidemiológico combina três componentes, cada um também um ranqu
 
 O eixo A é a média ponderada de dois componentes *per capita* deflacionados, em ranque percentil dentro do ano: L1, transferências sociais federais (peso 0,35 no arquivo de parâmetros) e L2, despesa própria em saúde (0,40). Como a composição usa só esses dois, os pesos são renormalizados para 0,47 e 0,53. A terceira camada prevista inicialmente, L3 (contratação de insumos no PNCP e no Compras.gov.br), ficou fora da composição principal porque sua cobertura cresce no período — nenhum município-ano tinha os três componentes em 2020, e 156 tinham em 2024 — de modo que, com L3 dentro, o mesmo município mudaria de posição apenas porque o PNCP passou a cobri-lo. L3 entra na análise de sensibilidade.
 
-L1 é uma **aproximação**: o repasse fundo a fundo ao ente (`/transferencias`) exige acesso gov.br elevado e responde com erro de autorização à chave gratuita do Portal da Transparência. O que a chave livre acessa são as transferências sociais federais por município. Neste artigo L1 é chamado "transferências sociais federais *per capita*" e não "repasse de saúde".
+L1 é uma **aproximação**: o repasse fundo a fundo ao ente (`/transferencias`) exige acesso gov.br elevado e responde com erro de autorização à chave gratuita do Portal da Transparência. O que a chave livre acessa são as transferências sociais federais por município. Neste artigo L1 é chamado "transferências sociais federais *per capita*" e não "repasse de saúde". Em valores nominais, a soma de L1 em junho foi de R$ 284 milhões em 2022 e R$ 1,09 bilhão em 2023 (3,8 vezes); o salto está inteiramente no Bolsa Família (o BPC cresceu 1,2 vez), e é coerente com a elevação do benefício mínimo do programa (R$ 400 em junho de 2022; R$ 600 em 2023) e com a ampliação de adicionais, o que reforça que L1 reflete política de transferência de renda e não alocação em saúde **[A CONFERIR em fonte oficial do MDS]**.
 
 ## 2.5 Normalização, agregação e regra de cobertura
 
@@ -205,7 +205,7 @@ Um índice aberto e reprodutível mostrou que, em Pernambuco, a posição dos mu
 
 # Referências
 
-\[1\] Massuda A, et al. The Brazilian health system at crossroads: progress, crisis and resilience. BMJ Glob Health. 2018;3(4):e000829. doi:10.1136/bmjgh-2018-000829
+\[1\] Massuda A, Hone T, Leles FAG, de Castro MC, Atun R. The Brazilian health system at crossroads: progress, crisis and resilience. BMJ Glob Health. 2018;3(4):e000829. doi:10.1136/bmjgh-2018-000829
 
 \[2\] Funcia FR. Subfinanciamento e orçamento federal do SUS: referências preliminares para a alocação adicional de recursos. Cienc Saude Colet. 2019;24(12):4405-15. doi:10.1590/1413-812320182412.25892019
 
@@ -217,11 +217,11 @@ Um índice aberto e reprodutível mostrou que, em Pernambuco, a posição dos mu
 
 \[6\] Piola SF, França JRM, Nunes A. Os efeitos da Emenda Constitucional 29 na alocação regional dos gastos públicos no Sistema Único de Saúde no Brasil. Cienc Saude Colet. 2016;21(2):411-22. doi:10.1590/1413-81232015212.10402015
 
-\[7\] Santos Neto JA, et al. Análise do financiamento e gasto do Sistema Único de Saúde dos municípios da região de saúde Rota dos Bandeirantes do estado de São Paulo, Brasil. Cienc Saude Colet. 2017;22(4):1269-80. doi:10.1590/1413-81232017224.28452016
+\[7\] Santos Neto JA, Mendes ÁN, Pereira AC, Paranhos LR. Análise do financiamento e gasto do Sistema Único de Saúde dos municípios da região de saúde Rota dos Bandeirantes do estado de São Paulo, Brasil. Cienc Saude Colet. 2017;22(4):1269-80. doi:10.1590/1413-81232017224.28452016
 
 \[8\] Kashiwakura HK, Gonçalves AO, Azevedo RR, Nunes A, Silva CAT. Retrato da atenção básica no Brasil: gastos e infraestrutura em municípios brasileiros. Cienc Saude Colet. 2021;26(Supl 2):3397-408. doi:10.1590/1413-81232021269.2.37112019
 
-\[9\] Viacava F, et al. Desigualdades regionais e sociais em saúde segundo inquéritos domiciliares (Brasil, 1998-2013). Cienc Saude Colet. 2019;24(7):2745-60. doi:10.1590/1413-81232018247.15812017
+\[9\] Viacava F, Porto SM, Carvalho CC, Bellido JG. Desigualdades regionais e sociais em saúde segundo inquéritos domiciliares (Brasil, 1998-2013). Cienc Saude Colet. 2019;24(7):2745-60. doi:10.1590/1413-81232018247.15812017
 
 \[10\] Paiva RFPS, Souza MFP. Associação entre condições socioeconômicas, sanitárias e de atenção básica e a morbidade hospitalar por doenças de veiculação hídrica no Brasil. Cad Saude Publica. 2018;34(1):e00017316. doi:10.1590/0102-311x00017316
 
@@ -237,13 +237,13 @@ Um índice aberto e reprodutível mostrou que, em Pernambuco, a posição dos mu
 
 \[16\] Carnut L, Mendes Á, Leite MG. Metodologias para alocação equitativa de recursos financeiros em saúde: uma revisão integrativa. Saude Debate. 2020;44(126):902-18. doi:10.1590/0103-1104202012624
 
-\[17\] Lima CRA, et al. Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde. Cad Saude Publica. 2009;25(10):2095-109. doi:10.1590/S0102-311X2009001000002
+\[17\] Lima CRA, Schramm JMA, Coeli CM, Silva MEM. Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde. Cad Saude Publica. 2009;25(10):2095-109. doi:10.1590/S0102-311X2009001000002
 
 \[18\] Correia LOS, Padilha BM, Vasconcelos SML. Métodos para avaliar a completitude dos dados dos sistemas de informação em saúde do Brasil: uma revisão sistemática. Cienc Saude Colet. 2014;19(11):4467-78. doi:10.1590/1413-812320141911.02822013
 
 \[19\] Transparência Brasil. Recomendações e desafios técnicos — PNCP: qualidade de dados. Versão 1.0. São Paulo: Transparência Brasil; 2024 [citado 21 nov 2026]. Disponível em: <https://www.transparencia.org.br/downloads/publicacoes/qualidade_dados_portal_nacional_de_contratacoes_publicas.pdf>
 
-\[20\] Nardo M, et al. Handbook on constructing composite indicators: methodology and user guide. Paris: OECD Publishing; 2008. doi:10.1787/9789264043466-en
+\[20\] Nardo M, Saisana M, Saltelli A, Tarantola S, Hoffmann A, Giovannini E. Handbook on constructing composite indicators: methodology and user guide. Paris: OECD Publishing; 2008. doi:10.1787/9789264043466-en
 
 \[21\] Greco S, Ishizaka A, Tasiou M, Torrisi G. On the methodological framework of composite indices: a review of the issues of weighting, aggregation, and robustness. Soc Indic Res. 2019;141:61-94. doi:10.1007/s11205-017-1832-9
 
@@ -253,10 +253,10 @@ Um índice aberto e reprodutível mostrou que, em Pernambuco, a posição dos mu
 
 \[24\] Rodrigues AC, Gontijo TS, Gonçalves CA. Eficiência do gasto público em atenção primária em saúde nos municípios do Rio de Janeiro, Brasil: escores robustos e seus determinantes. Cienc Saude Colet. 2021;26(Supl 2):3567-79. doi:10.1590/1413-81232021269.2.04342020
 
-\[25\] Luiz OC, et al. Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto. Rev Saude Publica. 2009;43(1):115-22. doi:10.1590/S0034-89102009000100015
+\[25\] Luiz OC, Heimann LS, Boaretto RC, Pacheco AG, Pessoto UC, Ibanhes LC, et al. Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto. Rev Saude Publica. 2009;43(1):115-22. doi:10.1590/S0034-89102009000100015
 
 \[26\] Silva CF, Leite ÁJM, Almeida NMGS. Linkage entre bancos de dados de nascidos vivos e óbitos infantis em município do Nordeste do Brasil: qualidade dos sistemas de informação. Cad Saude Publica. 2009;25(7):1552-8. doi:10.1590/S0102-311X2009000700013
 
-\[27\] Duarte JL, et al. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira. Cienc Saude Colet. 2019;24(8):2959-70. doi:10.1590/1413-81232018248.21232017
+\[27\] Duarte JL, Diaz-Quijano FA, Batista AC, Duarte AF, Melchior LAK, Giatti LL. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira. Cienc Saude Colet. 2019;24(8):2959-70. doi:10.1590/1413-81232018248.21232017
 
 \[28\] Cotrim Junior DF, Cabral LMS. Crescimento dos leitos de UTI no país durante a pandemia de Covid-19: desigualdades entre o público x privado e iniquidades regionais. Physis. 2020;30(3):e300317. doi:10.1590/S0103-73312020300317

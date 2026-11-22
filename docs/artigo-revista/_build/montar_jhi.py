@@ -17,15 +17,15 @@ body = "# 1 Introdução" + body
 # ── 1. Referências (Vancouver, abreviaturas NLM) ────────────────────────────────────────────────
 ACESSO = "citado 21 nov 2026"
 V = {
- "F01": "Massuda A, et al. The Brazilian health system at crossroads: progress, crisis and resilience. BMJ Glob Health. 2018;3(4):e000829. doi:10.1136/bmjgh-2018-000829",
+ "F01": "Massuda A, Hone T, Leles FAG, de Castro MC, Atun R. The Brazilian health system at crossroads: progress, crisis and resilience. BMJ Glob Health. 2018;3(4):e000829. doi:10.1136/bmjgh-2018-000829",
  "F06": "Funcia FR. Subfinanciamento e orçamento federal do SUS: referências preliminares para a alocação adicional de recursos. Cienc Saude Colet. 2019;24(12):4405-15. doi:10.1590/1413-812320182412.25892019",
  "N07": f"Brasil. Lei Complementar nº 141, de 13 de janeiro de 2012. Diário Oficial da União. 16 jan 2012 [{ACESSO}]. Disponível em: <http://www.planalto.gov.br/ccivil_03/leis/lcp/lcp141.htm>",
  "F20": "Mendes Á, Leite MG, Marques RM. Discutindo uma metodologia para a alocação equitativa de recursos federais para o Sistema Único de Saúde. Saude Soc. 2011;20(3):673-90. doi:10.1590/S0104-12902011000300013",
  "F05": "Carvalho GP. Desigualdades regionais e o papel dos recursos federais no SUS: fatores políticos condicionam a alocação de recursos? Cienc Saude Colet. 2021;26(Supl 2):3409-21. doi:10.1590/1413-81232021269.2.31192019",
  "N04": "Piola SF, França JRM, Nunes A. Os efeitos da Emenda Constitucional 29 na alocação regional dos gastos públicos no Sistema Único de Saúde no Brasil. Cienc Saude Colet. 2016;21(2):411-22. doi:10.1590/1413-81232015212.10402015",
- "F08": "Santos Neto JA, et al. Análise do financiamento e gasto do Sistema Único de Saúde dos municípios da região de saúde Rota dos Bandeirantes do estado de São Paulo, Brasil. Cienc Saude Colet. 2017;22(4):1269-80. doi:10.1590/1413-81232017224.28452016",
+ "F08": "Santos Neto JA, Mendes ÁN, Pereira AC, Paranhos LR. Análise do financiamento e gasto do Sistema Único de Saúde dos municípios da região de saúde Rota dos Bandeirantes do estado de São Paulo, Brasil. Cienc Saude Colet. 2017;22(4):1269-80. doi:10.1590/1413-81232017224.28452016",
  "N05": "Kashiwakura HK, Gonçalves AO, Azevedo RR, Nunes A, Silva CAT. Retrato da atenção básica no Brasil: gastos e infraestrutura em municípios brasileiros. Cienc Saude Colet. 2021;26(Supl 2):3397-408. doi:10.1590/1413-81232021269.2.37112019",
- "F11": "Viacava F, et al. Desigualdades regionais e sociais em saúde segundo inquéritos domiciliares (Brasil, 1998-2013). Cienc Saude Colet. 2019;24(7):2745-60. doi:10.1590/1413-81232018247.15812017",
+ "F11": "Viacava F, Porto SM, Carvalho CC, Bellido JG. Desigualdades regionais e sociais em saúde segundo inquéritos domiciliares (Brasil, 1998-2013). Cienc Saude Colet. 2019;24(7):2745-60. doi:10.1590/1413-81232018247.15812017",
  "F13": "Paiva RFPS, Souza MFP. Associação entre condições socioeconômicas, sanitárias e de atenção básica e a morbidade hospitalar por doenças de veiculação hídrica no Brasil. Cad Saude Publica. 2018;34(1):e00017316. doi:10.1590/0102-311x00017316",
  "F15": "Neves-Silva P, Heller L. O direito humano à água e ao esgotamento sanitário como instrumento para promoção da saúde de populações vulneráveis. Cienc Saude Colet. 2016;21(6):1861-70. doi:10.1590/1413-81232015216.03422016",
  "F16": "Neves-Silva P, Martins GI, Heller L. “A gente tem acesso de favores, né?”. A percepção de pessoas em situação de rua sobre os direitos humanos à água e ao esgotamento sanitário. Cad Saude Publica. 2018;34(3):e00024017. doi:10.1590/0102-311x00024017",
@@ -33,15 +33,15 @@ V = {
  "F12": "Boccolini CS, Boccolini PMM. Relação entre aleitamento materno e internações por doenças diarreicas nas crianças com menos de um ano de vida nas Capitais Brasileiras e Distrito Federal, 2008. Epidemiol Serv Saude. 2011;20(1):19-26. doi:10.5123/S1679-49742011000100003",
  "N02": "Mendes Á, Leite MG, Carnut L. Uma metodologia para rateio dos recursos federais do SUS: o índice de necessidades de saúde. Rev Saude Publica. 2020;54:77. doi:10.11606/s1518-8787.2020054001661",
  "N03": "Carnut L, Mendes Á, Leite MG. Metodologias para alocação equitativa de recursos financeiros em saúde: uma revisão integrativa. Saude Debate. 2020;44(126):902-18. doi:10.1590/0103-1104202012624",
- "F17": "Lima CRA, et al. Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde. Cad Saude Publica. 2009;25(10):2095-109. doi:10.1590/S0102-311X2009001000002",
+ "F17": "Lima CRA, Schramm JMA, Coeli CM, Silva MEM. Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde. Cad Saude Publica. 2009;25(10):2095-109. doi:10.1590/S0102-311X2009001000002",
  "F03": "Correia LOS, Padilha BM, Vasconcelos SML. Métodos para avaliar a completitude dos dados dos sistemas de informação em saúde do Brasil: uma revisão sistemática. Cienc Saude Colet. 2014;19(11):4467-78. doi:10.1590/1413-812320141911.02822013",
  "N06": f"Transparência Brasil. Recomendações e desafios técnicos — PNCP: qualidade de dados. Versão 1.0. São Paulo: Transparência Brasil; 2024 [{ACESSO}]. Disponível em: <https://www.transparencia.org.br/downloads/publicacoes/qualidade_dados_portal_nacional_de_contratacoes_publicas.pdf>",
- "N01": "Nardo M, et al. Handbook on constructing composite indicators: methodology and user guide. Paris: OECD Publishing; 2008. doi:10.1787/9789264043466-en",
- "F19": "Luiz OC, et al. Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto. Rev Saude Publica. 2009;43(1):115-22. doi:10.1590/S0034-89102009000100015",
+ "N01": "Nardo M, Saisana M, Saltelli A, Tarantola S, Hoffmann A, Giovannini E. Handbook on constructing composite indicators: methodology and user guide. Paris: OECD Publishing; 2008. doi:10.1787/9789264043466-en",
+ "F19": "Luiz OC, Heimann LS, Boaretto RC, Pacheco AG, Pessoto UC, Ibanhes LC, et al. Diferenciais intermunicipais de condições de vida e saúde: construção de um indicador composto. Rev Saude Publica. 2009;43(1):115-22. doi:10.1590/S0034-89102009000100015",
  "S01": "Greco S, Ishizaka A, Tasiou M, Torrisi G. On the methodological framework of composite indices: a review of the issues of weighting, aggregation, and robustness. Soc Indic Res. 2019;141:61-94. doi:10.1007/s11205-017-1832-9",
  "F09": "Rodrigues AC, Gontijo TS, Gonçalves CA. Eficiência do gasto público em atenção primária em saúde nos municípios do Rio de Janeiro, Brasil: escores robustos e seus determinantes. Cienc Saude Colet. 2021;26(Supl 2):3567-79. doi:10.1590/1413-81232021269.2.04342020",
  "F07": "Cohn A. Eqüidade, saúde e critérios para alocação de recursos. Cienc Saude Colet. 2005;10(2):287-8. doi:10.1590/S1413-81232005000200003",
- "F14": "Duarte JL, et al. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira. Cienc Saude Colet. 2019;24(8):2959-70. doi:10.1590/1413-81232018248.21232017",
+ "F14": "Duarte JL, Diaz-Quijano FA, Batista AC, Duarte AF, Melchior LAK, Giatti LL. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira. Cienc Saude Colet. 2019;24(8):2959-70. doi:10.1590/1413-81232018248.21232017",
  "F10": "Cotrim Junior DF, Cabral LMS. Crescimento dos leitos de UTI no país durante a pandemia de Covid-19: desigualdades entre o público x privado e iniquidades regionais. Physis. 2020;30(3):e300317. doi:10.1590/S0103-73312020300317",
  "F18": "Silva CF, Leite ÁJM, Almeida NMGS. Linkage entre bancos de dados de nascidos vivos e óbitos infantis em município do Nordeste do Brasil: qualidade dos sistemas de informação. Cad Saude Publica. 2009;25(7):1552-8. doi:10.1590/S0102-311X2009000700013",
  "S03": "von Elm E, Altman DG, Egger M, Pocock SJ, Gøtzsche PC, Vandenbroucke JP. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. PLoS Med. 2007;4(10):e296. doi:10.1371/journal.pmed.0040296",
@@ -198,3 +198,68 @@ subprocess.run(["pandoc", str(base / "_build" / "_jhi.md"), "-o", str(out), "--f
                 "-V", "geometry:top=3.5cm,bottom=2.5cm,left=2cm,right=2cm", "-V", "lang=pt-BR",
                 "-V", "colorlinks=false", "-V", "linkcolor=black", "-V", "urlcolor=black"], check=True)
 print("ok", out)
+
+# ── 4. Versão .docx (o JHI recebe o manuscrito em .docx) ─────────────────────────────────────────
+import docx
+from docx.enum.style import WD_STYLE_TYPE
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml.ns import qn
+from docx.shared import Cm, Pt, RGBColor
+
+ref = base / "_build" / "_ref_jhi.docx"
+subprocess.run(f'pandoc -o "{ref}" --print-default-data-file reference.docx', shell=True, check=True)
+d = docx.Document(str(ref))
+for sec in d.sections:
+    sec.page_width, sec.page_height = Cm(21.0), Cm(29.7)
+    sec.top_margin, sec.bottom_margin, sec.left_margin, sec.right_margin = Cm(3.5), Cm(2.5), Cm(2.0), Cm(2.0)
+for st in d.styles:
+    if st.type in (WD_STYLE_TYPE.PARAGRAPH, WD_STYLE_TYPE.CHARACTER, WD_STYLE_TYPE.TABLE) and st.font is not None:
+        st.font.name = "Times New Roman"
+        st.font.color.rgb = RGBColor(0, 0, 0)
+        rpr = st.element.get_or_add_rPr()
+        rf = rpr.find(qn("w:rFonts"))
+        if rf is not None:
+            for a in ("w:asciiTheme", "w:hAnsiTheme", "w:eastAsiaTheme", "w:cstheme"):
+                if rf.get(qn(a)) is not None:
+                    del rf.attrib[qn(a)]
+            for a in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
+                rf.set(qn(a), "Times New Roman")
+        if st.type == WD_STYLE_TYPE.PARAGRAPH and st.font.size is not None:
+            st.font.size = Pt(12)
+_est = {s.name.lower(): s for s in d.styles}
+for nome in ("Normal", "Body Text", "First Paragraph", "Compact", "Caption", "Table Caption", "Image Caption"):
+    if nome.lower() in _est:
+        s_ = _est[nome.lower()]
+        s_.font.size = Pt(12 if nome != "Compact" else 10)
+        s_.paragraph_format.line_spacing = 1.0
+        s_.paragraph_format.space_after = Pt(6)
+        s_.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY if nome in ("Normal", "Body Text", "First Paragraph") else None
+for nome in ("Heading 1", "Heading 2", "Heading 3"):
+    h = _est[nome.lower()]
+    h.font.size = Pt(12); h.font.bold = True; h.font.italic = nome == "Heading 2"
+    h.paragraph_format.space_before = Pt(12); h.paragraph_format.space_after = Pt(4)
+t = d.styles.add_style("TituloJHI", WD_STYLE_TYPE.PARAGRAPH)
+t.base_style = _est["normal"]; t.font.bold = True; t.font.size = Pt(12)
+t.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+d.core_properties.author = ""; d.core_properties.title = ""; d.core_properties.last_modified_by = ""
+d.save(str(ref))
+
+md_d = re.sub(r"\\begin\{center\}\\textbf\{(.*?)\}\\end\{center\}", r'::: {custom-style="TituloJHI"}\n**\1**\n:::', md, flags=re.S)
+_n = iter(range(1, 9))
+md_d = re.sub(r"!\[\*\*", lambda m: f"![**Figura {next(_n)} — ", md_d)
+md_d = md_d.replace("| Municípios | Vermelho", "| Nº | Vermelho")
+md_d = re.sub(r"\\needspace\{[^}]*\}\n\n", "", md_d)
+(base / "_build" / "_jhi_docx.md").write_text(md_d, encoding="utf-8")
+out_docx = base / "04-manuscrito-JHI.docx"
+subprocess.run(["pandoc", str(base / "_build" / "_jhi_docx.md"), "-o", str(out_docx), "--from", "markdown+pipe_tables",
+                "--reference-doc", str(ref), "--resource-path", str(base)], check=True)
+dd = docx.Document(str(out_docx))
+dd.core_properties.author = ""; dd.core_properties.title = ""; dd.core_properties.last_modified_by = ""
+for tb in dd.tables:                       # tabelas editáveis, Times 10, linhas finas
+    for row in tb.rows:
+        for cell in row.cells:
+            for p in cell.paragraphs:
+                for r in p.runs:
+                    r.font.size = Pt(10)
+dd.save(str(out_docx))
+print("ok", out_docx)

@@ -30,8 +30,8 @@ recusa-se a publicar um número derivado de dado majoritariamente ausente.
 
 Os quatro detectores de anomalia do plano estão ativos, incluindo o de
 **resíduo de regressão** (alocação sistematicamente abaixo do que a necessidade
-prevê, controlando pelo padrão do estado), viável agora que a Alocação tem as
-três camadas.
+prevê, controlando pelo padrão do estado), que, com o ranque por ano, deixou de
+sinalizar casos (ver §9.3).
 
 Palavras-chave: dados abertos, saúde pública, contratações públicas, PNCP,
 SINAN, índice territorial, arquitetura *lakehouse*, DuckDB.
@@ -243,13 +243,13 @@ sido redistribuído na v1.2 por um erro do *spike* (ver §6.5); a chamada corret
 é `pysus.sih("PE", ano, mes, group="RD")`, e o grupo RD traz `MUNIC_RES` e
 `DIAG_PRINC` para os 185 municípios.
 
-**Eixo A — Alocação** (R$ per capita deflacionado, pesos somam 1,0):
+**Eixo A — Alocação** (R$ per capita deflacionado; entram no índice L1 e L2, com os pesos 0,35 e 0,40 renormalizados para 0,47 e 0,53):
 
 | Camada | Peso | Fonte | Estado |
 |---|---|---|---|
 | L1 — repasse federal | 0,35 | Portal da Transparência (proxy: transf. sociais) | ✅ 185/185 |
 | L2 — execução própria municipal | 0,40 | SIOPS | ✅ |
-| L3 — contratação de insumos | 0,25 | PNCP (municipal) + Compras.gov.br (federal) | ✅ |
+| L3 — contratação de insumos | fora do índice (era 0,25) | PNCP (municipal) + Compras.gov.br (federal) | ✅ alertas e sensibilidade |
 
 ### 4.2 Do eixo ao farol
 
@@ -382,8 +382,8 @@ e mede o resíduo de cada município, com escala robusta (1,4826·MAD, para que 
 próprios *outliers* não inflem o corte). Sinaliza quem tem resíduo padronizado
 ≤ −2 **e** pelo menos 8 pontos percentuais abaixo do previsto — alocação
 sistematicamente aquém, dado o padrão do estado. Só roda sobre município-anos
-com o eixo de Alocação inteiro (L1+L2+L3), então hoje cobre os 76 município-anos
-que têm as três camadas.
+com o eixo de Alocação inteiro (L1+L2), hoje 920 município-anos; com o ranque por
+ano as posições ficam em [0, 1] e o corte não é mais alcançado (0 alertas).
 
 ### 7.3 Detector 3 — suspeita de sobrepreço
 
