@@ -116,7 +116,7 @@ O *gap* foi persistente: o Spearman entre anos consecutivos variou de 0,79 a 0,8
 
 \needspace{14\baselineskip}
 
-**Tabela 3 — Semáforo por mesorregião, município-anos agrupados 2020–2024 (%) e posições médias dos eixos.** Fonte: Elaborado pelos autores (2026), a partir de dados abertos.
+**Tabela 3 — Semáforo por mesorregião, município-anos agrupados 2020–2024 (%) e posições médias dos eixos (184 municípios; Fernando de Noronha, sem índice, fica de fora).** Fonte: Elaborado pelos autores (2026), a partir de dados abertos.
 
 | Mesorregião | Municípios | Vermelho | Amarelo | Verde | Azul | N médio | A médio |                                        
 |----------------------|--------|--------|--------|------|------|------|------|
@@ -138,9 +138,9 @@ Os mapas por município estão na Figura 2.
 
 A Tabela 4 resume a concordância das variantes com o caso-base. Mudanças de ±20% em um peso isolado alteraram a cor de 4,9% a 7,1% dos município-anos, e pesos iguais, de 11,9%. A mudança dos limiares internos para ±0,05 ou ±0,15 alterou 5,4% em ambos os casos, e a dos externos para ±0,25 ou ±0,40, 12,9% e 9,3%. O *gap* em si foi muito estável a essas variações (Spearman ≥ 0,99). Nos 1.000 sorteios de pesos de Dirichlet, a mediana de município-anos que mantiveram a cor foi de 59,4% (percentis 5–95: 41,9%–78,1%) e o Spearman mediano do *gap* com o do caso-base foi de 0,80 (0,45–0,95): o ordenamento é razoavelmente estável, mas a cor é sensível quando os pesos variam amplamente, inclusive com componentes de peso próximo de zero.
 
-![**Sensibilidade.** Percentual de município-anos que mudam de cor frente ao caso-base em cada variante (valores da Tabela 4; a barra de Dirichlet mostra 100 − a mediana de concordância dos 1.000 sorteios).](figuras/fig4_sensibilidade.png){width=13cm}
+![**Sensibilidade.** Percentual de município-anos que mudam de cor frente ao caso-base em cada variante (valores da Tabela 4; a barra de Dirichlet mostra 100 − a mediana de concordância dos 1.000 sorteios).](figuras/fig4_sensibilidade.png){width=11.5cm}
 
-\needspace{20\baselineskip}
+\needspace{10\baselineskip}
 
 **Tabela 4 — Concordância das variantes com o caso-base (n = 925 município-anos).** Fonte: Elaborado pelos autores (2026), a partir de dados abertos.
 

@@ -87,7 +87,7 @@ def troca(a, b):
     assert a in body, a[:60]
     body = body.replace(a, b)
 
-troca("Código, parâmetros (`conf/ieas.yml`), dados derivados e API aberta estão em github.com/protazoarium/farol-ss; o painel público está em farol-ss.streamlit.app. Todos os números deste artigo são regeneráveis pelo comando `farol sensibilidade` sobre a versão marcada com a etiqueta `artigo-v1` do repositório; as figuras são geradas por `scripts/gerar-figuras-artigo.py`. O depósito arquivado com DOI será indicado na versão final: `[DOI Zenodo]` **[preencher após o depósito]**.",
+troca("Código, parâmetros (`conf/ieas.yml`), dados derivados e API aberta estão em github.com/protazoarium/farol-ss; o painel público está em farol-ss.streamlit.app. Todos os números deste artigo são regeneráveis pelo comando `farol sensibilidade` sobre a versão marcada com a etiqueta `artigo-v2` do repositório; as figuras são geradas por `scripts/gerar-figuras-artigo.py`. O depósito arquivado com DOI será indicado na versão final: `[DOI Zenodo]` **[preencher após o depósito]**.",
       "O código, os parâmetros, os dados derivados e a interface de programação aberta estão em repositório público [repositório omitido para a avaliação cega]. Todos os números deste artigo são regeneráveis por um comando do repositório, sobre uma versão etiquetada, e as figuras são geradas por script do mesmo repositório.")
 troca("O mapa por município no ano mais recente está disponível no painel público (Figura 2).", "Os mapas por município estão na Figura 2.")
 troca("Os números são os pesos de `conf/ieas.yml` (os do eixo A, já renormalizados para L1 e L2)", "Os números são os pesos do índice (os do eixo A, já renormalizados para L1 e L2)")
@@ -98,8 +98,8 @@ body = re.sub(r"\s*\*Figure \d — [^*\]]*\*", "", body)                        
 body = re.sub(r"!\[\*\*Figura \d — ", "![**", body)                              # o LaTeX numera ("Figura 1:")
 FONTE_FIG = " Fonte: Elaborado pelos autores (2026)."
 body = re.sub(r"(\!\[\*\*Figura \d — [^\]]*?)(\]\(figuras)", lambda m: m.group(1) + FONTE_FIG + m.group(2), body)
-body = re.sub(r"(\*\*Tabela \d — [^*]*?\*\*)", lambda m: "\\needspace{%d\\baselineskip}\n\n" % {"3": 14, "4": 20}.get(re.search(r"Tabela (\d)", m.group(1)).group(1), 9) + m.group(1) + " Fonte: Elaborado pelos autores (2026), a partir de dados abertos.", body)
-for f, w in (("fig1_diagrama", "15.5cm"), ("fig2_mapa", "16cm"), ("fig3_dispersao", "8.5cm"), ("fig4_sensibilidade", "13cm")):
+body = re.sub(r"(\*\*Tabela \d — [^*]*?\*\*)", lambda m: "\\needspace{%d\\baselineskip}\n\n" % {"3": 14, "4": 10}.get(re.search(r"Tabela (\d)", m.group(1)).group(1), 9) + m.group(1) + " Fonte: Elaborado pelos autores (2026), a partir de dados abertos.", body)
+for f, w in (("fig1_diagrama", "15.5cm"), ("fig2_mapa", "16cm"), ("fig3_dispersao", "8.5cm"), ("fig4_sensibilidade", "11.5cm")):
     troca(f"](figuras/{f}.png)", f"](figuras/{f}.png){{width={w}}}")
 body = body.replace("∈ [−1, 1]", "no intervalo [−1, 1]")
 # larguras da Tabela 3 (a 1ª coluna precisa de espaço; linha longa força larguras relativas no pandoc)

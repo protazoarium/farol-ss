@@ -125,7 +125,7 @@ A associação entre os ranques dos dois eixos foi fraca em todos os anos (Spear
 
 O gap foi persistente: o Spearman entre anos consecutivos variou de 0,79 a 0,86, e entre 2020 e 2024 foi de 0,65. Trinta e oito municípios mantiveram a mesma cor nos cinco anos, sete deles em vermelho. Trinta e três municípios foram vermelhos em ao menos três anos e 29 foram azuis em ao menos três anos; 67 municípios foram vermelhos e 62 azuis em ao menos um ano.
 
-**Tabela 3 — Semáforo por mesorregião, município-anos agrupados 2020–2024 (%) e posições médias dos eixos.**
+**Tabela 3 — Semáforo por mesorregião, município-anos agrupados 2020–2024 (%) e posições médias dos eixos (184 municípios; Fernando de Noronha, sem índice, fica de fora).**
 
 | Mesorregião | Municípios | Vermelho | Amarelo | Verde | Azul | N médio | A médio |
 |---|---|---|---|---|---|---|---|
