@@ -44,6 +44,7 @@ V = {
  "F14": "Duarte JL, Diaz-Quijano FA, Batista AC, Duarte AF, Melchior LAK, Giatti LL. Variabilidade climática e internações por doenças diarreicas infecciosas em um município da Amazônia Ocidental brasileira. Cienc Saude Colet. 2019;24(8):2959-70. doi:10.1590/1413-81232018248.21232017",
  "F10": "Cotrim Junior DF, Cabral LMS. Crescimento dos leitos de UTI no país durante a pandemia de Covid-19: desigualdades entre o público x privado e iniquidades regionais. Physis. 2020;30(3):e300317. doi:10.1590/S0103-73312020300317",
  "F18": "Silva CF, Leite ÁJM, Almeida NMGS. Linkage entre bancos de dados de nascidos vivos e óbitos infantis em município do Nordeste do Brasil: qualidade dos sistemas de informação. Cad Saude Publica. 2009;25(7):1552-8. doi:10.1590/S0102-311X2009000700013",
+ "N08": f"Brasil. Ministério da Cidadania. Auxílio Brasil de no mínimo R$ 400 reduz a pobreza e injeta recursos na economia dos municípios [Internet]. Brasília: Ministério da Cidadania; 24 jun 2022 [{ACESSO}]. Disponível em: <https://www.gov.br/pt-br/noticias/assistencia-social/2022/06/auxilio-brasil-de-no-minimo-r-400-reduz-a-pobreza-e-injeta-recursos-na-economia-dos-municipios>",
  "S03": "von Elm E, Altman DG, Egger M, Pocock SJ, Gøtzsche PC, Vandenbroucke JP. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. PLoS Med. 2007;4(10):e296. doi:10.1371/journal.pmed.0040296",
 }
 KEYS = {
@@ -55,7 +56,7 @@ KEYS = {
  "LIMA et al., 2009": "F17", "CORREIA; PADILHA; VASCONCELOS, 2014": "F03", "TRANSPARÊNCIA BRASIL, 2024": "N06",
  "NARDO et al., 2008": "N01", "LUIZ et al., 2009": "F19", "GRECO et al., 2019": "S01",
  "RODRIGUES; GONTIJO; GONÇALVES, 2021": "F09", "COHN, 2005": "F07", "DUARTE et al., 2019": "F14",
- "COTRIM JUNIOR; CABRAL, 2020": "F10", "SILVA; LEITE; ALMEIDA, 2009": "F18", "VON ELM et al., 2007": "S03",
+ "COTRIM JUNIOR; CABRAL, 2020": "F10", "SILVA; LEITE; ALMEIDA, 2009": "F18", "VON ELM et al., 2007": "S03", "BRASIL. MINISTÉRIO DA CIDADANIA, 2022": "N08",
 }
 alt = "|".join(re.escape(k) for k in sorted(KEYS, key=len, reverse=True))
 grp = re.compile(r"\(((?:%s)(?:;\s*(?:%s))*)\)" % (alt, alt))

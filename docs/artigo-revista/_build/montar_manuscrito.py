@@ -23,6 +23,8 @@ CORRIGIDAS = {
  "S01": "GRECO, S.; ISHIZAKA, A.; TASIOU, M.; TORRISI, G. On the methodological framework of composite indices: a review of the issues of weighting, aggregation, and robustness. Social Indicators Research, v. 141, p. 61-94, 2019. DOI: 10.1007/s11205-017-1832-9.",
  "S03": "VON ELM, E. et al. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. PLoS Medicine, v. 4, n. 10, e296, 2007. DOI: 10.1371/journal.pmed.0040296.",
 }
+if not any(r_["id"] == "N08" for r_ in refs):
+    refs.append({"id": "N08", "ref": "BRASIL. Ministério da Cidadania. Auxílio Brasil de no mínimo R$ 400 reduz a pobreza e injeta recursos na economia dos municípios. Brasília, DF, 24 jun. 2022. Disponível em: https://www.gov.br/pt-br/noticias/assistencia-social/2022/06/auxilio-brasil-de-no-minimo-r-400-reduz-a-pobreza-e-injeta-recursos-na-economia-dos-municipios. Acesso em: 21 nov. 2026."})
 for r_ in refs:
     if r_["id"] in CORRIGIDAS:
         r_["ref"] = CORRIGIDAS[r_["id"]]

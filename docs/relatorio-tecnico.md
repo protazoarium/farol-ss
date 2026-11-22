@@ -599,6 +599,17 @@ o município no período."*
    foi concluída. A limitação que resta é de **natureza**: transferência
    social não é repasse setorial de saúde, e seu peso (0,35) torna o eixo
    Alocação sensível a ela (§9.2).
+   **Quebra de série em 2022 (verificada na fonte).** No endpoint do Auxílio
+   Brasil do próprio Portal, o valor por família é de R$ 160 a R$ 230 em junho de
+   2022 e de R$ 415 a R$ 435 em julho (sem mudança no nº de famílias), enquanto o
+   Ministério da Cidadania informou R$ 402 de média em junho de 2022: a
+   competência de junho de 2022 cai antes da quebra e subestima o valor pago
+   (PE: R$ 284 mi em junho; R$ 570 mi em julho, 1,34 milhão de famílias). Com
+   julho, o aumento até junho de 2023 é de 1,9 vez, e não 3,8. Trocar junho por
+   julho só em 2022 muda a cor de 15,1% dos município-anos de 2022 (Spearman do
+   gap 0,95). A série principal segue em junho; o efeito está em
+   `docs/artigo-revista/resultados/l1_2022_sensibilidade.csv`
+   (`scripts/l1_checagem_2022.py`).
 2. **Saneamento é um retrato de 2022.** O Censo não é anual; o mesmo déficit é
    aplicado aos 5 anos do recorte (coluna `saneamento_ano_referencia = 2022`
    no gold e na API). O SNIS, que era anual, foi encerrado em 2023 e não tem
